@@ -25,6 +25,8 @@ module tb_rhs_spi_master ();
     end
 
     initial begin
+        rstn <= 1;
+        #100;
         rstn <= 0;
         #100;
         rstn <= 1;
@@ -32,7 +34,7 @@ module tb_rhs_spi_master ();
         start <= 1;
         #500
         start <= 0;
-        #100000;
+        #5000;
         $finish;
     end
 
