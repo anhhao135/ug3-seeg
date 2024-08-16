@@ -10,13 +10,28 @@ module tb_rhs_spi_master ();
     reg [31:0] data_in = 32'hDEADBEEF;
 
     wire SCLK;
+    wire MOSI;
+    wire MISO;
+    wire CS;
+    reg [4:0] channel;
 
     rhs_spi_master dut(
         .clk(clk),
         .rstn(rstn),
         .SCLK(SCLK),
+        .MOSI(MOSI),
+        .MISO(MISO),
+        .CS(CS),
         .start(start),
         .data_in(data_in)
+    );
+
+    rhs_spi_slave dut_2(
+        .SCLK(SCLK),
+        .MOSI(MOSI),
+        .MISO(MISO),
+        .CS(CS),
+        .channel(channel)
     );
 
     initial begin
@@ -25,6 +40,7 @@ module tb_rhs_spi_master ();
     end
 
     initial begin
+        channel <= 8;
         rstn <= 1;
         #100;
         rstn <= 0;

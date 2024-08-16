@@ -4,5 +4,6 @@ May 22 2024
 19:03:11
 C:/Repos/ug3-seeg/ug3-seeg.sim/sim_1/behav/xsim/glbl.v,1708598507,verilog,,,,glbl,,,,,,,,
 C:/Repos/ug3-seeg/ug3-seeg.srcs/clock_divider.v,1723729862,verilog,,C:/Repos/ug3-seeg/ug3-seeg.srcs/rhs_spi_master.v,,clock_divider,,,,,,,,
-C:/Repos/ug3-seeg/ug3-seeg.srcs/rhs_spi_master.v,1723817376,verilog,,C:/Repos/ug3-seeg/ug3-seeg.srcs/tb_rhs_spi_master.v,,rhs_spi_master,,,,,,,,
-C:/Repos/ug3-seeg/ug3-seeg.srcs/tb_rhs_spi_master.v,1723816629,verilog,,,,tb_rhs_spi_master,,,,,,,,
+C:/Repos/ug3-seeg/ug3-seeg.srcs/rhs_spi_master.v,1723817376,verilog,,C:/Repos/ug3-seeg/ug3-seeg.srcs/rhs_spi_slave.v,,rhs_spi_master,,,,,,,,
+C:/Repos/ug3-seeg/ug3-seeg.srcs/rhs_spi_slave.v,1723821074,verilog,,C:/Repos/ug3-seeg/ug3-seeg.srcs/tb_rhs_spi_master.v,,rhs_spi_slave,,,,,,,,
+C:/Repos/ug3-seeg/ug3-seeg.srcs/tb_rhs_spi_master.v,1723820434,verilog,,,,tb_rhs_spi_master,,,,,,,,

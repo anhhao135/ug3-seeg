@@ -5,17 +5,5 @@ Running: D:/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-5021] port 'MISO' is not connected on this instance [C:/Repos/ug3-seeg/ug3-seeg.srcs/tb_rhs_spi_master.v:14]
 Completed static elaboration
-Starting simulation data flow analysis
-WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/ug3-seeg.srcs/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/ug3-seeg.srcs/clock_divider.v" Line 1. Module clock_divider(DIVISOR=4) doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/ug3-seeg.srcs/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/ug3-seeg.srcs/clock_divider.v" Line 1. Module clock_divider(DIVISOR=4) doesn't have a timescale but at least one module in design has a timescale.
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.clock_divider(DIVISOR=4)
-Compiling module xil_defaultlib.rhs_spi_master
-Compiling module xil_defaultlib.tb_rhs_spi_master
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_rhs_spi_master_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
