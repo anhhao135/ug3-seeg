@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../ug3-seeg.srcs/clock_divider.v" \
+"../../../../ug3-seeg.srcs/rhs_spi_master.v" \
+"../../../../ug3-seeg.srcs/tb_rhs_spi_master.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
