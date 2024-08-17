@@ -31,7 +31,8 @@ module tb_rhs_spi_master ();
         .MOSI(MOSI),
         .MISO(MISO),
         .CS(CS),
-        .channel(channel)
+        .channel(channel),
+        .rstn(rstn)
     );
 
     initial begin
@@ -40,7 +41,7 @@ module tb_rhs_spi_master ();
     end
 
     initial begin
-        channel <= 8;
+        channel <= 17;
         rstn <= 1;
         #100;
         rstn <= 0;

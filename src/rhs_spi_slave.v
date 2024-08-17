@@ -3,7 +3,8 @@ module  rhs_spi_slave #(parameter STARTING_SEED = 0) (
     input wire CS,
     input wire SCLK,
     output wire MISO,
-    input wire [4:0] channel
+    input wire [4:0] channel,
+    input wire rstn
 );
 
 
@@ -18,17 +19,23 @@ module  rhs_spi_slave #(parameter STARTING_SEED = 0) (
     assign MISO = miso_out;
     
 
-    always @(negedge SCLK) begin
+    always @(negedge SCLK or posedge CS or negedge rstn) begin
 
-        miso_out_reg = {counter_0_15, 16'd0};
-        counter_0_15 = channel - 2 + STARTING_SEED;
-
-        if (CS == 1) begin
+        if (rstn == 0) begin
             sclk_counter <= SCLK_COUNTER_DEFAULT;
-            miso_out = miso_out_reg[sclk_counter];
+            miso_out = 0;
         end
         else begin
-            sclk_counter = sclk_counter - 1;
+            miso_out_reg = {counter_0_15, 16'd0};
+            counter_0_15 = channel - 2 + STARTING_SEED;
+
+            if (CS == 1 || sclk_counter == 0) begin
+                sclk_counter <= SCLK_COUNTER_DEFAULT;
+            end
+            else begin
+                sclk_counter = sclk_counter - 1;
+            end
+
             miso_out = miso_out_reg[sclk_counter];
         end
 
