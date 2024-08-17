@@ -7,6 +7,7 @@ module  rhs_spi_master (
     output wire busy,
     input wire rstn,
     input wire start,
+    output wire done,
     input wire [31:0] data_in,
     output reg [31:0] data_out
 );
@@ -15,6 +16,7 @@ module  rhs_spi_master (
     reg [2:0] state;
 
     assign busy = (state == BUSY);
+    assign done = (state == DONE);
     
     parameter CLK_COUNTER_DEFAULT = 127;
     parameter PRE_POST_BUSY_PADDING_DEFAULT = 4;
@@ -60,12 +62,17 @@ module  rhs_spi_master (
                     CS = 0;
                     clk_counter = clk_counter - 1;
                     
+                    if ((clk_counter + 2) % 4 == 0 && (clk_counter + 2) >= 4) begin
+                        data_out[((clk_counter + 2) / 4) - 1] = MISO;
+                    end
+
                     if (clk_counter % 4 == 0 && clk_counter >= 4) begin
                         MOSI = data_in[(clk_counter / 4) - 1];
                     end
 
                     if (clk_counter == 0)
                         state = POST_BUSY;
+
                 end
                 POST_BUSY: begin
 
