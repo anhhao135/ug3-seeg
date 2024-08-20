@@ -37,7 +37,8 @@ module tb_rhs_spi_master ();
 
     initial begin
         clk = 0;
-        forever #8.9285 clk = ~clk; //56 MHz
+        //forever #8.9285 clk = ~clk; //56 MHz
+        forever #4.46 clk = ~clk; //112 MHz
     end
 
     initial begin

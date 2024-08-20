@@ -18,13 +18,13 @@ module  rhs_spi_master (
     assign busy = (state == BUSY);
     assign done = (state == DONE);
     
-    parameter CLK_COUNTER_DEFAULT = 127;
-    parameter PRE_POST_BUSY_PADDING_DEFAULT = 4;
+    parameter CLK_COUNTER_DEFAULT = 254;
+    parameter PRE_POST_BUSY_PADDING_DEFAULT = 8;
 
     reg [7:0] clk_counter = CLK_COUNTER_DEFAULT;
     reg [7:0] padding_counter = PRE_POST_BUSY_PADDING_DEFAULT;
 
-    clock_divider #(.DIVISOR(4)) ClockDivideByFour (.clock_in(clk), .clock_out(SCLK), .rstn(busy));
+    clock_divider #(.DIVISOR(8)) ClockDivideByEight (.clock_in(clk), .clock_out(SCLK), .rstn(busy));
 
     always @(posedge clk) begin
 
@@ -62,12 +62,12 @@ module  rhs_spi_master (
                     CS = 0;
                     clk_counter = clk_counter - 1;
                     
-                    if ((clk_counter + 2) % 4 == 0 && (clk_counter + 2) >= 4) begin
-                        data_out[((clk_counter + 2) / 4) - 1] = MISO;
+                    if ((clk_counter + 4) % 8 == 0 && (clk_counter + 4) >= 8) begin
+                        data_out[((clk_counter + 4) / 8) - 1] = MISO;
                     end
 
-                    if (clk_counter % 4 == 0 && clk_counter >= 4) begin
-                        MOSI = data_in[(clk_counter / 4) - 1];
+                    if (clk_counter % 8 == 0 && clk_counter >= 8) begin
+                        MOSI = data_in[(clk_counter / 8) - 1];
                     end
 
                     if (clk_counter == 0)
