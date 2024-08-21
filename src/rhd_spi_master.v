@@ -19,7 +19,7 @@ module  rhd_spi_master (
     assign busy = (state == BUSY);
     assign done = (state == DONE);
     
-    localparam CLK_COUNTER_DEFAULT = 253;
+    localparam CLK_COUNTER_DEFAULT = 125;
     localparam PRE_POST_BUSY_PADDING_DEFAULT = 8;
     localparam X8_OVERSAMPLE_CLK_OFFSET = 32; //extra 24 cycles of CLK after last falling edge of SCLK to oversample incoming MISO line
     localparam DONE_CS_HOLD_TIME = 16;
