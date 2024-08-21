@@ -7,7 +7,8 @@ module tb_rhs_spi_master ();
     reg rstn;
     
     reg start = 0;
-    reg [31:0] data_in = 32'hDEADBEEF;
+    //reg [31:0] data_in = 32'hDEADBEEF;feedbeea
+    reg [31:0] data_in = 32'hFEEDBEEA;
 
     wire SCLK;
     wire MOSI;

@@ -20,17 +20,22 @@ module  rhs_spi_master (
     
     parameter CLK_COUNTER_DEFAULT = 254;
     parameter PRE_POST_BUSY_PADDING_DEFAULT = 8;
+    parameter X8_OVERSAMPLE_CLK_OFFSET = 24; //extra 24 cycles of CLK after last falling edge of SCLK to oversample incoming MISO line
 
-    reg [7:0] clk_counter = CLK_COUNTER_DEFAULT;
+    reg [8:0] clk_counter = CLK_COUNTER_DEFAULT + X8_OVERSAMPLE_CLK_OFFSET;
+    reg [7:0] x8_oversample_clk_offset = X8_OVERSAMPLE_CLK_OFFSET;
     reg [7:0] padding_counter = PRE_POST_BUSY_PADDING_DEFAULT;
 
-    clock_divider #(.DIVISOR(8)) ClockDivideByEight (.clock_in(clk), .clock_out(SCLK), .rstn(busy));
+    wire SCLK_enable;
+    assign SCLK_enable = (clk_counter >= x8_oversample_clk_offset) && (state == BUSY);
+
+    clock_divider #(.DIVISOR(8)) ClockDivideByEight (.clock_in(clk), .clock_out(SCLK), .rstn(SCLK_enable)); //SCLK is CLK divided by 8
 
     always @(posedge clk) begin
 
         if (!rstn) begin
             state = READY;
-            clk_counter = CLK_COUNTER_DEFAULT;
+            clk_counter = CLK_COUNTER_DEFAULT + X8_OVERSAMPLE_CLK_OFFSET;
             padding_counter = PRE_POST_BUSY_PADDING_DEFAULT;
             data_out = 0;
             MOSI = 0;
@@ -62,12 +67,12 @@ module  rhs_spi_master (
                     CS = 0;
                     clk_counter = clk_counter - 1;
                     
-                    if ((clk_counter + 4) % 8 == 0 && (clk_counter + 4) >= 8) begin
-                        data_out[((clk_counter + 4) / 8) - 1] = MISO;
+                    if ((clk_counter - x8_oversample_clk_offset + 4) % 8 == 0 && (clk_counter - x8_oversample_clk_offset + 4) >= 8) begin
+                        data_out[((clk_counter - x8_oversample_clk_offset + 4) / 8) - 1] = MISO;
                     end
 
-                    if (clk_counter % 8 == 0 && clk_counter >= 8) begin
-                        MOSI = data_in[(clk_counter / 8) - 1];
+                    if ((clk_counter - x8_oversample_clk_offset) % 8 == 0 && (clk_counter - x8_oversample_clk_offset) >= 8 && clk_counter >= x8_oversample_clk_offset + 8) begin
+                        MOSI = data_in[((clk_counter - x8_oversample_clk_offset) / 8) - 1];
                     end
 
                     if (clk_counter == 0)
