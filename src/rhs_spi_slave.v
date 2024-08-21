@@ -12,7 +12,7 @@ module  rhs_spi_slave #(parameter STARTING_SEED = 0) (
     reg [15:0] counter_0_15;
     reg [31:0] miso_out_reg;
 
-    parameter SCLK_COUNTER_DEFAULT = 31;
+    localparam SCLK_COUNTER_DEFAULT = 31;
 
     reg [5:0] sclk_counter = SCLK_COUNTER_DEFAULT;
     

@@ -1,9 +1,0 @@
-0.7
-2020.2
-May  7 2023
-15:24:31
-C:/Repos/ug3-seeg/src/clock_divider.v,1723729862,verilog,,C:/Repos/ug3-seeg/src/rhs_spi_master.v,,clock_divider,,,,,,,,
-C:/Repos/ug3-seeg/src/rhs_spi_master.v,1724235844,verilog,,C:/Repos/ug3-seeg/src/rhs_spi_slave.v,,rhs_spi_master,,,,,,,,
-C:/Repos/ug3-seeg/src/rhs_spi_slave.v,1723890045,verilog,,C:/Repos/ug3-seeg/src/tb_rhs_spi_master.v,,rhs_spi_slave,,,,,,,,
-C:/Repos/ug3-seeg/src/tb_rhs_spi_master.v,1724235776,verilog,,,,tb_rhs_spi_master,,,,,,,,
-C:/Repos/ug3-seeg/ug3-seeg.sim/sim_1/behav/xsim/glbl.v,1683266558,verilog,,,,glbl,,,,,,,,

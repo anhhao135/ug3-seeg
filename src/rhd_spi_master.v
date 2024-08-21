@@ -1,4 +1,4 @@
-module  rhs_spi_master (
+module  rhd_spi_master (
     output reg MOSI,
     output reg CS,
     output wire SCLK,

@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module tb_rhs_spi_master ();
+module tb_rhd_spi_master ();
 
 
     reg clk;
@@ -17,7 +17,7 @@ module tb_rhs_spi_master ();
     wire CS;
     reg [5:0] channel;
 
-    rhs_spi_master dut(
+    rhd_spi_master dut(
         .clk(clk),
         .rstn(rstn),
         .SCLK(SCLK),
@@ -29,13 +29,14 @@ module tb_rhs_spi_master ();
         .oversample_offset(oversample_offset)
     );
 
-    rhs_spi_slave dut_2(
+    rhd_spi_slave dut_2(
         .SCLK(SCLK),
         .MOSI(MOSI),
         .MISO(MISO),
         .CS(CS),
         .channel(channel),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk)
     );
 
     initial begin
@@ -45,17 +46,17 @@ module tb_rhs_spi_master ();
     end
 
     initial begin
-        channel <= 31;
+        channel <= 15;
         rstn <= 1;
         #100;
         rstn <= 0;
         #100;
         rstn <= 1;
-        #100
+        #100;
         start <= 1;
-        #9000;
+        #100;
         start <= 0;
-        #4000;
+        #5000;
         $finish;
     end
 
