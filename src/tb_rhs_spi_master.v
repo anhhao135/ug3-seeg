@@ -7,8 +7,9 @@ module tb_rhs_spi_master ();
     reg rstn;
     
     reg start = 0;
-    //reg [31:0] data_in = 32'hDEADBEEF;feedbeea
-    reg [31:0] data_in = 32'hFEEDBEEA;
+    reg [31:0] data_in = 32'hDEADBEEF;
+
+    reg [7:0] oversample_offset = 0;
 
     wire SCLK;
     wire MOSI;
@@ -24,7 +25,8 @@ module tb_rhs_spi_master ();
         .MISO(MISO),
         .CS(CS),
         .start(start),
-        .data_in(data_in)
+        .data_in(data_in),
+        .oversample_offset(oversample_offset)
     );
 
     rhs_spi_slave dut_2(
@@ -43,7 +45,7 @@ module tb_rhs_spi_master ();
     end
 
     initial begin
-        channel <= 17;
+        channel <= 31;
         rstn <= 1;
         #100;
         rstn <= 0;
@@ -51,9 +53,9 @@ module tb_rhs_spi_master ();
         rstn <= 1;
         #100
         start <= 1;
-        #500
+        #9000;
         start <= 0;
-        #5000;
+        #4000;
         $finish;
     end
 
