@@ -83,7 +83,11 @@ module  rhd_spi_master (
                 end
                 BUSY: begin
 
-                    CS = 0;
+                    if (clk_counter < X8_OVERSAMPLE_CLK_OFFSET - 2)
+                        CS = 1;
+                    else
+                        CS = 0;
+
                     clk_counter = clk_counter - 1;
 
                     if ((clk_counter - X8_OVERSAMPLE_CLK_OFFSET + oversample_offset) % 4 == 0
@@ -113,14 +117,14 @@ module  rhd_spi_master (
                     end
                     else
                         MOSI_send = 0;
-                        
+
                     if (clk_counter == 0)
                         state = POST_BUSY;
 
                 end
                 POST_BUSY: begin
 
-                    CS = 0;
+                    CS = 1;
                     MOSI = 0;
 
                     if (padding_counter == 0) begin
