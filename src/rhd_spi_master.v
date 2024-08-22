@@ -25,8 +25,7 @@ module  rhd_spi_master (
     localparam DONE_CS_HOLD_TIME = 16;
     localparam B0_SAMPLE_PADDING = 4;
 
-    reg [8:0] clk_counter = CLK_COUNTER_DEFAULT + X8_OVERSAMPLE_CLK_OFFSET;
-    reg [7:0] x8_oversample_clk_offset = X8_OVERSAMPLE_CLK_OFFSET;
+    reg [8:0] clk_counter = CLK_COUNTER_DEFAULT + X8_OVERSAMPLE_CLK_OFFSET + B0_SAMPLE_PADDING;
     reg [7:0] padding_counter = PRE_POST_BUSY_PADDING_DEFAULT;
     reg [7:0] done_cs_hold_counter = DONE_CS_HOLD_TIME;
     reg MISO_A_sampled = 0;
@@ -34,7 +33,7 @@ module  rhd_spi_master (
     reg MOSI_send = 0;
 
     wire SCLK_enable;
-    assign SCLK_enable = (clk_counter >= x8_oversample_clk_offset + B0_SAMPLE_PADDING) && (state == BUSY);
+    assign SCLK_enable = (clk_counter >= X8_OVERSAMPLE_CLK_OFFSET + B0_SAMPLE_PADDING) && (state == BUSY);
 
     clock_divider #(.DIVISOR(8)) ClockDivideByEight (.clock_in(clk), .clock_out(SCLK), .rstn(SCLK_enable)); //SCLK is CLK divided by 8
 
@@ -44,7 +43,6 @@ module  rhd_spi_master (
             state = READY;
             clk_counter = CLK_COUNTER_DEFAULT + X8_OVERSAMPLE_CLK_OFFSET + B0_SAMPLE_PADDING;
             padding_counter = PRE_POST_BUSY_PADDING_DEFAULT;
-            x8_oversample_clk_offset = X8_OVERSAMPLE_CLK_OFFSET;
             done_cs_hold_counter = DONE_CS_HOLD_TIME;
             MISO_A_sampled = 0;
             MISO_B_sampled = 0;
@@ -82,16 +80,19 @@ module  rhd_spi_master (
                     CS = 0;
                     clk_counter = clk_counter - 1;
 
-                    if ((clk_counter + oversample_offset - x8_oversample_clk_offset + 4) % 4 == 0 && clk_counter >= (x8_oversample_clk_offset - oversample_offset) && clk_counter <= (CLK_COUNTER_DEFAULT + X8_OVERSAMPLE_CLK_OFFSET - oversample_offset)) begin
+                    if ((clk_counter + oversample_offset - X8_OVERSAMPLE_CLK_OFFSET + 4) % 4 == 0
+                        && clk_counter > X8_OVERSAMPLE_CLK_OFFSET - oversample_offset
+                        && clk_counter < CLK_COUNTER_DEFAULT + X8_OVERSAMPLE_CLK_OFFSET - oversample_offset) begin
                         MISO_A_sampled = 1; 
                     end
                     else begin
                         MISO_A_sampled = 0;
                     end
 
-                    if ((clk_counter - x8_oversample_clk_offset) % 8 == 0 && (clk_counter - x8_oversample_clk_offset) >= 8) begin
+                    if ((clk_counter - X8_OVERSAMPLE_CLK_OFFSET - B0_SAMPLE_PADDING) % 8 == 0
+                    && clk_counter > X8_OVERSAMPLE_CLK_OFFSET + B0_SAMPLE_PADDING) begin
                         MOSI_send = 1;
-                        MOSI = data_in[((clk_counter - x8_oversample_clk_offset) / 8) - 1];
+                        MOSI = data_in[((clk_counter - X8_OVERSAMPLE_CLK_OFFSET - B0_SAMPLE_PADDING) / 8) - 1];
                     end
                     else
                         MOSI_send = 0;
@@ -99,8 +100,8 @@ module  rhd_spi_master (
                     /*
 
 
-                    if ((clk_counter + oversample_offset - x8_oversample_clk_offset + 4) % 8 == 0 && (clk_counter + oversample_offset - x8_oversample_clk_offset + 4) >= 8 && clk_counter >= (x8_oversample_clk_offset - oversample_offset) && clk_counter <= (CLK_COUNTER_DEFAULT + X8_OVERSAMPLE_CLK_OFFSET - oversample_offset)) begin
-                        data_out[((clk_counter + oversample_offset - x8_oversample_clk_offset + 4) / 8) - 1] = MISO;
+                    if ((clk_counter + oversample_offset - X8_OVERSAMPLE_CLK_OFFSET + 4) % 8 == 0 && (clk_counter + oversample_offset - X8_OVERSAMPLE_CLK_OFFSET + 4) >= 8 && clk_counter >= (X8_OVERSAMPLE_CLK_OFFSET - oversample_offset) && clk_counter <= (CLK_COUNTER_DEFAULT + X8_OVERSAMPLE_CLK_OFFSET - oversample_offset)) begin
+                        data_out[((clk_counter + oversample_offset - X8_OVERSAMPLE_CLK_OFFSET + 4) / 8) - 1] = MISO;
                         MISO_A_sampled = 1; 
                     end
                     else

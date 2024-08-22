@@ -87,7 +87,7 @@ module  rhs_spi_master (
                     else
                         MISO_sampled = 0;
 
-                    if ((clk_counter + oversample_offset - X8_OVERSAMPLE_CLK_OFFSET) % 8 == 0
+                    if ((clk_counter - X8_OVERSAMPLE_CLK_OFFSET) % 8 == 0
                         && clk_counter > X8_OVERSAMPLE_CLK_OFFSET) begin
                         MOSI = data_in[((clk_counter - X8_OVERSAMPLE_CLK_OFFSET) / 8) - 1];
                         MOSI_send = 1;
