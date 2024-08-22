@@ -51,11 +51,11 @@ module tb_rhd_spi_master ();
         rstn <= 0;
         #100;
         rstn <= 1;
-        #100;
+        #100
         start <= 1;
-        #100;
+        #9000;
         start <= 0;
-        #5000;
+        #4000;
         $finish;
     end
 

@@ -15,7 +15,7 @@ module tb_rhs_spi_master ();
     wire MOSI;
     wire MISO;
     wire CS;
-    reg [5:0] channel;
+    reg [5:0] channel = 31;
 
     rhs_spi_master dut(
         .clk(clk),
@@ -45,7 +45,6 @@ module tb_rhs_spi_master ();
     end
 
     initial begin
-        channel <= 31;
         rstn <= 1;
         #100;
         rstn <= 0;
