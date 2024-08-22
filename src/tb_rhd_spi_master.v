@@ -7,15 +7,15 @@ module tb_rhd_spi_master ();
     reg rstn;
     
     reg start = 0;
-    reg [31:0] data_in = 32'hDEADBEEF;
+    reg [15:0] data_in = 16'hDEAD;
 
-    reg [7:0] oversample_offset = 0;
+    reg [7:0] oversample_offset = 1;
 
     wire SCLK;
     wire MOSI;
     wire MISO;
     wire CS;
-    reg [5:0] channel;
+    reg [5:0] channel = 15;
 
     rhd_spi_master dut(
         .clk(clk),
@@ -46,7 +46,6 @@ module tb_rhd_spi_master ();
     end
 
     initial begin
-        channel <= 15;
         rstn <= 1;
         #100;
         rstn <= 0;

@@ -33,6 +33,7 @@ module  rhd_spi_slave #(parameter STARTING_SEED = 0) (
             counter_0_31 <= channel - 2 + STARTING_SEED;
             counter_32_63 <= channel - 2 + 32 + STARTING_SEED;
             SCLK_rising_edge_flag = 0;
+            miso_out = 0;
         end
 
         if (SCLK_rising_edge_flag == 0 && SCLK == 1)
@@ -62,6 +63,7 @@ module  rhd_spi_slave #(parameter STARTING_SEED = 0) (
             clk_counter <= CLK_COUNTER_DEFAULT;
             sclk_counter <= SCLK_COUNTER_DEFAULT;
             SCLK_rising_edge_flag = 0;
+            miso_out = 0;
         end
 
     end
