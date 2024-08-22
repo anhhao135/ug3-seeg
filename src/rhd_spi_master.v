@@ -9,7 +9,8 @@ module  rhd_spi_master (
     input wire start,
     output wire done,
     input wire [15:0] data_in,
-    output reg [31:0] data_out,
+    output reg [15:0] a_data_out,
+    output reg [15:0] b_data_out,
     input wire [7:0] oversample_offset
 );
     localparam READY = 0, PRE_BUSY = 1, BUSY = 2, POST_BUSY = 3, DONE = 4;
@@ -23,6 +24,7 @@ module  rhd_spi_master (
     localparam PRE_POST_BUSY_PADDING_DEFAULT = 8;
     localparam X8_OVERSAMPLE_CLK_OFFSET = 32; //extra 32 cycles of CLK after last falling edge of SCLK to oversample incoming MISO line
     localparam DONE_CS_HOLD_TIME = 16;
+    localparam INDEX_SAMPLED_DEFAULT = 16;
 
     reg [8:0] clk_counter = CLK_COUNTER_DEFAULT + X8_OVERSAMPLE_CLK_OFFSET;
     reg [7:0] padding_counter = PRE_POST_BUSY_PADDING_DEFAULT;
@@ -30,6 +32,7 @@ module  rhd_spi_master (
     reg MISO_A_sampled = 0;
     reg MISO_B_sampled = 0;
     reg MOSI_send = 0;
+    reg [4:0] index_sampled = INDEX_SAMPLED_DEFAULT;
 
     wire SCLK_enable;
     assign SCLK_enable = (clk_counter >= X8_OVERSAMPLE_CLK_OFFSET) && (state == BUSY);
@@ -45,8 +48,10 @@ module  rhd_spi_master (
             done_cs_hold_counter = DONE_CS_HOLD_TIME;
             MISO_A_sampled = 0;
             MISO_B_sampled = 0;
-            data_out = 0;
+            a_data_out = 0;
+            b_data_out = 0;
             MOSI = 0;
+            index_sampled = INDEX_SAMPLED_DEFAULT;
         end
         else begin
             case(state)
@@ -57,6 +62,7 @@ module  rhd_spi_master (
                     clk_counter = CLK_COUNTER_DEFAULT + X8_OVERSAMPLE_CLK_OFFSET;
                     padding_counter = PRE_POST_BUSY_PADDING_DEFAULT;
                     done_cs_hold_counter = DONE_CS_HOLD_TIME;
+                    index_sampled = INDEX_SAMPLED_DEFAULT;
 
                     if (start)
                         state = PRE_BUSY;
@@ -65,7 +71,8 @@ module  rhd_spi_master (
 
                     CS = 0;
                     MOSI = data_in[15];
-                    data_out = 0;
+                    a_data_out = 0;
+                    b_data_out = 0;
 
                     if (padding_counter == 0) begin
                         state = BUSY;
@@ -84,11 +91,14 @@ module  rhd_spi_master (
                         && clk_counter < CLK_COUNTER_DEFAULT + X8_OVERSAMPLE_CLK_OFFSET - oversample_offset - 4) begin
                         if ((clk_counter - X8_OVERSAMPLE_CLK_OFFSET + oversample_offset) % 8 == 0) begin
                             MISO_A_sampled = 1;
-                            MISO_B_sampled = 0; 
+                            MISO_B_sampled = 0;
+                            a_data_out[index_sampled - 1] = MISO;
                         end
                         else begin
                             MISO_A_sampled = 0; 
-                            MISO_B_sampled = 1; 
+                            MISO_B_sampled = 1;
+                            b_data_out[index_sampled - 1] = MISO;
+                            index_sampled = index_sampled - 1; 
                         end
                     end
                     else begin
@@ -103,21 +113,7 @@ module  rhd_spi_master (
                     end
                     else
                         MOSI_send = 0;
-
-                    /*
-
-
-                    if ((clk_counter + oversample_offset - X8_OVERSAMPLE_CLK_OFFSET + 4) % 8 == 0 && (clk_counter + oversample_offset - X8_OVERSAMPLE_CLK_OFFSET + 4) >= 8 && clk_counter >= (X8_OVERSAMPLE_CLK_OFFSET - oversample_offset) && clk_counter <= (CLK_COUNTER_DEFAULT + X8_OVERSAMPLE_CLK_OFFSET - oversample_offset)) begin
-                        data_out[((clk_counter + oversample_offset - X8_OVERSAMPLE_CLK_OFFSET + 4) / 8) - 1] = MISO;
-                        MISO_A_sampled = 1; 
-                    end
-                    else
-                        MISO_sampled = 0;
-
-                    
-
-                    */
-
+                        
                     if (clk_counter == 0)
                         state = POST_BUSY;
 

@@ -1,8 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/clock_divider.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module clock_divider
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhd_spi_master.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module rhd_spi_master
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhd_spi_slave.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module rhd_spi_slave
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/tb_rhd_spi_master.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tb_rhd_spi_master
