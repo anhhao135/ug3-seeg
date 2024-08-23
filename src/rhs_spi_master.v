@@ -33,7 +33,7 @@ module  rhs_spi_master (
     wire SCLK_enable;
     assign SCLK_enable = (clk_counter >= X8_OVERSAMPLE_CLK_OFFSET) && (state == BUSY);
 
-    clock_divider #(.DIVISOR(8)) ClockDivideByEight (.clock_in(clk), .clock_out(SCLK), .rstn(SCLK_enable)); //SCLK is CLK divided by 8
+    clock_divider ClockDivideByEight (.clock_in(clk), .clock_out(SCLK), .rstn(SCLK_enable), .divisor(8)); //SCLK is CLK divided by 8
 
     always @(posedge clk) begin
 

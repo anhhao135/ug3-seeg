@@ -5,17 +5,18 @@ Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 4 for port 'divisor' [C:/Repos/ug3-seeg/src/rhd_spi_master.v:40]
 Completed static elaboration
 Starting simulation data flow analysis
 WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider(DIVISOR=8) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_slave.v" Line 1. Module rhd_spi_slave doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider(DIVISOR=8) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_slave.v" Line 1. Module rhd_spi_slave doesn't have a timescale but at least one module in design has a timescale.
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.clock_divider(DIVISOR=8)
+Compiling module xil_defaultlib.clock_divider
 Compiling module xil_defaultlib.rhd_spi_master
 Compiling module xil_defaultlib.rhd_spi_slave
 Compiling module xil_defaultlib.tb_rhd_spi_master
