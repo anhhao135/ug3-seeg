@@ -9,8 +9,6 @@ module rhd_2048 (
     output wire busy,
     output wire done,
 
-    input wire [1:0] record_clk_divide, //clock can be divided by 1, 2, 4, or 8, 2 ^ N
-
     input wire [7:0] oversample_offset_A1,
     input wire [7:0] oversample_offset_A2,
     input wire [7:0] oversample_offset_B1,
@@ -46,8 +44,8 @@ module rhd_2048 (
 
     output reg[32767:0] data_out,
 
-    output reg CS,
-    output reg SCLK,
+    output wire CS,
+    output wire SCLK,
     output wire MOSI,
 
     input wire MISO1_A,
@@ -96,20 +94,41 @@ module rhd_2048 (
     input wire MISO2_O,
 
     input wire MISO1_P,
-    input wire MISO2_P,
+    input wire MISO2_P
 
 );
 
     localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4;
     localparam DEFAULT_CHANNELS = 40; //34 recording channels + 6 for other commands
+    localparam CHANNELS_PER_ADC = 32;
+
+    reg DSP_OFFSET_REMOVAL = 1; //ADCs have offset removal for rapid recovery from transient
 
     reg [15:0] data_in = 0;
     reg start = 0;
 
     reg [3:0] state = READY;
 
-    reg [7:0] channel = 
+    reg [7:0] channel = 0;
 
+    wire [1:0] busy_all;
+
+    wire [1:0] done_all;
+
+    
+
+    reg [5:0] write_register_address = 0;
+    reg [7:0] write_register_data = 0;
+    wire [15:0] write_register_command;
+    assign write_register_command = {2'b10, write_register_address, write_register_data};
+
+    reg [5:0] read_register_address = 0;
+    wire [7:0] read_register_data = 0;
+    wire [15:0] read_register_command;
+    assign read_register_command = {2'b11, read_register_address, 8'd0};
+    
+    wire [15:0] adc_convert_command;
+    assign adc_convert_command = {2'd0, channel[5:0], 7'd0, DSP_OFFSET_REMOVAL};
 
     rhd_spi_master A1(
         .clk(clk),
@@ -120,8 +139,25 @@ module rhd_2048 (
         .CS(CS),
         .start(start),
         .data_in(data_in),
-        .oversample_offset(oversample_offset_A1)
+        .oversample_offset(oversample_offset_A1),
+        .busy(busy_all[0]),
+        .done(done_all[0])
     );
+
+    rhd_spi_master A2(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO2_A),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .oversample_offset(oversample_offset_A2),
+        .busy(busy_all[1]),
+        .done(done_all[1])
+    );
+
 
     always @(posedge clk) begin
 
@@ -129,6 +165,7 @@ module rhd_2048 (
             state = READY;
             data_in = 0;
             start = 0;
+            channel = 0;
         end
         else begin
             case(state)
@@ -141,8 +178,35 @@ module rhd_2048 (
                 end
 
                 REC_DATA_LOAD: begin
-                    case(channel)
-                    endcase
+
+                    if (channel < CHANNELS_PER_ADC)
+                        data_in = adc_convert_command;
+                    else begin
+                        read_register_address = 63;
+                        data_in = read_register_command;
+                    end
+
+                    start = 0;
+                    if (done_all == 0)
+                        state = REC_DATA_TX;
+                end
+
+                REC_DATA_TX: begin
+                    start = 1;
+                    state = REC_DATA_RX;
+                end
+
+                REC_DATA_RX: begin
+                    start = 0;
+                    if (&done_all) begin
+                        //receive data
+                        channel = channel + 1;
+                        if (channel == DEFAULT_CHANNELS)
+                            state = REC_DONE;
+                        else
+                            state = REC_DATA_LOAD;
+                    end
+
                 end
             endcase
         end
