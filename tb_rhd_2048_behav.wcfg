@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.078300 us"></ZoomStartTime>
-      <ZoomEndTime time="223.478301 us"></ZoomEndTime>
-      <Cursor1Time time="60.678300 us"></Cursor1Time>
+      <ZoomStartTime time="0.021100 us"></ZoomStartTime>
+      <ZoomEndTime time="189.621101 us"></ZoomEndTime>
+      <Cursor1Time time="34.408900 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="262"></NameColumnWidth>
-      <ValueColumnWidth column_width="89"></ValueColumnWidth>
+      <NameColumnWidth column_width="253"></NameColumnWidth>
+      <ValueColumnWidth column_width="522"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="50" />
    <wvobject fp_name="/tb_rhd_2048/dut/rstn" type="logic">
@@ -49,9 +49,9 @@
       <obj_property name="ObjectShortName">done</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhd_2048/dut/data_out" type="array">
-      <obj_property name="ElementShortName">data_out[0:511]</obj_property>
-      <obj_property name="ObjectShortName">data_out[0:511]</obj_property>
-      <obj_property name="Reversed">true</obj_property>
+      <obj_property name="ElementShortName">data_out[1023:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[1023:0]</obj_property>
+      <obj_property name="Reversed">false</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhd_2048/dut/CS" type="logic">
       <obj_property name="ElementShortName">CS</obj_property>

@@ -73,6 +73,16 @@ module tb_rhd_2048 ();
         .clk(clk)
     );
 
+    rhd_spi_slave #(.STARTING_SEED(64)) A2_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI),
+        .MISO(MISO2_A),
+        .CS(CS),
+        .channel(rhd_channel),
+        .rstn(rstn),
+        .clk(clk)
+    );
+
     initial begin
         clk = 0;
         forever #4.46 clk = ~clk; //112 MHz

@@ -42,7 +42,7 @@ module rhd_2048 (
     input wire [7:0] oversample_offset_P1,
     input wire [7:0] oversample_offset_P2,
 
-    output reg[511:0] data_out,
+    output reg[1023:0] data_out,
 
     output wire CS,
     output wire SCLK,
@@ -145,6 +145,9 @@ module rhd_2048 (
     wire [15:0] data_out_a_A2;
     wire [15:0] data_out_b_A2;
 
+    assign done = (state == REC_DONE);
+    assign busy = (state != READY);
+
 
     rhd_spi_master A1(
         .clk(clk),
@@ -221,7 +224,8 @@ module rhd_2048 (
                     start = 0;
                     if (&done_all) begin
                         if (channel < CHANNELS_PER_ADC + SPI_CONVERT_DELAY && channel >= SPI_CONVERT_DELAY) begin
-                            data_out[(data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] = data_out_a_A1;
+                            data_out[(data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_A1;
+                            data_out[((CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_A1;
                         end
                         channel = channel + 1;
                         if (channel == DEFAULT_CHANNELS)
@@ -230,6 +234,10 @@ module rhd_2048 (
                             state = REC_DATA_LOAD;
                     end
 
+                end
+
+                REC_DONE: begin
+                    state = READY;
                 end
             endcase
         end
