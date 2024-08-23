@@ -14,8 +14,9 @@ module tb_rhd_2048 ();
 
     wire SCLK;
     wire MOSI;
-    wire MISO;
     wire CS;
+
+    wire [7:0] rhd_channel;
 
     rhd_2048 dut(
         .clk(clk),
@@ -54,7 +55,22 @@ module tb_rhd_2048 ();
         .oversample_offset_O1(oversample_offset),
         .oversample_offset_O2(oversample_offset),
         .oversample_offset_P1(oversample_offset),
-        .oversample_offset_P2(oversample_offset)
+        .oversample_offset_P2(oversample_offset),
+        .channel_out(rhd_channel),
+        .CS(CS),
+        .MOSI(MOSI),
+        .SCLK(SCLK),
+        .MISO1_A(MISO1_A)
+    );
+
+    rhd_spi_slave #(.STARTING_SEED(0)) A1_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI),
+        .MISO(MISO1_A),
+        .CS(CS),
+        .channel(rhd_channel),
+        .rstn(rstn),
+        .clk(clk)
     );
 
     initial begin

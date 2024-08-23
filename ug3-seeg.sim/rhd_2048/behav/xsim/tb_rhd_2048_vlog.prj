@@ -3,6 +3,7 @@ verilog xil_defaultlib  \
 "../../../../src/clock_divider.v" \
 "../../../../src/rhd_2048.v" \
 "../../../../src/rhd_spi_master.v" \
+"../../../../src/rhd_spi_slave.v" \
 "../../../../src/tb_rhd_2048.v" \
 
 # compile glbl module

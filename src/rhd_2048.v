@@ -4,7 +4,7 @@ module rhd_2048 (
 
     input wire config_start,
     input wire record_start,
-    input wire zcheck_start, //zcheck will always run on full speed clock
+    input wire zcheck_start,
 
     output wire busy,
     output wire done,
@@ -42,7 +42,7 @@ module rhd_2048 (
     input wire [7:0] oversample_offset_P1,
     input wire [7:0] oversample_offset_P2,
 
-    output reg[32767:0] data_out,
+    output reg[511:0] data_out,
 
     output wire CS,
     output wire SCLK,
@@ -94,13 +94,19 @@ module rhd_2048 (
     input wire MISO2_O,
 
     input wire MISO1_P,
-    input wire MISO2_P
+    input wire MISO2_P,
+
+    output wire [7:0] channel_out
 
 );
 
     localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4;
     localparam DEFAULT_CHANNELS = 40; //34 recording channels + 6 for other commands
     localparam CHANNELS_PER_ADC = 32;
+    localparam SPI_CONVERT_DELAY = 2; //Intan specifies two cycle delay for adc conversion to come back
+
+    localparam ADC_SAMPLE_BIT_RESOLUTION = 16;
+    localparam INTAN_CHIP_ID_REG = 63;
 
     reg DSP_OFFSET_REMOVAL = 1; //ADCs have offset removal for rapid recovery from transient
 
@@ -110,10 +116,14 @@ module rhd_2048 (
     reg [3:0] state = READY;
 
     reg [7:0] channel = 0;
+    assign channel_out = channel;
 
     wire [1:0] busy_all;
 
     wire [1:0] done_all;
+
+    wire [7:0] data_gather_index;
+    assign data_gather_index = channel - 2;
 
     
 
@@ -130,6 +140,12 @@ module rhd_2048 (
     wire [15:0] adc_convert_command;
     assign adc_convert_command = {2'd0, channel[5:0], 7'd0, DSP_OFFSET_REMOVAL};
 
+    wire [15:0] data_out_a_A1;
+    wire [15:0] data_out_b_A1;
+    wire [15:0] data_out_a_A2;
+    wire [15:0] data_out_b_A2;
+
+
     rhd_spi_master A1(
         .clk(clk),
         .rstn(rstn),
@@ -139,6 +155,8 @@ module rhd_2048 (
         .CS(CS),
         .start(start),
         .data_in(data_in),
+        .a_data_out(data_out_a_A1),
+        .b_data_out(data_out_b_A1),
         .oversample_offset(oversample_offset_A1),
         .busy(busy_all[0]),
         .done(done_all[0])
@@ -153,6 +171,8 @@ module rhd_2048 (
         .CS(),
         .start(start),
         .data_in(data_in),
+        .a_data_out(data_out_a_A2),
+        .b_data_out(data_out_b_A2),
         .oversample_offset(oversample_offset_A2),
         .busy(busy_all[1]),
         .done(done_all[1])
@@ -166,6 +186,7 @@ module rhd_2048 (
             data_in = 0;
             start = 0;
             channel = 0;
+            data_out = 0;
         end
         else begin
             case(state)
@@ -182,7 +203,7 @@ module rhd_2048 (
                     if (channel < CHANNELS_PER_ADC)
                         data_in = adc_convert_command;
                     else begin
-                        read_register_address = 63;
+                        read_register_address = INTAN_CHIP_ID_REG;
                         data_in = read_register_command;
                     end
 
@@ -199,7 +220,9 @@ module rhd_2048 (
                 REC_DATA_RX: begin
                     start = 0;
                     if (&done_all) begin
-                        //receive data
+                        if (channel < CHANNELS_PER_ADC + SPI_CONVERT_DELAY && channel >= SPI_CONVERT_DELAY) begin
+                            data_out[(data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] = data_out_a_A1;
+                        end
                         channel = channel + 1;
                         if (channel == DEFAULT_CHANNELS)
                             state = REC_DONE;

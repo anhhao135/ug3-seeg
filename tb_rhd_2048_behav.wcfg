@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_rhd_2048_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_rhd_2048" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.078300 us"></ZoomStartTime>
+      <ZoomEndTime time="223.478301 us"></ZoomEndTime>
+      <Cursor1Time time="60.678300 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="262"></NameColumnWidth>
+      <ValueColumnWidth column_width="89"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="50" />
+   <wvobject fp_name="/tb_rhd_2048/dut/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/config_start" type="logic">
+      <obj_property name="ElementShortName">config_start</obj_property>
+      <obj_property name="ObjectShortName">config_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/record_start" type="logic">
+      <obj_property name="ElementShortName">record_start</obj_property>
+      <obj_property name="ObjectShortName">record_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/zcheck_start" type="logic">
+      <obj_property name="ElementShortName">zcheck_start</obj_property>
+      <obj_property name="ObjectShortName">zcheck_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/busy" type="logic">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/data_out" type="array">
+      <obj_property name="ElementShortName">data_out[0:511]</obj_property>
+      <obj_property name="ObjectShortName">data_out[0:511]</obj_property>
+      <obj_property name="Reversed">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/CS" type="logic">
+      <obj_property name="ElementShortName">CS</obj_property>
+      <obj_property name="ObjectShortName">CS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/SCLK" type="logic">
+      <obj_property name="ElementShortName">SCLK</obj_property>
+      <obj_property name="ObjectShortName">SCLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/MOSI" type="logic">
+      <obj_property name="ElementShortName">MOSI</obj_property>
+      <obj_property name="ObjectShortName">MOSI</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/MISO1_A" type="logic">
+      <obj_property name="ElementShortName">MISO1_A</obj_property>
+      <obj_property name="ObjectShortName">MISO1_A</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/channel_out" type="array">
+      <obj_property name="ElementShortName">channel_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">channel_out[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/state" type="array">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/data_gather_index" type="array">
+      <obj_property name="ElementShortName">data_gather_index[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_gather_index[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/write_register_address" type="array">
+      <obj_property name="ElementShortName">write_register_address[5:0]</obj_property>
+      <obj_property name="ObjectShortName">write_register_address[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/write_register_data" type="array">
+      <obj_property name="ElementShortName">write_register_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">write_register_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/write_register_command" type="array">
+      <obj_property name="ElementShortName">write_register_command[15:0]</obj_property>
+      <obj_property name="ObjectShortName">write_register_command[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/read_register_address" type="array">
+      <obj_property name="ElementShortName">read_register_address[5:0]</obj_property>
+      <obj_property name="ObjectShortName">read_register_address[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/read_register_data" type="array">
+      <obj_property name="ElementShortName">read_register_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">read_register_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/read_register_command" type="array">
+      <obj_property name="ElementShortName">read_register_command[15:0]</obj_property>
+      <obj_property name="ObjectShortName">read_register_command[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/adc_convert_command" type="array">
+      <obj_property name="ElementShortName">adc_convert_command[15:0]</obj_property>
+      <obj_property name="ObjectShortName">adc_convert_command[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/data_out_a_A1" type="array">
+      <obj_property name="ElementShortName">data_out_a_A1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out_a_A1[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/data_out_b_A1" type="array">
+      <obj_property name="ElementShortName">data_out_b_A1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out_b_A1[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/data_out_a_A2" type="array">
+      <obj_property name="ElementShortName">data_out_a_A2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out_a_A2[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/data_out_b_A2" type="array">
+      <obj_property name="ElementShortName">data_out_b_A2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out_b_A2[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider32793">
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/data_in" type="array">
+      <obj_property name="ElementShortName">data_in[15:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/busy" type="logic">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/a_data_out" type="array">
+      <obj_property name="ElementShortName">a_data_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">a_data_out[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/b_data_out" type="array">
+      <obj_property name="ElementShortName">b_data_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">b_data_out[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/oversample_offset" type="array">
+      <obj_property name="ElementShortName">oversample_offset[7:0]</obj_property>
+      <obj_property name="ObjectShortName">oversample_offset[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/clk_counter" type="array">
+      <obj_property name="ElementShortName">clk_counter[8:0]</obj_property>
+      <obj_property name="ObjectShortName">clk_counter[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/padding_counter" type="array">
+      <obj_property name="ElementShortName">padding_counter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">padding_counter[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/done_cs_hold_counter" type="array">
+      <obj_property name="ElementShortName">done_cs_hold_counter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">done_cs_hold_counter[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/MISO_A_sampled" type="logic">
+      <obj_property name="ElementShortName">MISO_A_sampled</obj_property>
+      <obj_property name="ObjectShortName">MISO_A_sampled</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/MISO_B_sampled" type="logic">
+      <obj_property name="ElementShortName">MISO_B_sampled</obj_property>
+      <obj_property name="ObjectShortName">MISO_B_sampled</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/MOSI_send" type="logic">
+      <obj_property name="ElementShortName">MOSI_send</obj_property>
+      <obj_property name="ObjectShortName">MOSI_send</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/index_sampled" type="array">
+      <obj_property name="ElementShortName">index_sampled[4:0]</obj_property>
+      <obj_property name="ObjectShortName">index_sampled[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/A1/SCLK_enable" type="logic">
+      <obj_property name="ElementShortName">SCLK_enable</obj_property>
+      <obj_property name="ObjectShortName">SCLK_enable</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider32807">
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/A1_slave/counter_0_31" type="array">
+      <obj_property name="ElementShortName">counter_0_31[16:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_0_31[16:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/A1_slave/counter_32_63" type="array">
+      <obj_property name="ElementShortName">counter_32_63[16:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_32_63[16:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/A1_slave/clk_counter" type="array">
+      <obj_property name="ElementShortName">clk_counter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">clk_counter[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/A1_slave/sclk_counter" type="array">
+      <obj_property name="ElementShortName">sclk_counter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sclk_counter[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/A1_slave/counter_0_31_send" type="logic">
+      <obj_property name="ElementShortName">counter_0_31_send</obj_property>
+      <obj_property name="ObjectShortName">counter_0_31_send</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/A1_slave/counter_32_63_send" type="logic">
+      <obj_property name="ElementShortName">counter_32_63_send</obj_property>
+      <obj_property name="ObjectShortName">counter_32_63_send</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/A1_slave/SCLK_rising_edge_flag" type="logic">
+      <obj_property name="ElementShortName">SCLK_rising_edge_flag</obj_property>
+      <obj_property name="ObjectShortName">SCLK_rising_edge_flag</obj_property>
+   </wvobject>
+</wave_config>
