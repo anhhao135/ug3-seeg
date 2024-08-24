@@ -461,7 +461,7 @@ module tb_rhd_2048 ();
         rstn <= 1;
         #500
         record_start <= 1;
-        #100
+        #300000
         record_start <= 0;
         #100000
         $finish;

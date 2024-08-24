@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.499900 us"></ZoomStartTime>
-      <ZoomEndTime time="130.499901 us"></ZoomEndTime>
-      <Cursor1Time time="101.600000 us"></Cursor1Time>
+      <ZoomStartTime time="0.104980 us"></ZoomStartTime>
+      <ZoomEndTime time="114.904981 us"></ZoomEndTime>
+      <Cursor1Time time="72.304980 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="253"></NameColumnWidth>
-      <ValueColumnWidth column_width="518"></ValueColumnWidth>
+      <NameColumnWidth column_width="177"></NameColumnWidth>
+      <ValueColumnWidth column_width="365"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="50" />
+   <WVObjectSize size="52" />
    <wvobject fp_name="/tb_rhd_2048/dut/rstn" type="logic">
       <obj_property name="ElementShortName">rstn</obj_property>
       <obj_property name="ObjectShortName">rstn</obj_property>
@@ -39,6 +39,14 @@
    <wvobject fp_name="/tb_rhd_2048/dut/zcheck_start" type="logic">
       <obj_property name="ElementShortName">zcheck_start</obj_property>
       <obj_property name="ObjectShortName">zcheck_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/busy_all" type="array">
+      <obj_property name="ElementShortName">busy_all[31:0]</obj_property>
+      <obj_property name="ObjectShortName">busy_all[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/done_all" type="array">
+      <obj_property name="ElementShortName">done_all[31:0]</obj_property>
+      <obj_property name="ObjectShortName">done_all[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhd_2048/dut/busy" type="logic">
       <obj_property name="ElementShortName">busy</obj_property>

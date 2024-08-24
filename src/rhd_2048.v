@@ -118,9 +118,9 @@ module rhd_2048 (
     reg [7:0] channel = 0;
     assign channel_out = channel;
 
-    wire [1:0] busy_all;
+    wire [31:0] busy_all;
 
-    wire [1:0] done_all;
+    wire [31:0] done_all;
 
     wire [7:0] data_gather_index;
     assign data_gather_index = channel - 2;
@@ -493,8 +493,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_I1),
         .b_data_out(data_out_b_I1),
         .oversample_offset(oversample_offset_I1),
-        .busy(busy_all[0]),
-        .done(done_all[0])
+        .busy(busy_all[16]),
+        .done(done_all[16])
     );
 
     rhd_spi_master I2(
@@ -509,8 +509,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_I2),
         .b_data_out(data_out_b_I2),
         .oversample_offset(oversample_offset_I2),
-        .busy(busy_all[1]),
-        .done(done_all[1])
+        .busy(busy_all[17]),
+        .done(done_all[17])
     );
 
     rhd_spi_master J1(
@@ -525,8 +525,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_J1),
         .b_data_out(data_out_b_J1),
         .oversample_offset(oversample_offset_J1),
-        .busy(busy_all[2]),
-        .done(done_all[2])
+        .busy(busy_all[18]),
+        .done(done_all[18])
     );
 
     rhd_spi_master J2(
@@ -541,8 +541,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_J2),
         .b_data_out(data_out_b_J2),
         .oversample_offset(oversample_offset_J2),
-        .busy(busy_all[3]),
-        .done(done_all[3])
+        .busy(busy_all[19]),
+        .done(done_all[19])
     );
 
     rhd_spi_master K1(
@@ -557,8 +557,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_K1),
         .b_data_out(data_out_b_K1),
         .oversample_offset(oversample_offset_K1),
-        .busy(busy_all[4]),
-        .done(done_all[4])
+        .busy(busy_all[20]),
+        .done(done_all[20])
     );
 
     rhd_spi_master K2(
@@ -573,8 +573,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_K2),
         .b_data_out(data_out_b_K2),
         .oversample_offset(oversample_offset_K2),
-        .busy(busy_all[5]),
-        .done(done_all[5])
+        .busy(busy_all[21]),
+        .done(done_all[21])
     );
 
     rhd_spi_master L1(
@@ -589,8 +589,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_L1),
         .b_data_out(data_out_b_L1),
         .oversample_offset(oversample_offset_L1),
-        .busy(busy_all[6]),
-        .done(done_all[6])
+        .busy(busy_all[22]),
+        .done(done_all[22])
     );
 
     rhd_spi_master L2(
@@ -605,8 +605,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_L2),
         .b_data_out(data_out_b_L2),
         .oversample_offset(oversample_offset_L2),
-        .busy(busy_all[7]),
-        .done(done_all[7])
+        .busy(busy_all[23]),
+        .done(done_all[23])
     );
 
     rhd_spi_master M1(
@@ -621,8 +621,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_M1),
         .b_data_out(data_out_b_M1),
         .oversample_offset(oversample_offset_M1),
-        .busy(busy_all[8]),
-        .done(done_all[8])
+        .busy(busy_all[24]),
+        .done(done_all[24])
     );
 
     rhd_spi_master M2(
@@ -637,8 +637,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_M2),
         .b_data_out(data_out_b_M2),
         .oversample_offset(oversample_offset_M2),
-        .busy(busy_all[9]),
-        .done(done_all[9])
+        .busy(busy_all[25]),
+        .done(done_all[25])
     );
 
     rhd_spi_master N1(
@@ -653,8 +653,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_N1),
         .b_data_out(data_out_b_N1),
         .oversample_offset(oversample_offset_N1),
-        .busy(busy_all[10]),
-        .done(done_all[10])
+        .busy(busy_all[26]),
+        .done(done_all[26])
     );
 
     rhd_spi_master N2(
@@ -669,8 +669,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_N2),
         .b_data_out(data_out_b_N2),
         .oversample_offset(oversample_offset_N2),
-        .busy(busy_all[11]),
-        .done(done_all[11])
+        .busy(busy_all[27]),
+        .done(done_all[27])
     );
 
     rhd_spi_master O1(
@@ -685,8 +685,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_O1),
         .b_data_out(data_out_b_O1),
         .oversample_offset(oversample_offset_O1),
-        .busy(busy_all[12]),
-        .done(done_all[12])
+        .busy(busy_all[28]),
+        .done(done_all[28])
     );
 
     rhd_spi_master O2(
@@ -701,8 +701,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_O2),
         .b_data_out(data_out_b_O2),
         .oversample_offset(oversample_offset_O2),
-        .busy(busy_all[13]),
-        .done(done_all[13])
+        .busy(busy_all[29]),
+        .done(done_all[29])
     );
 
     rhd_spi_master P1(
@@ -717,8 +717,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_P1),
         .b_data_out(data_out_b_P1),
         .oversample_offset(oversample_offset_P1),
-        .busy(busy_all[14]),
-        .done(done_all[14])
+        .busy(busy_all[30]),
+        .done(done_all[30])
     );
 
     rhd_spi_master P2(
@@ -733,8 +733,8 @@ module rhd_2048 (
         .a_data_out(data_out_a_P2),
         .b_data_out(data_out_b_P2),
         .oversample_offset(oversample_offset_P2),
-        .busy(busy_all[15]),
-        .done(done_all[15])
+        .busy(busy_all[31]),
+        .done(done_all[31])
     );
 
 
@@ -753,6 +753,7 @@ module rhd_2048 (
                 READY: begin
                     data_in = 0;
                     start = 0;
+                    channel = 0;
                     if (record_start)
                         state = REC_DATA_LOAD;
                 end
