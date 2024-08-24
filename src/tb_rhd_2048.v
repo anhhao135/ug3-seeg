@@ -10,6 +10,8 @@ module tb_rhd_2048 ();
     reg record_start = 0;
     reg zcheck_start = 0;
 
+    reg sampling_rate_20k = 0;
+
     reg [7:0] oversample_offset = 0;
 
     wire SCLK;
@@ -91,7 +93,8 @@ module tb_rhd_2048 ();
         .MISO1_O(MISO1_O),
         .MISO2_O(MISO2_O),
         .MISO1_P(MISO1_P),
-        .MISO2_P(MISO2_P)
+        .MISO2_P(MISO2_P),
+        .sampling_rate_20k(sampling_rate_20k)
     );
 
     wire MISO1_A;
@@ -460,10 +463,17 @@ module tb_rhd_2048 ();
         #500;
         rstn <= 1;
         #500
+        
+        config_start <= 1;
+        #500
+        config_start <= 0;
+        #10000
+        /*
         record_start <= 1;
         #300000
         record_start <= 0;
         #100000
+        */
         $finish;
     end
 

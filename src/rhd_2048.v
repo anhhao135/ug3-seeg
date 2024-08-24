@@ -96,11 +96,13 @@ module rhd_2048 (
     input wire MISO1_P,
     input wire MISO2_P,
 
-    output wire [7:0] channel_out
+    output wire [7:0] channel_out,
+
+    input wire sampling_rate_20k
 
 );
 
-    localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4;
+    localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4, CONFIG_DATA_LOAD = 5, CONFIG_DATA_TX = 6, CONFIG_DATA_RX = 7, CONFIG_DONE = 8;
     localparam DEFAULT_CHANNELS = 40; //34 recording channels + 6 for other commands
     localparam CHANNELS_PER_ADC = 32;
     localparam SPI_CONVERT_DELAY = 2; //Intan specifies two cycle delay for adc conversion to come back
@@ -125,8 +127,11 @@ module rhd_2048 (
     wire [7:0] data_gather_index;
     assign data_gather_index = channel - 2;
 
+    wire high_sampling_rate;
+    assign high_sampling_rate = sampling_rate_20k;
+
     wire [511:0] data_out_slice_debug;
-    assign data_out_slice_debug = data_out[32767:32256];
+    assign data_out_slice_debug = data_out[(32767):(32256)];
 
     reg [5:0] write_register_address = 0;
     reg [7:0] write_register_data = 0;
@@ -754,8 +759,58 @@ module rhd_2048 (
                     data_in = 0;
                     start = 0;
                     channel = 0;
-                    if (record_start)
+                    if (config_start)
+                        state = CONFIG_DATA_LOAD;
+                    else if (record_start)
                         state = REC_DATA_LOAD;
+                end
+
+                CONFIG_DATA_LOAD: begin
+                    start = 0;
+                    data_in = write_register_command;
+
+                    case(channel)
+                        0: begin
+                            write_register_address = 0;
+                            write_register_data = 8'b11011110;
+                        end
+                        1: begin
+                            write_register_address = 1;
+                            write_register_data = high_sampling_rate ? 8'b01000010 : 8'b01100000; // 2 VS 32
+                        end
+                        2: begin
+                            write_register_address = 2;
+                            write_register_data = high_sampling_rate ? 8'b00000100 : 8'b00101000; // 4 VS 40
+                        end
+                        default: begin
+                            read_register_address = INTAN_CHIP_ID_REG;
+                            data_in = read_register_command;
+                        end
+                    endcase
+
+                    if (done_all == 0)
+                        state = CONFIG_DATA_TX;
+
+                end
+
+                CONFIG_DATA_TX: begin
+                    start = 1;
+                    state = CONFIG_DATA_RX;
+                end
+
+                CONFIG_DATA_RX: begin
+                    start = 0;
+                    if (&done_all)begin
+                        channel = channel + 1;
+                        if (channel == DEFAULT_CHANNELS)
+                            state = CONFIG_DONE;
+                        else
+                            state = CONFIG_DATA_LOAD;
+                    end
+                end
+
+                CONFIG_DONE: begin
+                    state = READY;
                 end
 
                 REC_DATA_LOAD: begin
