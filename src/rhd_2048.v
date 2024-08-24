@@ -125,7 +125,8 @@ module rhd_2048 (
     wire [7:0] data_gather_index;
     assign data_gather_index = channel - 2;
 
-    
+    wire [511:0] data_out_slice_debug;
+    assign data_out_slice_debug = data_out[32767:32256];
 
     reg [5:0] write_register_address = 0;
     reg [7:0] write_register_data = 0;
@@ -259,10 +260,10 @@ module rhd_2048 (
     rhd_spi_master B1(
         .clk(clk),
         .rstn(rstn),
-        .SCLK(SCLK),
-        .MOSI(MOSI),
+        .SCLK(),
+        .MOSI(),
         .MISO(MISO1_B),
-        .CS(CS),
+        .CS(),
         .start(start),
         .data_in(data_in),
         .a_data_out(data_out_a_B1),
@@ -291,10 +292,10 @@ module rhd_2048 (
     rhd_spi_master C1(
         .clk(clk),
         .rstn(rstn),
-        .SCLK(SCLK),
-        .MOSI(MOSI),
+        .SCLK(),
+        .MOSI(),
         .MISO(MISO1_C),
-        .CS(CS),
+        .CS(),
         .start(start),
         .data_in(data_in),
         .a_data_out(data_out_a_C1),
@@ -323,10 +324,10 @@ module rhd_2048 (
     rhd_spi_master D1(
         .clk(clk),
         .rstn(rstn),
-        .SCLK(SCLK),
-        .MOSI(MOSI),
+        .SCLK(),
+        .MOSI(),
         .MISO(MISO1_D),
-        .CS(CS),
+        .CS(),
         .start(start),
         .data_in(data_in),
         .a_data_out(data_out_a_D1),
@@ -355,10 +356,10 @@ module rhd_2048 (
     rhd_spi_master E1(
         .clk(clk),
         .rstn(rstn),
-        .SCLK(SCLK),
-        .MOSI(MOSI),
+        .SCLK(),
+        .MOSI(),
         .MISO(MISO1_E),
-        .CS(CS),
+        .CS(),
         .start(start),
         .data_in(data_in),
         .a_data_out(data_out_a_E1),
@@ -387,10 +388,10 @@ module rhd_2048 (
     rhd_spi_master F1(
         .clk(clk),
         .rstn(rstn),
-        .SCLK(SCLK),
-        .MOSI(MOSI),
+        .SCLK(),
+        .MOSI(),
         .MISO(MISO1_F),
-        .CS(CS),
+        .CS(),
         .start(start),
         .data_in(data_in),
         .a_data_out(data_out_a_F1),
@@ -419,10 +420,10 @@ module rhd_2048 (
     rhd_spi_master G1(
         .clk(clk),
         .rstn(rstn),
-        .SCLK(SCLK),
-        .MOSI(MOSI),
+        .SCLK(),
+        .MOSI(),
         .MISO(MISO1_G),
-        .CS(CS),
+        .CS(),
         .start(start),
         .data_in(data_in),
         .a_data_out(data_out_a_G1),
@@ -451,10 +452,10 @@ module rhd_2048 (
     rhd_spi_master H1(
         .clk(clk),
         .rstn(rstn),
-        .SCLK(SCLK),
-        .MOSI(MOSI),
+        .SCLK(),
+        .MOSI(),
         .MISO(MISO1_H),
-        .CS(CS),
+        .CS(),
         .start(start),
         .data_in(data_in),
         .a_data_out(data_out_a_H1),
@@ -476,6 +477,262 @@ module rhd_2048 (
         .a_data_out(data_out_a_H2),
         .b_data_out(data_out_b_H2),
         .oversample_offset(oversample_offset_H2),
+        .busy(busy_all[15]),
+        .done(done_all[15])
+    );
+
+    rhd_spi_master I1(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO1_I),
+        .CS(CS),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_I1),
+        .b_data_out(data_out_b_I1),
+        .oversample_offset(oversample_offset_I1),
+        .busy(busy_all[0]),
+        .done(done_all[0])
+    );
+
+    rhd_spi_master I2(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO2_I),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_I2),
+        .b_data_out(data_out_b_I2),
+        .oversample_offset(oversample_offset_I2),
+        .busy(busy_all[1]),
+        .done(done_all[1])
+    );
+
+    rhd_spi_master J1(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO1_J),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_J1),
+        .b_data_out(data_out_b_J1),
+        .oversample_offset(oversample_offset_J1),
+        .busy(busy_all[2]),
+        .done(done_all[2])
+    );
+
+    rhd_spi_master J2(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO2_J),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_J2),
+        .b_data_out(data_out_b_J2),
+        .oversample_offset(oversample_offset_J2),
+        .busy(busy_all[3]),
+        .done(done_all[3])
+    );
+
+    rhd_spi_master K1(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO1_K),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_K1),
+        .b_data_out(data_out_b_K1),
+        .oversample_offset(oversample_offset_K1),
+        .busy(busy_all[4]),
+        .done(done_all[4])
+    );
+
+    rhd_spi_master K2(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO2_K),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_K2),
+        .b_data_out(data_out_b_K2),
+        .oversample_offset(oversample_offset_K2),
+        .busy(busy_all[5]),
+        .done(done_all[5])
+    );
+
+    rhd_spi_master L1(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO1_L),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_L1),
+        .b_data_out(data_out_b_L1),
+        .oversample_offset(oversample_offset_L1),
+        .busy(busy_all[6]),
+        .done(done_all[6])
+    );
+
+    rhd_spi_master L2(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO2_L),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_L2),
+        .b_data_out(data_out_b_L2),
+        .oversample_offset(oversample_offset_L2),
+        .busy(busy_all[7]),
+        .done(done_all[7])
+    );
+
+    rhd_spi_master M1(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO1_M),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_M1),
+        .b_data_out(data_out_b_M1),
+        .oversample_offset(oversample_offset_M1),
+        .busy(busy_all[8]),
+        .done(done_all[8])
+    );
+
+    rhd_spi_master M2(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO2_M),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_M2),
+        .b_data_out(data_out_b_M2),
+        .oversample_offset(oversample_offset_M2),
+        .busy(busy_all[9]),
+        .done(done_all[9])
+    );
+
+    rhd_spi_master N1(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO1_N),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_N1),
+        .b_data_out(data_out_b_N1),
+        .oversample_offset(oversample_offset_N1),
+        .busy(busy_all[10]),
+        .done(done_all[10])
+    );
+
+    rhd_spi_master N2(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO2_N),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_N2),
+        .b_data_out(data_out_b_N2),
+        .oversample_offset(oversample_offset_N2),
+        .busy(busy_all[11]),
+        .done(done_all[11])
+    );
+
+    rhd_spi_master O1(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO1_O),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_O1),
+        .b_data_out(data_out_b_O1),
+        .oversample_offset(oversample_offset_O1),
+        .busy(busy_all[12]),
+        .done(done_all[12])
+    );
+
+    rhd_spi_master O2(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO2_O),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_O2),
+        .b_data_out(data_out_b_O2),
+        .oversample_offset(oversample_offset_O2),
+        .busy(busy_all[13]),
+        .done(done_all[13])
+    );
+
+    rhd_spi_master P1(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO1_P),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_P1),
+        .b_data_out(data_out_b_P1),
+        .oversample_offset(oversample_offset_P1),
+        .busy(busy_all[14]),
+        .done(done_all[14])
+    );
+
+    rhd_spi_master P2(
+        .clk(clk),
+        .rstn(rstn),
+        .SCLK(),
+        .MOSI(),
+        .MISO(MISO2_P),
+        .CS(),
+        .start(start),
+        .data_in(data_in),
+        .a_data_out(data_out_a_P2),
+        .b_data_out(data_out_b_P2),
+        .oversample_offset(oversample_offset_P2),
         .busy(busy_all[15]),
         .done(done_all[15])
     );
@@ -523,6 +780,7 @@ module rhd_2048 (
                     start = 0;
                     if (&done_all) begin
                         if (channel < CHANNELS_PER_ADC + SPI_CONVERT_DELAY && channel >= SPI_CONVERT_DELAY) begin
+
                             data_out[((0 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_A1;
                             data_out[((1 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_A1;
                             data_out[((2 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_A2;
