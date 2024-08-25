@@ -20,12 +20,17 @@ module tb_rhd_2048 ();
 
     wire [7:0] rhd_channel;
 
+    reg [6:0] zcheck_chip_channel = 61;
+    reg [1:0] zcheck_scale = 2'b11;
+
     rhd_2048 dut(
         .clk(clk),
         .rstn(rstn),
         .config_start(config_start),
         .record_start(record_start),
         .zcheck_start(zcheck_start),
+        .zcheck_chip_channel(zcheck_chip_channel),
+        .zcheck_scale(zcheck_scale),
         .oversample_offset_A1(oversample_offset),
         .oversample_offset_A2(oversample_offset),
         .oversample_offset_B1(oversample_offset),
@@ -463,11 +468,17 @@ module tb_rhd_2048 ();
         #500;
         rstn <= 1;
         #500
+        zcheck_start <= 1;
+        #500
+        zcheck_start <= 0;
+        #100000
         
+        /*
         config_start <= 1;
         #500
         config_start <= 0;
         #100000
+        */
         /*
         record_start <= 1;
         #300000
