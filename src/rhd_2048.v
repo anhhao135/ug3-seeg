@@ -146,6 +146,9 @@ module rhd_2048 (
     wire [15:0] adc_convert_command;
     assign adc_convert_command = {2'd0, channel[5:0], 7'd0, DSP_OFFSET_REMOVAL};
 
+    wire [15:0] adc_calibration_command;
+    assign adc_calibration_command = 16'b0101010100000000;
+
     wire [15:0] data_out_a_A1;
     wire [15:0] data_out_b_A1;
     wire [15:0] data_out_a_A2;
@@ -226,7 +229,7 @@ module rhd_2048 (
     wire [15:0] data_out_a_P2;
     wire [15:0] data_out_b_P2;
 
-    assign done = (state == REC_DONE);
+    assign done = (state == REC_DONE) || (state == CONFIG_DONE);
     assign busy = (state != READY);
 
 
@@ -766,11 +769,12 @@ module rhd_2048 (
                 end
 
                 CONFIG_DATA_LOAD: begin
-                    
+
                     start = 0;
                     data_in = write_register_command;
 
                     case(channel)
+                        //general config start
                         0: begin //adc config and amp fast settle switch
                             write_register_address = 0;
                             write_register_data = 8'b11011110;
@@ -827,6 +831,82 @@ module rhd_2048 (
                             write_register_address = 13;
                             write_register_data = 8'b00010001; //17 for DAC2, DAC3 0.5 hz lower cut off
                         end
+                        //general config end
+                        
+                        //power up amplifiers 0-63 start
+
+                        14: begin //0 - 7
+                            write_register_address = 14;
+                            write_register_data = 8'b11111111;
+                        end
+                        15: begin //8 - 15
+                            write_register_address = 15;
+                            write_register_data = 8'b11111111;
+                        end
+                        16: begin //16 - 23
+                            write_register_address = 16;
+                            write_register_data = 8'b11111111;
+                        end
+                        17: begin //24 - 31
+                            write_register_address = 17;
+                            write_register_data = 8'b11111111;
+                        end
+                        18: begin //32 - 39
+                            write_register_address = 18;
+                            write_register_data = 8'b11111111;
+                        end
+                        19: begin //40 - 47
+                            write_register_address = 19;
+                            write_register_data = 8'b11111111;
+                        end
+                        20: begin //48 - 55
+                            write_register_address = 20;
+                            write_register_data = 8'b11111111;
+                        end
+                        21: begin //56 - 63
+                            write_register_address = 21;
+                            write_register_data = 8'b11111111;
+                        end
+
+                        //power up amplifiers 0-63 end
+
+                        //initiate adc calibration start
+                        //at least 9 cycles of commands must follow calibration command before anything else happens
+                        22: begin
+                            data_in = adc_calibration_command;
+                        end
+                        23: begin
+                            data_in = adc_calibration_command;
+                        end
+                        24: begin
+                            data_in = adc_calibration_command;
+                        end
+                        25: begin
+                            data_in = adc_calibration_command;
+                        end
+                        26: begin
+                            data_in = adc_calibration_command;
+                        end
+                        27: begin
+                            data_in = adc_calibration_command;
+                        end
+                        28: begin
+                            data_in = adc_calibration_command;
+                        end
+                        29: begin
+                            data_in = adc_calibration_command;
+                        end
+                        30: begin
+                            data_in = adc_calibration_command;
+                        end
+                        31: begin
+                            data_in = adc_calibration_command;
+                        end
+                        32: begin
+                            data_in = adc_calibration_command;
+                        end
+                        //initiate adc calibration end
+
                         default: begin //by default send read intan id dummy commands
                             read_register_address = INTAN_CHIP_ID_REG;
                             data_in = read_register_command;

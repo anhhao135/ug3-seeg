@@ -467,7 +467,7 @@ module tb_rhd_2048 ();
         config_start <= 1;
         #500
         config_start <= 0;
-        #10000
+        #100000
         /*
         record_start <= 1;
         #300000
