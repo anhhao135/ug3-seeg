@@ -766,23 +766,68 @@ module rhd_2048 (
                 end
 
                 CONFIG_DATA_LOAD: begin
+                    
                     start = 0;
                     data_in = write_register_command;
 
                     case(channel)
-                        0: begin
+                        0: begin //adc config and amp fast settle switch
                             write_register_address = 0;
                             write_register_data = 8'b11011110;
                         end
-                        1: begin
+                        1: begin //supply sensor and adc buffer bias current
                             write_register_address = 1;
-                            write_register_data = high_sampling_rate ? 8'b01000010 : 8'b01100000; // 2 VS 32
+                            write_register_data = high_sampling_rate ? 8'b00000010 : 8'b00100000; // 2 VS 32
                         end
-                        2: begin
+                        2: begin //mux bias current
                             write_register_address = 2;
                             write_register_data = high_sampling_rate ? 8'b00000100 : 8'b00101000; // 4 VS 40
                         end
-                        default: begin
+                        3: begin //mux load, temp sensor, aux dig output
+                            write_register_address = 3;
+                            write_register_data = 0;
+                        end
+                        4: begin //adc output format and dsp offset removal
+                            write_register_address = 4;
+                            write_register_data = 8'b11000000; //weak MISO and two's complement format, no DSP
+                        end
+                        5: begin //zcheck control power
+                            write_register_address = 5;
+                            write_register_data = 0; //no zcheck
+                        end
+                        6: begin //zcheck control DAC
+                            write_register_address = 6;
+                            write_register_data = 0; //no zcheck
+                        end
+                        7: begin //zcheck control amp select
+                            write_register_address = 7;
+                            write_register_data = 0; //no zcheck
+                        end
+                        8: begin //RH1: use off chip bandwidth res and DAC1 upper cut off for amps
+                            write_register_address = 8;
+                            write_register_data = high_sampling_rate ? 8'b00010110 : 8'b00101110;   //  22 (7.5 khz)   VS  46 (1 khz) upper cut-off frequency DAC 1
+                        end
+                        9: begin //RH1: enable aux1 ADC and DAC2 upper cut off for amps
+                            write_register_address = 9;
+                            write_register_data = high_sampling_rate ? 8'b00000000 : 8'b00000010;   //  0    VS  2  DAC 2 upper cut off, matches REG8
+                        end
+                        10: begin //RH2: use off chip bandwidth res and DAC1 upper cut off for amps
+                            write_register_address = 10;
+                            write_register_data = high_sampling_rate ? 8'b00010111 : 8'b00011110;   //  23 (7.5 khz)   VS  30 (1 khz) same as above
+                        end
+                        11: begin //RH2: enable aux2 ADC and DAC2 upper cut off for amps
+                            write_register_address = 11;
+                            write_register_data = high_sampling_rate ? 8'b00000000 : 8'b00000011;   //  0    VS  3 same as above
+                        end
+                        12: begin //use off chip lower cut off res and on chip res for low cut off DAC1
+                            write_register_address = 12;
+                            write_register_data = 8'b00100011; //35 for DAC1 0.5 hz lower cut off
+                        end
+                        13: begin //enable aux3 input, and on chip res for low cut off DAC2 and DAC3
+                            write_register_address = 13;
+                            write_register_data = 8'b00010001; //17 for DAC2, DAC3 0.5 hz lower cut off
+                        end
+                        default: begin //by default send read intan id dummy commands
                             read_register_address = INTAN_CHIP_ID_REG;
                             data_in = read_register_command;
                         end
