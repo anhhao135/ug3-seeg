@@ -458,7 +458,9 @@ module tb_rhd_2048 ();
 
     initial begin
         clk = 0;
-        forever #4.46 clk = ~clk; //112 MHz
+        //forever #4.46 clk = ~clk; //112 MHz for effective 14.372 kS / s
+        //forever #10 clk = ~clk; // 50 MHz for effective 6.41 kS /s
+        forever #25.641 clk = ~clk; // 19.5 MHz for effective 2.5 kS /s
     end
 
     initial begin
@@ -468,10 +470,12 @@ module tb_rhd_2048 ();
         #500;
         rstn <= 1;
         #500
+
+        
         zcheck_start <= 1;
         #500
         zcheck_start <= 0;
-        #100000
+        #1000000
         
         /*
         config_start <= 1;
@@ -481,7 +485,7 @@ module tb_rhd_2048 ();
         */
         /*
         record_start <= 1;
-        #300000
+        #3000000
         record_start <= 0;
         #100000
         */
