@@ -112,11 +112,11 @@ module rhd_2048 (
 
     output wire [7:0] channel_out,
 
-    input wire sampling_rate_20k
+    input wire sampling_rate_20k //manual toggle between 2.5k or 20k sampling rate needed for proper bandwidth config
 
 );
 
-    localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4, CONFIG_DATA_LOAD = 5, CONFIG_DATA_TX = 6, CONFIG_DATA_RX = 7, CONFIG_DONE = 8, ZCHECK_CONFIG_DATA_LOAD = 9, ZCHECK_CONFIG_DATA_TX = 10, ZCHECK_CONFIG_DATA_RX = 11, ZCHECK_REC_DATA_LOAD = 12, ZCHECK_REC_DATA_TX = 13, ZCHECK_REC_DATA_RX = 14, ZCHECK_DONE = 15; 
+    localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4, CONFIG_DATA_LOAD = 5, CONFIG_DATA_TX = 6, CONFIG_DATA_RX = 7, CONFIG_DONE = 8, ZCHECK_CONFIG_DATA_LOAD = 9, ZCHECK_CONFIG_DATA_TX = 10, ZCHECK_CONFIG_DATA_RX = 11, ZCHECK_REC_DATA_LOAD = 12, ZCHECK_REC_DATA_TX = 13, ZCHECK_REC_DATA_RX = 14, ZCHECK_DONE = 15, RESET = 16;
 
     localparam DEFAULT_CHANNELS = 40; //34 recording channels + 6 for other commands
     localparam DEFAULT_ZCHECK_CHANNELS = DEFAULT_CHANNELS / 8;
@@ -131,7 +131,7 @@ module rhd_2048 (
     reg [15:0] data_in = 0;
     reg start = 0;
 
-    reg [3:0] state = READY;
+    reg [7:0] state = READY;
 
     reg [7:0] channel = 0;
     assign channel_out = channel;
@@ -147,21 +147,19 @@ module rhd_2048 (
     wire [7:0] data_gather_index;
     assign data_gather_index = channel - 2;
 
-    wire high_sampling_rate;
-    assign high_sampling_rate = sampling_rate_20k;
+    reg sampling_rate_20k_zcheck = 0;
+
+    wire high_sampling_rate; //for config of amp bandwidths
+    assign high_sampling_rate = sampling_rate_20k || sampling_rate_20k_zcheck; //either high cut off is required for high fs of normal recording or by nature of zcheck mode
 
     wire [511:0] data_out_slice_debug;
     assign data_out_slice_debug = data_out[(32767):(32256)];
 
     reg [5:0] write_register_address = 0;
     reg [7:0] write_register_data = 0;
-    wire [15:0] write_register_command;
-    assign write_register_command = {2'b10, write_register_address, write_register_data};
 
     reg [5:0] read_register_address = 0;
     wire [7:0] read_register_data = 0;
-    wire [15:0] read_register_command;
-    assign read_register_command = {2'b11, read_register_address, 8'd0};
     
     wire [15:0] adc_convert_command;
     assign adc_convert_command = {2'd0, channel[5:0], 7'd0, DSP_OFFSET_REMOVAL};
@@ -775,16 +773,21 @@ module rhd_2048 (
     always @(posedge clk) begin
 
         if (!rstn) begin
-            state = READY;
-            data_in = 0;
-            start = 0;
-            channel = 0;
-            data_out = 0;
-            zcheck_cycle_counter = ZCHECK_CYCLES;
-            zcheck_data_sample_debug = 0;
+            state = RESET;
         end
         else begin
             case(state)
+
+                RESET: begin
+                    data_in = 0;
+                    start = 0;
+                    channel = 0;
+                    data_out = 0;
+                    zcheck_cycle_counter = ZCHECK_CYCLES;
+                    zcheck_data_sample_debug = 0;
+                    sampling_rate_20k_zcheck = 0;
+                    state = READY;
+                end
 
                 READY: begin
                     data_in = 0;
@@ -794,14 +797,15 @@ module rhd_2048 (
                         state = CONFIG_DATA_LOAD;
                     else if (record_start)
                         state = REC_DATA_LOAD;
-                    else if (zcheck_start)
-                        state = ZCHECK_CONFIG_DATA_LOAD;
+                    else if (zcheck_start) begin
+                        sampling_rate_20k_zcheck = 1;
+                        state = CONFIG_DATA_LOAD;
+                    end
                 end
 
                 ZCHECK_CONFIG_DATA_LOAD: begin
 
                     start = 0;
-                    data_in = write_register_command;
                     //note amps saturate at +- 5mV, so 5nA across 1Mohm electrode will create 5mV
 
                     case(channel)
@@ -809,14 +813,16 @@ module rhd_2048 (
                         0: begin //zcheck control
                             write_register_address = 5;
                             write_register_data = {3'b010, zcheck_scale, 3'b001};
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         1: begin //zcheck amp select
                             write_register_address = 7;
                             write_register_data = {2'b00, zcheck_chip_channel};
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         default: begin //by default send read intan id dummy commands
                             read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = read_register_command;
+                            data_in = {2'b11, read_register_address, 8'd0};
                         end
                         //zcheck config end
                     endcase
@@ -854,7 +860,7 @@ module rhd_2048 (
                         end
                         default: begin //by default send read intan id dummy commands
                             read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = read_register_command;
+                            data_in = {2'b11, read_register_address, 8'd0};
                         end
                     endcase
 
@@ -897,71 +903,84 @@ module rhd_2048 (
                 end
 
                 ZCHECK_DONE: begin
-                    state = READY;
+                    state = RESET;
                 end
 
                 CONFIG_DATA_LOAD: begin
 
                     start = 0;
-                    data_in = write_register_command;
-
+                    
                     case(channel)
                         //general config start
                         0: begin //adc config and amp fast settle switch
                             write_register_address = 0;
                             write_register_data = 8'b11011110;
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         1: begin //supply sensor and adc buffer bias current
                             write_register_address = 1;
                             write_register_data = high_sampling_rate ? 8'b00000010 : 8'b00100000; // 2 VS 32
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         2: begin //mux bias current
                             write_register_address = 2;
                             write_register_data = high_sampling_rate ? 8'b00000100 : 8'b00101000; // 4 VS 40
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         3: begin //mux load, temp sensor, aux dig output
                             write_register_address = 3;
                             write_register_data = 0;
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         4: begin //adc output format and dsp offset removal
                             write_register_address = 4;
                             write_register_data = 8'b11000000; //weak MISO and two's complement format, no DSP
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         5: begin //zcheck control power
                             write_register_address = 5;
                             write_register_data = 0; //no zcheck
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         6: begin //zcheck control DAC
                             write_register_address = 6;
                             write_register_data = 0; //no zcheck
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         7: begin //zcheck control amp select
                             write_register_address = 7;
                             write_register_data = 0; //no zcheck
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         8: begin //RH1: use off chip bandwidth res and DAC1 upper cut off for amps
                             write_register_address = 8;
                             write_register_data = high_sampling_rate ? 8'b00010110 : 8'b00101110;   //  22 (7.5 khz)   VS  46 (1 khz) upper cut-off frequency DAC 1
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         9: begin //RH1: enable aux1 ADC and DAC2 upper cut off for amps
                             write_register_address = 9;
                             write_register_data = high_sampling_rate ? 8'b00000000 : 8'b00000010;   //  0    VS  2  DAC 2 upper cut off, matches REG8
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         10: begin //RH2: use off chip bandwidth res and DAC1 upper cut off for amps
                             write_register_address = 10;
                             write_register_data = high_sampling_rate ? 8'b00010111 : 8'b00011110;   //  23 (7.5 khz)   VS  30 (1 khz) same as above
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         11: begin //RH2: enable aux2 ADC and DAC2 upper cut off for amps
                             write_register_address = 11;
                             write_register_data = high_sampling_rate ? 8'b00000000 : 8'b00000011;   //  0    VS  3 same as above
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         12: begin //use off chip lower cut off res and on chip res for low cut off DAC1
                             write_register_address = 12;
                             write_register_data = 8'b00100011; //35 for DAC1 0.5 hz lower cut off
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         13: begin //enable aux3 input, and on chip res for low cut off DAC2 and DAC3
                             write_register_address = 13;
                             write_register_data = 8'b00010001; //17 for DAC2, DAC3 0.5 hz lower cut off
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         //general config end
                         
@@ -970,34 +989,42 @@ module rhd_2048 (
                         14: begin //0 - 7
                             write_register_address = 14;
                             write_register_data = 8'b11111111;
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         15: begin //8 - 15
                             write_register_address = 15;
                             write_register_data = 8'b11111111;
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         16: begin //16 - 23
                             write_register_address = 16;
                             write_register_data = 8'b11111111;
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         17: begin //24 - 31
                             write_register_address = 17;
                             write_register_data = 8'b11111111;
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         18: begin //32 - 39
                             write_register_address = 18;
                             write_register_data = 8'b11111111;
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         19: begin //40 - 47
                             write_register_address = 19;
                             write_register_data = 8'b11111111;
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         20: begin //48 - 55
                             write_register_address = 20;
                             write_register_data = 8'b11111111;
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
                         21: begin //56 - 63
                             write_register_address = 21;
                             write_register_data = 8'b11111111;
+                            data_in = {2'b10, write_register_address, write_register_data};
                         end
 
                         //power up amplifiers 0-63 end
@@ -1008,40 +1035,50 @@ module rhd_2048 (
                             data_in = adc_calibration_command;
                         end
                         23: begin
-                            data_in = adc_calibration_command;
+                            read_register_address = INTAN_CHIP_ID_REG;
+                            data_in = {2'b11, read_register_address, 8'd0};
                         end
                         24: begin
-                            data_in = adc_calibration_command;
+                            read_register_address = INTAN_CHIP_ID_REG;
+                            data_in = {2'b11, read_register_address, 8'd0};
                         end
                         25: begin
-                            data_in = adc_calibration_command;
+                            read_register_address = INTAN_CHIP_ID_REG;
+                            data_in = {2'b11, read_register_address, 8'd0};
                         end
                         26: begin
-                            data_in = adc_calibration_command;
+                            read_register_address = INTAN_CHIP_ID_REG;
+                            data_in = {2'b11, read_register_address, 8'd0};
                         end
                         27: begin
-                            data_in = adc_calibration_command;
+                            read_register_address = INTAN_CHIP_ID_REG;
+                            data_in = {2'b11, read_register_address, 8'd0};
                         end
                         28: begin
-                            data_in = adc_calibration_command;
+                            read_register_address = INTAN_CHIP_ID_REG;
+                            data_in = {2'b11, read_register_address, 8'd0};
                         end
                         29: begin
-                            data_in = adc_calibration_command;
+                            read_register_address = INTAN_CHIP_ID_REG;
+                            data_in = {2'b11, read_register_address, 8'd0};
                         end
                         30: begin
-                            data_in = adc_calibration_command;
+                            read_register_address = INTAN_CHIP_ID_REG;
+                            data_in = {2'b11, read_register_address, 8'd0};
                         end
                         31: begin
-                            data_in = adc_calibration_command;
+                            read_register_address = INTAN_CHIP_ID_REG;
+                            data_in = {2'b11, read_register_address, 8'd0};
                         end
                         32: begin
-                            data_in = adc_calibration_command;
+                            read_register_address = INTAN_CHIP_ID_REG;
+                            data_in = {2'b11, read_register_address, 8'd0};
                         end
                         //initiate adc calibration end
 
                         default: begin //by default send read intan id dummy commands
                             read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = read_register_command;
+                            data_in = {2'b11, read_register_address, 8'd0};
                         end
                     endcase
 
@@ -1060,14 +1097,19 @@ module rhd_2048 (
                     if (&done_all)begin
                         channel = channel + 1;
                         if (channel == DEFAULT_CHANNELS)
-                            state = CONFIG_DONE;
+                            if (sampling_rate_20k_zcheck) begin //check if config was done because of normal recording or zcheck; latter means we enter zcheck next
+                                sampling_rate_20k_zcheck = 0;
+                                state = ZCHECK_CONFIG_DATA_LOAD;
+                            end
+                            else
+                                state = CONFIG_DONE;
                         else
                             state = CONFIG_DATA_LOAD;
                     end
                 end
 
                 CONFIG_DONE: begin
-                    state = READY;
+                    state = RESET;
                 end
 
                 REC_DATA_LOAD: begin
@@ -1076,7 +1118,7 @@ module rhd_2048 (
                         data_in = adc_convert_command;
                     else begin
                         read_register_address = INTAN_CHIP_ID_REG;
-                        data_in = read_register_command;
+                        data_in = {2'b11, read_register_address, 8'd0};
                     end
 
                     start = 0;
@@ -1185,7 +1227,7 @@ module rhd_2048 (
                 end
 
                 REC_DONE: begin
-                    state = READY;
+                    state = RESET;
                 end
             endcase
         end

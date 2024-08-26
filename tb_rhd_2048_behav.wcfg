@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="57.400001 us"></ZoomEndTime>
-      <Cursor1Time time="1.000000 us"></Cursor1Time>
+      <ZoomStartTime time="56.656224 us"></ZoomStartTime>
+      <ZoomEndTime time="1,042.656225 us"></ZoomEndTime>
+      <Cursor1Time time="220.989557 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="283"></NameColumnWidth>
-      <ValueColumnWidth column_width="259"></ValueColumnWidth>
+      <ValueColumnWidth column_width="255"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="53" />
+   <WVObjectSize size="57" />
    <wvobject fp_name="/tb_rhd_2048/dut/rstn" type="logic">
       <obj_property name="ElementShortName">rstn</obj_property>
       <obj_property name="ObjectShortName">rstn</obj_property>
@@ -39,6 +39,24 @@
    <wvobject fp_name="/tb_rhd_2048/dut/zcheck_start" type="logic">
       <obj_property name="ElementShortName">zcheck_start</obj_property>
       <obj_property name="ObjectShortName">zcheck_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/state" type="array">
+      <obj_property name="ElementShortName">state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">state[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/channel_out" type="array">
+      <obj_property name="ElementShortName">channel_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">channel_out[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/channel" type="array">
+      <obj_property name="ElementShortName">channel[7:0]</obj_property>
+      <obj_property name="ObjectShortName">channel[7:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhd_2048/dut/busy_all" type="array">
       <obj_property name="ElementShortName">busy_all[31:0]</obj_property>
@@ -72,15 +90,22 @@
       <obj_property name="ElementShortName">MISO1_A</obj_property>
       <obj_property name="ObjectShortName">MISO1_A</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_rhd_2048/dut/channel_out" type="array">
-      <obj_property name="ElementShortName">channel_out[7:0]</obj_property>
-      <obj_property name="ObjectShortName">channel_out[7:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/tb_rhd_2048/dut/data_in" type="array">
+      <obj_property name="ElementShortName">data_in[15:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[15:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_rhd_2048/dut/state" type="array">
-      <obj_property name="ElementShortName">state[3:0]</obj_property>
-      <obj_property name="ObjectShortName">state[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/tb_rhd_2048/dut/high_sampling_rate" type="logic">
+      <obj_property name="ElementShortName">high_sampling_rate</obj_property>
+      <obj_property name="ObjectShortName">high_sampling_rate</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/zcheck_cycle_counter" type="array">
+      <obj_property name="ElementShortName">zcheck_cycle_counter[3:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_cycle_counter[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/zcheck_data_sample_debug" type="logic">
+      <obj_property name="ElementShortName">zcheck_data_sample_debug</obj_property>
+      <obj_property name="ObjectShortName">zcheck_data_sample_debug</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhd_2048/dut/data_gather_index" type="array">
       <obj_property name="ElementShortName">data_gather_index[7:0]</obj_property>
@@ -96,10 +121,6 @@
       <obj_property name="ObjectShortName">write_register_data[7:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_rhd_2048/dut/write_register_command" type="array">
-      <obj_property name="ElementShortName">write_register_command[15:0]</obj_property>
-      <obj_property name="ObjectShortName">write_register_command[15:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_rhd_2048/dut/read_register_address" type="array">
       <obj_property name="ElementShortName">read_register_address[5:0]</obj_property>
       <obj_property name="ObjectShortName">read_register_address[5:0]</obj_property>
@@ -108,10 +129,6 @@
    <wvobject fp_name="/tb_rhd_2048/dut/read_register_data" type="array">
       <obj_property name="ElementShortName">read_register_data[7:0]</obj_property>
       <obj_property name="ObjectShortName">read_register_data[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhd_2048/dut/read_register_command" type="array">
-      <obj_property name="ElementShortName">read_register_command[15:0]</obj_property>
-      <obj_property name="ObjectShortName">read_register_command[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhd_2048/dut/adc_convert_command" type="array">
       <obj_property name="ElementShortName">adc_convert_command[15:0]</obj_property>
