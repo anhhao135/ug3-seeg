@@ -471,12 +471,10 @@ module tb_rhd_2048 ();
         rstn <= 1;
         #500
 
-        /*
         zcheck_start <= 1;
         #500
         zcheck_start <= 0;
-        #1000000
-        */
+        #10000000
         
         /*
         config_start <= 1;
@@ -485,12 +483,12 @@ module tb_rhd_2048 ();
         #1000000
         */
 
-        
+        /*
         record_start <= 1;
         #3000000
         record_start <= 0;
         #100000
-        
+        */
         
         $finish;
     end

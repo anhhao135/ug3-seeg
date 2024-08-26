@@ -133,7 +133,7 @@ module rhd_2048 (
 
     reg [7:0] state = READY;
 
-    reg [9:0] channel = 0;
+    reg [7:0] channel = 0;
     assign channel_out = channel;
 
 
@@ -151,6 +151,9 @@ module rhd_2048 (
     //total conversions and DAC commands per cycle = 1000 us / 50us = 20
     //per sine cycle: 20 * 5 command slots = 100 command slots
     //for 8 sine cycles: 800 command slots
+    localparam ZCHECK_SINE_WAVE_NUM_COMMANDS = 20;
+    reg [4:0] zcheck_dac_command_counter = 0;
+    reg [7:0] zcheck_dac_command = 0;
      
 
     wire [31:0] busy_all;
@@ -797,6 +800,7 @@ module rhd_2048 (
                     channel = 0;
                     data_out = 0;
                     zcheck_cycle_counter = ZCHECK_CYCLES;
+                    zcheck_dac_command = 0;
                     zcheck_data_sample_debug = 0;
                     sampling_rate_20k_zcheck = 0;
                     state = READY;
@@ -867,14 +871,48 @@ module rhd_2048 (
 
                     start = 0;
 
-                    case(channel % (DEFAULT_CHANNELS / ZCHECK_CYCLES))
+                    case(channel)
+
                         0: begin
+
+                            case (zcheck_dac_command_counter)
+                                0:          begin zcheck_dac_command <= 8'b10000000;   end
+                                1:          begin zcheck_dac_command <= 8'b10100111;   end
+                                2:          begin zcheck_dac_command <= 8'b11001011;   end
+                                3:          begin zcheck_dac_command <= 8'b11100111;   end
+                                4:          begin zcheck_dac_command <= 8'b11111001;   end
+                                5:          begin zcheck_dac_command <= 8'b11111111;   end
+                                6:          begin zcheck_dac_command <= 8'b11111001;   end
+                                7:          begin zcheck_dac_command <= 8'b11100111;   end
+                                8:          begin zcheck_dac_command <= 8'b11001011;   end
+                                9:          begin zcheck_dac_command <= 8'b10100111;   end
+                                10:         begin zcheck_dac_command <= 8'b10000000;   end
+                                11:         begin zcheck_dac_command <= 8'b01011001;   end
+                                12:         begin zcheck_dac_command <= 8'b00110101;   end
+                                13:         begin zcheck_dac_command <= 8'b00011001;   end
+                                14:         begin zcheck_dac_command <= 8'b00000111;   end
+                                15:         begin zcheck_dac_command <= 8'b00000001;   end
+                                16:         begin zcheck_dac_command <= 8'b00000111;   end
+                                17:         begin zcheck_dac_command <= 8'b00011001;   end
+                                18:         begin zcheck_dac_command <= 8'b00110101;   end
+                                19:         begin zcheck_dac_command <= 8'b01011001;   end          
+                                default:    begin zcheck_dac_command <= 8'b00000000;   end 
+                            endcase
+
+                            write_register_address = 6;
+                            write_register_data = zcheck_dac_command;
+                            data_in = {2'b10, write_register_address, write_register_data};
+                        end
+
+                        1: begin
                             data_in = adc_convert_zcheck_command;
                         end
+
                         default: begin //by default send read intan id dummy commands
                             read_register_address = INTAN_CHIP_ID_REG;
                             data_in = {2'b11, read_register_address, 8'd0};
                         end
+
                     endcase
 
                     if (done_all == 0)
@@ -888,29 +926,40 @@ module rhd_2048 (
                 end
 
                 ZCHECK_REC_DATA_RX: begin
+
                     zcheck_data_sample_debug = 0;
                     start = 0;
 
                     if (&done_all) begin
-                        if ((channel % (DEFAULT_CHANNELS / ZCHECK_CYCLES)) == SPI_CONVERT_DELAY && channel < DEFAULT_CHANNELS) begin
+
+                        if (channel == SPI_CONVERT_DELAY + 1) begin
                             zcheck_data_sample_debug = 1;
                         end
                     
                         channel = channel + 1;
 
-                        if (channel == DEFAULT_CHANNELS) begin
+                        if (channel == ZCHECK_COMMAND_SLOTS_PER_PERIOD) begin
+
                             channel = 0;
-                            if (zcheck_cycle_counter == 0)begin
-                                zcheck_cycle_counter = ZCHECK_CYCLES;
-                                state = ZCHECK_DONE;
+
+                            if (zcheck_dac_command_counter == ZCHECK_SINE_WAVE_NUM_COMMANDS - 1) begin
+                                zcheck_dac_command_counter = 0;
+                                zcheck_cycle_counter = zcheck_cycle_counter - 1;
+
+                                
+
                             end
                             else begin
-                                zcheck_cycle_counter = zcheck_cycle_counter - 1;
-                                state = ZCHECK_CONFIG_DATA_LOAD;
+                                zcheck_dac_command_counter = zcheck_dac_command_counter + 1;
                             end
+
                         end
-                        else 
+
+                        if (zcheck_cycle_counter == 0) 
+                            state = ZCHECK_DONE;
+                        else
                             state = ZCHECK_REC_DATA_LOAD;
+
                     end
 
                 end
