@@ -119,7 +119,7 @@ module rhd_2048 (
     localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4, CONFIG_DATA_LOAD = 5, CONFIG_DATA_TX = 6, CONFIG_DATA_RX = 7, CONFIG_DONE = 8, ZCHECK_CONFIG_DATA_LOAD = 9, ZCHECK_CONFIG_DATA_TX = 10, ZCHECK_CONFIG_DATA_RX = 11, ZCHECK_REC_DATA_LOAD = 12, ZCHECK_REC_DATA_TX = 13, ZCHECK_REC_DATA_RX = 14, ZCHECK_DONE = 15, RESET = 16;
 
     localparam DEFAULT_CHANNELS = 40; //34 recording channels + 6 for other commands
-    localparam DEFAULT_ZCHECK_CHANNELS = DEFAULT_CHANNELS / 8;
+
     localparam CHANNELS_PER_ADC = 32;
     localparam SPI_CONVERT_DELAY = 2; //Intan specifies two cycle delay for adc conversion to come back
 
@@ -133,12 +133,25 @@ module rhd_2048 (
 
     reg [7:0] state = READY;
 
-    reg [7:0] channel = 0;
+    reg [9:0] channel = 0;
     assign channel_out = channel;
+
 
     localparam ZCHECK_CYCLES = 8;
     reg [3:0] zcheck_cycle_counter = ZCHECK_CYCLES;
     reg zcheck_data_sample_debug = 0;
+    localparam ZCHECK_FS = 20; //zcheck happens at 20kS/s for a 1kHz wave
+    localparam ZCHECK_COMMAND_SLOTS_PER_PERIOD = 5;
+    //when clock is 19.5 MHz, this nominally produces 2.5 kS/s rate for normal recording
+    //this equates to 400 us per sample and 10 us per command given there are 40 slots of commands per sample
+    //to record at 20kS/s and produce DAC commands for a 1 kHz wave per cycle, we would need:
+    //20 kS/s = 50 us period
+    //1 Khz sine cycle period = 1000 us
+    //5 command slots per conversion and DAC command
+    //total conversions and DAC commands per cycle = 1000 us / 50us = 20
+    //per sine cycle: 20 * 5 command slots = 100 command slots
+    //for 8 sine cycles: 800 command slots
+     
 
     wire [31:0] busy_all;
 
@@ -1099,6 +1112,8 @@ module rhd_2048 (
                         if (channel == DEFAULT_CHANNELS)
                             if (sampling_rate_20k_zcheck) begin //check if config was done because of normal recording or zcheck; latter means we enter zcheck next
                                 sampling_rate_20k_zcheck = 0;
+                                data_in = 0;
+                                channel = 0;
                                 state = ZCHECK_CONFIG_DATA_LOAD;
                             end
                             else
