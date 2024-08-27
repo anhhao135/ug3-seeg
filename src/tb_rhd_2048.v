@@ -20,7 +20,7 @@ module tb_rhd_2048 ();
 
     wire [7:0] rhd_channel;
 
-    reg [6:0] zcheck_chip_channel = 61;
+    reg [11:0] zcheck_global_channel = 2047;
     reg [1:0] zcheck_scale = 2'b11;
 
     rhd_2048 dut(
@@ -29,7 +29,7 @@ module tb_rhd_2048 ();
         .config_start(config_start),
         .record_start(record_start),
         .zcheck_start(zcheck_start),
-        .zcheck_chip_channel(zcheck_chip_channel),
+        .zcheck_global_channel(zcheck_global_channel),
         .zcheck_scale(zcheck_scale),
         .oversample_offset_A1(oversample_offset),
         .oversample_offset_A2(oversample_offset),

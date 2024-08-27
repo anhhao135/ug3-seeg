@@ -6,7 +6,7 @@ module rhd_2048 (
     input wire record_start,
     input wire zcheck_start,
 
-    input wire [5:0] zcheck_chip_channel, //0-63 one at a time per chip
+    input wire [11:0] zcheck_global_channel, //0 - 2047, zcheck one channel at a time
     input wire [1:0] zcheck_scale,
     //(binary) = (cap)(current amplitude at 1 kHz sine wave) (max voltage for 1 Mohm electrode)
     //00 = 0.1pF 0.38nA 0.38mV
@@ -17,6 +17,8 @@ module rhd_2048 (
     //11 = 10pF 38nA 3.8mV (should be ok)
 
     output reg [4095:0] zcheck_data_out,
+    //16 * 20 * 8 = 2560
+    //this is 8 cycles of 1kHz sine at 20 kS/s for one channel
     //depending on the zcheck channel, this will be 8 sine cycles of zcheck recording for all 32 rhd chips for 16-probe system
 
 
@@ -116,7 +118,7 @@ module rhd_2048 (
 
 );
 
-    localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4, CONFIG_DATA_LOAD = 5, CONFIG_DATA_TX = 6, CONFIG_DATA_RX = 7, CONFIG_DONE = 8, ZCHECK_CONFIG_DATA_LOAD = 9, ZCHECK_CONFIG_DATA_TX = 10, ZCHECK_CONFIG_DATA_RX = 11, ZCHECK_REC_DATA_LOAD = 12, ZCHECK_REC_DATA_TX = 13, ZCHECK_REC_DATA_RX = 14, ZCHECK_DONE = 15, RESET = 16;
+    localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4, CONFIG_DATA_LOAD = 5, CONFIG_DATA_TX = 6, CONFIG_DATA_RX = 7, CONFIG_DONE = 8, ZCHECK_CONFIG_DATA_LOAD = 9, ZCHECK_CONFIG_DATA_TX = 10, ZCHECK_CONFIG_DATA_RX = 11, ZCHECK_REC_DATA_LOAD = 12, ZCHECK_REC_DATA_TX = 13, ZCHECK_REC_DATA_RX = 14, ZCHECK_DONE = 15, RESET = 16, PRE_RESET = 17;
 
     localparam DEFAULT_CHANNELS = 40; //34 recording channels + 6 for other commands
 
@@ -125,6 +127,10 @@ module rhd_2048 (
 
     localparam ADC_SAMPLE_BIT_RESOLUTION = 16;
     localparam INTAN_CHIP_ID_REG = 63;
+
+    localparam CHANNELS_PER_CHIP = CHANNELS_PER_ADC * 2;
+    localparam CHIPS_PER_PROBE = 2;
+    localparam CHANNELS_PER_PROBE = CHANNELS_PER_CHIP * CHIPS_PER_PROBE;
 
     reg DSP_OFFSET_REMOVAL = 1; //ADCs have offset removal for rapid recovery from transient
 
@@ -154,7 +160,29 @@ module rhd_2048 (
     localparam ZCHECK_SINE_WAVE_NUM_COMMANDS = 20;
     reg [4:0] zcheck_dac_command_counter = 0;
     reg [7:0] zcheck_dac_command = 0;
-     
+    wire [5:0] zcheck_chip_channel;
+    assign zcheck_chip_channel = zcheck_global_channel % CHANNELS_PER_CHIP;
+
+
+    wire zcheck_adc_select;
+    assign zcheck_adc_select = zcheck_chip_channel / CHANNELS_PER_ADC; //select adc a (0) or b of chip X_(1)
+    wire zcheck_chip_select;
+    assign zcheck_chip_select = (zcheck_global_channel % CHANNELS_PER_PROBE) / CHANNELS_PER_CHIP; //select chip X1 (0) or X2 (1)
+
+
+    wire [5:0] zcheck_adc_channel;
+    assign zcheck_adc_channel = zcheck_chip_channel % CHANNELS_PER_ADC;
+
+    wire [4:0] zcheck_probe_select;
+    assign zcheck_probe_select = zcheck_global_channel / CHANNELS_PER_PROBE;
+
+
+
+    wire [15:0] adc_convert_zcheck_command;
+    assign adc_convert_zcheck_command = {2'd0, zcheck_adc_channel, 7'd0, DSP_OFFSET_REMOVAL};
+
+    wire [7:0] zcheck_data_gather_index;
+    assign zcheck_data_gather_index = zcheck_dac_command_counter + ZCHECK_SINE_WAVE_NUM_COMMANDS * (ZCHECK_CYCLES - zcheck_cycle_counter);
 
     wire [31:0] busy_all;
 
@@ -179,12 +207,6 @@ module rhd_2048 (
     
     wire [15:0] adc_convert_command;
     assign adc_convert_command = {2'd0, channel[5:0], 7'd0, DSP_OFFSET_REMOVAL};
-
-    
-    wire [5:0] zcheck_adc_channel;
-    assign zcheck_adc_channel = zcheck_chip_channel % CHANNELS_PER_ADC;
-    wire [15:0] adc_convert_zcheck_command;
-    assign adc_convert_zcheck_command = {2'd0, zcheck_adc_channel, 7'd0, DSP_OFFSET_REMOVAL};
 
     wire [15:0] adc_calibration_command;
     assign adc_calibration_command = 16'b0101010100000000;
@@ -794,6 +816,10 @@ module rhd_2048 (
         else begin
             case(state)
 
+                PRE_RESET: begin //this is to provide a whole extra clock cycle before going into reset so external logic can have more time to capture the data out before it gets reset
+                    state = RESET;
+                end
+
                 RESET: begin
                     data_in = 0;
                     start = 0;
@@ -804,6 +830,7 @@ module rhd_2048 (
                     zcheck_data_sample_debug = 0;
                     sampling_rate_20k_zcheck = 0;
                     state = READY;
+                    zcheck_data_out = 0;
                 end
 
                 READY: begin
@@ -934,6 +961,21 @@ module rhd_2048 (
 
                         if (channel == SPI_CONVERT_DELAY + 1) begin
                             zcheck_data_sample_debug = 1;
+                            /*
+
+                            if (zcheck_adc_select == 0) begin
+                                zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= ;
+                            end
+                            else begin
+                            end
+
+                            data_out[((0 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_A1;
+                            data_out[((1 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_A1;
+
+                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION];
+                            */
+
+
                         end
                     
                         channel = channel + 1;
@@ -965,7 +1007,7 @@ module rhd_2048 (
                 end
 
                 ZCHECK_DONE: begin
-                    state = RESET;
+                    state = PRE_RESET;
                 end
 
                 CONFIG_DATA_LOAD: begin
@@ -1173,7 +1215,7 @@ module rhd_2048 (
                 end
 
                 CONFIG_DONE: begin
-                    state = RESET;
+                    state = PRE_RESET;
                 end
 
                 REC_DATA_LOAD: begin
@@ -1291,7 +1333,7 @@ module rhd_2048 (
                 end
 
                 REC_DONE: begin
-                    state = RESET;
+                    state = PRE_RESET;
                 end
             endcase
         end

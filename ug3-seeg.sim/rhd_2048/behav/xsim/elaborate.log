@@ -5,7 +5,6 @@ Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 7 differs from formal bit length 6 for port 'zcheck_chip_channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:32]
 WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 4 for port 'divisor' [C:/Repos/ug3-seeg/src/rhd_spi_master.v:40]
 WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:144]
 WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:154]
@@ -41,7 +40,7 @@ WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for
 WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:454]
 Completed static elaboration
 Starting simulation data flow analysis
-WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_2048.v" Line 1. Module rhd_2048 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_2048.v" Line 1. Module rhd_2048_default doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
@@ -138,7 +137,7 @@ WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_slave.v" Line 1. Module r
 WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_slave.v" Line 1. Module rhd_spi_slave doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_slave.v" Line 1. Module rhd_spi_slave doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_slave.v" Line 1. Module rhd_spi_slave doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_2048.v" Line 1. Module rhd_2048 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_2048.v" Line 1. Module rhd_2048_default doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
 INFO: [Common 17-14] Message 'XSIM 43-4099' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
@@ -146,7 +145,7 @@ Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.clock_divider
 Compiling module xil_defaultlib.rhd_spi_master
-Compiling module xil_defaultlib.rhd_2048
+Compiling module xil_defaultlib.rhd_2048_default
 Compiling module xil_defaultlib.rhd_spi_slave
 Compiling module xil_defaultlib.tb_rhd_2048
 Compiling module xil_defaultlib.glbl
