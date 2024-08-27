@@ -6,6 +6,8 @@ module tb_rhd_2048 ();
     reg clk = 0;
     reg rstn = 0;
 
+    reg zcheck_mode = 1;
+
     reg config_start = 0;
     reg record_start = 0;
     reg zcheck_start = 0;
@@ -18,10 +20,24 @@ module tb_rhd_2048 ();
     wire MOSI;
     wire CS;
 
+
+    wire [7:0] rhd_channel_dut;
     wire [7:0] rhd_channel;
 
-    reg [11:0] zcheck_global_channel = 2047;
+    reg [11:0] zcheck_global_channel = 29;
     reg [1:0] zcheck_scale = 2'b11;
+
+    localparam CHANNELS_PER_ADC = 32;
+    localparam CHANNELS_PER_CHIP = CHANNELS_PER_ADC * 2;
+
+
+    wire [7:0] zcheck_chip_channel;
+    assign zcheck_chip_channel = zcheck_global_channel % CHANNELS_PER_CHIP;
+    wire [7:0] zcheck_adc_channel;
+    assign zcheck_adc_channel = zcheck_chip_channel % CHANNELS_PER_ADC;
+
+    assign rhd_channel = zcheck_mode ? zcheck_adc_channel + 2 : rhd_channel_dut;
+
 
     rhd_2048 dut(
         .clk(clk),
@@ -63,7 +79,7 @@ module tb_rhd_2048 ();
         .oversample_offset_O2(oversample_offset),
         .oversample_offset_P1(oversample_offset),
         .oversample_offset_P2(oversample_offset),
-        .channel_out(rhd_channel),
+        .channel_out(rhd_channel_dut),
         .CS(CS),
         .MOSI(MOSI),
         .SCLK(SCLK),

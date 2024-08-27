@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="2,955.000001 us"></ZoomEndTime>
-      <Cursor1Time time="750.000000 us"></Cursor1Time>
+      <ZoomStartTime time="0.000686507 ms"></ZoomStartTime>
+      <ZoomEndTime time="24.850686508 ms"></ZoomEndTime>
+      <Cursor1Time time="5.800686507 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="283"></NameColumnWidth>
-      <ValueColumnWidth column_width="255"></ValueColumnWidth>
+      <ValueColumnWidth column_width="251"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="67" />
+   <WVObjectSize size="75" />
    <wvobject fp_name="/tb_rhd_2048/dut/rstn" type="logic">
       <obj_property name="ElementShortName">rstn</obj_property>
       <obj_property name="ObjectShortName">rstn</obj_property>
@@ -39,6 +39,10 @@
    <wvobject fp_name="/tb_rhd_2048/dut/zcheck_start" type="logic">
       <obj_property name="ElementShortName">zcheck_start</obj_property>
       <obj_property name="ObjectShortName">zcheck_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/zcheck_data_out" type="array">
+      <obj_property name="ElementShortName">zcheck_data_out[2559:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_data_out[2559:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhd_2048/dut/zcheck_cycle_counter" type="array">
       <obj_property name="ElementShortName">zcheck_cycle_counter[3:0]</obj_property>
@@ -306,5 +310,36 @@
    <wvobject fp_name="/tb_rhd_2048/A1_slave/SCLK_rising_edge_flag" type="logic">
       <obj_property name="ElementShortName">SCLK_rising_edge_flag</obj_property>
       <obj_property name="ObjectShortName">SCLK_rising_edge_flag</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider120">
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/rhd_channel_dut" type="array">
+      <obj_property name="ElementShortName">rhd_channel_dut[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rhd_channel_dut[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/rhd_channel" type="array">
+      <obj_property name="ElementShortName">rhd_channel[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rhd_channel[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/zcheck_global_channel" type="array">
+      <obj_property name="ElementShortName">zcheck_global_channel[11:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_global_channel[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/zcheck_scale" type="array">
+      <obj_property name="ElementShortName">zcheck_scale[1:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_scale[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/zcheck_chip_channel" type="array">
+      <obj_property name="ElementShortName">zcheck_chip_channel[7:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_chip_channel[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/zcheck_adc_channel" type="array">
+      <obj_property name="ElementShortName">zcheck_adc_channel[7:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_adc_channel[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>
