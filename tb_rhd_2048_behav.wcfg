@@ -11,9 +11,9 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000686507 ms"></ZoomStartTime>
-      <ZoomEndTime time="24.850686508 ms"></ZoomEndTime>
-      <Cursor1Time time="5.800686507 ms"></Cursor1Time>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="24.850000001 ms"></ZoomEndTime>
+      <Cursor1Time time="0.400691907 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="283"></NameColumnWidth>
@@ -27,18 +27,6 @@
    <wvobject fp_name="/tb_rhd_2048/dut/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhd_2048/dut/config_start" type="logic">
-      <obj_property name="ElementShortName">config_start</obj_property>
-      <obj_property name="ObjectShortName">config_start</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhd_2048/dut/record_start" type="logic">
-      <obj_property name="ElementShortName">record_start</obj_property>
-      <obj_property name="ObjectShortName">record_start</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhd_2048/dut/zcheck_start" type="logic">
-      <obj_property name="ElementShortName">zcheck_start</obj_property>
-      <obj_property name="ObjectShortName">zcheck_start</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhd_2048/dut/zcheck_data_out" type="array">
       <obj_property name="ElementShortName">zcheck_data_out[2559:0]</obj_property>
@@ -95,6 +83,22 @@
       <obj_property name="ElementShortName">zcheck_chip_select</obj_property>
       <obj_property name="ObjectShortName">zcheck_chip_select</obj_property>
    </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/config_start" type="logic">
+      <obj_property name="ElementShortName">config_start</obj_property>
+      <obj_property name="ObjectShortName">config_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/record_start" type="logic">
+      <obj_property name="ElementShortName">record_start</obj_property>
+      <obj_property name="ObjectShortName">record_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/zcheck_start" type="logic">
+      <obj_property name="ElementShortName">zcheck_start</obj_property>
+      <obj_property name="ObjectShortName">zcheck_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_rhd_2048/dut/adc_convert_zcheck_command" type="array">
       <obj_property name="ElementShortName">adc_convert_zcheck_command[15:0]</obj_property>
       <obj_property name="ObjectShortName">adc_convert_zcheck_command[15:0]</obj_property>
@@ -134,10 +138,6 @@
    <wvobject fp_name="/tb_rhd_2048/dut/busy" type="logic">
       <obj_property name="ElementShortName">busy</obj_property>
       <obj_property name="ObjectShortName">busy</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhd_2048/dut/done" type="logic">
-      <obj_property name="ElementShortName">done</obj_property>
-      <obj_property name="ObjectShortName">done</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhd_2048/dut/CS" type="logic">
       <obj_property name="ElementShortName">CS</obj_property>

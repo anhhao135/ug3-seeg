@@ -6,7 +6,7 @@ module tb_rhd_2048 ();
     reg clk = 0;
     reg rstn = 0;
 
-    reg zcheck_mode = 1;
+    reg zcheck_mode = 0;
 
     reg config_start = 0;
     reg record_start = 0;
@@ -480,6 +480,7 @@ module tb_rhd_2048 ();
     end
 
     initial begin
+        zcheck_mode <= 0;
         rstn <= 1;
         #500;
         rstn <= 0;
