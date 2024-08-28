@@ -91,17 +91,22 @@ module rhs_256 (
 
     localparam DEFAULT_CHANNELS = 40; //34 recording channels + 6 for other commands
 
-    localparam CHANNELS_PER_ADC = 32;
+    localparam CHANNELS_PER_ADC = 16;
     localparam SPI_CONVERT_DELAY = 2; //Intan specifies two cycle delay for adc conversion to come back
 
     localparam ADC_SAMPLE_BIT_RESOLUTION = 16;
-    localparam INTAN_CHIP_ID_REG = 63;
+    localparam INTAN_CHIP_ID_REG = 255; //ID is 32 when read back
 
-    localparam CHANNELS_PER_CHIP = CHANNELS_PER_ADC * 2;
-    localparam CHIPS_PER_PROBE = 2;
+    localparam CHANNELS_PER_CHIP = CHANNELS_PER_ADC * 1;
+    localparam CHIPS_PER_PROBE = 1;
     localparam CHANNELS_PER_PROBE = CHANNELS_PER_CHIP * CHIPS_PER_PROBE;
 
 
+    reg U_FLAG = 0; //updates all triggered registers to new values that were previously programmed
+    reg M_FLAG = 0; //set to one to clear compliance monitor register 40
+    reg D_FLAG = 0; //sample DC low gain amp, lower 10 bits of result
+    reg H_FLAG = 1; //ADCs have offset removal for rapid recovery from transient, do not change
+    
 
     reg start = 0;
 
@@ -131,25 +136,14 @@ module rhs_256 (
     wire [5:0] zcheck_chip_channel;
     assign zcheck_chip_channel = zcheck_global_channel % CHANNELS_PER_CHIP;
 
-
-    wire zcheck_adc_select;
-    assign zcheck_adc_select = zcheck_chip_channel / CHANNELS_PER_ADC; //select adc a (0) or b of chip X_(1)
-    wire zcheck_chip_select;
-    assign zcheck_chip_select = (zcheck_global_channel % CHANNELS_PER_PROBE) / CHANNELS_PER_CHIP; //select chip X1 (0) or X2 (1)
-
     reg [15:0] zcheck_adc_sample = 0;
-
-
-    wire [5:0] zcheck_adc_channel;
-    assign zcheck_adc_channel = zcheck_chip_channel % CHANNELS_PER_ADC;
 
     wire [4:0] zcheck_probe_select;
     assign zcheck_probe_select = zcheck_global_channel / CHANNELS_PER_PROBE;
 
 
-
-    wire [15:0] adc_convert_zcheck_command;
-    assign adc_convert_zcheck_command = {2'd0, zcheck_adc_channel, 7'd0, DSP_OFFSET_REMOVAL};
+    wire [31:0] adc_convert_zcheck_command;
+    assign adc_convert_command = {2'b0, 1'b0, 1'b0, 1'b0, H_FLAG, 4'b0, zcheck_chip_channel[5:0], 16'b0};
 
     wire [7:0] zcheck_data_gather_index;
     assign zcheck_data_gather_index = zcheck_dac_command_counter + ZCHECK_SINE_WAVE_NUM_COMMANDS * (ZCHECK_CYCLES - zcheck_cycle_counter);
@@ -169,23 +163,19 @@ module rhs_256 (
     wire [511:0] data_out_slice_debug;
     assign data_out_slice_debug = data_out[(32767):(32256)];
 
-    reg [5:0] write_register_address = 0;
-    reg [7:0] write_register_data = 0;
+    reg [7:0] write_register_address = 0;
+    reg [15:0] write_register_data = 0;
 
-    reg [5:0] read_register_address = 0;
-    wire [7:0] read_register_data = 0;
+    reg [7:0] read_register_address = 0;
 
 
-    reg U_FLAG = 0; //updates all triggered registers to new values that were previously programmed
-    reg M_FLAG = 0; //set to one to clear compliance monitor register 40
-    reg D_FLAG = 0; //sample DC low gain amp, lower 10 bits of result
-    reg H_FLAG = 1; //ADCs have offset removal for rapid recovery from transient, do not change
-    
     wire [31:0] adc_convert_command;
     assign adc_convert_command = {2'b0, 1'b0, 1'b0, 1'b0, H_FLAG, 4'b0, channel[5:0], 16'b0};
 
-    wire [31:0] adc_calibration_command;
-    assign adc_calibration_command = 32'01010101000000000000000000000000;
+    wire [31:0] adc_clear_calibration_command;
+    assign adc_clear_calibration_command = 32'b01101010000000000000000000000000; //on rhs, calibration command should not be ran but instead the clear calibration command should be
+
+    reg [31:0] data_in_common = 0;
 
     reg [31:0] data_in_A = 0;
     reg [31:0] data_in_B = 0;
@@ -479,6 +469,7 @@ module rhs_256 (
                 end
 
                 RESET: begin
+                    data_in_common = 0;
                     data_in_A = 0;
                     data_in_B = 0;
                     data_in_C = 0;
@@ -524,179 +515,185 @@ module rhs_256 (
                     
                     case(channel)
                         //general config start
-                        0: begin //adc config and amp fast settle switch
+                        0: begin //stim enable A magic number
+                            U_FLAG = 0;
+                            M_FLAG = 0;
+                            write_register_address = 32;
+                            write_register_data = 0; //disable stim a
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                        end
+                        1: begin //stim enable B magic number
+                            U_FLAG = 0;
+                            M_FLAG = 0;
+                            write_register_address = 33;
+                            write_register_data = 0; //disable stim b
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                        end
+                        2: begin //individual dc amp power on
+                            U_FLAG = 0;
+                            M_FLAG = 0;
+                            write_register_address = 38;
+                            write_register_data = 16'hFFFF; //turn all dc amps on because of bug
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                        end
+                        3: begin //clear calibrate command
+                            data_in_common = adc_clear_calibration_command;
+                        end
+                        4: begin //supply sensor and adc buffer bias current
+                            //assuming max sampling rate per chip is 20 kS/s * 16 = 320 kS/s
+                            //adc buffer bias = 4, mux bias = 18
+                            U_FLAG = 0;
+                            M_FLAG = 0;
                             write_register_address = 0;
-                            write_register_data = 8'b11011110;
-                            data_in = {2'b10, write_register_address, write_register_data};
+                            write_register_data = {4'b0, 6'd4, 6'd18};
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
-                        1: begin //supply sensor and adc buffer bias current
+                        5: begin //adc format, dsp offset removal, aux outputs
+                            U_FLAG = 0;
+                            M_FLAG = 0;
                             write_register_address = 1;
-                            write_register_data = high_sampling_rate ? 8'b00000010 : 8'b00100000; // 2 VS 32
-                            data_in = {2'b10, write_register_address, write_register_data};
+                            write_register_data = 16'h051A; //0 1 0 1 0 0 0 1 1 010 digout 1 and 2 are driven to aux outs, driven to high, enable twos complement
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
-                        2: begin //mux bias current
+                        6: begin //zcheck control
+                            U_FLAG = 0;
+                            M_FLAG = 0;
                             write_register_address = 2;
-                            write_register_data = high_sampling_rate ? 8'b00000100 : 8'b00101000; // 4 VS 40
-                            data_in = {2'b10, write_register_address, write_register_data};
+                            write_register_data = 0; //disable zcheck
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
-                        3: begin //mux load, temp sensor, aux dig output
+                        7: begin //zcheck dac control
+                            U_FLAG = 0;
+                            M_FLAG = 0;
                             write_register_address = 3;
-                            write_register_data = 0;
-                            data_in = {2'b10, write_register_address, write_register_data};
+                            write_register_data = 0; //disable zcheck dac
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
-                        4: begin //adc output format and dsp offset removal
+                        8: begin //chip upper bandwidth select
+                            U_FLAG = 0;
+                            M_FLAG = 0;
                             write_register_address = 4;
-                            write_register_data = 8'b11000000; //weak MISO and two's complement format, no DSP
-                            data_in = {2'b10, write_register_address, write_register_data};
+                            write_register_data = 16'h0016; //rh1 sel2 = 0, rh1 sel1 = 22
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
-                        5: begin //zcheck control power
+                        9: begin //chip upper bandwidth select, upper bandwidth = 7.5 kHz
+                            U_FLAG = 0;
+                            M_FLAG = 0;
                             write_register_address = 5;
-                            write_register_data = 0; //no zcheck
-                            data_in = {2'b10, write_register_address, write_register_data};
+                            write_register_data = 16'h0017; //rh2 sel2 = 0, rh2 sel1 = 23
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
-                        6: begin //zcheck control DAC
+                        10: begin //chip lower bandwidth select RL A
+                            U_FLAG = 0;
+                            M_FLAG = 0;
                             write_register_address = 6;
-                            write_register_data = 0; //no zcheck
-                            data_in = {2'b10, write_register_address, write_register_data};
+                            write_register_data = 16'h00A8; //5 Hz
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
-                        7: begin //zcheck control amp select
+                        11: begin //chip lower bandwidth select RL B
+                            U_FLAG = 0;
+                            M_FLAG = 0;
                             write_register_address = 7;
-                            write_register_data = 0; //no zcheck
-                            data_in = {2'b10, write_register_address, write_register_data};
+                            write_register_data = 16'h000A; //1 khz
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
-                        8: begin //RH1: use off chip bandwidth res and DAC1 upper cut off for amps
+                        12: begin //ac amp power up
+                            U_FLAG = 0;
+                            M_FLAG = 0;
                             write_register_address = 8;
-                            write_register_data = high_sampling_rate ? 8'b00010110 : 8'b00101110;   //  22 (7.5 khz)   VS  46 (1 khz) upper cut-off frequency DAC 1
-                            data_in = {2'b10, write_register_address, write_register_data};
+                            write_register_data = 16'hFFFF; //power all ac amps on
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
-                        9: begin //RH1: enable aux1 ADC and DAC2 upper cut off for amps
-                            write_register_address = 9;
-                            write_register_data = high_sampling_rate ? 8'b00000000 : 8'b00000010;   //  0    VS  2  DAC 2 upper cut off, matches REG8
-                            data_in = {2'b10, write_register_address, write_register_data};
-                        end
-                        10: begin //RH2: use off chip bandwidth res and DAC1 upper cut off for amps
+                        13: begin //amp fast settle, analog switch close to gnd to recover from transients, triggered
+                            U_FLAG = 0;
+                            M_FLAG = 0;
                             write_register_address = 10;
-                            write_register_data = high_sampling_rate ? 8'b00010111 : 8'b00011110;   //  23 (7.5 khz)   VS  30 (1 khz) same as above
-                            data_in = {2'b10, write_register_address, write_register_data};
+                            write_register_data = 0; //open all switches but do not trigger
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
-                        11: begin //RH2: enable aux2 ADC and DAC2 upper cut off for amps
-                            write_register_address = 11;
-                            write_register_data = high_sampling_rate ? 8'b00000000 : 8'b00000011;   //  0    VS  3 same as above
-                            data_in = {2'b10, write_register_address, write_register_data};
-                        end
-                        12: begin //use off chip lower cut off res and on chip res for low cut off DAC1
+                        14: begin //amp lower cutoff frequency select, 1 = RL_A, 0 = RL_B 
+                            U_FLAG = 0;
+                            M_FLAG = 0;
                             write_register_address = 12;
-                            write_register_data = 8'b00100011; //35 for DAC1 0.5 hz lower cut off
-                            data_in = {2'b10, write_register_address, write_register_data};
+                            write_register_data = 16'hFFFF; //all amps have the lower lower cut off frequency
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
-                        13: begin //enable aux3 input, and on chip res for low cut off DAC2 and DAC3
-                            write_register_address = 13;
-                            write_register_data = 8'b00010001; //17 for DAC2, DAC3 0.5 hz lower cut off
-                            data_in = {2'b10, write_register_address, write_register_data};
+                        15: begin //stimulator turn on
+                            U_FLAG = 0;
+                            M_FLAG = 0;
+                            write_register_address = 42;
+                            write_register_data = 0; //turn off all stimulators
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
-                        //general config end
-                        
-                        //power up amplifiers 0-63 start
-
-                        14: begin //0 - 7
-                            write_register_address = 14;
-                            write_register_data = 8'b11111111;
-                            data_in = {2'b10, write_register_address, write_register_data};
+                        16: begin //charge recovery switch to reset electrode potential to stim_gnd
+                            U_FLAG = 0;
+                            M_FLAG = 0;
+                            write_register_address = 46;
+                            write_register_data = 0; //open recovery switch
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
-                        15: begin //8 - 15
-                            write_register_address = 15;
-                            write_register_data = 8'b11111111;
-                            data_in = {2'b10, write_register_address, write_register_data};
+                        17: begin //enable current-limited charge recovery dac
+                            U_FLAG = 0;
+                            M_FLAG = 0;
+                            write_register_address = 48;
+                            write_register_data = 0; //do not connect electrodes to dac
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
-                        16: begin //16 - 23
-                            write_register_address = 16;
-                            write_register_data = 8'b11111111;
-                            data_in = {2'b10, write_register_address, write_register_data};
-                        end
-                        17: begin //24 - 31
-                            write_register_address = 17;
-                            write_register_data = 8'b11111111;
-                            data_in = {2'b10, write_register_address, write_register_data};
-                        end
-                        18: begin //32 - 39
-                            write_register_address = 18;
-                            write_register_data = 8'b11111111;
-                            data_in = {2'b10, write_register_address, write_register_data};
-                        end
-                        19: begin //40 - 47
-                            write_register_address = 19;
-                            write_register_data = 8'b11111111;
-                            data_in = {2'b10, write_register_address, write_register_data};
-                        end
-                        20: begin //48 - 55
-                            write_register_address = 20;
-                            write_register_data = 8'b11111111;
-                            data_in = {2'b10, write_register_address, write_register_data};
-                        end
-                        21: begin //56 - 63
-                            write_register_address = 21;
-                            write_register_data = 8'b11111111;
-                            data_in = {2'b10, write_register_address, write_register_data};
-                        end
-
-                        //power up amplifiers 0-63 end
-
-                        //initiate adc calibration start
-                        //at least 9 cycles of commands must follow calibration command before anything else happens
-                        22: begin
-                            data_in = adc_calibration_command;
-                        end
-                        23: begin
-                            read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = {2'b11, read_register_address, 8'd0};
-                        end
-                        24: begin
-                            read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = {2'b11, read_register_address, 8'd0};
-                        end
-                        25: begin
-                            read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = {2'b11, read_register_address, 8'd0};
-                        end
-                        26: begin
-                            read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = {2'b11, read_register_address, 8'd0};
-                        end
-                        27: begin
-                            read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = {2'b11, read_register_address, 8'd0};
-                        end
-                        28: begin
-                            read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = {2'b11, read_register_address, 8'd0};
-                        end
-                        29: begin
-                            read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = {2'b11, read_register_address, 8'd0};
-                        end
-                        30: begin
-                            read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = {2'b11, read_register_address, 8'd0};
-                        end
-                        31: begin
-                            read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = {2'b11, read_register_address, 8'd0};
-                        end
-                        32: begin
-                            read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = {2'b11, read_register_address, 8'd0};
-                        end
-                        //initiate adc calibration end
-
                         default: begin //by default send read intan id dummy commands
+                            U_FLAG = 1; //trigger all previous registers
+                            M_FLAG = 0;
                             read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = {2'b11, read_register_address, 8'd0};
+                            data_in_common = {2'b11, U_FLAG, M_FLAG, 4'd0, read_register_address, 16'd0};
                         end
                     endcase
+
+                    data_in_A = data_in_common;
+                    data_in_B = data_in_common;
+                    data_in_C = data_in_common;
+                    data_in_D = data_in_common;
+                    data_in_E = data_in_common;
+                    data_in_F = data_in_common;
+                    data_in_G = data_in_common;
+                    data_in_H = data_in_common;
+                    data_in_I = data_in_common;
+                    data_in_J = data_in_common;
+                    data_in_K = data_in_common;
+                    data_in_L = data_in_common;
+                    data_in_M = data_in_common;
+                    data_in_N = data_in_common;
+                    data_in_O = data_in_common;
+                    data_in_P = data_in_common;
 
                     if (done_all == 0)
                         state = CONFIG_DATA_TX;
 
+                end
+
+                CONFIG_DATA_TX: begin
+                    start = 1;
+                    state = CONFIG_DATA_RX;
+                end
+
+                CONFIG_DATA_RX: begin
+                    start = 0;
+                    if (&done_all)begin
+                        channel = channel + 1;
+                        if (channel == DEFAULT_CHANNELS)
+                            if (sampling_rate_20k_zcheck) begin //check if config was done because of normal recording or zcheck; latter means we enter zcheck next
+                                sampling_rate_20k_zcheck = 0;
+                                //data_in = 0;
+                                channel = 0;
+                                state = ZCHECK_CONFIG_DATA_LOAD;
+                            end
+                            else
+                                state = CONFIG_DONE;
+                        else
+                            state = CONFIG_DATA_LOAD;
+                    end
+                end
+
+                CONFIG_DONE: begin
+                    state = PRE_RESET;
                 end
                 
             endcase

@@ -63,7 +63,7 @@ module tb_rhs_256 ();
     localparam CHANNELS_PER_CHIP = 16;
 
 
-    wire [7:0] zcheck_chip_channel;
+    wire [3:0] zcheck_chip_channel;
     assign zcheck_chip_channel = zcheck_global_channel % CHANNELS_PER_CHIP;
 
     assign rhs_channel = zcheck_mode ? zcheck_chip_channel + 2 : rhs_channel_dut;
@@ -141,6 +141,142 @@ module tb_rhs_256 ();
         .rstn(rstn)
     );
 
+    rhs_spi_slave #(.STARTING_SEED(16)) B_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_B),
+        .MISO(MISO_B),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+    rhs_spi_slave #(.STARTING_SEED(32)) C_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_C),
+        .MISO(MISO_C),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+    rhs_spi_slave #(.STARTING_SEED(48)) D_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_D),
+        .MISO(MISO_D),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+    rhs_spi_slave #(.STARTING_SEED(64)) E_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_E),
+        .MISO(MISO_E),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+    rhs_spi_slave #(.STARTING_SEED(80)) F_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_F),
+        .MISO(MISO_F),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+    rhs_spi_slave #(.STARTING_SEED(96)) G_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_G),
+        .MISO(MISO_G),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+    rhs_spi_slave #(.STARTING_SEED(112)) H_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_H),
+        .MISO(MISO_H),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+    rhs_spi_slave #(.STARTING_SEED(128)) I_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_I),
+        .MISO(MISO_I),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+    rhs_spi_slave #(.STARTING_SEED(144)) J_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_J),
+        .MISO(MISO_J),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+    rhs_spi_slave #(.STARTING_SEED(160)) K_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_K),
+        .MISO(MISO_K),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+    rhs_spi_slave #(.STARTING_SEED(176)) L_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_L),
+        .MISO(MISO_L),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+    rhs_spi_slave #(.STARTING_SEED(192)) M_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_M),
+        .MISO(MISO_M),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+    rhs_spi_slave #(.STARTING_SEED(208)) N_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_N),
+        .MISO(MISO_N),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+    rhs_spi_slave #(.STARTING_SEED(224)) O_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_O),
+        .MISO(MISO_O),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+    rhs_spi_slave #(.STARTING_SEED(240)) P_slave(
+        .SCLK(SCLK),
+        .MOSI(MOSI_P),
+        .MISO(MISO_P),
+        .CS(CS),
+        .channel(rhs_channel),
+        .rstn(rstn)
+    );
+
+
     initial begin
         clk = 0;
         //forever #4.46 clk = ~clk; //112 MHz for effective 14.372 kS / s
@@ -166,12 +302,10 @@ module tb_rhs_256 ();
         
         */
 
-        /*
         config_start <= 1;
         #500
         config_start <= 0;
         #1000000
-        */
 
         /*
         record_start <= 1;
