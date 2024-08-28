@@ -101,7 +101,7 @@ module rhs_256 (
     localparam CHIPS_PER_PROBE = 2;
     localparam CHANNELS_PER_PROBE = CHANNELS_PER_CHIP * CHIPS_PER_PROBE;
 
-    reg DSP_OFFSET_REMOVAL = 1; //ADCs have offset removal for rapid recovery from transient
+
 
     reg start = 0;
 
@@ -174,12 +174,18 @@ module rhs_256 (
 
     reg [5:0] read_register_address = 0;
     wire [7:0] read_register_data = 0;
-    
-    wire [15:0] adc_convert_command;
-    assign adc_convert_command = {2'd0, channel[5:0], 7'd0, DSP_OFFSET_REMOVAL};
 
-    wire [15:0] adc_calibration_command;
-    assign adc_calibration_command = 16'b0101010100000000;
+
+    reg U_FLAG = 0; //updates all triggered registers to new values that were previously programmed
+    reg M_FLAG = 0; //set to one to clear compliance monitor register 40
+    reg D_FLAG = 0; //sample DC low gain amp, lower 10 bits of result
+    reg H_FLAG = 1; //ADCs have offset removal for rapid recovery from transient, do not change
+    
+    wire [31:0] adc_convert_command;
+    assign adc_convert_command = {2'b0, 1'b0, 1'b0, 1'b0, H_FLAG, 4'b0, channel[5:0], 16'b0};
+
+    wire [31:0] adc_calibration_command;
+    assign adc_calibration_command = 32'01010101000000000000000000000000;
 
     reg [31:0] data_in_A = 0;
     reg [31:0] data_in_B = 0;
@@ -473,7 +479,22 @@ module rhs_256 (
                 end
 
                 RESET: begin
-                    data_in = 0;
+                    data_in_A = 0;
+                    data_in_B = 0;
+                    data_in_C = 0;
+                    data_in_D = 0;
+                    data_in_E = 0;
+                    data_in_F = 0;
+                    data_in_G = 0;
+                    data_in_H = 0;
+                    data_in_I = 0;
+                    data_in_J = 0;
+                    data_in_K = 0;
+                    data_in_L = 0;
+                    data_in_M = 0;
+                    data_in_N = 0;
+                    data_in_O = 0;
+                    data_in_P = 0;
                     start = 0;
                     channel = 0;
                     data_out = 0;
@@ -487,9 +508,6 @@ module rhs_256 (
                 end
 
                 READY: begin
-                    data_in = 0;
-                    start = 0;
-                    channel = 0;
                     if (config_start)
                         state = CONFIG_DATA_LOAD;
                     else if (record_start)
@@ -498,398 +516,6 @@ module rhs_256 (
                         sampling_rate_20k_zcheck = 1;
                         state = CONFIG_DATA_LOAD;
                     end
-                end
-
-                ZCHECK_CONFIG_DATA_LOAD: begin
-
-                    start = 0;
-                    //note amps saturate at +- 5mV, so 5nA across 1Mohm electrode will create 5mV
-
-                    case(channel)
-                        //zcheck config start
-                        0: begin //zcheck control
-                            write_register_address = 5;
-                            write_register_data = {3'b010, zcheck_scale, 3'b001};
-                            data_in = {2'b10, write_register_address, write_register_data};
-                        end
-                        1: begin //zcheck amp select
-                            write_register_address = 7;
-                            write_register_data = {2'b00, zcheck_chip_channel};
-                            data_in = {2'b10, write_register_address, write_register_data};
-                        end
-                        default: begin //by default send read intan id dummy commands
-                            read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = {2'b11, read_register_address, 8'd0};
-                        end
-                        //zcheck config end
-                    endcase
-
-                    if (done_all == 0)
-                        state = ZCHECK_CONFIG_DATA_TX;
-
-                end
-
-                ZCHECK_CONFIG_DATA_TX: begin
-                    start = 1;
-                    state = ZCHECK_CONFIG_DATA_RX;
-                end
-
-                ZCHECK_CONFIG_DATA_RX: begin
-                    start = 0;
-                    if (&done_all)begin
-                        channel = channel + 1;
-                        if (channel == DEFAULT_CHANNELS) begin
-                            state = ZCHECK_REC_DATA_LOAD;
-                            channel = 0;
-                        end
-                        else
-                            state = ZCHECK_CONFIG_DATA_LOAD;
-                    end
-                end
-
-                ZCHECK_REC_DATA_LOAD: begin
-
-                    start = 0;
-
-                    case(channel)
-
-                        0: begin
-
-                            case (zcheck_dac_command_counter)
-                                0:          begin zcheck_dac_command <= 8'b10000000;   end
-                                1:          begin zcheck_dac_command <= 8'b10100111;   end
-                                2:          begin zcheck_dac_command <= 8'b11001011;   end
-                                3:          begin zcheck_dac_command <= 8'b11100111;   end
-                                4:          begin zcheck_dac_command <= 8'b11111001;   end
-                                5:          begin zcheck_dac_command <= 8'b11111111;   end
-                                6:          begin zcheck_dac_command <= 8'b11111001;   end
-                                7:          begin zcheck_dac_command <= 8'b11100111;   end
-                                8:          begin zcheck_dac_command <= 8'b11001011;   end
-                                9:          begin zcheck_dac_command <= 8'b10100111;   end
-                                10:         begin zcheck_dac_command <= 8'b10000000;   end
-                                11:         begin zcheck_dac_command <= 8'b01011001;   end
-                                12:         begin zcheck_dac_command <= 8'b00110101;   end
-                                13:         begin zcheck_dac_command <= 8'b00011001;   end
-                                14:         begin zcheck_dac_command <= 8'b00000111;   end
-                                15:         begin zcheck_dac_command <= 8'b00000001;   end
-                                16:         begin zcheck_dac_command <= 8'b00000111;   end
-                                17:         begin zcheck_dac_command <= 8'b00011001;   end
-                                18:         begin zcheck_dac_command <= 8'b00110101;   end
-                                19:         begin zcheck_dac_command <= 8'b01011001;   end          
-                                default:    begin zcheck_dac_command <= 8'b00000000;   end 
-                            endcase
-
-                            write_register_address = 6;
-                            write_register_data = zcheck_dac_command;
-                            data_in = {2'b10, write_register_address, write_register_data};
-                        end
-
-                        1: begin
-                            data_in = adc_convert_zcheck_command;
-                        end
-
-                        default: begin //by default send read intan id dummy commands
-                            read_register_address = INTAN_CHIP_ID_REG;
-                            data_in = {2'b11, read_register_address, 8'd0};
-                        end
-
-                    endcase
-
-                    if (done_all == 0)
-                        state = ZCHECK_REC_DATA_TX;
-
-                end
-
-                ZCHECK_REC_DATA_TX: begin
-                    start = 1;
-                    state = ZCHECK_REC_DATA_RX;
-                end
-
-                ZCHECK_REC_DATA_RX: begin
-
-                    zcheck_data_sample_debug = 0;
-                    start = 0;
-
-                    if (&done_all) begin
-
-                        if (channel == SPI_CONVERT_DELAY + 1) begin
-                            zcheck_data_sample_debug = 1;
-
-                            case(zcheck_probe_select)
-
-                                0: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_A1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_A1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_A2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_A2;
-                                    end
-                                end
-
-                                1: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_B1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_B1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_B2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_B2;
-                                    end
-                                end
-
-                                2: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_C1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_C1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_C2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_C2;
-                                    end
-                                end
-
-                                3: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_D1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_D1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_D2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_D2;
-                                    end
-                                end
-
-                                4: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_E1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_E1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_E2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_E2;
-                                    end
-                                end
-
-                                5: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_F1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_F1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_F2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_F2;
-                                    end
-                                end
-
-                                6: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_G1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_G1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_G2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_G2;
-                                    end
-                                end
-
-                                7: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_H1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_H1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_H2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_H2;
-                                    end
-                                end
-
-                                8: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_I1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_I1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_I2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_I2;
-                                    end
-                                end
-
-                                9: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_J1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_J1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_J2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_J2;
-                                    end
-                                end
-
-                                10: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_K1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_K1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_K2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_K2;
-                                    end
-                                end
-
-                                11: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_L1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_L1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_L2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_L2;
-                                    end
-                                end
-
-                                12: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_M1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_M1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_M2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_M2;
-                                    end
-                                end
-
-                                13: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_N1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_N1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_N2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_N2;
-                                    end
-                                end
-
-                                14: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_O1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_O1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_O2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_O2;
-                                    end
-                                end
-
-                                15: begin
-                                    if (zcheck_chip_select == 0) begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_P1;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_P1;
-                                    end
-                                    else begin
-                                        if (zcheck_adc_select == 0)
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_P2;
-                                        else
-                                            zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_P2;
-                                    end
-                                end
-                            endcase
-
-                        end
-                    
-                        channel = channel + 1;
-
-                        if (channel == ZCHECK_COMMAND_SLOTS_PER_PERIOD) begin
-
-                            channel = 0;
-
-                            if (zcheck_dac_command_counter == ZCHECK_SINE_WAVE_NUM_COMMANDS - 1) begin
-                                zcheck_dac_command_counter = 0;
-                                zcheck_cycle_counter = zcheck_cycle_counter - 1;
-
-                                
-
-                            end
-                            else begin
-                                zcheck_dac_command_counter = zcheck_dac_command_counter + 1;
-                            end
-
-                        end
-
-                        if (zcheck_cycle_counter == 0) 
-                            state = ZCHECK_DONE;
-                        else
-                            state = ZCHECK_REC_DATA_LOAD;
-
-                    end
-
-                end
-
-                ZCHECK_DONE: begin
-                    state = PRE_RESET;
                 end
 
                 CONFIG_DATA_LOAD: begin
@@ -1072,151 +698,7 @@ module rhs_256 (
                         state = CONFIG_DATA_TX;
 
                 end
-
-                CONFIG_DATA_TX: begin
-                    start = 1;
-                    state = CONFIG_DATA_RX;
-                end
-
-                CONFIG_DATA_RX: begin
-                    start = 0;
-                    if (&done_all)begin
-                        channel = channel + 1;
-                        if (channel == DEFAULT_CHANNELS)
-                            if (sampling_rate_20k_zcheck) begin //check if config was done because of normal recording or zcheck; latter means we enter zcheck next
-                                sampling_rate_20k_zcheck = 0;
-                                data_in = 0;
-                                channel = 0;
-                                state = ZCHECK_CONFIG_DATA_LOAD;
-                            end
-                            else
-                                state = CONFIG_DONE;
-                        else
-                            state = CONFIG_DATA_LOAD;
-                    end
-                end
-
-                CONFIG_DONE: begin
-                    state = PRE_RESET;
-                end
-
-                REC_DATA_LOAD: begin
-
-                    if (channel < CHANNELS_PER_ADC)
-                        data_in = adc_convert_command;
-                    else begin
-                        read_register_address = INTAN_CHIP_ID_REG;
-                        data_in = {2'b11, read_register_address, 8'd0};
-                    end
-
-                    start = 0;
-                    if (done_all == 0)
-                        state = REC_DATA_TX;
-                end
-
-                REC_DATA_TX: begin
-                    start = 1;
-                    state = REC_DATA_RX;
-                end
-
-                REC_DATA_RX: begin
-                    start = 0;
-                    if (&done_all) begin
-                        if (channel < CHANNELS_PER_ADC + SPI_CONVERT_DELAY && channel >= SPI_CONVERT_DELAY) begin
-
-                            data_out[((0 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_A1;
-                            data_out[((1 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_A1;
-                            data_out[((2 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_A2;
-                            data_out[((3 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_A2;
-                            
-                            data_out[((4 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_B1;
-                            data_out[((5 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_B1;
-                            data_out[((6 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_B2;
-                            data_out[((7 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_B2;
-
-                            data_out[((8 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_C1;
-                            data_out[((9 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_C1;
-                            data_out[((10 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_C2;
-                            data_out[((11 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_C2;
-
-                            data_out[((12 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_D1;
-                            data_out[((13 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_D1;
-                            data_out[((14 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_D2;
-                            data_out[((15 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_D2;
-
-                            data_out[((16 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_E1;
-                            data_out[((17 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_E1;
-                            data_out[((18 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_E2;
-                            data_out[((19 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_E2;
-                            
-                            data_out[((20 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_F1;
-                            data_out[((21 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_F1;
-                            data_out[((22 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_F2;
-                            data_out[((23 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_F2;
-
-                            data_out[((24 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_G1;
-                            data_out[((25 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_G1;
-                            data_out[((26 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_G2;
-                            data_out[((27 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_G2;
-
-                            data_out[((28 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_H1;
-                            data_out[((29 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_H1;
-                            data_out[((30 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_H2;
-                            data_out[((31 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_H2;
-
-                            data_out[((32 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_I1;
-                            data_out[((33 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_I1;
-                            data_out[((34 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_I2;
-                            data_out[((35 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_I2;
-                            
-                            data_out[((36 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_J1;
-                            data_out[((37 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_J1;
-                            data_out[((38 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_J2;
-                            data_out[((39 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_J2;
-
-                            data_out[((40 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_K1;
-                            data_out[((41 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_K1;
-                            data_out[((42 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_K2;
-                            data_out[((43 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_K2;
-
-                            data_out[((44 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_L1;
-                            data_out[((45 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_L1;
-                            data_out[((46 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_L2;
-                            data_out[((47 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_L2;
-
-                            data_out[((48 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_M1;
-                            data_out[((49 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_M1;
-                            data_out[((50 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_M2;
-                            data_out[((51 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_M2;
-                            
-                            data_out[((52 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_N1;
-                            data_out[((53 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_N1;
-                            data_out[((54 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_N2;
-                            data_out[((55 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_N2;
-
-                            data_out[((56 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_O1;
-                            data_out[((57 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_O1;
-                            data_out[((58 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_O2;
-                            data_out[((59 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_O2;
-
-                            data_out[((60 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_P1;
-                            data_out[((61 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_P1;
-                            data_out[((62 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_a_P2;
-                            data_out[((63 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_b_P2;
-                            
-                        end
-                        channel = channel + 1;
-                        if (channel == DEFAULT_CHANNELS)
-                            state = REC_DONE;
-                        else
-                            state = REC_DATA_LOAD;
-                    end
-
-                end
-
-                REC_DONE: begin
-                    state = PRE_RESET;
-                end
+                
             endcase
         end
 

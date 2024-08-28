@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_rhs_256_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_rhs_256" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="3,125.001 ns"></ZoomEndTime>
+      <Cursor1Time time="500.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="283"></NameColumnWidth>
+      <ValueColumnWidth column_width="251"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="17" />
+   <wvobject fp_name="/tb_rhs_256/dut/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/config_start" type="logic">
+      <obj_property name="ElementShortName">config_start</obj_property>
+      <obj_property name="ObjectShortName">config_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/record_start" type="logic">
+      <obj_property name="ElementShortName">record_start</obj_property>
+      <obj_property name="ObjectShortName">record_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/zcheck_start" type="logic">
+      <obj_property name="ElementShortName">zcheck_start</obj_property>
+      <obj_property name="ObjectShortName">zcheck_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/zcheck_global_channel" type="array">
+      <obj_property name="ElementShortName">zcheck_global_channel[11:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_global_channel[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/zcheck_scale" type="array">
+      <obj_property name="ElementShortName">zcheck_scale[1:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_scale[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/zcheck_data_out" type="array">
+      <obj_property name="ElementShortName">zcheck_data_out[2559:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_data_out[2559:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/busy" type="logic">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/CS" type="logic">
+      <obj_property name="ElementShortName">CS</obj_property>
+      <obj_property name="ObjectShortName">CS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/SCLK" type="logic">
+      <obj_property name="ElementShortName">SCLK</obj_property>
+      <obj_property name="ObjectShortName">SCLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_A" type="logic">
+      <obj_property name="ElementShortName">MOSI_A</obj_property>
+      <obj_property name="ObjectShortName">MOSI_A</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MISO_A" type="logic">
+      <obj_property name="ElementShortName">MISO_A</obj_property>
+      <obj_property name="ObjectShortName">MISO_A</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/channel_out" type="array">
+      <obj_property name="ElementShortName">channel_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">channel_out[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/data_out_slice_debug" type="array">
+      <obj_property name="ElementShortName">data_out_slice_debug[511:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out_slice_debug[511:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/state" type="array">
+      <obj_property name="ElementShortName">state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">state[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>
