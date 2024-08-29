@@ -19,7 +19,7 @@ module rhs_256 (
     output reg [2559:0] zcheck_data_out,
     //16 * 20 * 8 = 2560
     //this is 8 cycles of 1kHz sine at 20 kS/s for one channel
-    //depending on the zcheck channel, this will be 8 sine cycles of zcheck recording for all 32 rhd chips for 16-probe system
+    //depending on the zcheck channel, this will be 8 sine cycles of zcheck recording for all 16 rhs chips for 16-probe system
 
 
     output wire busy,
@@ -132,8 +132,6 @@ module rhs_256 (
     reg [7:0] zcheck_dac_command = 0;
     wire [5:0] zcheck_chip_channel; //0 - 15
     assign zcheck_chip_channel = zcheck_global_channel % CHANNELS_PER_CHIP;
-
-    reg [15:0] zcheck_adc_sample = 0;
 
     wire [4:0] zcheck_probe_select;
     assign zcheck_probe_select = zcheck_global_channel / CHANNELS_PER_PROBE;
@@ -485,7 +483,6 @@ module rhs_256 (
                     zcheck_dac_command = 0;
                     zcheck_data_sample_debug = 0;
                     zcheck_data_out = 0;
-                    zcheck_adc_sample = 0;
                     state = READY;
                 end
 
@@ -495,7 +492,7 @@ module rhs_256 (
                     else if (record_start)
                         state = REC_DATA_LOAD;
                     else if (zcheck_start) begin
-                        state = CONFIG_DATA_LOAD;
+                        state = ZCHECK_CONFIG_DATA_LOAD;
                     end
                 end
 
@@ -516,7 +513,7 @@ module rhs_256 (
                             U_FLAG = 0;
                             M_FLAG = 0;
                             write_register_address = 3;
-                            zcheck_dac_command = 0 //set dac output to 0V
+                            zcheck_dac_command = 0; //set dac output to 0V
                             write_register_data = {8'b0, zcheck_dac_command};
                             data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
@@ -661,52 +658,52 @@ module rhs_256 (
                             case(zcheck_probe_select)
 
                                 0: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_A;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_A[31:16];
                                 end
                                 1: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_B;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_B[31:16];
                                 end
                                 2: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_C;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_C[31:16];
                                 end
                                 3: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_D;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_D[31:16];
                                 end
                                 4: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_E;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_E[31:16];
                                 end
                                 5: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_F;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_F[31:16];
                                 end
                                 6: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_G;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_G[31:16];
                                 end
                                 7: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_H;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_H[31:16];
                                 end
                                 8: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_I;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_I[31:16];
                                 end
                                 9: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_J;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_J[31:16];
                                 end
                                 10: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_K;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_K[31:16];
                                 end
                                 11: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_L;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_L[31:16];
                                 end
                                 12: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_M;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_M[31:16];
                                 end
                                 13: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_N;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_N[31:16];
                                 end
                                 14: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_O;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_O[31:16];
                                 end
                                 15: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_P;
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_P[31:16];
                                 end
 
                             endcase

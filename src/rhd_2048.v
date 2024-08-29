@@ -169,8 +169,6 @@ module rhd_2048 (
     wire zcheck_chip_select;
     assign zcheck_chip_select = (zcheck_global_channel % CHANNELS_PER_PROBE) / CHANNELS_PER_CHIP; //select chip X1 (0) or X2 (1)
 
-    reg [15:0] zcheck_adc_sample = 0;
-
 
     wire [5:0] zcheck_adc_channel;
     assign zcheck_adc_channel = zcheck_chip_channel % CHANNELS_PER_ADC;
@@ -832,7 +830,6 @@ module rhd_2048 (
                     zcheck_data_sample_debug = 0;
                     sampling_rate_20k_zcheck = 0;
                     zcheck_data_out = 0;
-                    zcheck_adc_sample = 0;
                     state = READY;
                 end
 
