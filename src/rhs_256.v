@@ -6,7 +6,7 @@ module rhs_256 (
     input wire record_start,
     input wire zcheck_start,
 
-    input wire [11:0] zcheck_global_channel, //0 - 2047, zcheck one channel at a time
+    input wire [11:0] zcheck_global_channel, //0 - 255, zcheck one channel at a time
     input wire [1:0] zcheck_scale,
     //(binary) = (cap)(current amplitude at 1 kHz sine wave) (max voltage for 1 Mohm electrode)
     //00 = 0.1pF 0.38nA 0.38mV
@@ -81,10 +81,7 @@ module rhs_256 (
     input wire MISO_O,
     input wire MISO_P,
 
-    output wire [7:0] channel_out,
-
-    input wire sampling_rate_20k //manual toggle between 2.5k or 20k sampling rate needed for proper bandwidth config
-
+    output wire [7:0] channel_out
 );
 
     localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4, CONFIG_DATA_LOAD = 5, CONFIG_DATA_TX = 6, CONFIG_DATA_RX = 7, CONFIG_DONE = 8, ZCHECK_CONFIG_DATA_LOAD = 9, ZCHECK_CONFIG_DATA_TX = 10, ZCHECK_CONFIG_DATA_RX = 11, ZCHECK_REC_DATA_LOAD = 12, ZCHECK_REC_DATA_TX = 13, ZCHECK_REC_DATA_RX = 14, ZCHECK_DONE = 15, RESET = 16, PRE_RESET = 17;
@@ -105,7 +102,7 @@ module rhs_256 (
     reg U_FLAG = 0; //updates all triggered registers to new values that were previously programmed
     reg M_FLAG = 0; //set to one to clear compliance monitor register 40
     reg D_FLAG = 0; //sample DC low gain amp, lower 10 bits of result
-    reg H_FLAG = 1; //ADCs have offset removal for rapid recovery from transient, do not change
+    reg H_FLAG = 0; //ADCs have offset removal for rapid recovery from transient, do not change
     
 
     reg start = 0;
@@ -133,7 +130,7 @@ module rhs_256 (
     localparam ZCHECK_SINE_WAVE_NUM_COMMANDS = 20;
     reg [4:0] zcheck_dac_command_counter = 0;
     reg [7:0] zcheck_dac_command = 0;
-    wire [5:0] zcheck_chip_channel;
+    wire [5:0] zcheck_chip_channel; //0 - 15
     assign zcheck_chip_channel = zcheck_global_channel % CHANNELS_PER_CHIP;
 
     reg [15:0] zcheck_adc_sample = 0;
@@ -143,7 +140,7 @@ module rhs_256 (
 
 
     wire [31:0] adc_convert_zcheck_command;
-    assign adc_convert_command = {2'b0, 1'b0, 1'b0, 1'b0, H_FLAG, 4'b0, zcheck_chip_channel[5:0], 16'b0};
+    assign adc_convert_zcheck_command = {2'b0, 1'b0, 1'b0, 1'b0, H_FLAG, 4'b0, zcheck_chip_channel[5:0], 16'b0};
 
     wire [7:0] zcheck_data_gather_index;
     assign zcheck_data_gather_index = zcheck_dac_command_counter + ZCHECK_SINE_WAVE_NUM_COMMANDS * (ZCHECK_CYCLES - zcheck_cycle_counter);
@@ -154,11 +151,6 @@ module rhs_256 (
 
     wire [7:0] data_gather_index;
     assign data_gather_index = channel - 2;
-
-    reg sampling_rate_20k_zcheck = 0;
-
-    wire high_sampling_rate; //for config of amp bandwidths
-    assign high_sampling_rate = sampling_rate_20k || sampling_rate_20k_zcheck; //either high cut off is required for high fs of normal recording or by nature of zcheck mode
 
     wire [511:0] data_out_slice_debug;
     assign data_out_slice_debug = data_out[(32767):(32256)];
@@ -492,7 +484,6 @@ module rhs_256 (
                     zcheck_cycle_counter = ZCHECK_CYCLES;
                     zcheck_dac_command = 0;
                     zcheck_data_sample_debug = 0;
-                    sampling_rate_20k_zcheck = 0;
                     zcheck_data_out = 0;
                     zcheck_adc_sample = 0;
                     state = READY;
@@ -504,9 +495,253 @@ module rhs_256 (
                     else if (record_start)
                         state = REC_DATA_LOAD;
                     else if (zcheck_start) begin
-                        sampling_rate_20k_zcheck = 1;
                         state = CONFIG_DATA_LOAD;
                     end
+                end
+
+                ZCHECK_CONFIG_DATA_LOAD: begin
+
+                    start = 0;
+                    //note amps saturate at +- 5mV, so 5nA across 1Mohm electrode will create 5mV
+
+                    case(channel)
+                        0: begin //zcheck control
+                            U_FLAG = 0;
+                            M_FLAG = 0;
+                            write_register_address = 2;
+                            write_register_data = {2'b0, zcheck_chip_channel, 1'b0, 1'b1, 1'b0, zcheck_scale, 2'b0, 1'b1}; //enable zcheck dac, set scale, set channel connected to dac
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                        end
+                        1: begin //zcheck dac control
+                            U_FLAG = 0;
+                            M_FLAG = 0;
+                            write_register_address = 3;
+                            zcheck_dac_command = 0 //set dac output to 0V
+                            write_register_data = {8'b0, zcheck_dac_command};
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                        end
+                        default: begin //by default send read intan id dummy commands
+                            U_FLAG = 1; //trigger all previous registers
+                            M_FLAG = 0;
+                            read_register_address = INTAN_CHIP_ID_REG;
+                            data_in_common = {2'b11, U_FLAG, M_FLAG, 4'd0, read_register_address, 16'd0};
+                        end
+                    endcase
+
+                    data_in_A = data_in_common;
+                    data_in_B = data_in_common;
+                    data_in_C = data_in_common;
+                    data_in_D = data_in_common;
+                    data_in_E = data_in_common;
+                    data_in_F = data_in_common;
+                    data_in_G = data_in_common;
+                    data_in_H = data_in_common;
+                    data_in_I = data_in_common;
+                    data_in_J = data_in_common;
+                    data_in_K = data_in_common;
+                    data_in_L = data_in_common;
+                    data_in_M = data_in_common;
+                    data_in_N = data_in_common;
+                    data_in_O = data_in_common;
+                    data_in_P = data_in_common;
+
+                    if (done_all == 0)
+                        state = ZCHECK_CONFIG_DATA_TX;
+
+                end
+
+                ZCHECK_CONFIG_DATA_TX: begin
+                    start = 1;
+                    state = ZCHECK_CONFIG_DATA_RX;
+                end
+
+                ZCHECK_CONFIG_DATA_RX: begin
+                    start = 0;
+                    if (&done_all)begin
+                        channel = channel + 1;
+                        if (channel == DEFAULT_CHANNELS) begin
+                            state = ZCHECK_REC_DATA_LOAD;
+                            channel = 0;
+                        end
+                        else
+                            state = ZCHECK_CONFIG_DATA_LOAD;
+                    end
+                end
+
+                ZCHECK_REC_DATA_LOAD: begin
+
+                    start = 0;
+
+                    case(channel)
+
+                        0: begin
+
+                            case (zcheck_dac_command_counter)
+                                0:          begin zcheck_dac_command <= 8'b10000000;   end
+                                1:          begin zcheck_dac_command <= 8'b10100111;   end
+                                2:          begin zcheck_dac_command <= 8'b11001011;   end
+                                3:          begin zcheck_dac_command <= 8'b11100111;   end
+                                4:          begin zcheck_dac_command <= 8'b11111001;   end
+                                5:          begin zcheck_dac_command <= 8'b11111111;   end
+                                6:          begin zcheck_dac_command <= 8'b11111001;   end
+                                7:          begin zcheck_dac_command <= 8'b11100111;   end
+                                8:          begin zcheck_dac_command <= 8'b11001011;   end
+                                9:          begin zcheck_dac_command <= 8'b10100111;   end
+                                10:         begin zcheck_dac_command <= 8'b10000000;   end
+                                11:         begin zcheck_dac_command <= 8'b01011001;   end
+                                12:         begin zcheck_dac_command <= 8'b00110101;   end
+                                13:         begin zcheck_dac_command <= 8'b00011001;   end
+                                14:         begin zcheck_dac_command <= 8'b00000111;   end
+                                15:         begin zcheck_dac_command <= 8'b00000001;   end
+                                16:         begin zcheck_dac_command <= 8'b00000111;   end
+                                17:         begin zcheck_dac_command <= 8'b00011001;   end
+                                18:         begin zcheck_dac_command <= 8'b00110101;   end
+                                19:         begin zcheck_dac_command <= 8'b01011001;   end          
+                                default:    begin zcheck_dac_command <= 8'b00000000;   end 
+                            endcase
+
+                            U_FLAG = 0;
+                            M_FLAG = 0;
+                            write_register_address = 3;
+                            write_register_data = {8'b0, zcheck_dac_command};
+                            data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+
+                        end
+
+                        1: begin
+                            data_in_common = adc_convert_zcheck_command;
+                        end
+
+                        default: begin //by default send read intan id dummy commands
+                            U_FLAG = 1; //trigger all previous registers
+                            M_FLAG = 0;
+                            read_register_address = INTAN_CHIP_ID_REG;
+                            data_in_common = {2'b11, U_FLAG, M_FLAG, 4'd0, read_register_address, 16'd0};
+                        end
+
+                    endcase
+
+                    data_in_A = data_in_common;
+                    data_in_B = data_in_common;
+                    data_in_C = data_in_common;
+                    data_in_D = data_in_common;
+                    data_in_E = data_in_common;
+                    data_in_F = data_in_common;
+                    data_in_G = data_in_common;
+                    data_in_H = data_in_common;
+                    data_in_I = data_in_common;
+                    data_in_J = data_in_common;
+                    data_in_K = data_in_common;
+                    data_in_L = data_in_common;
+                    data_in_M = data_in_common;
+                    data_in_N = data_in_common;
+                    data_in_O = data_in_common;
+                    data_in_P = data_in_common;
+
+                    if (done_all == 0)
+                        state = ZCHECK_REC_DATA_TX;
+
+                end
+
+                ZCHECK_REC_DATA_TX: begin
+                    start = 1;
+                    state = ZCHECK_REC_DATA_RX;
+                end
+
+                ZCHECK_REC_DATA_RX: begin
+
+                    zcheck_data_sample_debug = 0;
+                    start = 0;
+
+                    if (&done_all) begin
+
+                        if (channel == SPI_CONVERT_DELAY + 1) begin
+                            zcheck_data_sample_debug = 1;
+
+                            case(zcheck_probe_select)
+
+                                0: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_A;
+                                end
+                                1: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_B;
+                                end
+                                2: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_C;
+                                end
+                                3: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_D;
+                                end
+                                4: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_E;
+                                end
+                                5: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_F;
+                                end
+                                6: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_G;
+                                end
+                                7: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_H;
+                                end
+                                8: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_I;
+                                end
+                                9: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_J;
+                                end
+                                10: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_K;
+                                end
+                                11: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_L;
+                                end
+                                12: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_M;
+                                end
+                                13: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_N;
+                                end
+                                14: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_O;
+                                end
+                                15: begin
+                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_P;
+                                end
+
+                            endcase
+
+                        end
+                    
+                        channel = channel + 1;
+
+                        if (channel == ZCHECK_COMMAND_SLOTS_PER_PERIOD) begin
+
+                            channel = 0;
+
+                            if (zcheck_dac_command_counter == ZCHECK_SINE_WAVE_NUM_COMMANDS - 1) begin
+                                zcheck_dac_command_counter = 0;
+                                zcheck_cycle_counter = zcheck_cycle_counter - 1;
+
+
+                            end
+                            else begin
+                                zcheck_dac_command_counter = zcheck_dac_command_counter + 1;
+                            end
+
+                        end
+
+                        if (zcheck_cycle_counter == 0) 
+                            state = ZCHECK_DONE;
+                        else
+                            state = ZCHECK_REC_DATA_LOAD;
+
+                    end
+
+                end
+
+                ZCHECK_DONE: begin
+                    state = PRE_RESET;
                 end
 
                 CONFIG_DATA_LOAD: begin
@@ -552,7 +787,7 @@ module rhs_256 (
                             U_FLAG = 0;
                             M_FLAG = 0;
                             write_register_address = 1;
-                            write_register_data = 16'h051A; //0 1 0 1 0 0 0 1 1 010 digout 1 and 2 are driven to aux outs, driven to high, enable twos complement
+                            write_register_data = {8'b0,1'b1,7'b0}; //disable everything but enable weak miso, adc format is unsigned, not 2's comp
                             data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
                         6: begin //zcheck control
@@ -679,14 +914,7 @@ module rhs_256 (
                     if (&done_all)begin
                         channel = channel + 1;
                         if (channel == DEFAULT_CHANNELS)
-                            if (sampling_rate_20k_zcheck) begin //check if config was done because of normal recording or zcheck; latter means we enter zcheck next
-                                sampling_rate_20k_zcheck = 0;
-                                //data_in = 0;
-                                channel = 0;
-                                state = ZCHECK_CONFIG_DATA_LOAD;
-                            end
-                            else
-                                state = CONFIG_DONE;
+                            state = CONFIG_DONE;
                         else
                             state = CONFIG_DATA_LOAD;
                     end

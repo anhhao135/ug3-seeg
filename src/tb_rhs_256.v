@@ -12,8 +12,6 @@ module tb_rhs_256 ();
     reg record_start = 0;
     reg zcheck_start = 0;
 
-    reg sampling_rate_20k = 0;
-
     reg [7:0] oversample_offset = 0;
 
     wire SCLK;
@@ -127,8 +125,7 @@ module tb_rhs_256 ();
         .MISO_M(MISO_M),
         .MISO_N(MISO_N),
         .MISO_O(MISO_O),
-        .MISO_P(MISO_P),
-        .sampling_rate_20k(sampling_rate_20k)
+        .MISO_P(MISO_P)
     );
 
 

@@ -132,7 +132,7 @@ module rhd_2048 (
     localparam CHIPS_PER_PROBE = 2;
     localparam CHANNELS_PER_PROBE = CHANNELS_PER_CHIP * CHIPS_PER_PROBE;
 
-    reg DSP_OFFSET_REMOVAL = 1; //ADCs have offset removal for rapid recovery from transient
+    reg DSP_OFFSET_REMOVAL = 0; //ADCs have offset removal for rapid recovery from transient, but we will not use it
 
     reg [15:0] data_in = 0;
     reg start = 0;
@@ -1248,9 +1248,9 @@ module rhd_2048 (
                     
                     case(channel)
                         //general config start
-                        0: begin //adc config and amp fast settle switch
+                        0: begin //adc config and amp analog fast settle switch
                             write_register_address = 0;
-                            write_register_data = 8'b11011110;
+                            write_register_data = 8'b11011110; //open fast settle switch
                             data_in = {2'b10, write_register_address, write_register_data};
                         end
                         1: begin //supply sensor and adc buffer bias current
@@ -1270,7 +1270,7 @@ module rhd_2048 (
                         end
                         4: begin //adc output format and dsp offset removal
                             write_register_address = 4;
-                            write_register_data = 8'b11000000; //weak MISO and two's complement format, no DSP
+                            write_register_data = 8'b10000000; //weak MISO and no two's complement format, no DSP
                             data_in = {2'b10, write_register_address, write_register_data};
                         end
                         5: begin //zcheck control power

@@ -2,7 +2,7 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/clock_divider
 INFO: [VRFC 10-311] analyzing module clock_divider
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhs_256.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module rhs_256
-WARNING: [VRFC 10-2938] 'adc_convert_command' is already implicitly declared on line 146 [C:/Repos/ug3-seeg/src/rhs_256.v:172]
+WARNING: [VRFC 10-2938] 'adc_convert_command' is already implicitly declared on line 143 [C:/Repos/ug3-seeg/src/rhs_256.v:164]
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhs_spi_master.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module rhs_spi_master
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhs_spi_slave.v" into library xil_defaultlib
