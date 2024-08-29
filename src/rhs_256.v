@@ -42,7 +42,7 @@ module rhs_256 (
     input wire [7:0] oversample_offset_O,
     input wire [7:0] oversample_offset_P,
 
-    output reg[32767:0] data_out, //1 sample of all 2048 channels
+    output reg[4095:0] data_out, //1 sample of all 2048 channels
 
     output wire CS,
     output wire SCLK,
@@ -84,7 +84,7 @@ module rhs_256 (
     output wire [7:0] channel_out
 );
 
-    localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4, CONFIG_DATA_LOAD = 5, CONFIG_DATA_TX = 6, CONFIG_DATA_RX = 7, CONFIG_DONE = 8, ZCHECK_CONFIG_DATA_LOAD = 9, ZCHECK_CONFIG_DATA_TX = 10, ZCHECK_CONFIG_DATA_RX = 11, ZCHECK_REC_DATA_LOAD = 12, ZCHECK_REC_DATA_TX = 13, ZCHECK_REC_DATA_RX = 14, ZCHECK_DONE = 15, RESET = 16, PRE_RESET = 17;
+    localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4, CONFIG_DATA_LOAD = 5, CONFIG_DATA_TX = 6, CONFIG_DATA_RX = 7, CONFIG_DONE = 8, ZCHECK_CONFIG_DATA_LOAD = 9, ZCHECK_CONFIG_DATA_TX = 10, ZCHECK_CONFIG_DATA_RX = 11, ZCHECK_REC_DATA_LOAD = 12, ZCHECK_REC_DATA_TX = 13, ZCHECK_REC_DATA_RX = 14, ZCHECK_DONE = 15, RESET = 16, PRE_RESET = 17, STIM_CONFIG_DATA_LOAD = 18, STIM_CONFIG_DATA_TX = 19, STIM_CONFIG_DATA_RX = 20;    
 
     localparam DEFAULT_CHANNELS = 40; //34 recording channels + 6 for other commands
 
@@ -151,7 +151,7 @@ module rhs_256 (
     assign data_gather_index = channel - 2;
 
     wire [511:0] data_out_slice_debug;
-    assign data_out_slice_debug = data_out[(32767):(32256)];
+    assign data_out_slice_debug = data_out[(4095 - 512):(3584 - 512)]; //debug last 32 channels
 
     reg [7:0] write_register_address = 0;
     reg [15:0] write_register_data = 0;
@@ -494,6 +494,80 @@ module rhs_256 (
                     else if (zcheck_start) begin
                         state = ZCHECK_CONFIG_DATA_LOAD;
                     end
+                end
+
+                REC_DATA_LOAD: begin
+
+                    if (channel < CHANNELS_PER_ADC)
+                        data_in_common = adc_convert_command;
+                    else begin
+                        U_FLAG = 1; //trigger all previous registers
+                        M_FLAG = 0;
+                        read_register_address = INTAN_CHIP_ID_REG;
+                        data_in_common = {2'b11, U_FLAG, M_FLAG, 4'd0, read_register_address, 16'd0};
+                    end
+
+                    data_in_A = data_in_common;
+                    data_in_B = data_in_common;
+                    data_in_C = data_in_common;
+                    data_in_D = data_in_common;
+                    data_in_E = data_in_common;
+                    data_in_F = data_in_common;
+                    data_in_G = data_in_common;
+                    data_in_H = data_in_common;
+                    data_in_I = data_in_common;
+                    data_in_J = data_in_common;
+                    data_in_K = data_in_common;
+                    data_in_L = data_in_common;
+                    data_in_M = data_in_common;
+                    data_in_N = data_in_common;
+                    data_in_O = data_in_common;
+                    data_in_P = data_in_common;
+
+                    start = 0;
+                    if (done_all == 0)
+                        state = REC_DATA_TX;
+                end
+
+                REC_DATA_TX: begin
+                    start = 1;
+                    state = REC_DATA_RX;
+                end
+
+                REC_DATA_RX: begin
+                    start = 0;
+                    if (&done_all) begin
+                        if (channel < CHANNELS_PER_ADC + SPI_CONVERT_DELAY && channel >= SPI_CONVERT_DELAY) begin
+
+                            data_out[((0 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_A[31:16];
+                            data_out[((1 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_B[31:16];
+                            data_out[((2 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_C[31:16];
+                            data_out[((3 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_D[31:16];
+                            data_out[((4 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_E[31:16];
+                            data_out[((5 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_F[31:16];
+                            data_out[((6 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_G[31:16];
+                            data_out[((7 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_H[31:16];
+                            data_out[((8 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_I[31:16];
+                            data_out[((9 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_J[31:16];
+                            data_out[((10 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_K[31:16];
+                            data_out[((11 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_L[31:16];
+                            data_out[((12 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_M[31:16];
+                            data_out[((13 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_N[31:16];
+                            data_out[((14 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_O[31:16];
+                            data_out[((15 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_P[31:16];
+                            
+                        end
+                        channel = channel + 1;
+                        if (channel == DEFAULT_CHANNELS)
+                            state = REC_DONE;
+                        else
+                            state = REC_DATA_LOAD;
+                    end
+
+                end
+
+                REC_DONE: begin
+                    state = PRE_RESET;
                 end
 
                 ZCHECK_CONFIG_DATA_LOAD: begin

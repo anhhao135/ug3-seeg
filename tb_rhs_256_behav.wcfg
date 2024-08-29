@@ -11,9 +11,9 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="7,310.035146 us"></ZoomStartTime>
-      <ZoomEndTime time="7,372.535147 us"></ZoomEndTime>
-      <Cursor1Time time="7,341.935146 us"></Cursor1Time>
+      <ZoomStartTime time="2,314.880000 us"></ZoomStartTime>
+      <ZoomEndTime time="2,327.380001 us"></ZoomEndTime>
+      <Cursor1Time time="2,318.940000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="283"></NameColumnWidth>
@@ -34,6 +34,10 @@
       <obj_property name="ElementShortName">zcheck_chip_channel[3:0]</obj_property>
       <obj_property name="ObjectShortName">zcheck_chip_channel[3:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/rstn" type="logic">
       <obj_property name="ElementShortName">rstn</obj_property>
@@ -120,10 +124,6 @@
    <wvobject fp_name="/tb_rhs_256/dut/busy" type="logic">
       <obj_property name="ElementShortName">busy</obj_property>
       <obj_property name="ObjectShortName">busy</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/done" type="logic">
-      <obj_property name="ElementShortName">done</obj_property>
-      <obj_property name="ObjectShortName">done</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/CS" type="logic">
       <obj_property name="ElementShortName">CS</obj_property>
