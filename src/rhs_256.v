@@ -81,10 +81,32 @@ module rhs_256 (
     input wire MISO_O,
     input wire MISO_P,
 
-    output wire [7:0] channel_out
+    output wire [7:0] channel_out,
+
+    input wire [15:0] stim_pulse_length,
+    input wire [15:0] stim_pulse_magnitude,
+    input wire [15:0] stim_inter_bipulse_delay,
+    input wire [15:0] stim_inter_pulse_delay,
+    input wire [15:0] stim_inter_train_delay,
+    input wire [15:0] stim_bipulses_per_train_count,
+    input wire [15:0] stim_train_count,
+    input wire [15:0] stim_charge_recovery_time,
+    input wire stim_rising_edge_first,
+
+    output wire stim_finite_mode_done,
+    input wire stim_finite_mode_start,
+    input wire stim_infinite_mode_start,
+    input wire stim_infinite_mode_stop
 );
 
+
+    //main state machine
     localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4, CONFIG_DATA_LOAD = 5, CONFIG_DATA_TX = 6, CONFIG_DATA_RX = 7, CONFIG_DONE = 8, ZCHECK_CONFIG_DATA_LOAD = 9, ZCHECK_CONFIG_DATA_TX = 10, ZCHECK_CONFIG_DATA_RX = 11, ZCHECK_REC_DATA_LOAD = 12, ZCHECK_REC_DATA_TX = 13, ZCHECK_REC_DATA_RX = 14, ZCHECK_DONE = 15, RESET = 16, PRE_RESET = 17, STIM_CONFIG_DATA_LOAD = 18, STIM_CONFIG_DATA_TX = 19, STIM_CONFIG_DATA_RX = 20;    
+
+    //stimulation waveform state machine
+    localparam IDLE = 0, FIRST_PULSE = 1, INTER_PULSE = 2, SECOND_PULSE = 3, INTER_BIPULSE = 4, INTER_TRAIN = 5, CHARGE_RECOVERY = 6, STIM_RESET = 7, PRE_FIRST_PULSE = 8;
+
+
 
     localparam DEFAULT_CHANNELS = 40; //34 recording channels + 6 for other commands
 
@@ -108,6 +130,14 @@ module rhs_256 (
     reg start = 0;
 
     reg [7:0] state = READY;
+
+    reg [7:0] stimulation_state = IDLE;
+    reg [7:0] stimulation_magnitude_debug = 127;
+    reg [15:0] stim_delay_tracker = 0;
+    reg [15:0] stim_bipulses_per_train_count_tracker = 0;
+    reg [15:0] stim_train_count_tracker = 0;
+    reg stim_infinite_mode = 0;
+
 
     reg [7:0] channel = 0;
     assign channel_out = channel;
@@ -444,6 +474,65 @@ module rhs_256 (
         .busy(busy_all[15]),
         .done(done_all[15])
     );
+
+
+    //stimulation waveform state machine
+    always @(posedge (state == REC_DATA_LOAD) or negedge rstn or posedge stim_infinite_mode_start or posedge stim_finite_mode_start) begin
+
+        if (!rstn) begin
+            stimulation_state = STIM_RESET;
+        end
+        else if (stim_infinite_mode_start) begin
+            stim_infinite_mode = 1;
+            stim_delay_tracker = stim_pulse_length;
+            stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count; //only vlaid if train count is > 0
+            stim_train_count_tracker = stim_train_count; //when > 0, trains will exist with bipulse count, else will only be bipulses
+            stimulation_state = PRE_FIRST_PULSE;
+        end
+        else if (stim_finite_mode_start) begin
+            stim_infinite_mode = 0;
+            stim_delay_tracker = stim_pulse_length;
+            stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count; //only vlaid if train count is > 0
+            stim_train_count_tracker = stim_train_count; //when > 0, trains will exist with bipulse count, else will only be bipulses
+            stimulation_state = PRE_FIRST_PULSE;
+        end
+
+        if (channel == CHANNELS_PER_ADC) begin
+            case(stimulation_state)
+                STIM_RESET: begin
+                    stim_delay_tracker = 0;
+                    stim_bipulses_per_train_count_tracker = 0;
+                    stim_train_count_tracker = 0;
+                    stim_infinite_mode = 0;
+                    stimulation_state = IDLE;
+                end
+
+                IDLE: begin
+                end
+
+                PRE_FIRST_PULSE: begin
+                    stimulation_state = FIRST_PULSE;
+                end
+
+                FIRST_PULSE: begin
+                    stim_delay_tracker = stim_delay_tracker - 1;
+                    if (stim_delay_tracker == 0) begin
+                        if (inter_pulse_delay == 0) begin
+                            stim_delay_tracker = stim_pulse_length;
+                            stimulation_state = SECOND_PULSE;
+                        end
+                        else begin
+                            stim_delay_tracker = stim_inter_pulse_delay;
+                            stimulation_state = INTER_PULSE;
+                        end
+                    end
+                end
+
+                INTER_
+                
+            endcase
+        end
+    end
 
 
     always @(posedge clk) begin

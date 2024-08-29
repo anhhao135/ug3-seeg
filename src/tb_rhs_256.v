@@ -12,6 +12,11 @@ module tb_rhs_256 ();
     reg record_start = 0;
     reg zcheck_start = 0;
 
+    reg [15:0] stim_train_count = 10;
+    reg stim_finite_mode_start = 0;
+    reg stim_infinite_mode_start = 0;
+    reg stim_infinite_mode_stop = 0;
+
     reg [7:0] oversample_offset = 0;
 
     wire SCLK;
@@ -125,7 +130,11 @@ module tb_rhs_256 ();
         .MISO_M(MISO_M),
         .MISO_N(MISO_N),
         .MISO_O(MISO_O),
-        .MISO_P(MISO_P)
+        .MISO_P(MISO_P),
+        .stim_train_count(stim_train_count),
+        .stim_finite_mode_start(stim_finite_mode_start),
+        .stim_infinite_mode_start(stim_infinite_mode_start),
+        .stim_infinite_mode_stop(stim_infinite_mode_stop)
     );
 
 
@@ -283,7 +292,7 @@ module tb_rhs_256 ();
     end
 
     initial begin
-        zcheck_mode <= 0;
+        zcheck_mode <= 1;
         rstn <= 1;
         #500;
         rstn <= 0;
@@ -292,12 +301,14 @@ module tb_rhs_256 ();
         #500
 
         /*
+
         zcheck_start <= 1;
         #500
         zcheck_start <= 0;
         #20000000
-        */
     
+        */
+
         /*
         config_start <= 1;
         #500
@@ -305,7 +316,12 @@ module tb_rhs_256 ();
         #1000000
         */
         
+        
         record_start <= 1;
+        #600000
+        stim_finite_mode_start <= 1;
+        #500
+        stim_finite_mode_start <= 0;
         #3000000
         record_start <= 0;
         #100000
