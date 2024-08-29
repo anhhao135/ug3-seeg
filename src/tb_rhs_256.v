@@ -55,7 +55,7 @@ module tb_rhs_256 ();
     wire [7:0] rhs_channel_dut;
     wire [7:0] rhs_channel;
 
-    reg [11:0] zcheck_global_channel = 49;
+    reg [11:0] zcheck_global_channel = 253;
     reg [1:0] zcheck_scale = 2'b11;
 
     localparam CHANNELS_PER_CHIP = 16;
@@ -278,7 +278,8 @@ module tb_rhs_256 ();
         clk = 0;
         //forever #4.46 clk = ~clk; //112 MHz for effective 14.372 kS / s
         //forever #10 clk = ~clk; // 50 MHz for effective 6.41 kS /s
-        forever #25.641 clk = ~clk; // 19.5 MHz for effective 2.5 kS /s
+        //forever #25.641 clk = ~clk; // 19.5 MHz for effective 2.5 kS /s
+        forever #12.82 clk = ~clk; //39 MHz
     end
 
     initial begin

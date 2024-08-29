@@ -117,7 +117,7 @@ module rhs_256 (
     reg [3:0] zcheck_cycle_counter = ZCHECK_CYCLES;
     reg zcheck_data_sample_debug = 0;
     localparam ZCHECK_FS = 20; //zcheck happens at 20kS/s for a 1kHz wave
-    localparam ZCHECK_COMMAND_SLOTS_PER_PERIOD = 5;
+    localparam ZCHECK_COMMAND_SLOTS_PER_PERIOD = 6;
     //when clock is 19.5 MHz, this nominally produces 2.5 kS/s rate for normal recording
     //this equates to 400 us per sample and 10 us per command given there are 40 slots of commands per sample
     //to record at 20kS/s and produce DAC commands for a 1 kHz wave per cycle, we would need:
