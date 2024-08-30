@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="87.111468 us"></ZoomStartTime>
-      <ZoomEndTime time="362.611469 us"></ZoomEndTime>
-      <Cursor1Time time="133.028134 us"></Cursor1Time>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="41.940000001 ms"></ZoomEndTime>
+      <Cursor1Time time="23.521200140 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="283"></NameColumnWidth>
-      <ValueColumnWidth column_width="247"></ValueColumnWidth>
+      <NameColumnWidth column_width="256"></NameColumnWidth>
+      <ValueColumnWidth column_width="94"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="55" />
    <wvobject fp_name="/tb_rhs_256/dut/stimulation_state" type="array">
@@ -80,18 +80,32 @@
    <wvobject fp_name="/tb_rhs_256/dut/stimulation_magnitude_debug" type="array">
       <obj_property name="ElementShortName">stimulation_magnitude_debug[7:0]</obj_property>
       <obj_property name="ObjectShortName">stimulation_magnitude_debug[7:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">0</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/stim_delay_tracker" type="array">
       <obj_property name="ElementShortName">stim_delay_tracker[15:0]</obj_property>
       <obj_property name="ObjectShortName">stim_delay_tracker[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/stim_bipulses_per_train_count_tracker" type="array">
       <obj_property name="ElementShortName">stim_bipulses_per_train_count_tracker[15:0]</obj_property>
       <obj_property name="ObjectShortName">stim_bipulses_per_train_count_tracker[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/stim_train_count_tracker" type="array">
       <obj_property name="ElementShortName">stim_train_count_tracker[15:0]</obj_property>
       <obj_property name="ObjectShortName">stim_train_count_tracker[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/stim_infinite_mode" type="logic">
       <obj_property name="ElementShortName">stim_infinite_mode</obj_property>
@@ -154,7 +168,13 @@
       <obj_property name="radix_fractionWidth">0</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="CellHeight">50</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/zcheck_chip_channel" type="array">
       <obj_property name="ElementShortName">zcheck_chip_channel[5:0]</obj_property>

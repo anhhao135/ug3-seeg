@@ -12,7 +12,17 @@ module tb_rhs_256 ();
     reg record_start = 0;
     reg zcheck_start = 0;
 
-    reg [15:0] stim_train_count = 10;
+    reg [15:0] stim_pulse_length = 1;
+    reg [15:0] stim_pulse_magnitude = 100;
+    reg [15:0] stim_inter_bipulse_delay = 3;
+    reg [15:0] stim_inter_pulse_delay = 0;
+    reg [15:0] stim_inter_train_delay = 7;
+    reg [15:0] stim_bipulses_per_train_count = 8;
+    reg [15:0] stim_train_count = 4;
+    reg [15:0] stim_charge_recovery_time = 8;
+    reg stim_rising_edge_first = 1;
+
+
     reg stim_finite_mode_start = 0;
     reg stim_infinite_mode_start = 0;
     reg stim_infinite_mode_stop = 0;
@@ -131,7 +141,15 @@ module tb_rhs_256 ();
         .MISO_N(MISO_N),
         .MISO_O(MISO_O),
         .MISO_P(MISO_P),
+        .stim_pulse_length(stim_pulse_length),
+        .stim_pulse_magnitude(stim_pulse_magnitude),
+        .stim_inter_bipulse_delay(stim_inter_bipulse_delay),
+        .stim_inter_pulse_delay(stim_inter_pulse_delay),
+        .stim_inter_train_delay(stim_inter_train_delay),
+        .stim_bipulses_per_train_count(stim_bipulses_per_train_count),
         .stim_train_count(stim_train_count),
+        .stim_charge_recovery_time(stim_charge_recovery_time),
+        .stim_rising_edge_first(stim_rising_edge_first),
         .stim_finite_mode_start(stim_finite_mode_start),
         .stim_infinite_mode_start(stim_infinite_mode_start),
         .stim_infinite_mode_stop(stim_infinite_mode_stop)
@@ -292,7 +310,7 @@ module tb_rhs_256 ();
     end
 
     initial begin
-        zcheck_mode <= 1;
+        zcheck_mode <= 0;
         rstn <= 1;
         #500;
         rstn <= 0;
@@ -322,7 +340,7 @@ module tb_rhs_256 ();
         stim_finite_mode_start <= 1;
         #500
         stim_finite_mode_start <= 0;
-        #3000000
+        #300000000
         record_start <= 0;
         #100000
         
