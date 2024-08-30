@@ -310,7 +310,7 @@ module tb_rhs_256 ();
     end
 
     initial begin
-        zcheck_mode <= 0;
+        zcheck_mode <= 1;
         rstn <= 1;
         #500;
         rstn <= 0;
@@ -318,14 +318,14 @@ module tb_rhs_256 ();
         rstn <= 1;
         #500
 
-        /*
+        
 
         zcheck_start <= 1;
         #500
         zcheck_start <= 0;
         #20000000
     
-        */
+        
 
         /*
         config_start <= 1;
@@ -334,15 +334,44 @@ module tb_rhs_256 ();
         #1000000
         */
         
-        
+        /*
         record_start <= 1;
         #600000
         stim_finite_mode_start <= 1;
         #500
         stim_finite_mode_start <= 0;
-        #300000000
+        #65000000
+        stim_finite_mode_start <= 1;
+        #500
+        stim_finite_mode_start <= 0;
+        #65000000
         record_start <= 0;
         #100000
+        */
+
+        /*
+        
+        record_start <= 1;
+        #600000
+        stim_infinite_mode_start <= 1;
+        #500
+        stim_infinite_mode_start <= 0;
+        #35000000
+        stim_infinite_mode_stop <= 1;
+        #500
+        stim_infinite_mode_stop <= 0;
+        #20000000
+        stim_infinite_mode_start <= 1;
+        #500
+        stim_infinite_mode_start <= 0;
+        #75000000
+        stim_infinite_mode_stop <= 1;
+        #500
+        stim_infinite_mode_stop <= 0;
+        #2000
+        record_start <= 0;
+        #100000
+        */
         
         
         $finish;

@@ -93,7 +93,7 @@ module rhs_256 (
     input wire [15:0] stim_charge_recovery_time,
     input wire stim_rising_edge_first,
 
-    output wire stim_finite_mode_done,
+    output reg stim_finite_mode_done,
     input wire stim_finite_mode_start,
     input wire stim_infinite_mode_start,
     input wire stim_infinite_mode_stop
@@ -479,24 +479,21 @@ module rhs_256 (
 
 
     //stimulation waveform state machine
-    always @(posedge (state == REC_DATA_LOAD) or negedge rstn or posedge stim_infinite_mode_start or posedge stim_finite_mode_start) begin
+    always @(posedge (state == REC_DATA_LOAD) or negedge rstn or posedge stim_infinite_mode_start or posedge stim_finite_mode_start or posedge stim_infinite_mode_stop) begin
 
         if (!rstn) begin
             stimulation_state = STIM_RESET;
         end
-        else if (stim_infinite_mode_start) begin
-            stim_infinite_mode = 1;
+        else if (stim_infinite_mode_start || stim_finite_mode_start) begin
+            stim_infinite_mode = stim_infinite_mode_start ? 1 : 0;
             stim_delay_tracker = stim_pulse_length;
             stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count; //only vlaid if train count is > 0
             stim_train_count_tracker = stim_train_count; //when > 0, trains will exist with bipulse count, else will only be bipulses
             stimulation_state = PRE_FIRST_PULSE;
         end
-        else if (stim_finite_mode_start) begin
-            stim_infinite_mode = 0;
-            stim_delay_tracker = stim_pulse_length;
-            stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count; //only vlaid if train count is > 0
-            stim_train_count_tracker = stim_train_count; //when > 0, trains will exist with bipulse count, else will only be bipulses
-            stimulation_state = PRE_FIRST_PULSE;
+        else if (stim_infinite_mode_stop) begin
+            stim_delay_tracker = stim_charge_recovery_time;
+            stimulation_state = CHARGE_RECOVERY;
         end
 
         if (channel == CHANNELS_PER_ADC) begin
@@ -508,6 +505,7 @@ module rhs_256 (
                     stim_infinite_mode = 0;
                     stimulation_state = IDLE;
                     stimulation_magnitude_debug = STIM_WAVEFORM_DEBUG_BASELINE;
+                    stim_finite_mode_done = 0;
                 end
 
                 IDLE: begin
@@ -560,11 +558,14 @@ module rhs_256 (
                         stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count_tracker - 1;
                         if (stim_bipulses_per_train_count_tracker == 0) begin
                             stim_train_count_tracker = stim_train_count_tracker - 1;
-                            if (stim_train_count_tracker == 0) begin
+                            if (stim_train_count_tracker == 0 && stim_infinite_mode == 0) begin
                                 stim_delay_tracker = stim_charge_recovery_time;
                                 stimulation_state = CHARGE_RECOVERY;
                             end
                             else begin
+                                if (stim_infinite_mode) begin
+                                    stim_train_count_tracker = stim_train_count;
+                                end
                                 stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count;
                                 stim_delay_tracker = stim_inter_train_delay;
                                 stimulation_state = INTER_TRAIN;
@@ -598,8 +599,12 @@ module rhs_256 (
                 CHARGE_RECOVERY: begin
                     stimulation_magnitude_debug = STIM_WAVEFORM_DEBUG_BASELINE;
                     stim_delay_tracker = stim_delay_tracker - 1;
-                    if (stim_delay_tracker == 0)
+                    if (stim_delay_tracker == 0) begin
+                        if (stim_infinite_mode == 0) begin
+                            stim_finite_mode_done = 1;
+                        end
                         stimulation_state = STIM_RESET;
+                    end
                 end
                 
             endcase

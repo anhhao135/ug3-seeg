@@ -13,11 +13,11 @@
    <zoom_setting>
       <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
       <ZoomEndTime time="41.940000001 ms"></ZoomEndTime>
-      <Cursor1Time time="23.521200140 ms"></Cursor1Time>
+      <Cursor1Time time="1.300000000 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="256"></NameColumnWidth>
-      <ValueColumnWidth column_width="94"></ValueColumnWidth>
+      <NameColumnWidth column_width="278"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="55" />
    <wvobject fp_name="/tb_rhs_256/dut/stimulation_state" type="array">
@@ -172,7 +172,7 @@
       <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
       <obj_property name="AnalogYRangeMin">0.000000</obj_property>
       <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
       <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
       <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
@@ -207,6 +207,7 @@
    <wvobject fp_name="/tb_rhs_256/dut/zcheck_global_channel" type="array">
       <obj_property name="ElementShortName">zcheck_global_channel[11:0]</obj_property>
       <obj_property name="ObjectShortName">zcheck_global_channel[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/zcheck_scale" type="array">
       <obj_property name="ElementShortName">zcheck_scale[1:0]</obj_property>
