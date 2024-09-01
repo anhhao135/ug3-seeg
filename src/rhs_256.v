@@ -81,8 +81,16 @@ module rhs_256 (
     input wire MISO_O,
     input wire MISO_P,
 
-    output wire [7:0] channel_out,
+    input wire [5:0] stim_channel_positive,
+    input wire [5:0] stim_channel_negative,
+    input wire stim_bipolar_mode, //current flows out of positive to negative if bipolar mode, else current flows out of positive and then to ground return
+    input wire [3:0] stim_current_step_size,
+    //0 - 9
+    //10 nA, 20 nA, 50 nA, 100 nA, 200 nA, 500 nA, 1 uA, 2 uA, 5 uA, 10 uA
+    // x 255
+    //can be switched between positive or negative current
 
+    output wire [7:0] channel_out,
     input wire [15:0] stim_pulse_length,
     input wire [15:0] stim_pulse_magnitude,
     input wire [15:0] stim_inter_bipulse_delay,
@@ -104,7 +112,7 @@ module rhs_256 (
     localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4, CONFIG_DATA_LOAD = 5, CONFIG_DATA_TX = 6, CONFIG_DATA_RX = 7, CONFIG_DONE = 8, ZCHECK_CONFIG_DATA_LOAD = 9, ZCHECK_CONFIG_DATA_TX = 10, ZCHECK_CONFIG_DATA_RX = 11, ZCHECK_REC_DATA_LOAD = 12, ZCHECK_REC_DATA_TX = 13, ZCHECK_REC_DATA_RX = 14, ZCHECK_DONE = 15, RESET = 16, PRE_RESET = 17, STIM_CONFIG_DATA_LOAD = 18, STIM_CONFIG_DATA_TX = 19, STIM_CONFIG_DATA_RX = 20;    
 
     //stimulation waveform state machine
-    localparam IDLE = 0, FIRST_PULSE = 1, INTER_PULSE = 2, SECOND_PULSE = 3, INTER_BIPULSE = 4, INTER_TRAIN = 5, CHARGE_RECOVERY = 6, STIM_RESET = 7, PRE_FIRST_PULSE = 8;
+    localparam IDLE = 0, FIRST_PULSE = 1, INTER_PULSE = 2, SECOND_PULSE = 3, INTER_BIPULSE = 4, INTER_TRAIN = 5, CHARGE_RECOVERY = 6, STIM_RESET = 7, PRE_FIRST_PULSE = 8, STIM_CONFIG = 9;
 
 
 
@@ -512,6 +520,10 @@ module rhs_256 (
                 end
 
                 PRE_FIRST_PULSE: begin
+                    stimulation_state = STIM_CONFIG;
+                end
+
+                STIM_CONFIG: begin
                     stimulation_state = FIRST_PULSE;
                 end
 
@@ -667,10 +679,120 @@ module rhs_256 (
                     if (channel < CHANNELS_PER_ADC)
                         data_in_common = adc_convert_command;
                     else begin
-                        U_FLAG = 1; //trigger all previous registers
-                        M_FLAG = 0;
-                        read_register_address = INTAN_CHIP_ID_REG;
-                        data_in_common = {2'b11, U_FLAG, M_FLAG, 4'd0, read_register_address, 16'd0};
+                        if (stimulation_state == STIM_CONFIG) begin
+                            case(channel)
+                                CHANNELS_PER_ADC: begin //stim current step size
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 34;
+
+                                    case(stim_current_step_size)
+                                        0: begin
+                                            write_register_data = {1'd0, 2'd3, 6'd19, 7'd64};
+                                        end
+                                        1: begin
+                                            write_register_data = {1'd0, 2'd1, 6'd40, 7'd40};
+                                        end
+                                        2: begin
+                                            write_register_data = {1'd0, 2'd0, 6'd40, 7'd64};
+                                        end
+                                        3: begin
+                                            write_register_data = {1'd0, 2'd0, 6'd20, 7'd30};
+                                        end
+                                        4: begin
+                                            write_register_data = {1'd0, 2'd0, 6'd10, 7'd25};
+                                        end
+                                        5: begin
+                                            write_register_data = {1'd0, 2'd0, 6'd3, 7'd101};
+                                        end
+                                        6: begin
+                                            write_register_data = {1'd0, 2'd0, 6'd1, 7'd98};
+                                        end
+                                        7: begin
+                                            write_register_data = {1'd0, 2'd0, 6'd0, 7'd94};
+                                        end
+                                        8: begin
+                                            write_register_data = {1'd0, 2'd0, 6'd0, 7'd38};
+                                        end
+                                        9: begin
+                                            write_register_data = {1'd0, 2'd0, 6'd0, 7'd15};
+                                        end
+                                    endcase
+
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 1: begin //stim bias voltages
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 35;
+
+                                    case(stim_current_step_size)
+                                        0: begin
+                                            write_register_data = {8'd0, 4'd6, 4'd6};
+                                        end
+                                        1: begin
+                                            write_register_data = {8'd0, 4'd7, 4'd7};
+                                        end
+                                        2: begin
+                                            write_register_data = {8'd0, 4'd7, 4'd7};
+                                        end
+                                        3: begin
+                                            write_register_data = {8'd0, 4'd7, 4'd7};
+                                        end
+                                        4: begin
+                                            write_register_data = {8'd0, 4'd8, 4'd8};
+                                        end
+                                        5: begin
+                                            write_register_data = {8'd0, 4'd9, 4'd9};
+                                        end
+                                        6: begin
+                                            write_register_data = {8'd0, 4'd10, 4'd10};
+                                        end
+                                        7: begin
+                                            write_register_data = {8'd0, 4'd11, 4'd11};
+                                        end
+                                        8: begin
+                                            write_register_data = {8'd0, 4'd14, 4'd14};
+                                        end
+                                        9: begin
+                                            write_register_data = {8'd0, 4'd15, 4'd15};
+                                        end
+                                    endcase
+
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 2: begin //stim enable A
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 32;
+                                    write_register_data = 16'hAAAA; //magic number
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 3: begin //stim enable B
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 33;
+                                    write_register_data = 16'h00FF; //magic number
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                default: begin
+                                    U_FLAG = 1; //trigger all previous registers
+                                    M_FLAG = 0;
+                                    read_register_address = INTAN_CHIP_ID_REG;
+                                    data_in_common = {2'b11, U_FLAG, M_FLAG, 4'd0, read_register_address, 16'd0};
+                                end
+                            endcase
+                        end
+                        else begin
+                            U_FLAG = 1; //trigger all previous registers
+                            M_FLAG = 0;
+                            read_register_address = INTAN_CHIP_ID_REG;
+                            data_in_common = {2'b11, U_FLAG, M_FLAG, 4'd0, read_register_address, 16'd0};
+                        end
                     end
 
                     data_in_A = data_in_common;

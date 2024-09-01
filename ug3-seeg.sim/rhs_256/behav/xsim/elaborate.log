@@ -22,6 +22,7 @@ WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for
 WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhs_256.v:281]
 WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhs_256.v:290]
 WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhs_256.v:299]
+WARNING: [VRFC 10-5021] port 'stim_channel_positive' is not connected on this instance [C:/Repos/ug3-seeg/src/tb_rhs_256.v:85]
 Completed static elaboration
 Starting simulation data flow analysis
 WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_256.v" Line 1. Module rhs_256_default doesn't have a timescale but at least one module in design has a timescale.
