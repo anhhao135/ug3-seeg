@@ -81,6 +81,8 @@ module rhs_256 (
     input wire MISO_O,
     input wire MISO_P,
 
+    input wire [15:0] stim_mask_probe_select, //bit mask 0 - 15 to choose which probes will be stimulating
+
     input wire [15:0] stim_mask_channel_positive, //binary mask channels 0 - 15, 1 means channel is activated
     input wire [15:0] stim_mask_channel_negative, //binary mask channels 0 - 15, 1 means channel is activated
     input wire stim_bipolar_mode, //current flows out of positive to negative if bipolar mode, else current flows out of positive and then to ground return
@@ -148,6 +150,8 @@ module rhs_256 (
     reg [15:0] stim_bipulses_per_train_count_tracker = 0;
     reg [15:0] stim_train_count_tracker = 0;
     reg stim_infinite_mode = 0;
+
+    reg stim_magic_number_probe_select = 0; //keeps track of when to switch from sending common commands to probe-specific commands
 
 
     reg [7:0] channel = 0;
@@ -325,8 +329,8 @@ module rhs_256 (
         .clk(clk),
         .rstn(rstn),
         .SCLK(SCLK),
-        .MOSI(MOSI_A),
-        .MISO(MISO_A),
+        .MOSI(MOSI_F),
+        .MISO(MISO_F),
         .CS(CS),
         .start(start),
         .data_in(data_in_F),
@@ -573,26 +577,36 @@ module rhs_256 (
 
                     stim_delay_tracker = stim_delay_tracker - 1;
                     if (stim_delay_tracker == 0) begin
-                        stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count_tracker - 1;
-                        if (stim_bipulses_per_train_count_tracker == 0) begin
-                            stim_train_count_tracker = stim_train_count_tracker - 1;
-                            if (stim_train_count_tracker == 0 && stim_infinite_mode == 0) begin
-                                stim_delay_tracker = stim_charge_recovery_time;
-                                stimulation_state = CHARGE_RECOVERY;
-                            end
-                            else begin
-                                if (stim_infinite_mode) begin
-                                    stim_train_count_tracker = stim_train_count;
-                                end
-                                stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count;
-                                stim_delay_tracker = stim_inter_train_delay;
-                                stimulation_state = INTER_TRAIN;
-                            end
-                        end
-                        else begin
+
+                        if (stim_bipulses_per_train_count == 0 && stim_infinite_mode) begin //if bipulses per train count is set to 0, this means its a simple infinite bipulse
                             stim_delay_tracker = stim_inter_bipulse_delay;
                             stimulation_state = INTER_BIPULSE;
                         end
+
+                        else begin
+                            stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count_tracker - 1;
+                            if (stim_bipulses_per_train_count_tracker == 0) begin
+                                stim_train_count_tracker = stim_train_count_tracker - 1;
+                                if (stim_train_count_tracker == 0 && stim_infinite_mode == 0) begin
+                                    stim_delay_tracker = stim_charge_recovery_time;
+                                    stimulation_state = CHARGE_RECOVERY;
+                                end
+                                else begin
+                                    if (stim_infinite_mode) begin
+                                        stim_train_count_tracker = stim_train_count;
+                                    end
+                                    stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count;
+                                    stim_delay_tracker = stim_inter_train_delay;
+                                    stimulation_state = INTER_TRAIN;
+                                end
+                            end
+                            else begin
+                                stim_delay_tracker = stim_inter_bipulse_delay;
+                                stimulation_state = INTER_BIPULSE;
+                            end
+                        end
+
+
                     end
                 end
 
@@ -681,6 +695,8 @@ module rhs_256 (
                 end
 
                 REC_DATA_LOAD: begin
+
+                    stim_magic_number_probe_select = 0;
 
                     if (channel < CHANNELS_PER_ADC)
                         data_in_common = adc_convert_command;
@@ -1081,6 +1097,8 @@ module rhs_256 (
                                     write_register_address = 32;
                                     write_register_data = 16'hAAAA; //magic number
                                     data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                    stim_magic_number_probe_select = 1; //raise flag so common data is not sent to all probes so based on probe select, some probes will not be stimulating
+                                    //magic number set command will be skipped over based on probe select bit mask
                                 end
 
                                 CHANNELS_PER_ADC + 11: begin //stim enable B
@@ -1089,6 +1107,8 @@ module rhs_256 (
                                     write_register_address = 33;
                                     write_register_data = 16'h00FF; //magic number
                                     data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                    stim_magic_number_probe_select = 1; //raise flag so common data is not sent to all probes so based on probe select, some probes will not be stimulating
+                                    //magic number set command will be skipped over based on probe select bit mask
                                 end
 
                                 default: begin
@@ -1126,6 +1146,8 @@ module rhs_256 (
                                     end
 
                                     data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                    stim_magic_number_probe_select = 1; //raise flag so common data is not sent to all probes so based on probe select, some probes will not be stimulating
+                                    //current source turn on command will be skipped over based on probe select bit mask
                                 end
 
                                 CHANNELS_PER_ADC + 2: begin //stimulator polarity
@@ -1200,6 +1222,8 @@ module rhs_256 (
                                     end
 
                                     data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                    stim_magic_number_probe_select = 1; //raise flag so common data is not sent to all probes so based on probe select, some probes will not be stimulating
+                                    //current source turn on command will be skipped over based on probe select bit mask
                                 end
 
                                 CHANNELS_PER_ADC + 1: begin //stimulator polarity
@@ -1367,22 +1391,74 @@ module rhs_256 (
                         end
                     end
 
-                    data_in_A = data_in_common;
-                    data_in_B = data_in_common;
-                    data_in_C = data_in_common;
-                    data_in_D = data_in_common;
-                    data_in_E = data_in_common;
-                    data_in_F = data_in_common;
-                    data_in_G = data_in_common;
-                    data_in_H = data_in_common;
-                    data_in_I = data_in_common;
-                    data_in_J = data_in_common;
-                    data_in_K = data_in_common;
-                    data_in_L = data_in_common;
-                    data_in_M = data_in_common;
-                    data_in_N = data_in_common;
-                    data_in_O = data_in_common;
-                    data_in_P = data_in_common;
+                    if (stim_magic_number_probe_select == 0) begin //normal mode, we send the same command to all probes
+                        data_in_A = data_in_common;
+                        data_in_B = data_in_common;
+                        data_in_C = data_in_common;
+                        data_in_D = data_in_common;
+                        data_in_E = data_in_common;
+                        data_in_F = data_in_common;
+                        data_in_G = data_in_common;
+                        data_in_H = data_in_common;
+                        data_in_I = data_in_common;
+                        data_in_J = data_in_common;
+                        data_in_K = data_in_common;
+                        data_in_L = data_in_common;
+                        data_in_M = data_in_common;
+                        data_in_N = data_in_common;
+                        data_in_O = data_in_common;
+                        data_in_P = data_in_common;
+                    end
+                    else begin //based on probe select bit mask, some probes will be skipped over and the last command will be sent twice
+                        if (stim_mask_probe_select[0]) begin
+                            data_in_A = data_in_common;
+                        end
+                        if (stim_mask_probe_select[1]) begin
+                            data_in_B = data_in_common;
+                        end
+                        if (stim_mask_probe_select[2]) begin
+                            data_in_C = data_in_common;
+                        end
+                        if (stim_mask_probe_select[3]) begin
+                            data_in_D = data_in_common;
+                        end
+                        if (stim_mask_probe_select[4]) begin
+                            data_in_E = data_in_common;
+                        end
+                        if (stim_mask_probe_select[5]) begin
+                            data_in_F = data_in_common;
+                        end
+                        if (stim_mask_probe_select[6]) begin
+                            data_in_G = data_in_common;
+                        end
+                        if (stim_mask_probe_select[7]) begin
+                            data_in_H = data_in_common;
+                        end
+                        if (stim_mask_probe_select[8]) begin
+                            data_in_I = data_in_common;
+                        end
+                        if (stim_mask_probe_select[9]) begin
+                            data_in_J = data_in_common;
+                        end
+                        if (stim_mask_probe_select[10]) begin
+                            data_in_K = data_in_common;
+                        end
+                        if (stim_mask_probe_select[11]) begin
+                            data_in_L = data_in_common;
+                        end
+                        if (stim_mask_probe_select[12]) begin
+                            data_in_M = data_in_common;
+                        end
+                        if (stim_mask_probe_select[13]) begin
+                            data_in_N = data_in_common;
+                        end
+                        if (stim_mask_probe_select[14]) begin
+                            data_in_O = data_in_common;
+                        end
+                        if (stim_mask_probe_select[15]) begin
+                            data_in_P = data_in_common;
+                        end
+                    end
 
                     start = 0;
                     if (done_all == 0)

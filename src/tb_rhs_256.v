@@ -15,9 +15,9 @@ module tb_rhs_256 ();
     reg [15:0] stim_pulse_length = 1;
     reg [7:0] stim_pulse_magnitude = 100;
     reg [15:0] stim_inter_bipulse_delay = 3;
-    reg [15:0] stim_inter_pulse_delay = 0;
-    reg [15:0] stim_inter_train_delay = 7;
-    reg [15:0] stim_bipulses_per_train_count = 8;
+    reg [15:0] stim_inter_pulse_delay = 1;
+    reg [15:0] stim_inter_train_delay = 11;
+    reg [15:0] stim_bipulses_per_train_count = 1;
     reg [15:0] stim_train_count = 4;
     reg [15:0] stim_charge_recovery_time = 8;
     reg stim_rising_edge_first = 1;
@@ -26,6 +26,7 @@ module tb_rhs_256 ();
     reg [15:0] stim_mask_channel_negative = 16'b1000000000000000;
     reg [15:0] stim_current_step_size = 4'd2;
     reg stim_bipolar_mode = 1;
+    reg [15:0] stim_mask_probe_select = 16'b1001101011110000;
 
     reg stim_finite_mode_start = 0;
     reg stim_infinite_mode_start = 0;
@@ -160,7 +161,8 @@ module tb_rhs_256 ();
         .stim_mask_channel_positive(stim_mask_channel_positive),
         .stim_mask_channel_negative(stim_mask_channel_negative),
         .stim_current_step_size(stim_current_step_size),
-        .stim_bipolar_mode(stim_bipolar_mode)
+        .stim_bipolar_mode(stim_bipolar_mode),
+        .stim_mask_probe_select(stim_mask_probe_select)
     );
 
 
@@ -343,7 +345,7 @@ module tb_rhs_256 ();
         #1000000
         */
         
-        
+        /*
         record_start <= 1;
         #600000
         stim_finite_mode_start <= 1;
@@ -356,9 +358,9 @@ module tb_rhs_256 ();
         #65000000
         record_start <= 0;
         #100000
+        */
 
-        /*
-        
+
         record_start <= 1;
         #600000
         stim_infinite_mode_start <= 1;
@@ -378,8 +380,7 @@ module tb_rhs_256 ();
         stim_infinite_mode_stop <= 0;
         #2000
         record_start <= 0;
-        #100000
-        */
+        #1000000
         
         
         $finish;
