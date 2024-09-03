@@ -13,7 +13,7 @@ module tb_rhs_256 ();
     reg zcheck_start = 0;
 
     reg [15:0] stim_pulse_length = 1;
-    reg [15:0] stim_pulse_magnitude = 100;
+    reg [7:0] stim_pulse_magnitude = 100;
     reg [15:0] stim_inter_bipulse_delay = 3;
     reg [15:0] stim_inter_pulse_delay = 0;
     reg [15:0] stim_inter_train_delay = 7;
@@ -22,6 +22,10 @@ module tb_rhs_256 ();
     reg [15:0] stim_charge_recovery_time = 8;
     reg stim_rising_edge_first = 1;
 
+    reg [15:0] stim_mask_channel_positive = 16'b0000000010000000;
+    reg [15:0] stim_mask_channel_negative = 16'b1000000000000000;
+    reg [15:0] stim_current_step_size = 4'd2;
+    reg stim_bipolar_mode = 1;
 
     reg stim_finite_mode_start = 0;
     reg stim_infinite_mode_start = 0;
@@ -152,7 +156,11 @@ module tb_rhs_256 ();
         .stim_rising_edge_first(stim_rising_edge_first),
         .stim_finite_mode_start(stim_finite_mode_start),
         .stim_infinite_mode_start(stim_infinite_mode_start),
-        .stim_infinite_mode_stop(stim_infinite_mode_stop)
+        .stim_infinite_mode_stop(stim_infinite_mode_stop),
+        .stim_mask_channel_positive(stim_mask_channel_positive),
+        .stim_mask_channel_negative(stim_mask_channel_negative),
+        .stim_current_step_size(stim_current_step_size),
+        .stim_bipolar_mode(stim_bipolar_mode)
     );
 
 

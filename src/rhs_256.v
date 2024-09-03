@@ -81,8 +81,8 @@ module rhs_256 (
     input wire MISO_O,
     input wire MISO_P,
 
-    input wire [5:0] stim_channel_positive,
-    input wire [5:0] stim_channel_negative,
+    input wire [15:0] stim_mask_channel_positive, //binary mask channels 0 - 15, 1 means channel is activated
+    input wire [15:0] stim_mask_channel_negative, //binary mask channels 0 - 15, 1 means channel is activated
     input wire stim_bipolar_mode, //current flows out of positive to negative if bipolar mode, else current flows out of positive and then to ground return
     input wire [3:0] stim_current_step_size,
     //0 - 9
@@ -92,7 +92,7 @@ module rhs_256 (
 
     output wire [7:0] channel_out,
     input wire [15:0] stim_pulse_length,
-    input wire [15:0] stim_pulse_magnitude,
+    input wire [7:0] stim_pulse_magnitude,
     input wire [15:0] stim_inter_bipulse_delay,
     input wire [15:0] stim_inter_pulse_delay,
     input wire [15:0] stim_inter_train_delay,
@@ -112,7 +112,7 @@ module rhs_256 (
     localparam READY = 0, REC_DATA_LOAD = 1, REC_DATA_TX = 2, REC_DATA_RX = 3, REC_DONE = 4, CONFIG_DATA_LOAD = 5, CONFIG_DATA_TX = 6, CONFIG_DATA_RX = 7, CONFIG_DONE = 8, ZCHECK_CONFIG_DATA_LOAD = 9, ZCHECK_CONFIG_DATA_TX = 10, ZCHECK_CONFIG_DATA_RX = 11, ZCHECK_REC_DATA_LOAD = 12, ZCHECK_REC_DATA_TX = 13, ZCHECK_REC_DATA_RX = 14, ZCHECK_DONE = 15, RESET = 16, PRE_RESET = 17, STIM_CONFIG_DATA_LOAD = 18, STIM_CONFIG_DATA_TX = 19, STIM_CONFIG_DATA_RX = 20;    
 
     //stimulation waveform state machine
-    localparam IDLE = 0, FIRST_PULSE = 1, INTER_PULSE = 2, SECOND_PULSE = 3, INTER_BIPULSE = 4, INTER_TRAIN = 5, CHARGE_RECOVERY = 6, STIM_RESET = 7, PRE_FIRST_PULSE = 8, STIM_CONFIG = 9;
+    localparam IDLE = 0, FIRST_PULSE = 1, INTER_PULSE = 2, SECOND_PULSE = 3, INTER_BIPULSE = 4, INTER_TRAIN = 5, CHARGE_RECOVERY = 6, STIM_RESET = 7, PRE_STIM_CONFIG = 8, STIM_CONFIG = 9;
 
 
 
@@ -141,6 +141,7 @@ module rhs_256 (
 
 
     localparam STIM_WAVEFORM_DEBUG_BASELINE = 127;
+    localparam STIM_CONFIG_CYCLES = 3; //allow 3 recording cycles for stim config to happen
     reg [7:0] stimulation_state = IDLE;
     reg [7:0] stimulation_magnitude_debug = STIM_WAVEFORM_DEBUG_BASELINE;
     reg [15:0] stim_delay_tracker = 0;
@@ -497,7 +498,7 @@ module rhs_256 (
             stim_delay_tracker = stim_pulse_length;
             stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count; //only vlaid if train count is > 0
             stim_train_count_tracker = stim_train_count; //when > 0, trains will exist with bipulse count, else will only be bipulses
-            stimulation_state = PRE_FIRST_PULSE;
+            stimulation_state = PRE_STIM_CONFIG;
         end
         else if (stim_infinite_mode_stop) begin
             stim_delay_tracker = stim_charge_recovery_time;
@@ -519,12 +520,17 @@ module rhs_256 (
                 IDLE: begin
                 end
 
-                PRE_FIRST_PULSE: begin
+                PRE_STIM_CONFIG: begin
+                    stim_delay_tracker = STIM_CONFIG_CYCLES; //allow stim config some room to settle
                     stimulation_state = STIM_CONFIG;
                 end
 
                 STIM_CONFIG: begin
-                    stimulation_state = FIRST_PULSE;
+                    stim_delay_tracker = stim_delay_tracker - 1;
+                    if (stim_delay_tracker == 0) begin
+                        stim_delay_tracker = stim_pulse_length;
+                        stimulation_state = FIRST_PULSE;
+                    end
                 end
 
                 FIRST_PULSE: begin
@@ -763,7 +769,313 @@ module rhs_256 (
                                     data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                                 end
 
-                                CHANNELS_PER_ADC + 2: begin //stim enable A
+                                CHANNELS_PER_ADC + 2: begin //stimulator on (triggered), turns on current sources, but will not stimulate unless magic numbers are present
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 42;
+
+                                    /*
+
+                                    if (stim_bipolar_mode) begin
+                                        write_register_data = stim_mask_channel_positive | stim_mask_channel_negative; //or pos and neg mask so we can activate both positive and negative channels
+                                    end
+                                    else begin
+                                        write_register_data = stim_mask_channel_positive; //monopolar so only positive channel needs to be activated
+                                    end
+
+                                    */
+
+                                    write_register_data = 0; //turn off current sources
+                                    
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 3: begin //stimulator polarity
+                                    //binary bit mask, 1 means current flows out of channel, 0 means current flows inward
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 44;
+
+                                    if (stim_bipolar_mode) begin
+                                        if (stim_rising_edge_first) begin
+                                            write_register_data = stim_mask_channel_positive; //positive channel sends current, negative channel sinks current, creating rising edge
+                                        end
+                                        else begin
+                                            write_register_data = stim_mask_channel_negative; //negative channel sends current, positive channel sinks current, creating falling edge
+                                        end
+                                    end
+                                    else begin
+                                        if (stim_rising_edge_first) begin
+                                            write_register_data = stim_mask_channel_positive; //positive channel sends current to stim gnd, creating rising edge
+                                        end
+                                        else begin
+                                            write_register_data = ~stim_mask_channel_positive; //invert positive channel bitmask so now the positive channel sinks current from stim gnd, creating falling edge
+                                        end
+                                    end
+
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 4: begin //charge recovery switch
+                                    //pulls channel to stim gnd which will be connected to gnd, bit 1 closes switch
+                                    //before stim, reset all channels to true gnd, so close all switches
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 46;
+                                    write_register_data = 16'hFFFF;
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 5: begin //current-limited charge recovery enable
+                                    //pulls channel to specific voltage using dac, but we will not be using this so disable all
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 48;
+                                    write_register_data = 16'd0;
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 6: begin //negative current magnitude
+                                    //register 64-79 corresponds to channels 0-15
+                                    //data: [7:0] current trim | [7:0] magnitude
+                                    //trim is for fine tuning current for differences between channels but can be set to 128 on default
+                                    case (stim_mask_channel_positive)
+                                        16'h1: begin
+                                            write_register_address = 64;
+                                        end
+                                        16'h2: begin
+                                            write_register_address = 65;
+                                        end
+                                        16'h4: begin
+                                            write_register_address = 66;
+                                        end
+                                        16'h8: begin
+                                            write_register_address = 67;
+                                        end
+                                        16'h10: begin
+                                            write_register_address = 68;
+                                        end
+                                        16'h20: begin
+                                            write_register_address = 69;
+                                        end
+                                        16'h40: begin
+                                            write_register_address = 70;
+                                        end
+                                        16'h80: begin
+                                            write_register_address = 71;
+                                        end
+                                        16'h100: begin
+                                            write_register_address = 72;
+                                        end
+                                        16'h200: begin
+                                            write_register_address = 73;
+                                        end
+                                        16'h400: begin
+                                            write_register_address = 74;
+                                        end
+                                        16'h800: begin
+                                            write_register_address = 75;
+                                        end
+                                        16'h1000: begin
+                                            write_register_address = 76;
+                                        end
+                                        16'h2000: begin
+                                            write_register_address = 77;
+                                        end
+                                        16'h4000: begin
+                                            write_register_address = 78;
+                                        end
+                                        16'h8000: begin
+                                            write_register_address = 79;
+                                        end
+                                    endcase
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_data = {8'd128, stim_pulse_magnitude}; //we will be doing symmetric magnitudes, so postive and negative current magnitudes are equal
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 7: begin //negative current magnitude
+                                    //register 64-79 corresponds to channels 0-15
+                                    //data: [7:0] current trim | [7:0] magnitude
+                                    //trim is for fine tuning current for differences between channels but can be set to 128 on default
+                                    case (stim_mask_channel_negative)
+                                        16'h1: begin
+                                            write_register_address = 64;
+                                        end
+                                        16'h2: begin
+                                            write_register_address = 65;
+                                        end
+                                        16'h4: begin
+                                            write_register_address = 66;
+                                        end
+                                        16'h8: begin
+                                            write_register_address = 67;
+                                        end
+                                        16'h10: begin
+                                            write_register_address = 68;
+                                        end
+                                        16'h20: begin
+                                            write_register_address = 69;
+                                        end
+                                        16'h40: begin
+                                            write_register_address = 70;
+                                        end
+                                        16'h80: begin
+                                            write_register_address = 71;
+                                        end
+                                        16'h100: begin
+                                            write_register_address = 72;
+                                        end
+                                        16'h200: begin
+                                            write_register_address = 73;
+                                        end
+                                        16'h400: begin
+                                            write_register_address = 74;
+                                        end
+                                        16'h800: begin
+                                            write_register_address = 75;
+                                        end
+                                        16'h1000: begin
+                                            write_register_address = 76;
+                                        end
+                                        16'h2000: begin
+                                            write_register_address = 77;
+                                        end
+                                        16'h4000: begin
+                                            write_register_address = 78;
+                                        end
+                                        16'h8000: begin
+                                            write_register_address = 79;
+                                        end
+                                    endcase
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_data = {8'd128, stim_pulse_magnitude}; //we will be doing symmetric magnitudes, so postive and negative current magnitudes are equal
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 8: begin //positive current magnitude
+                                    //register 96-111 corresponds to channels 0-15
+                                    //data: [7:0] current trim | [7:0] magnitude
+                                    //trim is for fine tuning current for differences between channels but can be set to 128 on default
+                                    case (stim_mask_channel_positive)
+                                        16'h1: begin
+                                            write_register_address = 96;
+                                        end
+                                        16'h2: begin
+                                            write_register_address = 97;
+                                        end
+                                        16'h4: begin
+                                            write_register_address = 98;
+                                        end
+                                        16'h8: begin
+                                            write_register_address = 99;
+                                        end
+                                        16'h10: begin
+                                            write_register_address = 100;
+                                        end
+                                        16'h20: begin
+                                            write_register_address = 101;
+                                        end
+                                        16'h40: begin
+                                            write_register_address = 102;
+                                        end
+                                        16'h80: begin
+                                            write_register_address = 103;
+                                        end
+                                        16'h100: begin
+                                            write_register_address = 104;
+                                        end
+                                        16'h200: begin
+                                            write_register_address = 105;
+                                        end
+                                        16'h400: begin
+                                            write_register_address = 106;
+                                        end
+                                        16'h800: begin
+                                            write_register_address = 107;
+                                        end
+                                        16'h1000: begin
+                                            write_register_address = 108;
+                                        end
+                                        16'h2000: begin
+                                            write_register_address = 109;
+                                        end
+                                        16'h4000: begin
+                                            write_register_address = 110;
+                                        end
+                                        16'h8000: begin
+                                            write_register_address = 111;
+                                        end
+                                    endcase
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_data = {8'd128, stim_pulse_magnitude}; //we will be doing symmetric magnitudes, so postive and negative current magnitudes are equal
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 9: begin //positive current magnitude
+                                    //register 96-111 corresponds to channels 0-15
+                                    //data: [7:0] current trim | [7:0] magnitude
+                                    //trim is for fine tuning current for differences between channels but can be set to 128 on default
+                                    case (stim_mask_channel_negative)
+                                        16'h1: begin
+                                            write_register_address = 96;
+                                        end
+                                        16'h2: begin
+                                            write_register_address = 97;
+                                        end
+                                        16'h4: begin
+                                            write_register_address = 98;
+                                        end
+                                        16'h8: begin
+                                            write_register_address = 99;
+                                        end
+                                        16'h10: begin
+                                            write_register_address = 100;
+                                        end
+                                        16'h20: begin
+                                            write_register_address = 101;
+                                        end
+                                        16'h40: begin
+                                            write_register_address = 102;
+                                        end
+                                        16'h80: begin
+                                            write_register_address = 103;
+                                        end
+                                        16'h100: begin
+                                            write_register_address = 104;
+                                        end
+                                        16'h200: begin
+                                            write_register_address = 105;
+                                        end
+                                        16'h400: begin
+                                            write_register_address = 106;
+                                        end
+                                        16'h800: begin
+                                            write_register_address = 107;
+                                        end
+                                        16'h1000: begin
+                                            write_register_address = 108;
+                                        end
+                                        16'h2000: begin
+                                            write_register_address = 109;
+                                        end
+                                        16'h4000: begin
+                                            write_register_address = 110;
+                                        end
+                                        16'h8000: begin
+                                            write_register_address = 111;
+                                        end
+                                    endcase
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_data = {8'd128, stim_pulse_magnitude}; //we will be doing symmetric magnitudes, so postive and negative current magnitudes are equal
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 10: begin //stim enable A
                                     U_FLAG = 0;
                                     M_FLAG = 0;
                                     write_register_address = 32;
@@ -771,7 +1083,7 @@ module rhs_256 (
                                     data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                                 end
 
-                                CHANNELS_PER_ADC + 3: begin //stim enable B
+                                CHANNELS_PER_ADC + 11: begin //stim enable B
                                     U_FLAG = 0;
                                     M_FLAG = 0;
                                     write_register_address = 33;
@@ -787,6 +1099,266 @@ module rhs_256 (
                                 end
                             endcase
                         end
+
+                        else if (stimulation_state == FIRST_PULSE) begin
+                            case(channel)
+
+                                CHANNELS_PER_ADC: begin //charge recovery switch
+                                    //pulls channel to stim gnd which will be connected to gnd, bit 1 closes switch
+                                    //open switch for normal stim
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 46;
+                                    write_register_data = 0;
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 1: begin //stimulator on (triggered), turns on current sources, but will not stimulate unless magic numbers are present
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 42;
+
+                                    if (stim_bipolar_mode) begin
+                                        write_register_data = stim_mask_channel_positive | stim_mask_channel_negative; //or pos and neg mask so we can activate both positive and negative channels
+                                    end
+                                    else begin
+                                        write_register_data = stim_mask_channel_positive; //monopolar so only positive channel needs to be activated
+                                    end
+
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 2: begin //stimulator polarity
+                                    //binary bit mask, 1 means current flows out of channel, 0 means current flows inward
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 44;
+
+                                    if (stim_bipolar_mode) begin
+                                        if (stim_rising_edge_first) begin
+                                            write_register_data = stim_mask_channel_positive; //positive channel sends current, negative channel sinks current, creating rising edge
+                                        end
+                                        else begin
+                                            write_register_data = stim_mask_channel_negative; //negative channel sends current, positive channel sinks current, creating falling edge
+                                        end
+                                    end
+                                    else begin
+                                        if (stim_rising_edge_first) begin
+                                            write_register_data = stim_mask_channel_positive; //positive channel sends current to stim gnd, creating rising edge
+                                        end
+                                        else begin
+                                            write_register_data = ~stim_mask_channel_positive; //invert positive channel bitmask so now the positive channel sinks current from stim gnd, creating falling edge
+                                        end
+                                    end
+
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                default: begin
+                                    U_FLAG = 1; //trigger all previous registers
+                                    M_FLAG = 0;
+                                    read_register_address = INTAN_CHIP_ID_REG;
+                                    data_in_common = {2'b11, U_FLAG, M_FLAG, 4'd0, read_register_address, 16'd0};
+                                end
+                            endcase
+                        end
+
+                        else if (stimulation_state == INTER_PULSE) begin
+                            case(channel)
+
+                                CHANNELS_PER_ADC: begin //stimulator on (triggered), turns on current sources, but will not stimulate unless magic numbers are present
+                                    //interpulse, turn off all current sources
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 42;
+                                    write_register_data = 0;
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                default: begin
+                                    U_FLAG = 1; //trigger all previous registers
+                                    M_FLAG = 0;
+                                    read_register_address = INTAN_CHIP_ID_REG;
+                                    data_in_common = {2'b11, U_FLAG, M_FLAG, 4'd0, read_register_address, 16'd0};
+                                end
+                            endcase
+                        end
+
+                        else if (stimulation_state == SECOND_PULSE) begin
+                            case(channel)
+
+                                CHANNELS_PER_ADC: begin //stimulator on (triggered), turns on current sources, but will not stimulate unless magic numbers are present
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 42;
+
+                                    if (stim_bipolar_mode) begin
+                                        write_register_data = stim_mask_channel_positive | stim_mask_channel_negative; //or pos and neg mask so we can activate both positive and negative channels
+                                    end
+                                    else begin
+                                        write_register_data = stim_mask_channel_positive; //monopolar so only positive channel needs to be activated
+                                    end
+
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 1: begin //stimulator polarity
+                                    //binary bit mask, 1 means current flows out of channel, 0 means current flows inward
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 44;
+
+                                    if (stim_bipolar_mode) begin
+                                        if (stim_rising_edge_first) begin
+                                            write_register_data = ~stim_mask_channel_positive; //positive channel sinks current, negative channel sends current, creating falling edge on second pulse
+                                        end
+                                        else begin
+                                            write_register_data = ~stim_mask_channel_negative; //negative channel sinks current, positive channel sends current, creating rising edge on second pulse
+                                        end
+                                    end
+                                    else begin
+                                        if (stim_rising_edge_first) begin
+                                            write_register_data = ~stim_mask_channel_positive; //positive channel sinks current from stim gnd, creating falling edge on second pulse
+                                        end
+                                        else begin
+                                            write_register_data = stim_mask_channel_positive; //invert positive channel bitmask so now the positive channel sends current to stim gnd, creating rising edge on second pulse
+                                        end
+                                    end
+
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                default: begin
+                                    U_FLAG = 1; //trigger all previous registers
+                                    M_FLAG = 0;
+                                    read_register_address = INTAN_CHIP_ID_REG;
+                                    data_in_common = {2'b11, U_FLAG, M_FLAG, 4'd0, read_register_address, 16'd0};
+                                end
+                            endcase
+                        end
+
+                        else if (stimulation_state == INTER_BIPULSE) begin
+                            case(channel)
+
+                                CHANNELS_PER_ADC: begin //stimulator on (triggered), turns on current sources, but will not stimulate unless magic numbers are present
+                                    //interbipulse, turn off all current sources
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 42;
+                                    write_register_data = 0;
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                default: begin
+                                    U_FLAG = 1; //trigger all previous registers
+                                    M_FLAG = 0;
+                                    read_register_address = INTAN_CHIP_ID_REG;
+                                    data_in_common = {2'b11, U_FLAG, M_FLAG, 4'd0, read_register_address, 16'd0};
+                                end
+                            endcase
+                        end
+
+                        else if (stimulation_state == INTER_TRAIN) begin
+                            case(channel)
+
+                                CHANNELS_PER_ADC: begin //stimulator on (triggered), turns on current sources, but will not stimulate unless magic numbers are present
+                                    //inter-train, turn off all current sources
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 42;
+                                    write_register_data = 0;
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                default: begin
+                                    U_FLAG = 1; //trigger all previous registers
+                                    M_FLAG = 0;
+                                    read_register_address = INTAN_CHIP_ID_REG;
+                                    data_in_common = {2'b11, U_FLAG, M_FLAG, 4'd0, read_register_address, 16'd0};
+                                end
+                            endcase
+                        end
+
+                        else if (stimulation_state == CHARGE_RECOVERY) begin
+                            case(channel)
+
+                                CHANNELS_PER_ADC: begin //charge recovery switch
+                                    //pulls channel to stim gnd which will be connected to gnd, bit 1 closes switch
+                                    //close all switches during charge recovery
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 46;
+                                    write_register_data = 16'hFFFF;
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 1: begin //stimulator on (triggered), turns on current sources, but will not stimulate unless magic numbers are present
+                                    //charge recovery, turn off all current sources
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 42;
+                                    write_register_data = 0;
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                default: begin
+                                    U_FLAG = 1; //trigger all previous registers
+                                    M_FLAG = 0;
+                                    read_register_address = INTAN_CHIP_ID_REG;
+                                    data_in_common = {2'b11, U_FLAG, M_FLAG, 4'd0, read_register_address, 16'd0};
+                                end
+                            endcase
+                        end
+
+                        else if (stimulation_state == STIM_RESET) begin
+                            case(channel)
+
+                                CHANNELS_PER_ADC: begin //charge recovery switch
+                                    //pulls channel to stim gnd which will be connected to gnd, bit 1 closes switch
+                                    //open all switches after charge recovery and during stim reset
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 46;
+                                    write_register_data = 0;
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 1: begin //stimulator on (triggered), turns on current sources, but will not stimulate unless magic numbers are present
+                                    //stim reset, turn off all current sources
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 42;
+                                    write_register_data = 0;
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 2: begin //stim enable A
+                                    //disable by clearing magic number
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 32;
+                                    write_register_data = 0;
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                CHANNELS_PER_ADC + 3: begin //stim enable B
+                                    //disable by clearing magic number
+                                    U_FLAG = 0;
+                                    M_FLAG = 0;
+                                    write_register_address = 33;
+                                    write_register_data = 0;
+                                    data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
+                                end
+
+                                default: begin
+                                    U_FLAG = 1; //trigger all previous registers
+                                    M_FLAG = 0;
+                                    read_register_address = INTAN_CHIP_ID_REG;
+                                    data_in_common = {2'b11, U_FLAG, M_FLAG, 4'd0, read_register_address, 16'd0};
+                                end
+                            endcase
+                        end
+
                         else begin
                             U_FLAG = 1; //trigger all previous registers
                             M_FLAG = 0;
