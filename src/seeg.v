@@ -9,7 +9,7 @@ module seeg (
 
     wire clk_rhd;
     clock_divider ClockDivideByTwo (.clock_in(clk), .clock_out(clk_rhd), .divisor(2)); //rhs runs on a clock twice as fast as rhd
-    localparam READY = 0, RESET = 1, CONFIG_START = 2, CONFIG_WAIT = 3, RECORD_START = 4, RECORD_WAIT = 5;
+    localparam READY = 0, RESET = 1, CONFIG_START = 2, CONFIG_WAIT = 3, RECORD_START = 4, RECORD_WAIT = 5, RECORD_STOP = 6, ZCHECK_RHD_START = 7, ZCHECK_RHD_WAIT = 8, ZCHECK_RHS_START = 9, ZCHECK_RHS_WAIT = 10, ZCHECK_STOP = 11;
     reg [7:0] state = READY;
 
     wire done_rhd;
@@ -19,19 +19,36 @@ module seeg (
 
     reg config_start_flag = 0;
     reg record_start_flag = 0;
-    reg zcheck_start_flag = 0;
+    reg zcheck_rhd_start_flag = 0;
+    reg zcheck_rhs_start_flag = 0;
+
+    /*
+    localparam RHD_CHANNELS = 2048;
+    localparam RHS_CHANNELS = 256;
+    */ //UNCOMMENT IN PRODUCTION
+
+    localparam RHD_CHANNELS = 5;
+    localparam RHS_CHANNELS = 3;
+
+    reg [11:0] zcheck_global_channel_rhd = 0; // 0 - 2047
+    reg [11:0] zcheck_global_channel_rhs = 0; //0 - 255
 
     reg done_rhd_flag = 0;
     reg done_rhs_flag = 0;
+
+    reg config_done_record_flag = 0; //indicates if after config is done whether record state should be entered
+    reg config_done_zcheck_flag = 0; //indicates if after config is done whether zcheck state should be entered
+    reg config_done_reset_flag = 0; //indicates if after config is done whether reset state should be entered; this should be done after recording and zcheck as a register reset cycle
 
     rhd_2048 rhd_2048(
         .clk(clk_rhd),
         .rstn(rstn),
         .config_start(config_start_flag),
         .record_start(record_start_flag),
-        .zcheck_start(zcheck_start_flag),
+        .zcheck_start(zcheck_rhd_start_flag),
         .done(done_rhd),
-        .busy(busy_rhd)
+        .busy(busy_rhd),
+        .zcheck_global_channel(zcheck_global_channel_rhd)
         /*
         .config_start(config_start),
         .record_start(record_start),
@@ -115,9 +132,10 @@ module seeg (
         .rstn(rstn),
         .config_start(config_start_flag),
         .record_start(record_start_flag),
-        .zcheck_start(zcheck_start_flag),
+        .zcheck_start(zcheck_rhs_start_flag),
         .done(done_rhs),
-        .busy(busy_rhs)
+        .busy(busy_rhs),
+        .zcheck_global_channel(zcheck_global_channel_rhs)
         /*
         .config_start(config_start),
         .record_start(record_start),
@@ -207,14 +225,25 @@ module seeg (
                 RESET: begin
                     config_start_flag = 0;
                     record_start_flag = 0;
-                    zcheck_start_flag = 0;
+                    zcheck_rhd_start_flag = 0;
+                    zcheck_rhs_start_flag = 0;
                     done_rhd_flag = 0;
                     done_rhs_flag = 0;
                     state = READY;
+                    zcheck_global_channel_rhd = 0;
+                    zcheck_global_channel_rhs = 0;
+                    config_done_record_flag = 0;
+                    config_done_zcheck_flag = 0;
+                    config_done_reset_flag = 0; 
                 end
 
                 READY: begin
                     if (record_start) begin
+                        config_done_record_flag = 1;
+                        state = CONFIG_START;
+                    end
+                    else if (zcheck_start) begin
+                        config_done_zcheck_flag = 1;
                         state = CONFIG_START;
                     end
                 end
@@ -231,7 +260,20 @@ module seeg (
                     if (done_rhd_flag && done_rhs_flag && busy_rhd == 0 && busy_rhs == 0) begin
                         done_rhd_flag = 0;
                         done_rhs_flag = 0;
-                        state = RECORD_START;
+                        
+                        if (config_done_record_flag) begin
+                            config_done_record_flag = 0;
+                            state = RECORD_START;
+                        end
+                        else if (config_done_zcheck_flag) begin
+                            config_done_zcheck_flag = 0;
+                            state = ZCHECK_RHD_START;
+                        end
+                        else if (config_done_reset_flag) begin
+                            config_done_reset_flag = 0;
+                            state = RESET;
+                        end
+                        
                     end
                     else begin
                         if (done_rhd && !done_rhd_flag) begin
@@ -243,9 +285,66 @@ module seeg (
                     end
                 end
 
+                ZCHECK_RHD_START: begin
+                    if (zcheck_global_channel_rhd == RHD_CHANNELS) begin
+                        state = ZCHECK_RHS_START;
+                    end
+                    else begin
+                        zcheck_rhd_start_flag = 1;
+
+                        if (busy_rhd) begin
+                            zcheck_rhd_start_flag = 0;
+                            state = ZCHECK_RHD_WAIT;
+                        end
+                    end
+                end
+
+                ZCHECK_RHD_WAIT: begin
+                    if (done_rhd_flag && busy_rhd == 0) begin
+                        done_rhd_flag = 0;
+                        zcheck_global_channel_rhd = zcheck_global_channel_rhd + 1;
+                        state = ZCHECK_RHD_START;
+                    end 
+                    else if (done_rhd && !done_rhd_flag) begin
+                        done_rhd_flag = 1;
+                    end
+                end
+
+                ZCHECK_RHS_START: begin
+                    if (zcheck_global_channel_rhs == RHS_CHANNELS) begin
+                        state = ZCHECK_STOP;
+                    end
+                    else begin
+                        zcheck_rhs_start_flag = 1;
+
+                        if (busy_rhs) begin
+                            zcheck_rhs_start_flag = 0;
+                            state = ZCHECK_RHS_WAIT;
+                        end
+                    end
+                end
+
+                ZCHECK_RHS_WAIT: begin
+                    if (done_rhs_flag && busy_rhs == 0) begin
+                        done_rhs_flag = 0;
+                        zcheck_global_channel_rhs = zcheck_global_channel_rhs + 1;
+                        state = ZCHECK_RHS_START;
+                    end 
+                    else if (done_rhs && !done_rhs_flag) begin
+                        done_rhs_flag = 1;
+                    end
+                end
+
+                ZCHECK_STOP: begin
+                    if (!busy_rhd && !busy_rhs) begin
+                        config_done_reset_flag = 1;
+                        state = CONFIG_START;
+                    end
+                end
+
                 RECORD_START: begin
                     if (record_stop) begin
-                        state = RESET;
+                        state = RECORD_STOP;
                     end
                     else begin
                         record_start_flag = 1;
@@ -259,7 +358,7 @@ module seeg (
 
                 RECORD_WAIT: begin
                     if (record_stop) begin
-                        state = RESET;
+                        state = RECORD_STOP;
                     end
                     else begin
                         if (done_rhd_flag && done_rhs_flag && busy_rhd == 0 && busy_rhs == 0) begin
@@ -276,6 +375,13 @@ module seeg (
                             end
                         end
 
+                    end
+                end
+
+                RECORD_STOP: begin
+                    if (!busy_rhd && !busy_rhs) begin
+                        config_done_reset_flag = 1;
+                        state = CONFIG_START;
                     end
                 end
 

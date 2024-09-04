@@ -7,12 +7,14 @@ module tb_seeg ();
     reg rstn = 0;
     reg record_start = 0;
     reg record_stop = 0;
+    reg zcheck_start = 0;
 
     seeg dut(
         .clk(clk),
         .rstn(rstn),
         .record_start(record_start),
-        .record_stop(record_stop)
+        .record_stop(record_stop),
+        .zcheck_start(zcheck_start)
     );
 
 
@@ -28,6 +30,13 @@ module tb_seeg ();
         #500;
         rstn <= 1;
         #500
+
+        zcheck_start <= 1;
+        #500
+        zcheck_start <= 0;
+        #1000000000;
+
+        /*
         record_start <= 1;
         #500
         record_start <= 0;
@@ -35,7 +44,9 @@ module tb_seeg ();
         record_stop <= 1;
         #500
         record_stop <= 0;
-        #500000
+        #1000000
+
+        */
         $finish;
     end
 

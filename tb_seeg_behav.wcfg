@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="400,569.580 ns"></ZoomStartTime>
-      <ZoomEndTime time="401,027.581 ns"></ZoomEndTime>
-      <Cursor1Time time="400,780.580 ns"></Cursor1Time>
+      <ZoomStartTime time="0.189741033 ms"></ZoomStartTime>
+      <ZoomEndTime time="153.589741034 ms"></ZoomEndTime>
+      <Cursor1Time time="46.789741033 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="220"></NameColumnWidth>
       <ValueColumnWidth column_width="269"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="15" />
+   <WVObjectSize size="28" />
    <wvobject fp_name="/tb_seeg/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -35,6 +35,7 @@
    <wvobject fp_name="/tb_seeg/dut/state" type="array">
       <obj_property name="ElementShortName">state[7:0]</obj_property>
       <obj_property name="ObjectShortName">state[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_seeg/dut/record_start" type="logic">
       <obj_property name="ElementShortName">record_start</obj_property>
@@ -43,6 +44,32 @@
    <wvobject fp_name="/tb_seeg/dut/record_stop" type="logic">
       <obj_property name="ElementShortName">record_stop</obj_property>
       <obj_property name="ObjectShortName">record_stop</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/zcheck_start" type="logic">
+      <obj_property name="ElementShortName">zcheck_start</obj_property>
+      <obj_property name="ObjectShortName">zcheck_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/zcheck_done" type="logic">
+      <obj_property name="ElementShortName">zcheck_done</obj_property>
+      <obj_property name="ObjectShortName">zcheck_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/zcheck_global_channel_rhd" type="array">
+      <obj_property name="ElementShortName">zcheck_global_channel_rhd[11:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_global_channel_rhd[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/zcheck_global_channel_rhs" type="array">
+      <obj_property name="ElementShortName">zcheck_global_channel_rhs[11:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_global_channel_rhs[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/zcheck_rhd_start_flag" type="logic">
+      <obj_property name="ElementShortName">zcheck_rhd_start_flag</obj_property>
+      <obj_property name="ObjectShortName">zcheck_rhd_start_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/zcheck_rhs_start_flag" type="logic">
+      <obj_property name="ElementShortName">zcheck_rhs_start_flag</obj_property>
+      <obj_property name="ObjectShortName">zcheck_rhs_start_flag</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_seeg/dut/done_rhd" type="logic">
       <obj_property name="ElementShortName">done_rhd</obj_property>
@@ -76,8 +103,68 @@
       <obj_property name="ElementShortName">record_start_flag</obj_property>
       <obj_property name="ObjectShortName">record_start_flag</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/zcheck_start_flag" type="logic">
-      <obj_property name="ElementShortName">zcheck_start_flag</obj_property>
-      <obj_property name="ObjectShortName">zcheck_start_flag</obj_property>
+   <wvobject fp_name="/tb_seeg/dut/config_done_record_flag" type="logic">
+      <obj_property name="ElementShortName">config_done_record_flag</obj_property>
+      <obj_property name="ObjectShortName">config_done_record_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/config_done_zcheck_flag" type="logic">
+      <obj_property name="ElementShortName">config_done_zcheck_flag</obj_property>
+      <obj_property name="ObjectShortName">config_done_zcheck_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/config_done_reset_flag" type="logic">
+      <obj_property name="ElementShortName">config_done_reset_flag</obj_property>
+      <obj_property name="ObjectShortName">config_done_reset_flag</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider679">
+      <obj_property name="label">below are module states</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhd_2048/state" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">state[7:0]</obj_property>
+      <obj_property name="label">rhd state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhs_256/state" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">state[7:0]</obj_property>
+      <obj_property name="label">rhs state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhd_2048/zcheck_dac_command" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">zcheck_dac_command[7:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_dac_command[7:0]</obj_property>
+      <obj_property name="label">rhd dac command</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">0</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+      <obj_property name="CellHeight">20</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhs_256/zcheck_dac_command" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">zcheck_dac_command[7:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_dac_command[7:0]</obj_property>
+      <obj_property name="label">rhs dac command</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">0</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+      <obj_property name="CellHeight">20</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
    </wvobject>
 </wave_config>
