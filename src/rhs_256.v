@@ -106,8 +106,12 @@ module rhs_256 (
     output reg stim_finite_mode_done,
     input wire stim_finite_mode_start,
     input wire stim_infinite_mode_start,
-    input wire stim_infinite_mode_stop
+    input wire stim_infinite_mode_stop,
+
+    output reg [1:0] stim_waveform_data_out //output info on what the current stimulation waveform looks like; 1 is baseline, 2 is high, and 0 is low
 );
+
+
 
 
     //main state machine
@@ -115,8 +119,6 @@ module rhs_256 (
 
     //stimulation waveform state machine
     localparam IDLE = 0, FIRST_PULSE = 1, INTER_PULSE = 2, SECOND_PULSE = 3, INTER_BIPULSE = 4, INTER_TRAIN = 5, CHARGE_RECOVERY = 6, STIM_RESET = 7, PRE_STIM_CONFIG = 8, STIM_CONFIG = 9;
-
-
 
     localparam DEFAULT_CHANNELS = 40; //34 recording channels + 6 for other commands
 
@@ -152,7 +154,6 @@ module rhs_256 (
     reg stim_infinite_mode = 0;
 
     reg stim_magic_number_probe_select = 0; //keeps track of when to switch from sending common commands to probe-specific commands
-
 
     reg [7:0] channel = 0;
     assign channel_out = channel;
@@ -1472,6 +1473,9 @@ module rhs_256 (
 
                 REC_DATA_RX: begin
                     start = 0;
+
+
+                    
                     if (&done_all) begin
                         if (channel < CHANNELS_PER_ADC + SPI_CONVERT_DELAY && channel >= SPI_CONVERT_DELAY) begin
 
@@ -1494,8 +1498,14 @@ module rhs_256 (
                             
                         end
                         channel = channel + 1;
-                        if (channel == DEFAULT_CHANNELS)
+                        if (channel == DEFAULT_CHANNELS) begin
+                            case (stimulation_state)
+                                FIRST_PULSE: stim_waveform_data_out = stim_rising_edge_first? 2 : 0;
+                                SECOND_PULSE: stim_waveform_data_out = stim_rising_edge_first? 0 : 2;
+                                default: stim_waveform_data_out = 1;
+                            endcase
                             state = REC_DONE;
+                        end
                         else
                             state = REC_DATA_LOAD;
                     end

@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="868.006380 us"></ZoomStartTime>
-      <ZoomEndTime time="900.756381 us"></ZoomEndTime>
-      <Cursor1Time time="879.656380 us"></Cursor1Time>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="163.600000001 ms"></ZoomEndTime>
+      <Cursor1Time time="131.605500000 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="233"></NameColumnWidth>
-      <ValueColumnWidth column_width="393"></ValueColumnWidth>
+      <NameColumnWidth column_width="220"></NameColumnWidth>
+      <ValueColumnWidth column_width="273"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="62" />
+   <WVObjectSize size="77" />
    <wvobject fp_name="/tb_rhs_256/dut/stim_pulse_length" type="array">
       <obj_property name="ElementShortName">stim_pulse_length[15:0]</obj_property>
       <obj_property name="ObjectShortName">stim_pulse_length[15:0]</obj_property>
@@ -91,6 +91,10 @@
       <obj_property name="ElementShortName">stim_infinite_mode</obj_property>
       <obj_property name="ObjectShortName">stim_infinite_mode</obj_property>
    </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/stim_waveform_data_out" type="array">
+      <obj_property name="ElementShortName">stim_waveform_data_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">stim_waveform_data_out[1:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/stimulation_magnitude_debug" type="array">
       <obj_property name="ElementShortName">stimulation_magnitude_debug[7:0]</obj_property>
       <obj_property name="ObjectShortName">stimulation_magnitude_debug[7:0]</obj_property>
@@ -114,10 +118,19 @@
       <obj_property name="CustomSignalColor">#D2691E</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/state" type="array">
+      <obj_property name="ElementShortName">state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">state[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
    <wvobject type="divider" fp_name="divider83">
       <obj_property name="label">New Divider</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#00FF7F</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhs_256/rhs_channel" type="array">
       <obj_property name="ElementShortName">rhs_channel[7:0]</obj_property>
@@ -183,10 +196,95 @@
       <obj_property name="ObjectShortName">data_in_common[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#FFA500</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/MOSI_A" type="logic">
       <obj_property name="ElementShortName">MOSI_A</obj_property>
       <obj_property name="ObjectShortName">MOSI_A</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_B" type="logic">
+      <obj_property name="ElementShortName">MOSI_B</obj_property>
+      <obj_property name="ObjectShortName">MOSI_B</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_C" type="logic">
+      <obj_property name="ElementShortName">MOSI_C</obj_property>
+      <obj_property name="ObjectShortName">MOSI_C</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_D" type="logic">
+      <obj_property name="ElementShortName">MOSI_D</obj_property>
+      <obj_property name="ObjectShortName">MOSI_D</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_E" type="logic">
+      <obj_property name="ElementShortName">MOSI_E</obj_property>
+      <obj_property name="ObjectShortName">MOSI_E</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_F" type="logic">
+      <obj_property name="ElementShortName">MOSI_F</obj_property>
+      <obj_property name="ObjectShortName">MOSI_F</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_G" type="logic">
+      <obj_property name="ElementShortName">MOSI_G</obj_property>
+      <obj_property name="ObjectShortName">MOSI_G</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_H" type="logic">
+      <obj_property name="ElementShortName">MOSI_H</obj_property>
+      <obj_property name="ObjectShortName">MOSI_H</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_I" type="logic">
+      <obj_property name="ElementShortName">MOSI_I</obj_property>
+      <obj_property name="ObjectShortName">MOSI_I</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_J" type="logic">
+      <obj_property name="ElementShortName">MOSI_J</obj_property>
+      <obj_property name="ObjectShortName">MOSI_J</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_K" type="logic">
+      <obj_property name="ElementShortName">MOSI_K</obj_property>
+      <obj_property name="ObjectShortName">MOSI_K</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_L" type="logic">
+      <obj_property name="ElementShortName">MOSI_L</obj_property>
+      <obj_property name="ObjectShortName">MOSI_L</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_M" type="logic">
+      <obj_property name="ElementShortName">MOSI_M</obj_property>
+      <obj_property name="ObjectShortName">MOSI_M</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_N" type="logic">
+      <obj_property name="ElementShortName">MOSI_N</obj_property>
+      <obj_property name="ObjectShortName">MOSI_N</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/MOSI_O" type="logic">
+      <obj_property name="ElementShortName">MOSI_O</obj_property>
+      <obj_property name="ObjectShortName">MOSI_O</obj_property>
       <obj_property name="CustomSignalColor">#FFA500</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -204,10 +302,6 @@
       <obj_property name="ElementShortName">zcheck_chip_channel[3:0]</obj_property>
       <obj_property name="ObjectShortName">zcheck_chip_channel[3:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/done" type="logic">
-      <obj_property name="ElementShortName">done</obj_property>
-      <obj_property name="ObjectShortName">done</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/rstn" type="logic">
       <obj_property name="ElementShortName">rstn</obj_property>
@@ -262,11 +356,6 @@
    <wvobject fp_name="/tb_rhs_256/dut/zcheck_data_gather_index" type="array">
       <obj_property name="ElementShortName">zcheck_data_gather_index[7:0]</obj_property>
       <obj_property name="ObjectShortName">zcheck_data_gather_index[7:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/state" type="array">
-      <obj_property name="ElementShortName">state[7:0]</obj_property>
-      <obj_property name="ObjectShortName">state[7:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/record_start" type="logic">

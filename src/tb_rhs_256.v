@@ -12,12 +12,12 @@ module tb_rhs_256 ();
     reg record_start = 0;
     reg zcheck_start = 0;
 
-    reg [15:0] stim_pulse_length = 1;
+    reg [15:0] stim_pulse_length = 3;
     reg [7:0] stim_pulse_magnitude = 100;
     reg [15:0] stim_inter_bipulse_delay = 3;
-    reg [15:0] stim_inter_pulse_delay = 1;
+    reg [15:0] stim_inter_pulse_delay = 3;
     reg [15:0] stim_inter_train_delay = 11;
-    reg [15:0] stim_bipulses_per_train_count = 1;
+    reg [15:0] stim_bipulses_per_train_count = 4;
     reg [15:0] stim_train_count = 4;
     reg [15:0] stim_charge_recovery_time = 8;
     reg stim_rising_edge_first = 1;
