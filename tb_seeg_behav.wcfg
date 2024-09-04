@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_seeg_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_seeg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="400,569.580 ns"></ZoomStartTime>
+      <ZoomEndTime time="401,027.581 ns"></ZoomEndTime>
+      <Cursor1Time time="400,780.580 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="220"></NameColumnWidth>
+      <ValueColumnWidth column_width="269"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="15" />
+   <wvobject fp_name="/tb_seeg/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/clk_rhd" type="logic">
+      <obj_property name="ElementShortName">clk_rhd</obj_property>
+      <obj_property name="ObjectShortName">clk_rhd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/state" type="array">
+      <obj_property name="ElementShortName">state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">state[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/record_start" type="logic">
+      <obj_property name="ElementShortName">record_start</obj_property>
+      <obj_property name="ObjectShortName">record_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/record_stop" type="logic">
+      <obj_property name="ElementShortName">record_stop</obj_property>
+      <obj_property name="ObjectShortName">record_stop</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/done_rhd" type="logic">
+      <obj_property name="ElementShortName">done_rhd</obj_property>
+      <obj_property name="ObjectShortName">done_rhd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/done_rhs" type="logic">
+      <obj_property name="ElementShortName">done_rhs</obj_property>
+      <obj_property name="ObjectShortName">done_rhs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/busy_rhd" type="logic">
+      <obj_property name="ElementShortName">busy_rhd</obj_property>
+      <obj_property name="ObjectShortName">busy_rhd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/busy_rhs" type="logic">
+      <obj_property name="ElementShortName">busy_rhs</obj_property>
+      <obj_property name="ObjectShortName">busy_rhs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/done_rhd_flag" type="logic">
+      <obj_property name="ElementShortName">done_rhd_flag</obj_property>
+      <obj_property name="ObjectShortName">done_rhd_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/done_rhs_flag" type="logic">
+      <obj_property name="ElementShortName">done_rhs_flag</obj_property>
+      <obj_property name="ObjectShortName">done_rhs_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/config_start_flag" type="logic">
+      <obj_property name="ElementShortName">config_start_flag</obj_property>
+      <obj_property name="ObjectShortName">config_start_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/record_start_flag" type="logic">
+      <obj_property name="ElementShortName">record_start_flag</obj_property>
+      <obj_property name="ObjectShortName">record_start_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/zcheck_start_flag" type="logic">
+      <obj_property name="ElementShortName">zcheck_start_flag</obj_property>
+      <obj_property name="ObjectShortName">zcheck_start_flag</obj_property>
+   </wvobject>
+</wave_config>

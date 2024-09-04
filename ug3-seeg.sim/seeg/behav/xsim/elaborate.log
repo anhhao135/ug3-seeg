@@ -1,0 +1,127 @@
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_seeg_behav xil_defaultlib.tb_seeg xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 4 for port 'divisor' [C:/Repos/ug3-seeg/src/seeg.v:11]
+WARNING: [VRFC 10-5021] port 'zcheck_start' is not connected on this instance [C:/Repos/ug3-seeg/src/tb_seeg.v:11]
+WARNING: [VRFC 10-5021] port 'oversample_offset_A1' is not connected on this instance [C:/Repos/ug3-seeg/src/seeg.v:27]
+WARNING: [VRFC 10-5021] port 'oversample_offset_A' is not connected on this instance [C:/Repos/ug3-seeg/src/seeg.v:113]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 4 for port 'divisor' [C:/Repos/ug3-seeg/src/rhd_spi_master.v:40]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 4 for port 'divisor' [C:/Repos/ug3-seeg/src/rhs_spi_master.v:36]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/seeg.v" Line 1. Module seeg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_2048.v" Line 1. Module rhd_2048_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_256.v" Line 1. Module rhs_256_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+INFO: [Common 17-14] Message 'XSIM 43-4099' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.clock_divider
+Compiling module xil_defaultlib.rhd_spi_master
+Compiling module xil_defaultlib.rhd_2048_default
+Compiling module xil_defaultlib.rhs_spi_master
+Compiling module xil_defaultlib.rhs_256_default
+Compiling module xil_defaultlib.seeg
+Compiling module xil_defaultlib.tb_seeg
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_seeg_behav

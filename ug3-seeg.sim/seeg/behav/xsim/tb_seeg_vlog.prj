@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../src/clock_divider.v" \
+"../../../../src/rhd_2048.v" \
+"../../../../src/rhd_spi_master.v" \
+"../../../../src/rhs_256.v" \
+"../../../../src/rhs_spi_master.v" \
+"../../../../src/seeg.v" \
+"../../../../src/tb_seeg.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
