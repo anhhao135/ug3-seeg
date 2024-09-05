@@ -6,6 +6,10 @@ verilog xil_defaultlib  \
 "../../../../src/rhs_256.v" \
 "../../../../src/rhs_spi_master.v" \
 "../../../../src/seeg.v" \
+"../../../../src/clock_domain_cross.v" \
+"../../../../src/rhd_spi_slave.v" \
+"../../../../src/rhs_spi_slave.v" \
+"../../../../src/tb_rhd_spi_master.v" \
 "../../../../src/tb_seeg.v" \
 
 # compile glbl module

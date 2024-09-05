@@ -60,7 +60,7 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="k26c"/>
-    <Option Name="WTXSimLaunchSim" Val="1034"/>
+    <Option Name="WTXSimLaunchSim" Val="1081"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -280,6 +280,7 @@
       </Config>
     </FileSet>
     <FileSet Name="seeg" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/seeg" RelGenDir="$PGENDIR/seeg">
+      <Filter Type="Srcs"/>
       <File Path="$PPRDIR/src/tb_seeg.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
