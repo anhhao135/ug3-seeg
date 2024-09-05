@@ -5,12 +5,57 @@ Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 16 differs from formal bit length 4 for port 'stim_current_step_size' [C:/Repos/ug3-seeg/src/tb_seeg.v:57]
-WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 4 for port 'divisor' [C:/Repos/ug3-seeg/src/seeg.v:55]
-WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'sampling_rate_20k' [C:/Repos/ug3-seeg/src/seeg.v:134]
-WARNING: [VRFC 10-5021] port 'loopback_mode' is not connected on this instance [C:/Repos/ug3-seeg/src/tb_seeg.v:35]
-WARNING: [VRFC 10-5021] port 'oversample_offset_A1' is not connected on this instance [C:/Repos/ug3-seeg/src/seeg.v:124]
-WARNING: [VRFC 10-5021] port 'oversample_offset_A' is not connected on this instance [C:/Repos/ug3-seeg/src/seeg.v:140]
+WARNING: [VRFC 10-3091] actual bit length 16 differs from formal bit length 4 for port 'stim_current_step_size' [C:/Repos/ug3-seeg/src/tb_seeg.v:59]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 4 for port 'divisor' [C:/Repos/ug3-seeg/src/seeg.v:200]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'sampling_rate_20k' [C:/Repos/ug3-seeg/src/seeg.v:414]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:581]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:591]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:601]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:611]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:621]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:631]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:641]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:651]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:661]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:671]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:681]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:691]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:701]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:711]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:721]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:731]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:741]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:751]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:761]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:771]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:781]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:791]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:801]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:811]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:821]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:831]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:841]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:851]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:861]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:871]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:881]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:891]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:902]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:911]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:920]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:929]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:938]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:947]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:956]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:965]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:974]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:983]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:992]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:1001]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:1010]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:1019]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:1028]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:1037]
 WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 4 for port 'divisor' [C:/Repos/ug3-seeg/src/rhd_spi_master.v:40]
 WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 4 for port 'divisor' [C:/Repos/ug3-seeg/src/rhs_spi_master.v:36]
 Completed static elaboration
@@ -123,6 +168,8 @@ Compiling module xil_defaultlib.rhd_spi_master
 Compiling module xil_defaultlib.rhd_2048_default
 Compiling module xil_defaultlib.rhs_spi_master
 Compiling module xil_defaultlib.rhs_256_default
+Compiling module xil_defaultlib.rhd_spi_slave
+Compiling module xil_defaultlib.rhs_spi_slave
 Compiling module xil_defaultlib.seeg
 Compiling module xil_defaultlib.tb_seeg
 Compiling module xil_defaultlib.glbl

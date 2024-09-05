@@ -46,12 +46,152 @@ module seeg (
 
     input wire loopback_mode, //fake generated data from internal slaves
 
+
     output wire CS_RHD,
     output wire SCLK_RHD,
     output wire MOSI_RHD,
+
+    input wire MISO1_A,
+    input wire MISO2_A,
+
+    input wire MISO1_B,
+    input wire MISO2_B,
+
+    input wire MISO1_C,
+    input wire MISO2_C,
+
+    input wire MISO1_D,
+    input wire MISO2_D,
+
+    input wire MISO1_E,
+    input wire MISO2_E,
+
+    input wire MISO1_F,
+    input wire MISO2_F,
+
+    input wire MISO1_G,
+    input wire MISO2_G,
+
+    input wire MISO1_H,
+    input wire MISO2_H,
+
+    input wire MISO1_I,
+    input wire MISO2_I,
+
+    input wire MISO1_J,
+    input wire MISO2_J,
+
+    input wire MISO1_K,
+    input wire MISO2_K,
+
+    input wire MISO1_L,
+    input wire MISO2_L,
+
+    input wire MISO1_M,
+    input wire MISO2_M,
+
+    input wire MISO1_N,
+    input wire MISO2_N,
+
+    input wire MISO1_O,
+    input wire MISO2_O,
+
+    input wire MISO1_P,
+    input wire MISO2_P,
     
+
+
     output wire CS_RHS,
-    output wire SCLK_RHS
+    output wire SCLK_RHS,
+
+    output wire MOSI_A,
+    output wire MOSI_B,
+    output wire MOSI_C,
+    output wire MOSI_D,
+    output wire MOSI_E,
+    output wire MOSI_F,
+    output wire MOSI_G,
+    output wire MOSI_H,
+    output wire MOSI_I,
+    output wire MOSI_J,
+    output wire MOSI_K,
+    output wire MOSI_L,
+    output wire MOSI_M,
+    output wire MOSI_N,
+    output wire MOSI_O,
+    output wire MOSI_P,
+
+    input wire MISO_A,
+    input wire MISO_B,
+    input wire MISO_C,
+    input wire MISO_D,
+    input wire MISO_E,
+    input wire MISO_F,
+    input wire MISO_G,
+    input wire MISO_H,
+    input wire MISO_I,
+    input wire MISO_J,
+    input wire MISO_K,
+    input wire MISO_L,
+    input wire MISO_M,
+    input wire MISO_N,
+    input wire MISO_O,
+    input wire MISO_P,
+
+    input wire [7:0] oversample_offset_A1,
+    input wire [7:0] oversample_offset_A2,
+    input wire [7:0] oversample_offset_B1,
+    input wire [7:0] oversample_offset_B2,
+    input wire [7:0] oversample_offset_C1,
+    input wire [7:0] oversample_offset_C2,
+    input wire [7:0] oversample_offset_D1,
+    input wire [7:0] oversample_offset_D2,
+    input wire [7:0] oversample_offset_E1,
+    input wire [7:0] oversample_offset_E2,
+    input wire [7:0] oversample_offset_F1,
+    input wire [7:0] oversample_offset_F2,
+    input wire [7:0] oversample_offset_G1,
+    input wire [7:0] oversample_offset_G2,
+    input wire [7:0] oversample_offset_H1,
+    input wire [7:0] oversample_offset_H2,
+    input wire [7:0] oversample_offset_I1,
+    input wire [7:0] oversample_offset_I2,
+    input wire [7:0] oversample_offset_J1,
+    input wire [7:0] oversample_offset_J2,
+    input wire [7:0] oversample_offset_K1,
+    input wire [7:0] oversample_offset_K2,
+    input wire [7:0] oversample_offset_L1,
+    input wire [7:0] oversample_offset_L2,
+    input wire [7:0] oversample_offset_M1,
+    input wire [7:0] oversample_offset_M2,
+    input wire [7:0] oversample_offset_N1,
+    input wire [7:0] oversample_offset_N2,
+    input wire [7:0] oversample_offset_O1,
+    input wire [7:0] oversample_offset_O2,
+    input wire [7:0] oversample_offset_P1,
+    input wire [7:0] oversample_offset_P2,
+
+    input wire [7:0] oversample_offset_A,
+    input wire [7:0] oversample_offset_B,
+    input wire [7:0] oversample_offset_C,
+    input wire [7:0] oversample_offset_D,
+    input wire [7:0] oversample_offset_E,
+    input wire [7:0] oversample_offset_F,
+    input wire [7:0] oversample_offset_G,
+    input wire [7:0] oversample_offset_H,
+    input wire [7:0] oversample_offset_I,
+    input wire [7:0] oversample_offset_J,
+    input wire [7:0] oversample_offset_K,
+    input wire [7:0] oversample_offset_L,
+    input wire [7:0] oversample_offset_M,
+    input wire [7:0] oversample_offset_N,
+    input wire [7:0] oversample_offset_O,
+    input wire [7:0] oversample_offset_P,
+
+    output wire [36863:0] data_out_record, //on valid, this will be a sample of all channels 2048 rhd + 256 rhs
+    output reg data_out_record_valid,
+    output wire [2559:0] data_out_zcheck, //on valid, this will be 8 x 16 bit sample sine cycles of a channel, at 20 ks/s, starting with rhd, then rhs, all 2304 channels sequentially
+    output reg data_out_zcheck_valid
     
     
 );
@@ -107,6 +247,140 @@ module seeg (
     assign channel_loopback_rhd = zcheck_in_progress ? zcheck_chip_channel_rhd + 2 : channel_out_rhd;
     assign channel_loopback_rhs = zcheck_in_progress ? zcheck_chip_channel_rhs + 2 : channel_out_rhs;
 
+    wire MISO1_A_module;
+    wire MISO2_A_module;
+
+    wire MISO1_B_module;
+    wire MISO2_B_module;
+
+    wire MISO1_C_module;
+    wire MISO2_C_module;
+
+    wire MISO1_D_module;
+    wire MISO2_D_module;
+
+    wire MISO1_E_module;
+    wire MISO2_E_module;
+
+    wire MISO1_F_module;
+    wire MISO2_F_module;
+
+    wire MISO1_G_module;
+    wire MISO2_G_module;
+
+    wire MISO1_H_module;
+    wire MISO2_H_module;
+
+    wire MISO1_I_module;
+    wire MISO2_I_module;
+
+    wire MISO1_J_module;
+    wire MISO2_J_module;
+
+    wire MISO1_K_module;
+    wire MISO2_K_module;
+
+    wire MISO1_L_module;
+    wire MISO2_L_module;
+
+    wire MISO1_M_module;
+    wire MISO2_M_module;
+
+    wire MISO1_N_module;
+    wire MISO2_N_module;
+
+    wire MISO1_O_module;
+    wire MISO2_O_module;
+
+    wire MISO1_P_module;
+    wire MISO2_P_module;
+
+    assign MISO1_A_module = loopback_mode ? MISO1_A_loopback : MISO1_A;
+    assign MISO2_A_module = loopback_mode ? MISO2_A_loopback : MISO2_A;
+    
+    assign MISO1_B_module = loopback_mode ? MISO1_B_loopback : MISO1_B;
+    assign MISO2_B_module = loopback_mode ? MISO2_B_loopback : MISO2_B;
+
+    assign MISO1_C_module = loopback_mode ? MISO1_C_loopback : MISO1_C;
+    assign MISO2_C_module = loopback_mode ? MISO2_C_loopback : MISO2_C;
+
+    assign MISO1_D_module = loopback_mode ? MISO1_D_loopback : MISO1_D;
+    assign MISO2_D_module = loopback_mode ? MISO2_D_loopback : MISO2_D;
+
+    assign MISO1_E_module = loopback_mode ? MISO1_E_loopback : MISO1_E;
+    assign MISO2_E_module = loopback_mode ? MISO2_E_loopback : MISO2_E;
+    
+    assign MISO1_F_module = loopback_mode ? MISO1_F_loopback : MISO1_F;
+    assign MISO2_F_module = loopback_mode ? MISO2_F_loopback : MISO2_F;
+
+    assign MISO1_G_module = loopback_mode ? MISO1_G_loopback : MISO1_G;
+    assign MISO2_G_module = loopback_mode ? MISO2_G_loopback : MISO2_G;
+
+    assign MISO1_H_module = loopback_mode ? MISO1_H_loopback : MISO1_H;
+    assign MISO2_H_module = loopback_mode ? MISO2_H_loopback : MISO2_H;
+
+    assign MISO1_I_module = loopback_mode ? MISO1_I_loopback : MISO1_I;
+    assign MISO2_I_module = loopback_mode ? MISO2_I_loopback : MISO2_I;
+    
+    assign MISO1_J_module = loopback_mode ? MISO1_J_loopback : MISO1_J;
+    assign MISO2_J_module = loopback_mode ? MISO2_J_loopback : MISO2_J;
+
+    assign MISO1_K_module = loopback_mode ? MISO1_K_loopback : MISO1_K;
+    assign MISO2_K_module = loopback_mode ? MISO2_K_loopback : MISO2_K;
+
+    assign MISO1_L_module = loopback_mode ? MISO1_L_loopback : MISO1_L;
+    assign MISO2_L_module = loopback_mode ? MISO2_L_loopback : MISO2_L;
+
+    assign MISO1_M_module = loopback_mode ? MISO1_M_loopback : MISO1_M;
+    assign MISO2_M_module = loopback_mode ? MISO2_M_loopback : MISO2_M;
+    
+    assign MISO1_N_module = loopback_mode ? MISO1_N_loopback : MISO1_N;
+    assign MISO2_N_module = loopback_mode ? MISO2_N_loopback : MISO2_N;
+
+    assign MISO1_O_module = loopback_mode ? MISO1_O_loopback : MISO1_O;
+    assign MISO2_O_module = loopback_mode ? MISO2_O_loopback : MISO2_O;
+
+    assign MISO1_P_module = loopback_mode ? MISO1_P_loopback : MISO1_P;
+    assign MISO2_P_module = loopback_mode ? MISO2_P_loopback : MISO2_P;
+
+
+    wire MISO_A_module;
+    wire MISO_B_module;
+    wire MISO_C_module;
+    wire MISO_D_module;
+    wire MISO_E_module;
+    wire MISO_F_module;
+    wire MISO_G_module;
+    wire MISO_H_module;
+    wire MISO_I_module;
+    wire MISO_J_module;
+    wire MISO_K_module;
+    wire MISO_L_module;
+    wire MISO_M_module;
+    wire MISO_N_module;
+    wire MISO_O_module;
+    wire MISO_P_module;
+
+    assign MISO_A_module = loopback_mode ? MISO_A_loopback : MISO_A;
+    assign MISO_B_module = loopback_mode ? MISO_B_loopback : MISO_B;
+    assign MISO_C_module = loopback_mode ? MISO_C_loopback : MISO_C;
+    assign MISO_D_module = loopback_mode ? MISO_D_loopback : MISO_D;
+    assign MISO_E_module = loopback_mode ? MISO_E_loopback : MISO_E;   
+    assign MISO_F_module = loopback_mode ? MISO_F_loopback : MISO_F;
+    assign MISO_G_module = loopback_mode ? MISO_G_loopback : MISO_G;
+    assign MISO_H_module = loopback_mode ? MISO_H_loopback : MISO_H;
+    assign MISO_I_module = loopback_mode ? MISO_I_loopback : MISO_I;   
+    assign MISO_J_module = loopback_mode ? MISO_J_loopback : MISO_J;
+    assign MISO_K_module = loopback_mode ? MISO_K_loopback : MISO_K;
+    assign MISO_L_module = loopback_mode ? MISO_L_loopback : MISO_L;
+    assign MISO_M_module = loopback_mode ? MISO_M_loopback : MISO_M;   
+    assign MISO_N_module = loopback_mode ? MISO_N_loopback : MISO_N;
+    assign MISO_O_module = loopback_mode ? MISO_O_loopback : MISO_O;
+    assign MISO_P_module = loopback_mode ? MISO_P_loopback : MISO_P;
+
+
+
+
     reg done_rhd_flag = 0;
     reg done_rhs_flag = 0;
 
@@ -114,14 +388,15 @@ module seeg (
     reg config_done_zcheck_flag = 0; //indicates if after config is done whether zcheck state should be entered
     reg config_done_reset_flag = 0; //indicates if after config is done whether reset state should be entered; this should be done after recording and zcheck as a register reset cycle
 
-    reg [2559:0] zcheck_data_out_rhd_reg;
-    reg [2559:0] zcheck_data_out_rhs_reg;
-
     wire [2559:0] zcheck_data_out_rhd;
     wire [2559:0] zcheck_data_out_rhs;
+    assign data_out_zcheck = (state == ZCHECK_RHS_START || state == ZCHECK_RHS_WAIT) ? zcheck_data_out_rhs : zcheck_data_out_rhd;
 
     wire [32767:0] data_out_rhd;
     wire [4095:0] data_out_rhs;
+    reg [32767:0] data_out_rhd_reg = 0;
+    reg [4095:0] data_out_rhs_reg = 0;
+    assign data_out_record = {data_out_rhs_reg, data_out_rhd_reg};
 
 
     wire [1:0] stim_waveform_data_out;
@@ -142,7 +417,71 @@ module seeg (
         .channel_out(channel_out_rhd),
         .CS(CS_RHD),
         .SCLK(SCLK_RHD),
-        .MOSI(MOSI_RHD)
+        .MOSI(MOSI_RHD),
+        .MISO1_A(MISO1_A_module),
+        .MISO2_A(MISO2_A_module),
+        .MISO1_B(MISO1_B_module),
+        .MISO2_B(MISO2_B_module),
+        .MISO1_C(MISO1_C_module),
+        .MISO2_C(MISO2_C_module),
+        .MISO1_D(MISO1_D_module),
+        .MISO2_D(MISO2_D_module),
+        .MISO1_E(MISO1_E_module),
+        .MISO2_E(MISO2_E_module),
+        .MISO1_F(MISO1_F_module),
+        .MISO2_F(MISO2_F_module),
+        .MISO1_G(MISO1_G_module),
+        .MISO2_G(MISO2_G_module),
+        .MISO1_H(MISO1_H_module),
+        .MISO2_H(MISO2_H_module),
+        .MISO1_I(MISO1_I_module),
+        .MISO2_I(MISO2_I_module),
+        .MISO1_J(MISO1_J_module),
+        .MISO2_J(MISO2_J_module),
+        .MISO1_K(MISO1_K_module),
+        .MISO2_K(MISO2_K_module),
+        .MISO1_L(MISO1_L_module),
+        .MISO2_L(MISO2_L_module),
+        .MISO1_M(MISO1_M_module),
+        .MISO2_M(MISO2_M_module),
+        .MISO1_N(MISO1_N_module),
+        .MISO2_N(MISO2_N_module),
+        .MISO1_O(MISO1_O_module),
+        .MISO2_O(MISO2_O_module),
+        .MISO1_P(MISO1_P_module),
+        .MISO2_P(MISO2_P_module),
+        .oversample_offset_A1(oversample_offset_A1),
+        .oversample_offset_A2(oversample_offset_A2),
+        .oversample_offset_B1(oversample_offset_B1),
+        .oversample_offset_B2(oversample_offset_B2),
+        .oversample_offset_C1(oversample_offset_C1),
+        .oversample_offset_C2(oversample_offset_C2),
+        .oversample_offset_D1(oversample_offset_D1),
+        .oversample_offset_D2(oversample_offset_D2),
+        .oversample_offset_E1(oversample_offset_E1),
+        .oversample_offset_E2(oversample_offset_E2),
+        .oversample_offset_F1(oversample_offset_F1),
+        .oversample_offset_F2(oversample_offset_F2),
+        .oversample_offset_G1(oversample_offset_G1),
+        .oversample_offset_G2(oversample_offset_G2),
+        .oversample_offset_H1(oversample_offset_H1),
+        .oversample_offset_H2(oversample_offset_H2),
+        .oversample_offset_I1(oversample_offset_I1),
+        .oversample_offset_I2(oversample_offset_I2),
+        .oversample_offset_J1(oversample_offset_J1),
+        .oversample_offset_J2(oversample_offset_J2),
+        .oversample_offset_K1(oversample_offset_K1),
+        .oversample_offset_K2(oversample_offset_K2),
+        .oversample_offset_L1(oversample_offset_L1),
+        .oversample_offset_L2(oversample_offset_L2),
+        .oversample_offset_M1(oversample_offset_M1),
+        .oversample_offset_M2(oversample_offset_M2),
+        .oversample_offset_N1(oversample_offset_N1),
+        .oversample_offset_N2(oversample_offset_N2),
+        .oversample_offset_O1(oversample_offset_O1),
+        .oversample_offset_O2(oversample_offset_O2),
+        .oversample_offset_P1(oversample_offset_P1),
+        .oversample_offset_P2(oversample_offset_P2)
     );
 
     rhs_256 rhs_256(
@@ -182,8 +521,55 @@ module seeg (
         .stim_waveform_data_out(stim_waveform_data_out),
 
         .CS(CS_RHS),
-        .SCLK(SCLK_RHS)
-        
+        .SCLK(SCLK_RHS),
+        .MOSI_A(MOSI_A),
+        .MOSI_B(MOSI_B),
+        .MOSI_C(MOSI_C),
+        .MOSI_D(MOSI_D),
+        .MOSI_E(MOSI_E),
+        .MOSI_F(MOSI_F),
+        .MOSI_G(MOSI_G),
+        .MOSI_H(MOSI_H),
+        .MOSI_I(MOSI_I),
+        .MOSI_J(MOSI_J),
+        .MOSI_K(MOSI_K),
+        .MOSI_L(MOSI_L),
+        .MOSI_M(MOSI_M),
+        .MOSI_N(MOSI_N),
+        .MOSI_O(MOSI_O),
+        .MOSI_P(MOSI_P),
+        .MISO_A(MISO_A_module),
+        .MISO_B(MISO_B_module),
+        .MISO_C(MISO_C_module),
+        .MISO_D(MISO_D_module),
+        .MISO_E(MISO_E_module),
+        .MISO_F(MISO_F_module),
+        .MISO_G(MISO_G_module),
+        .MISO_H(MISO_H_module),
+        .MISO_I(MISO_I_module),
+        .MISO_J(MISO_J_module),
+        .MISO_K(MISO_K_module),
+        .MISO_L(MISO_L_module),
+        .MISO_M(MISO_M_module),
+        .MISO_N(MISO_N_module),
+        .MISO_O(MISO_O_module),
+        .MISO_P(MISO_P_module),
+        .oversample_offset_A(oversample_offset_A),
+        .oversample_offset_B(oversample_offset_B),
+        .oversample_offset_C(oversample_offset_C),
+        .oversample_offset_D(oversample_offset_D),
+        .oversample_offset_E(oversample_offset_E),
+        .oversample_offset_F(oversample_offset_F),
+        .oversample_offset_G(oversample_offset_G),
+        .oversample_offset_H(oversample_offset_H),
+        .oversample_offset_I(oversample_offset_I),
+        .oversample_offset_J(oversample_offset_J),
+        .oversample_offset_K(oversample_offset_K),
+        .oversample_offset_L(oversample_offset_L),
+        .oversample_offset_M(oversample_offset_M),
+        .oversample_offset_N(oversample_offset_N),
+        .oversample_offset_O(oversample_offset_O),
+        .oversample_offset_P(oversample_offset_P)
     );
 
 
@@ -508,147 +894,147 @@ module seeg (
     );
 
 
-    rhs_spi_slave #(.STARTING_SEED(0)) A_slave(
+    rhs_spi_slave #(.STARTING_SEED(128)) A_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_A),
         .MISO(MISO_A_loopback),
-        .CS(CS),
-        .channel(rhs_channel),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(16)) B_slave(
+    rhs_spi_slave #(.STARTING_SEED(272)) B_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_B),
-        .MISO(MISO_B),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_B_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(32)) C_slave(
+    rhs_spi_slave #(.STARTING_SEED(416)) C_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_C),
-        .MISO(MISO_C),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_C_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(48)) D_slave(
+    rhs_spi_slave #(.STARTING_SEED(560)) D_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_D),
-        .MISO(MISO_D),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_D_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(64)) E_slave(
+    rhs_spi_slave #(.STARTING_SEED(704)) E_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_E),
-        .MISO(MISO_E),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_E_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(80)) F_slave(
+    rhs_spi_slave #(.STARTING_SEED(848)) F_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_F),
-        .MISO(MISO_F),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_F_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(96)) G_slave(
+    rhs_spi_slave #(.STARTING_SEED(992)) G_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_G),
-        .MISO(MISO_G),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_G_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(112)) H_slave(
+    rhs_spi_slave #(.STARTING_SEED(1136)) H_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_H),
-        .MISO(MISO_H),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_H_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(128)) I_slave(
+    rhs_spi_slave #(.STARTING_SEED(1280)) I_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_I),
-        .MISO(MISO_I),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_I_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(144)) J_slave(
+    rhs_spi_slave #(.STARTING_SEED(1424)) J_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_J),
-        .MISO(MISO_J),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_J_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(160)) K_slave(
+    rhs_spi_slave #(.STARTING_SEED(1568)) K_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_K),
-        .MISO(MISO_K),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_K_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(176)) L_slave(
+    rhs_spi_slave #(.STARTING_SEED(1712)) L_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_L),
-        .MISO(MISO_L),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_L_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(192)) M_slave(
+    rhs_spi_slave #(.STARTING_SEED(1856)) M_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_M),
-        .MISO(MISO_M),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_M_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(208)) N_slave(
+    rhs_spi_slave #(.STARTING_SEED(2000)) N_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_N),
-        .MISO(MISO_N),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_N_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(224)) O_slave(
+    rhs_spi_slave #(.STARTING_SEED(2144)) O_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_O),
-        .MISO(MISO_O),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_O_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
-    rhs_spi_slave #(.STARTING_SEED(240)) P_slave(
+    rhs_spi_slave #(.STARTING_SEED(2288)) P_slave(
         .SCLK(SCLK_RHS),
         .MOSI(MOSI_P),
-        .MISO(MISO_P),
-        .CS(CS),
-        .channel(rhs_channel),
+        .MISO(MISO_P_loopback),
+        .CS(CS_RHS),
+        .channel(channel_loopback_rhs),
         .rstn(rstn)
     );
 
@@ -659,8 +1045,11 @@ module seeg (
             state = RESET;
         end
         else begin
-            case (state)
+            
+            data_out_record_valid = 0;
+            data_out_zcheck_valid = 0;
 
+            case (state)
                 RESET: begin
                     config_start_flag = 0;
                     record_start_flag = 0;
@@ -674,6 +1063,10 @@ module seeg (
                     config_done_record_flag = 0;
                     config_done_zcheck_flag = 0;
                     config_done_reset_flag = 0; 
+                    data_out_record_valid = 0;
+                    data_out_zcheck_valid = 0;
+                    data_out_rhd_reg = 0;
+                    data_out_rhs_reg = 0;
                 end
 
                 READY: begin
@@ -746,6 +1139,7 @@ module seeg (
                     end 
                     else if (done_rhd && !done_rhd_flag) begin
                         done_rhd_flag = 1;
+                        data_out_zcheck_valid = 1;
                     end
                 end
 
@@ -771,6 +1165,7 @@ module seeg (
                     end 
                     else if (done_rhs && !done_rhs_flag) begin
                         done_rhs_flag = 1;
+                        data_out_zcheck_valid = 1;
                     end
                 end
 
@@ -782,6 +1177,7 @@ module seeg (
                 end
 
                 RECORD_START: begin
+
                     if (record_stop) begin
                         state = RECORD_STOP;
                     end
@@ -801,15 +1197,18 @@ module seeg (
                     end
                     else begin
                         if (done_rhd_flag && done_rhs_flag && busy_rhd == 0 && busy_rhs == 0) begin
+                            data_out_record_valid = 1;
                             done_rhd_flag = 0;
                             done_rhs_flag = 0;
                             state = RECORD_START;
                         end
                         else begin
                             if (done_rhd && !done_rhd_flag) begin
+                                data_out_rhd_reg = data_out_rhd;
                                 done_rhd_flag = 1;
                             end
                             if (done_rhs && !done_rhs_flag) begin
+                                data_out_rhs_reg = data_out_rhs;
                                 done_rhs_flag = 1;
                             end
                         end

@@ -84,7 +84,7 @@ module tb_rhs_256 ();
     wire [3:0] zcheck_chip_channel;
     assign zcheck_chip_channel = zcheck_global_channel % CHANNELS_PER_CHIP;
 
-    assign rhs_channel = zcheck_mode ? zcheck_chip_channel + 2 : rhs_channel_dut;
+    assign rhs_channel = zcheck_mode ? zcheck_chip_ channel + 2 : rhs_channel_dut;
 
 
     rhs_256 dut(
