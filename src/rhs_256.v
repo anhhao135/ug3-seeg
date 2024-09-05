@@ -42,7 +42,7 @@ module rhs_256 (
     input wire [7:0] oversample_offset_O,
     input wire [7:0] oversample_offset_P,
 
-    output reg[4095:0] data_out, //1 sample of all 2048 channels
+    output reg[4095:0] data_out, //1 sample of all 256 channels
 
     output wire CS,
     output wire SCLK,
