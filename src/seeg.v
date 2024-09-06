@@ -191,7 +191,8 @@ module seeg (
     output wire [36863:0] data_out_record, //on valid, this will be a sample of all channels 2048 rhd + 256 rhs
     output reg data_out_record_valid,
     output wire [2559:0] data_out_zcheck, //on valid, this will be 8 x 16 bit sample sine cycles of a channel, at 20 ks/s, starting with rhd, then rhs, all 2304 channels sequentially
-    output reg data_out_zcheck_valid
+    output reg data_out_zcheck_valid,
+    output wire [1:0] stim_waveform_data_out
     
     
 );
@@ -399,7 +400,7 @@ module seeg (
     assign data_out_record = {data_out_rhs_reg, data_out_rhd_reg};
 
 
-    wire [1:0] stim_waveform_data_out;
+
 
     rhd_2048 rhd_2048(
         .clk(clk_rhd),

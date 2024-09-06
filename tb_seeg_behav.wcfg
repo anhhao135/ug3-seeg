@@ -11,9 +11,9 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
-      <ZoomEndTime time="33.200000001 ms"></ZoomEndTime>
-      <Cursor1Time time="1.200862220 ms"></Cursor1Time>
+      <ZoomStartTime time="0.083965194 ms"></ZoomStartTime>
+      <ZoomEndTime time="45.183965195 ms"></ZoomEndTime>
+      <Cursor1Time time="7.600631860 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="220"></NameColumnWidth>
@@ -163,9 +163,9 @@
       <obj_property name="ElementShortName">SCLK_RHS</obj_property>
       <obj_property name="ObjectShortName">SCLK_RHS</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/data_out_record" type="array">
-      <obj_property name="ElementShortName">data_out_record[36863:0]</obj_property>
-      <obj_property name="ObjectShortName">data_out_record[36863:0]</obj_property>
+   <wvobject fp_name="/tb_seeg/dut/stim_waveform_data_out" type="array">
+      <obj_property name="ElementShortName">stim_waveform_data_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">stim_waveform_data_out[1:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_seeg/dut/data_out_record_valid" type="logic">
       <obj_property name="ElementShortName">data_out_record_valid</obj_property>
