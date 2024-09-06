@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.083965194 ms"></ZoomStartTime>
-      <ZoomEndTime time="45.183965195 ms"></ZoomEndTime>
+      <ZoomStartTime time="0.001000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="45.669828830 ms"></ZoomEndTime>
       <Cursor1Time time="7.600631860 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="220"></NameColumnWidth>
-      <ValueColumnWidth column_width="253"></ValueColumnWidth>
+      <ValueColumnWidth column_width="249"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="52" />
    <wvobject fp_name="/tb_seeg/rstn" type="logic">
