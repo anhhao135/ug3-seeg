@@ -20,8 +20,8 @@ bit                                     S_AXI_ARESETN;
 
 xil_axi_prot_t                          mtestProtectionType = 3'b000;  
 xil_axi_resp_t                          mtestBresp;    
-bit [63:0]                              mtestWDataL; 
-bit [63:0]                              mtestRDataL; 
+bit [31:0]                              mtestWDataL; 
+bit [31:0]                              mtestRDataL; 
 
 tb_seeg_top_axi_vip_0_0_mst_t          mst_agent_0;
 
@@ -56,6 +56,13 @@ initial begin
   #200ns;
   M_AXIS_ARESETN <= 1'b1;
   S_AXI_ARESETN <= 1'b1;
+  #1000ns;
+
+  mtestWDataL = 32'h22222222; //binary is 00010001000100010001000100010001 i.e. all miso lines are assumed to have 1 clock cycle delay
+  mst_agent_0.AXI4LITE_WRITE_BURST(32'd120, mtestProtectionType, mtestWDataL, mtestBresp);
+
+  $finish;
+
 end
 
 endmodule
