@@ -120,7 +120,7 @@ module tb_seeg ();
 
     initial begin
         rstn <= 1;
-        #500;
+        #500;39
         rstn <= 0;
         #500;
         rstn <= 1;

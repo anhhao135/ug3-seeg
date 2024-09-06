@@ -1,0 +1,56 @@
+Time resolution is 1 ps
+XilinxAXIVIP: Found at Path: tb_seeg_top_axi.DUT.tb_seeg_top_i.axi_vip_0.inst
+
+Time: 12820 ps Started: 12820 ps Scope: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line:1828
+Error: Pre-reset violation: AXI4_ERRS_AWREADY_X: When not in reset, a value of X on AWREADY is not permitted. Spec: section A3.1.2.
+Time: 12820 ps  Iteration: 0  Process: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC//tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC  Scope: tb_seeg_top_axi.DUT.tb_seeg_top_i.axi_vip_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 729
+
+Time: 12820 ps Started: 12820 ps Scope: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line:1981
+Error: Pre-reset violation: AXI4_ERRS_WREADY_X: When not in reset, a value of X on WREADY is not permitted. Spec: section A3.2.2.
+Time: 12820 ps  Iteration: 0  Process: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC//tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC  Scope: tb_seeg_top_axi.DUT.tb_seeg_top_i.axi_vip_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 729
+
+Time: 12820 ps Started: 12820 ps Scope: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line:2111
+Error: Pre-reset violation: AXI4_ERRS_BVALID_X: When not in reset, a value of X on BVALID is not permitted. Spec: section A3.2.2.
+Time: 12820 ps  Iteration: 0  Process: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC//tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC  Scope: tb_seeg_top_axi.DUT.tb_seeg_top_i.axi_vip_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 729
+
+Time: 12820 ps Started: 12820 ps Scope: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line:2559
+Error: Pre-reset violation: AXI4_ERRS_ARREADY_X: When not in reset, a value of X on ARREADY is not permitted. Spec: section A3.1.2.
+Time: 12820 ps  Iteration: 0  Process: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC//tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC  Scope: tb_seeg_top_axi.DUT.tb_seeg_top_i.axi_vip_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 729
+
+Time: 12820 ps Started: 12820 ps Scope: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line:2736
+Error: Pre-reset violation: AXI4_ERRS_RVALID_X: When not in reset, a value of X on RVALID is not permitted. Spec: section A3.1.2.
+Time: 12820 ps  Iteration: 0  Process: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC//tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC  Scope: tb_seeg_top_axi.DUT.tb_seeg_top_i.axi_vip_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 729
+
+Time: 38460 ps Started: 38460 ps Scope: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line:2111
+Error: Pre-reset violation: AXI4_ERRS_BVALID_X: When not in reset, a value of X on BVALID is not permitted. Spec: section A3.2.2.
+Time: 38460 ps  Iteration: 0  Process: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC//tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC  Scope: tb_seeg_top_axi.DUT.tb_seeg_top_i.axi_vip_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 729
+
+Time: 38460 ps Started: 38460 ps Scope: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line:2736
+Error: Pre-reset violation: AXI4_ERRS_RVALID_X: When not in reset, a value of X on RVALID is not permitted. Spec: section A3.1.2.
+Time: 38460 ps  Iteration: 0  Process: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC//tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC  Scope: tb_seeg_top_axi.DUT.tb_seeg_top_i.axi_vip_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 729
+
+Time: 64100 ps Started: 64100 ps Scope: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line:2111
+Error: Pre-reset violation: AXI4_ERRS_BVALID_X: When not in reset, a value of X on BVALID is not permitted. Spec: section A3.2.2.
+Time: 64100 ps  Iteration: 0  Process: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC//tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC  Scope: tb_seeg_top_axi.DUT.tb_seeg_top_i.axi_vip_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 729
+
+Time: 64100 ps Started: 64100 ps Scope: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line:2736
+Error: Pre-reset violation: AXI4_ERRS_RVALID_X: When not in reset, a value of X on RVALID is not permitted. Spec: section A3.1.2.
+Time: 64100 ps  Iteration: 0  Process: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC//tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC  Scope: tb_seeg_top_axi.DUT.tb_seeg_top_i.axi_vip_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 729
+
+Time: 89740 ps Started: 89740 ps Scope: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line:2111
+Error: Pre-reset violation: AXI4_ERRS_BVALID_X: When not in reset, a value of X on BVALID is not permitted. Spec: section A3.2.2.
+Time: 89740 ps  Iteration: 0  Process: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC//tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC  Scope: tb_seeg_top_axi.DUT.tb_seeg_top_i.axi_vip_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 729
+
+Time: 89740 ps Started: 89740 ps Scope: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line:2736
+Error: Pre-reset violation: AXI4_ERRS_RVALID_X: When not in reset, a value of X on RVALID is not permitted. Spec: section A3.1.2.
+Time: 89740 ps  Iteration: 0  Process: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC//tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC  Scope: tb_seeg_top_axi.DUT.tb_seeg_top_i.axi_vip_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 729
+
+Time: 115380 ps Started: 115380 ps Scope: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line:2111
+Error: Pre-reset violation: AXI4_ERRS_BVALID_X: When not in reset, a value of X on BVALID is not permitted. Spec: section A3.2.2.
+Time: 115380 ps  Iteration: 0  Process: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC//tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC  Scope: tb_seeg_top_axi.DUT.tb_seeg_top_i.axi_vip_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 729
+
+Time: 115380 ps Started: 115380 ps Scope: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line:2736
+Error: Pre-reset violation: AXI4_ERRS_RVALID_X: When not in reset, a value of X on RVALID is not permitted. Spec: section A3.1.2.
+Time: 115380 ps  Iteration: 0  Process: /tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC//tb_seeg_top_axi/DUT/tb_seeg_top_i/axi_vip_0/inst/IF/PC  Scope: tb_seeg_top_axi.DUT.tb_seeg_top_i.axi_vip_0.inst.IF.PC.arm_amba4_pc_msg_err  File: C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv Line: 729
+
+Time: 141020 ps Started: 141020 
