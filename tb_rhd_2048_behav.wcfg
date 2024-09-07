@@ -12,12 +12,12 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
-      <ZoomEndTime time="24.850000001 ms"></ZoomEndTime>
+      <ZoomEndTime time="25.973189943 ms"></ZoomEndTime>
       <Cursor1Time time="0.400691907 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="283"></NameColumnWidth>
-      <ValueColumnWidth column_width="251"></ValueColumnWidth>
+      <ValueColumnWidth column_width="243"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="75" />
    <wvobject fp_name="/tb_rhd_2048/dut/rstn" type="logic">

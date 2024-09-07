@@ -7,7 +7,7 @@ module tb_rhd_spi_master ();
     reg rstn;
     
     reg start = 0;
-    reg [15:0] data_in = 16'hDEAD;
+    reg [15:0] data_in = 16'hFF00;
 
     reg [7:0] oversample_offset = 0;
 
