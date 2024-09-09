@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x82D41CE782D41CE7",
+      "boundary_crc": "0x918AB92F918AB92F",
       "device": "xck26-sfvc784-2LV-c",
       "gen_directory": "../../../../ug3-seeg.gen/sources_1/bd/cable_delay_tester",
       "name": "cable_delay_tester",
@@ -14,24 +14,42 @@
       "rhd_spi_master_0": "",
       "zynq_ultra_ps_e_0": "",
       "clk_wiz_0": "",
-      "proc_sys_reset_0": "",
-      "ila_0": "",
+      "reset_rhd": "",
+      "ila_rhd": "",
       "xlconstant_0": "",
       "xlconstant_1": "",
-      "xlconstant_2": ""
+      "xlconstant_2": "",
+      "xlconstant_3": "",
+      "rhs_spi_master_0": "",
+      "xlconstant_4": "",
+      "xlconstant_5": "",
+      "ila_rhs": "",
+      "reset_rhs": ""
     },
     "ports": {
-      "MOSI": {
+      "MOSI_RHD": {
         "direction": "O"
       },
-      "CS": {
+      "CS_RHD": {
         "direction": "O"
       },
-      "SCLK": {
+      "SCLK_RHD": {
         "direction": "O"
       },
-      "MISO": {
+      "MISO_RHD": {
         "direction": "I"
+      },
+      "MISO_RHS": {
+        "direction": "I"
+      },
+      "MOSI_RHS": {
+        "direction": "O"
+      },
+      "CS_RHS": {
+        "direction": "O"
+      },
+      "SCLK_RHS": {
+        "direction": "O"
       }
     },
     "components": {
@@ -67,7 +85,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "18000972",
+                "value": "17996785",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -1748,10 +1766,10 @@
         "inst_hier_path": "clk_wiz_0",
         "parameters": {
           "CLKOUT1_JITTER": {
-            "value": "308.403"
+            "value": "196.051"
           },
           "CLKOUT1_PHASE_ERROR": {
-            "value": "393.537"
+            "value": "258.076"
           },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
             "value": "18"
@@ -1760,16 +1778,16 @@
             "value": "true"
           },
           "CLKOUT2_JITTER": {
-            "value": "134.506"
+            "value": "167.223"
           },
           "CLKOUT2_PHASE_ERROR": {
-            "value": "84.520"
+            "value": "258.076"
           },
           "CLKOUT2_REQUESTED_OUT_FREQ": {
             "value": "39"
           },
           "CLKOUT2_USED": {
-            "value": "false"
+            "value": "true"
           },
           "CLK_OUT1_PORT": {
             "value": "clk_18M"
@@ -1778,19 +1796,19 @@
             "value": "clk_39M"
           },
           "MMCM_CLKFBOUT_MULT_F": {
-            "value": "78.125"
+            "value": "74.125"
           },
           "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "62.000"
+            "value": "82.375"
           },
           "MMCM_CLKOUT1_DIVIDE": {
-            "value": "1"
+            "value": "38"
           },
           "MMCM_DIVCLK_DIVIDE": {
-            "value": "7"
+            "value": "5"
           },
           "NUM_OUT_CLKS": {
-            "value": "1"
+            "value": "2"
           },
           "OPTIMIZE_CLOCKING_STRUCTURE_EN": {
             "value": "true"
@@ -1809,18 +1827,21 @@
           }
         }
       },
-      "proc_sys_reset_0": {
+      "reset_rhd": {
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "cable_delay_tester_proc_sys_reset_0_1",
         "xci_path": "ip\\cable_delay_tester_proc_sys_reset_0_1\\cable_delay_tester_proc_sys_reset_0_1.xci",
-        "inst_hier_path": "proc_sys_reset_0"
+        "inst_hier_path": "reset_rhd"
       },
-      "ila_0": {
+      "ila_rhd": {
         "vlnv": "xilinx.com:ip:ila:6.2",
         "xci_name": "cable_delay_tester_ila_0_0",
         "xci_path": "ip\\cable_delay_tester_ila_0_0\\cable_delay_tester_ila_0_0.xci",
-        "inst_hier_path": "ila_0",
+        "inst_hier_path": "ila_rhd",
         "parameters": {
+          "C_DATA_DEPTH": {
+            "value": "4096"
+          },
           "C_MONITOR_TYPE": {
             "value": "Native"
           },
@@ -1871,80 +1892,289 @@
             "value": "8"
           }
         }
+      },
+      "xlconstant_3": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "cable_delay_tester_xlconstant_3_0",
+        "xci_path": "ip\\cable_delay_tester_xlconstant_3_0\\cable_delay_tester_xlconstant_3_0.xci",
+        "inst_hier_path": "xlconstant_3",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "3237937152"
+          },
+          "CONST_WIDTH": {
+            "value": "32"
+          }
+        }
+      },
+      "rhs_spi_master_0": {
+        "vlnv": "xilinx.com:module_ref:rhs_spi_master:1.0",
+        "xci_name": "cable_delay_tester_rhs_spi_master_0_0",
+        "xci_path": "ip\\cable_delay_tester_rhs_spi_master_0_0\\cable_delay_tester_rhs_spi_master_0_0.xci",
+        "inst_hier_path": "rhs_spi_master_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "rhs_spi_master",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "MOSI": {
+            "direction": "O"
+          },
+          "CS": {
+            "direction": "O"
+          },
+          "SCLK": {
+            "direction": "O"
+          },
+          "MISO": {
+            "direction": "I"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rstn",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "39012767",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "cable_delay_tester_clk_wiz_0_0_clk_18M",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "busy": {
+            "direction": "O"
+          },
+          "rstn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "start": {
+            "direction": "I"
+          },
+          "done": {
+            "direction": "O"
+          },
+          "data_in": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "data_out": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "oversample_offset": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "xlconstant_4": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "cable_delay_tester_xlconstant_4_0",
+        "xci_path": "ip\\cable_delay_tester_xlconstant_4_0\\cable_delay_tester_xlconstant_4_0.xci",
+        "inst_hier_path": "xlconstant_4"
+      },
+      "xlconstant_5": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "cable_delay_tester_xlconstant_5_0",
+        "xci_path": "ip\\cable_delay_tester_xlconstant_5_0\\cable_delay_tester_xlconstant_5_0.xci",
+        "inst_hier_path": "xlconstant_5",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          },
+          "CONST_WIDTH": {
+            "value": "8"
+          }
+        }
+      },
+      "ila_rhs": {
+        "vlnv": "xilinx.com:ip:ila:6.2",
+        "xci_name": "cable_delay_tester_ila_0_1",
+        "xci_path": "ip\\cable_delay_tester_ila_0_1\\cable_delay_tester_ila_0_1.xci",
+        "inst_hier_path": "ila_rhs",
+        "parameters": {
+          "C_DATA_DEPTH": {
+            "value": "4096"
+          },
+          "C_MONITOR_TYPE": {
+            "value": "Native"
+          },
+          "C_NUM_OF_PROBES": {
+            "value": "10"
+          },
+          "C_PROBE0_WIDTH": {
+            "value": "32"
+          },
+          "C_PROBE10_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE1_WIDTH": {
+            "value": "32"
+          }
+        }
+      },
+      "reset_rhs": {
+        "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
+        "xci_name": "cable_delay_tester_proc_sys_reset_1_0",
+        "xci_path": "ip\\cable_delay_tester_proc_sys_reset_1_0\\cable_delay_tester_proc_sys_reset_1_0.xci",
+        "inst_hier_path": "reset_rhs"
       }
     },
     "nets": {
       "MISO_1": {
         "ports": [
-          "MISO",
+          "MISO_RHD",
           "rhd_spi_master_0/MISO",
-          "ila_0/probe7"
+          "ila_rhd/probe7"
+        ]
+      },
+      "MISO_RHS_1": {
+        "ports": [
+          "MISO_RHS",
+          "rhs_spi_master_0/MISO",
+          "ila_rhs/probe2"
         ]
       },
       "clk_wiz_0_clk_18M": {
         "ports": [
           "clk_wiz_0/clk_18M",
           "rhd_spi_master_0/clk",
-          "proc_sys_reset_0/slowest_sync_clk",
-          "ila_0/probe9"
+          "reset_rhd/slowest_sync_clk",
+          "ila_rhd/probe9"
+        ]
+      },
+      "clk_wiz_0_clk_39M": {
+        "ports": [
+          "clk_wiz_0/clk_39M",
+          "rhs_spi_master_0/clk",
+          "ila_rhs/probe8",
+          "reset_rhs/slowest_sync_clk"
         ]
       },
       "clk_wiz_0_locked": {
         "ports": [
           "clk_wiz_0/locked",
-          "proc_sys_reset_0/dcm_locked"
+          "reset_rhd/dcm_locked",
+          "reset_rhs/dcm_locked"
         ]
       },
       "proc_sys_reset_0_peripheral_aresetn": {
         "ports": [
-          "proc_sys_reset_0/peripheral_aresetn",
+          "reset_rhd/peripheral_aresetn",
           "rhd_spi_master_0/rstn",
-          "ila_0/probe8"
+          "ila_rhd/probe8",
+          "ila_rhs/probe9"
+        ]
+      },
+      "reset_rhs_peripheral_aresetn": {
+        "ports": [
+          "reset_rhs/peripheral_aresetn",
+          "rhs_spi_master_0/rstn"
         ]
       },
       "rhd_spi_master_0_CS": {
         "ports": [
           "rhd_spi_master_0/CS",
-          "CS",
-          "ila_0/probe5"
+          "CS_RHD",
+          "ila_rhd/probe5"
         ]
       },
       "rhd_spi_master_0_MOSI": {
         "ports": [
           "rhd_spi_master_0/MOSI",
-          "MOSI",
-          "ila_0/probe6"
+          "MOSI_RHD",
+          "ila_rhd/probe6"
         ]
       },
       "rhd_spi_master_0_SCLK": {
         "ports": [
           "rhd_spi_master_0/SCLK",
-          "SCLK",
-          "ila_0/probe4"
+          "SCLK_RHD",
+          "ila_rhd/probe4"
         ]
       },
       "rhd_spi_master_0_a_data_out": {
         "ports": [
           "rhd_spi_master_0/a_data_out",
-          "ila_0/probe0"
+          "ila_rhd/probe0"
         ]
       },
       "rhd_spi_master_0_b_data_out": {
         "ports": [
           "rhd_spi_master_0/b_data_out",
-          "ila_0/probe1"
+          "ila_rhd/probe1"
         ]
       },
       "rhd_spi_master_0_busy": {
         "ports": [
           "rhd_spi_master_0/busy",
-          "ila_0/probe3"
+          "ila_rhd/probe3"
         ]
       },
       "rhd_spi_master_0_done": {
         "ports": [
           "rhd_spi_master_0/done",
-          "ila_0/probe2"
+          "ila_rhd/probe2"
+        ]
+      },
+      "rhs_spi_master_0_CS": {
+        "ports": [
+          "rhs_spi_master_0/CS",
+          "CS_RHS",
+          "ila_rhs/probe4"
+        ]
+      },
+      "rhs_spi_master_0_MOSI": {
+        "ports": [
+          "rhs_spi_master_0/MOSI",
+          "MOSI_RHS",
+          "ila_rhs/probe3"
+        ]
+      },
+      "rhs_spi_master_0_SCLK": {
+        "ports": [
+          "rhs_spi_master_0/SCLK",
+          "SCLK_RHS",
+          "ila_rhs/probe5"
+        ]
+      },
+      "rhs_spi_master_0_busy": {
+        "ports": [
+          "rhs_spi_master_0/busy",
+          "ila_rhs/probe6"
+        ]
+      },
+      "rhs_spi_master_0_data_out": {
+        "ports": [
+          "rhs_spi_master_0/data_out",
+          "ila_rhs/probe1"
+        ]
+      },
+      "rhs_spi_master_0_done": {
+        "ports": [
+          "rhs_spi_master_0/done",
+          "ila_rhs/probe7"
         ]
       },
       "xlconstant_0_dout": {
@@ -1957,7 +2187,7 @@
         "ports": [
           "xlconstant_1/dout",
           "rhd_spi_master_0/data_in",
-          "ila_0/probe10"
+          "ila_rhd/probe10"
         ]
       },
       "xlconstant_2_dout": {
@@ -1966,19 +2196,40 @@
           "rhd_spi_master_0/oversample_offset"
         ]
       },
+      "xlconstant_3_dout": {
+        "ports": [
+          "xlconstant_3/dout",
+          "rhs_spi_master_0/data_in",
+          "ila_rhs/probe0"
+        ]
+      },
+      "xlconstant_4_dout": {
+        "ports": [
+          "xlconstant_4/dout",
+          "rhs_spi_master_0/start"
+        ]
+      },
+      "xlconstant_5_dout": {
+        "ports": [
+          "xlconstant_5/dout",
+          "rhs_spi_master_0/oversample_offset"
+        ]
+      },
       "zynq_ultra_ps_e_0_pl_clk0": {
         "ports": [
           "zynq_ultra_ps_e_0/pl_clk0",
           "clk_wiz_0/clk_in1",
           "zynq_ultra_ps_e_0/maxihpm0_lpd_aclk",
           "zynq_ultra_ps_e_0/saxihpc0_fpd_aclk",
-          "ila_0/clk"
+          "ila_rhd/clk",
+          "ila_rhs/clk"
         ]
       },
       "zynq_ultra_ps_e_0_pl_resetn0": {
         "ports": [
           "zynq_ultra_ps_e_0/pl_resetn0",
-          "proc_sys_reset_0/ext_reset_in"
+          "reset_rhd/ext_reset_in",
+          "reset_rhs/ext_reset_in"
         ]
       }
     }

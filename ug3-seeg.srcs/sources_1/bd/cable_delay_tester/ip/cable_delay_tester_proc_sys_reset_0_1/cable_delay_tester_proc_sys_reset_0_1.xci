@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "cable_delay_tester_proc_sys_reset_0_1",
-    "cell_name": "proc_sys_reset_0",
+    "cell_name": "reset_rhd",
     "component_reference": "xilinx.com:ip:proc_sys_reset:5.0",
     "ip_revision": "13",
     "gen_directory": "../../../../../../ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_0_1",
@@ -75,7 +75,7 @@
           "mode": "slave",
           "parameters": {
             "ASSOCIATED_RESET": [ { "value": "mb_reset:bus_struct_reset:interconnect_aresetn:peripheral_aresetn:peripheral_reset", "value_src": "constant", "value_permission": "bd", "usage": "all" } ],
-            "FREQ_HZ": [ { "value": "18000972", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "user", "format": "long", "usage": "all" } ],
+            "FREQ_HZ": [ { "value": "17996785", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "user", "format": "long", "usage": "all" } ],
             "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "PHASE": [ { "value": "0.0", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
             "CLK_DOMAIN": [ { "value": "cable_delay_tester_clk_wiz_0_0_clk_18M", "value_src": "default_prop", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
