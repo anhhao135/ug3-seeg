@@ -198,7 +198,11 @@ module seeg (
 );
 
     wire clk_rhd;
-    clock_divider ClockDivideByTwo (.clock_in(clk), .clock_out(clk_rhd), .divisor(2)); //rhs runs on a clock twice as fast as rhd
+    wire clk_rhs_zcheck;
+    wire clk_rhs;
+    //clock_divider ClockDivideByTwo (.clock_in(clk), .clock_out(clk_rhd), .divisor(2)); //rhs runs on a clock twice as fast as rhd
+    clock_divider ClockDivideByEight (.clock_in(clk), .clock_out(clk_rhd), .divisor(8)); //rhs runs on a clock 8 times as fast as rhd
+    clock_divider ClockDivideByFour (.clock_in(clk), .clock_out(clk_rhs_zcheck), .divisor(4)); //rhs during zcheck mode needs a clock that is 4 times slower
     localparam READY = 0, RESET = 1, CONFIG_START = 2, CONFIG_WAIT = 3, RECORD_START = 4, RECORD_WAIT = 5, RECORD_STOP = 6, ZCHECK_RHD_START = 7, ZCHECK_RHD_WAIT = 8, ZCHECK_RHS_START = 9, ZCHECK_RHS_WAIT = 10, ZCHECK_STOP = 11;
     reg [7:0] state = READY;
 
@@ -211,12 +215,15 @@ module seeg (
     wire busy_rhs;
 
     reg config_start_flag = 0;
-    reg record_start_flag = 0;
+    reg record_start_flag_rhd = 0;
+    reg record_start_flag_rhs = 0;
     reg zcheck_rhd_start_flag = 0;
     reg zcheck_rhs_start_flag = 0;
 
     wire zcheck_in_progress;
     assign zcheck_in_progress = (state == ZCHECK_RHD_START) || (state == ZCHECK_RHD_WAIT) || (state == ZCHECK_RHS_START) || (state == ZCHECK_RHS_WAIT) || (state == ZCHECK_STOP);
+
+    assign clk_rhs = zcheck_in_progress ? clk_rhs_zcheck : clk;
 
     /*
     localparam RHD_CHANNELS = 2048;
@@ -406,7 +413,7 @@ module seeg (
         .clk(clk_rhd),
         .rstn(rstn),
         .config_start(config_start_flag),
-        .record_start(record_start_flag),
+        .record_start(record_start_flag_rhd),
         .zcheck_start(zcheck_rhd_start_flag),
         .done(done_rhd),
         .busy(busy_rhd),
@@ -486,10 +493,10 @@ module seeg (
     );
 
     rhs_256 rhs_256(
-        .clk(clk),
+        .clk(clk_rhs),
         .rstn(rstn),
         .config_start(config_start_flag),
-        .record_start(record_start_flag),
+        .record_start(record_start_flag_rhs),
         .zcheck_start(zcheck_rhs_start_flag),
         .done(done_rhs),
         .busy(busy_rhs),
@@ -1053,7 +1060,8 @@ module seeg (
             case (state)
                 RESET: begin
                     config_start_flag = 0;
-                    record_start_flag = 0;
+                    record_start_flag_rhd = 0;
+                    record_start_flag_rhs = 0;
                     zcheck_rhd_start_flag = 0;
                     zcheck_rhs_start_flag = 0;
                     done_rhd_flag = 0;
@@ -1183,9 +1191,11 @@ module seeg (
                         state = RECORD_STOP;
                     end
                     else begin
-                        record_start_flag = 1;
+                        record_start_flag_rhd = 1;
+                        record_start_flag_rhs = 1;
                         if (busy_rhd && busy_rhs) begin
-                            record_start_flag = 0;
+                            record_start_flag_rhd = 0;
+                            //record_start_flag_rhs = 0;
                             state = RECORD_WAIT;
                         end
                     end

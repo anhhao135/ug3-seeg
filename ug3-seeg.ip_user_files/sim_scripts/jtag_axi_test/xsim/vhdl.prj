@@ -1,0 +1,5 @@
+vhdl xil_defaultlib  \
+"../../../bd/jtag_axi_test/ip/jtag_axi_test_proc_sys_reset_0_0/sim/jtag_axi_test_proc_sys_reset_0_0.vhd" \
+
+# Do not sort compile order
+nosort

@@ -10,10 +10,10 @@ module tb_seeg ();
     reg zcheck_start = 0;
     reg [1:0] zcheck_scale = 2'b11;
 
-    reg [15:0] stim_pulse_length = 2;
+    reg [15:0] stim_pulse_length = 1;
     reg [7:0] stim_pulse_magnitude = 100;
-    reg [15:0] stim_inter_bipulse_delay = 3;
-    reg [15:0] stim_inter_pulse_delay = 3;
+    reg [15:0] stim_inter_bipulse_delay = 1;
+    reg [15:0] stim_inter_pulse_delay = 1;
     reg [15:0] stim_inter_train_delay = 12;
     reg [15:0] stim_bipulses_per_train_count = 4;
     reg [15:0] stim_train_count = 4;
@@ -115,25 +115,26 @@ module tb_seeg ();
 
     initial begin
         clk = 0;
-        forever #12.82 clk = ~clk; //39 MHz
+        //forever #12.82 clk = ~clk; //39 MHz
+        forever #3.205 clk = ~clk; //156 MHz
     end
 
     initial begin
         rstn <= 1;
-        #500;39
+        #500;
         rstn <= 0;
         #500;
         rstn <= 1;
         #500
 
-        /*
+        
 
         zcheck_start <= 1;
         #500
         zcheck_start <= 0;
         #1000000000;
 
-        */
+        
         
 
         /*
@@ -158,7 +159,7 @@ module tb_seeg ();
         */
 
         
-        
+        /*
         record_start <= 1;
         #500
         record_start <= 0;
@@ -171,6 +172,7 @@ module tb_seeg ();
         #500
         record_stop <= 0;
         #1000000
+        */
 
         
         

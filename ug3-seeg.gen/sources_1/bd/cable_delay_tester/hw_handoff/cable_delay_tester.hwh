@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Sep 10 15:15:44 2024" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Sep 11 09:40:43 2024" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="zynquplus" BOARD="xilinx.com:k26c:part0:1.4" DEVICE="xck26" NAME="cable_delay_tester" PACKAGE="sfvc784" SPEEDGRADE="-2LV"/>
 
@@ -3847,7 +3847,7 @@
             <CONNECTION INSTANCE="External_Ports" PORT="MISO_RHD"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="probe8" POLARITY="ACTIVE_LOW" RIGHT="0" SIGIS="undef" SIGNAME="reset_rhd_peripheral_aresetn">
+        <PORT DIR="I" LEFT="0" NAME="probe8" RIGHT="0" SIGIS="undef" SIGNAME="reset_rhd_peripheral_aresetn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="reset_rhd" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
@@ -7055,7 +7055,7 @@
             <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_39M"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="probe9" POLARITY="ACTIVE_LOW" RIGHT="0" SIGIS="undef" SIGNAME="reset_rhd_peripheral_aresetn">
+        <PORT DIR="I" LEFT="0" NAME="probe9" RIGHT="0" SIGIS="undef" SIGNAME="reset_rhd_peripheral_aresetn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="reset_rhd" PORT="peripheral_aresetn"/>
           </CONNECTIONS>

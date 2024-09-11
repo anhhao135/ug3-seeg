@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Sep 10 11:44:57 2024" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Sep 11 09:40:52 2024" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="zynquplus" BOARD="xilinx.com:k26c:part0:1.4" DEVICE="xck26" NAME="jtag_axi_test" PACKAGE="sfvc784" SPEEDGRADE="-2LV"/>
 
@@ -593,11 +593,6 @@
             <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="pl_clk0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_0_locked">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="dcm_locked"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT CLKFREQUENCY="39000959" DIR="O" NAME="clk_39M" SIGIS="clk" SIGNAME="clk_wiz_0_clk_39M">
           <CONNECTIONS>
             <CONNECTION INSTANCE="seeg_top_0" PORT="S_AXI_ACLK"/>
@@ -605,6 +600,11 @@
             <CONNECTION INSTANCE="jtag_axi_0" PORT="aclk"/>
             <CONNECTION INSTANCE="ila_0" PORT="clk"/>
             <CONNECTION INSTANCE="seeg_top_0" PORT="M_AXIS_ACLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_0_locked">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="dcm_locked"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

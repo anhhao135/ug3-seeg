@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.001000000 ms"></ZoomStartTime>
-      <ZoomEndTime time="45.669828830 ms"></ZoomEndTime>
-      <Cursor1Time time="7.600631860 ms"></Cursor1Time>
+      <ZoomStartTime time="22.500000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="58.100000001 ms"></ZoomEndTime>
+      <Cursor1Time time="29.849578405 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="220"></NameColumnWidth>
-      <ValueColumnWidth column_width="249"></ValueColumnWidth>
+      <NameColumnWidth column_width="309"></NameColumnWidth>
+      <ValueColumnWidth column_width="156"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="52" />
+   <WVObjectSize size="57" />
    <wvobject fp_name="/tb_seeg/rstn" type="logic">
       <obj_property name="ElementShortName">rstn</obj_property>
       <obj_property name="ObjectShortName">rstn</obj_property>
@@ -31,6 +31,14 @@
    <wvobject fp_name="/tb_seeg/dut/clk_rhd" type="logic">
       <obj_property name="ElementShortName">clk_rhd</obj_property>
       <obj_property name="ObjectShortName">clk_rhd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/clk_rhs_zcheck" type="logic">
+      <obj_property name="ElementShortName">clk_rhs_zcheck</obj_property>
+      <obj_property name="ObjectShortName">clk_rhs_zcheck</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/clk_rhs" type="logic">
+      <obj_property name="ElementShortName">clk_rhs</obj_property>
+      <obj_property name="ObjectShortName">clk_rhs</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_seeg/dut/state" type="array">
       <obj_property name="ElementShortName">state[7:0]</obj_property>
@@ -91,6 +99,14 @@
       <obj_property name="ElementShortName">busy_rhs</obj_property>
       <obj_property name="ObjectShortName">busy_rhs</obj_property>
    </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/record_start_flag_rhd" type="logic">
+      <obj_property name="ElementShortName">record_start_flag_rhd</obj_property>
+      <obj_property name="ObjectShortName">record_start_flag_rhd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/record_start_flag_rhs" type="logic">
+      <obj_property name="ElementShortName">record_start_flag_rhs</obj_property>
+      <obj_property name="ObjectShortName">record_start_flag_rhs</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_seeg/dut/done_rhd_flag" type="logic">
       <obj_property name="ElementShortName">done_rhd_flag</obj_property>
       <obj_property name="ObjectShortName">done_rhd_flag</obj_property>
@@ -102,10 +118,6 @@
    <wvobject fp_name="/tb_seeg/dut/config_start_flag" type="logic">
       <obj_property name="ElementShortName">config_start_flag</obj_property>
       <obj_property name="ObjectShortName">config_start_flag</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/record_start_flag" type="logic">
-      <obj_property name="ElementShortName">record_start_flag</obj_property>
-      <obj_property name="ObjectShortName">record_start_flag</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_seeg/dut/config_done_record_flag" type="logic">
       <obj_property name="ElementShortName">config_done_record_flag</obj_property>
@@ -170,6 +182,14 @@
    <wvobject fp_name="/tb_seeg/dut/data_out_record_valid" type="logic">
       <obj_property name="ElementShortName">data_out_record_valid</obj_property>
       <obj_property name="ObjectShortName">data_out_record_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/data_out_zcheck" type="array">
+      <obj_property name="ElementShortName">data_out_zcheck[2559:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out_zcheck[2559:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/data_out_zcheck_valid" type="logic">
+      <obj_property name="ElementShortName">data_out_zcheck_valid</obj_property>
+      <obj_property name="ObjectShortName">data_out_zcheck_valid</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider679">
       <obj_property name="label">below are module states</obj_property>

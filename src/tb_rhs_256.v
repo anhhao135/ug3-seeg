@@ -12,7 +12,7 @@ module tb_rhs_256 ();
     reg record_start = 0;
     reg zcheck_start = 0;
 
-    reg [15:0] stim_pulse_length = 3;
+    reg [15:0] stim_pulse_length = 1;
     reg [7:0] stim_pulse_magnitude = 100;
     reg [15:0] stim_inter_bipulse_delay = 3;
     reg [15:0] stim_inter_pulse_delay = 3;
@@ -84,7 +84,7 @@ module tb_rhs_256 ();
     wire [3:0] zcheck_chip_channel;
     assign zcheck_chip_channel = zcheck_global_channel % CHANNELS_PER_CHIP;
 
-    assign rhs_channel = zcheck_mode ? zcheck_chip_ channel + 2 : rhs_channel_dut;
+    assign rhs_channel = zcheck_mode ? zcheck_chip_channel + 2 : rhs_channel_dut;
 
 
     rhs_256 dut(
@@ -316,11 +316,14 @@ module tb_rhs_256 ();
         //forever #4.46 clk = ~clk; //112 MHz for effective 14.372 kS / s
         //forever #10 clk = ~clk; // 50 MHz for effective 6.41 kS /s
         //forever #25.641 clk = ~clk; // 19.5 MHz for effective 2.5 kS /s
+        //forever #12.82 clk = ~clk; //39 MHz
+
         forever #12.82 clk = ~clk; //39 MHz
     end
 
     initial begin
-        zcheck_mode <= 0;
+
+        zcheck_mode <= 1;
         rstn <= 1;
         #500;
         rstn <= 0;
@@ -328,15 +331,14 @@ module tb_rhs_256 ();
         rstn <= 1;
         #500
 
-        /*
+        
 
         zcheck_start <= 1;
         #500
         zcheck_start <= 0;
         #20000000
     
-        */
-
+        
 
         /*
         config_start <= 1;
@@ -360,6 +362,8 @@ module tb_rhs_256 ();
         #100000
         */
 
+        /*
+
 
         record_start <= 1;
         #600000
@@ -381,6 +385,7 @@ module tb_rhs_256 ();
         #2000
         record_start <= 0;
         #1000000
+        */
         
         
         $finish;
