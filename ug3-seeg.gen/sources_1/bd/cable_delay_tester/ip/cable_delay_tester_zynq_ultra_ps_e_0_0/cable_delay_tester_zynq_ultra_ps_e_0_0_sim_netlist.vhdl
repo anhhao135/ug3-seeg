@@ -2,11 +2,11 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
--- Date        : Mon Sep  9 08:49:47 2024
--- Host        : DESKTOP-JS8NSUT running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_zynq_ultra_ps_e_0_0/cable_delay_tester_zynq_ultra_ps_e_0_0_sim_netlist.vhdl
--- Design      : cable_delay_tester_zynq_ultra_ps_e_0_0
+-- Date        : Tue Sep 10 11:48:21 2024
+-- Host        : GramForGram running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode funcsim -rename_top cable_delay_tester_zynq_ultra_ps_e_0_0 -prefix
+--               cable_delay_tester_zynq_ultra_ps_e_0_0_ jtag_axi_test_zynq_ultra_ps_e_0_0_sim_netlist.vhdl
+-- Design      : jtag_axi_test_zynq_ultra_ps_e_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xck26-sfvc784-2LV-c
@@ -1584,9 +1584,7 @@ entity cable_delay_tester_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_0_zynq_ultra_
   attribute C_USE_DIFF_RW_CLK_GP6 : integer;
   attribute C_USE_DIFF_RW_CLK_GP6 of cable_delay_tester_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_0_zynq_ultra_ps_e : entity is 0;
   attribute HW_HANDOFF : string;
-  attribute HW_HANDOFF of cable_delay_tester_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_0_zynq_ultra_ps_e : entity is "cable_delay_tester_zynq_ultra_ps_e_0_0.hwdef";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of cable_delay_tester_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_0_zynq_ultra_ps_e : entity is "zynq_ultra_ps_e_v3_5_0_zynq_ultra_ps_e";
+  attribute HW_HANDOFF of cable_delay_tester_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_0_zynq_ultra_ps_e : entity is "jtag_axi_test_zynq_ultra_ps_e_0_0.hwdef";
   attribute PSS_IO : string;
   attribute PSS_IO of cable_delay_tester_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_0_zynq_ultra_ps_e : entity is "Signal Name, DiffPair Type, DiffPair Signal,Direction, Site Type, IO Standard, Drive (mA), Slew Rate, Pull Type, IBIS Model, ODT, OUTPUT_IMPEDANCE " & LF &
  "QSPI_X4_SCLK_OUT, , , OUT, PS_MIO0_500, LVCMOS18, 4, SLOW, PULLUP, PS_MIO_LVCMOS18_S_4,,  " & LF &
@@ -14868,7 +14866,7 @@ entity cable_delay_tester_zynq_ultra_ps_e_0_0 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of cable_delay_tester_zynq_ultra_ps_e_0_0 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of cable_delay_tester_zynq_ultra_ps_e_0_0 : entity is "cable_delay_tester_zynq_ultra_ps_e_0_0,zynq_ultra_ps_e_v3_5_0_zynq_ultra_ps_e,{}";
+  attribute CHECK_LICENSE_TYPE of cable_delay_tester_zynq_ultra_ps_e_0_0 : entity is "jtag_axi_test_zynq_ultra_ps_e_0_0,zynq_ultra_ps_e_v3_5_0_zynq_ultra_ps_e,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of cable_delay_tester_zynq_ultra_ps_e_0_0 : entity is "yes";
   attribute X_CORE_INFO : string;
@@ -15679,7 +15677,7 @@ architecture STRUCTURE of cable_delay_tester_zynq_ultra_ps_e_0_0 is
   attribute C_USE_DIFF_RW_CLK_GP6 : integer;
   attribute C_USE_DIFF_RW_CLK_GP6 of inst : label is 0;
   attribute HW_HANDOFF : string;
-  attribute HW_HANDOFF of inst : label is "cable_delay_tester_zynq_ultra_ps_e_0_0.hwdef";
+  attribute HW_HANDOFF of inst : label is "jtag_axi_test_zynq_ultra_ps_e_0_0.hwdef";
   attribute PSS_IO : string;
   attribute PSS_IO of inst : label is "Signal Name, DiffPair Type, DiffPair Signal,Direction, Site Type, IO Standard, Drive (mA), Slew Rate, Pull Type, IBIS Model, ODT, OUTPUT_IMPEDANCE " & LF &
  "QSPI_X4_SCLK_OUT, , , OUT, PS_MIO0_500, LVCMOS18, 4, SLOW, PULLUP, PS_MIO_LVCMOS18_S_4,,  " & LF &
@@ -15917,9 +15915,9 @@ architecture STRUCTURE of cable_delay_tester_zynq_ultra_ps_e_0_0 is
   attribute X_INTERFACE_INFO of maxigp2_wvalid : signal is "xilinx.com:interface:aximm:1.0 M_AXI_HPM0_LPD WVALID";
   attribute X_INTERFACE_INFO of maxihpm0_lpd_aclk : signal is "xilinx.com:signal:clock:1.0 M_AXI_HPM0_LPD_ACLK CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of maxihpm0_lpd_aclk : signal is "XIL_INTERFACENAME M_AXI_HPM0_LPD_ACLK, ASSOCIATED_BUSIF M_AXI_HPM0_LPD, FREQ_HZ 99999001, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN cable_delay_tester_zynq_ultra_ps_e_0_0_pl_clk0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of maxihpm0_lpd_aclk : signal is "XIL_INTERFACENAME M_AXI_HPM0_LPD_ACLK, ASSOCIATED_BUSIF M_AXI_HPM0_LPD, FREQ_HZ 99999001, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN jtag_axi_test_zynq_ultra_ps_e_0_0_pl_clk0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of pl_clk0 : signal is "xilinx.com:signal:clock:1.0 PL_CLK0 CLK";
-  attribute X_INTERFACE_PARAMETER of pl_clk0 : signal is "XIL_INTERFACENAME PL_CLK0, FREQ_HZ 99999001, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN cable_delay_tester_zynq_ultra_ps_e_0_0_pl_clk0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of pl_clk0 : signal is "XIL_INTERFACENAME PL_CLK0, FREQ_HZ 99999001, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN jtag_axi_test_zynq_ultra_ps_e_0_0_pl_clk0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of pl_resetn0 : signal is "xilinx.com:signal:reset:1.0 PL_RESETN0 RST";
   attribute X_INTERFACE_PARAMETER of pl_resetn0 : signal is "XIL_INTERFACENAME PL_RESETN0, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of saxigp0_arlock : signal is "xilinx.com:interface:aximm:1.0 S_AXI_HPC0_FPD ARLOCK";
@@ -15939,7 +15937,7 @@ architecture STRUCTURE of cable_delay_tester_zynq_ultra_ps_e_0_0 is
   attribute X_INTERFACE_INFO of saxigp0_wready : signal is "xilinx.com:interface:aximm:1.0 S_AXI_HPC0_FPD WREADY";
   attribute X_INTERFACE_INFO of saxigp0_wvalid : signal is "xilinx.com:interface:aximm:1.0 S_AXI_HPC0_FPD WVALID";
   attribute X_INTERFACE_INFO of saxihpc0_fpd_aclk : signal is "xilinx.com:signal:clock:1.0 S_AXI_HPC0_FPD_ACLK CLK";
-  attribute X_INTERFACE_PARAMETER of saxihpc0_fpd_aclk : signal is "XIL_INTERFACENAME S_AXI_HPC0_FPD_ACLK, ASSOCIATED_BUSIF S_AXI_HPC0_FPD, FREQ_HZ 99999001, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN cable_delay_tester_zynq_ultra_ps_e_0_0_pl_clk0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of saxihpc0_fpd_aclk : signal is "XIL_INTERFACENAME S_AXI_HPC0_FPD_ACLK, ASSOCIATED_BUSIF S_AXI_HPC0_FPD, FREQ_HZ 99999001, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN jtag_axi_test_zynq_ultra_ps_e_0_0_pl_clk0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of emio_gpio_i : signal is "xilinx.com:interface:gpio:1.0 GPIO_0 TRI_I";
   attribute X_INTERFACE_INFO of emio_gpio_o : signal is "xilinx.com:interface:gpio:1.0 GPIO_0 TRI_O";
   attribute X_INTERFACE_INFO of emio_gpio_t : signal is "xilinx.com:interface:gpio:1.0 GPIO_0 TRI_T";
@@ -15950,7 +15948,7 @@ architecture STRUCTURE of cable_delay_tester_zynq_ultra_ps_e_0_0 is
   attribute X_INTERFACE_INFO of maxigp2_arlen : signal is "xilinx.com:interface:aximm:1.0 M_AXI_HPM0_LPD ARLEN";
   attribute X_INTERFACE_INFO of maxigp2_arprot : signal is "xilinx.com:interface:aximm:1.0 M_AXI_HPM0_LPD ARPROT";
   attribute X_INTERFACE_INFO of maxigp2_arqos : signal is "xilinx.com:interface:aximm:1.0 M_AXI_HPM0_LPD ARQOS";
-  attribute X_INTERFACE_PARAMETER of maxigp2_arqos : signal is "XIL_INTERFACENAME M_AXI_HPM0_LPD, NUM_WRITE_OUTSTANDING 8, NUM_READ_OUTSTANDING 8, DATA_WIDTH 32, PROTOCOL AXI4, FREQ_HZ 99999001, ID_WIDTH 16, ADDR_WIDTH 40, AWUSER_WIDTH 16, ARUSER_WIDTH 16, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN cable_delay_tester_zynq_ultra_ps_e_0_0_pl_clk0, NUM_READ_THREADS 4, NUM_WRITE_THREADS 4, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of maxigp2_arqos : signal is "XIL_INTERFACENAME M_AXI_HPM0_LPD, NUM_WRITE_OUTSTANDING 8, NUM_READ_OUTSTANDING 8, DATA_WIDTH 32, PROTOCOL AXI4, FREQ_HZ 99999001, ID_WIDTH 16, ADDR_WIDTH 40, AWUSER_WIDTH 16, ARUSER_WIDTH 16, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN jtag_axi_test_zynq_ultra_ps_e_0_0_pl_clk0, NUM_READ_THREADS 4, NUM_WRITE_THREADS 4, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of maxigp2_arsize : signal is "xilinx.com:interface:aximm:1.0 M_AXI_HPM0_LPD ARSIZE";
   attribute X_INTERFACE_INFO of maxigp2_aruser : signal is "xilinx.com:interface:aximm:1.0 M_AXI_HPM0_LPD ARUSER";
   attribute X_INTERFACE_INFO of maxigp2_awaddr : signal is "xilinx.com:interface:aximm:1.0 M_AXI_HPM0_LPD AWADDR";
@@ -15978,7 +15976,7 @@ architecture STRUCTURE of cable_delay_tester_zynq_ultra_ps_e_0_0 is
   attribute X_INTERFACE_INFO of saxigp0_arlen : signal is "xilinx.com:interface:aximm:1.0 S_AXI_HPC0_FPD ARLEN";
   attribute X_INTERFACE_INFO of saxigp0_arprot : signal is "xilinx.com:interface:aximm:1.0 S_AXI_HPC0_FPD ARPROT";
   attribute X_INTERFACE_INFO of saxigp0_arqos : signal is "xilinx.com:interface:aximm:1.0 S_AXI_HPC0_FPD ARQOS";
-  attribute X_INTERFACE_PARAMETER of saxigp0_arqos : signal is "XIL_INTERFACENAME S_AXI_HPC0_FPD, NUM_WRITE_OUTSTANDING 16, NUM_READ_OUTSTANDING 16, DATA_WIDTH 128, PROTOCOL AXI4, FREQ_HZ 99999001, ID_WIDTH 6, ADDR_WIDTH 49, AWUSER_WIDTH 1, ARUSER_WIDTH 1, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN cable_delay_tester_zynq_ultra_ps_e_0_0_pl_clk0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of saxigp0_arqos : signal is "XIL_INTERFACENAME S_AXI_HPC0_FPD, NUM_WRITE_OUTSTANDING 16, NUM_READ_OUTSTANDING 16, DATA_WIDTH 128, PROTOCOL AXI4, FREQ_HZ 99999001, ID_WIDTH 6, ADDR_WIDTH 49, AWUSER_WIDTH 1, ARUSER_WIDTH 1, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN jtag_axi_test_zynq_ultra_ps_e_0_0_pl_clk0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of saxigp0_arsize : signal is "xilinx.com:interface:aximm:1.0 S_AXI_HPC0_FPD ARSIZE";
   attribute X_INTERFACE_INFO of saxigp0_awaddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI_HPC0_FPD AWADDR";
   attribute X_INTERFACE_INFO of saxigp0_awburst : signal is "xilinx.com:interface:aximm:1.0 S_AXI_HPC0_FPD AWBURST";

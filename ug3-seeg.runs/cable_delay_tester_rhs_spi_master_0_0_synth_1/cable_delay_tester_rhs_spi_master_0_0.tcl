@@ -100,7 +100,7 @@ read_verilog -library xil_defaultlib {
   C:/Repos/ug3-seeg/src/clock_divider.v
   C:/Repos/ug3-seeg/src/rhs_spi_master.v
 }
-read_ip -quiet c:/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_rhs_spi_master_0_0/cable_delay_tester_rhs_spi_master_0_0.xci
+read_ip -quiet C:/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_rhs_spi_master_0_0/cable_delay_tester_rhs_spi_master_0_0.xci
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

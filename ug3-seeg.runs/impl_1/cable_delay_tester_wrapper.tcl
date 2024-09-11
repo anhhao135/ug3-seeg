@@ -127,19 +127,38 @@ set rc [catch {
   create_msg_db init_design.pb
   set_param tcl.collectionResultDisplayLimit 0
   set_param chipscope.maxJobs 4
-  set_param power.BramSDPPropagationFix 1
-  set_param power.enableUnconnectedCarry8PinPower 1
-  set_param power.enableCarry8RouteBelPower 1
-  set_param power.enableLutRouteBelPower 1
   set_param xicom.use_bs_reader 1
-  set_param runs.launchOptions { -jobs 8  }
-  reset_param project.defaultXPMLibraries 
-  open_checkpoint C:/Repos/ug3-seeg/ug3-seeg.runs/impl_1/cable_delay_tester_wrapper.dcp
+  set_param runs.launchOptions { -jobs 16  }
+OPTRACE "create in-memory project" START { }
+  create_project -in_memory -part xck26-sfvc784-2LV-c
+  set_property board_part xilinx.com:k26c:part0:1.4 [current_project]
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
+OPTRACE "create in-memory project" END { }
+OPTRACE "set parameters" START { }
   set_property webtalk.parent_dir C:/Repos/ug3-seeg/ug3-seeg.cache/wt [current_project]
   set_property parent.project_path C:/Repos/ug3-seeg/ug3-seeg.xpr [current_project]
   set_property ip_output_repo C:/Repos/ug3-seeg/ug3-seeg.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+OPTRACE "set parameters" END { }
+OPTRACE "add files" START { }
+  add_files -quiet C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/cable_delay_tester_wrapper.dcp
+  set_msg_config -source 4 -id {BD 41-1661} -limit 0
+  set_param project.isImplRun true
+  add_files C:/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/bd/cable_delay_tester/cable_delay_tester.bd
+  set_param project.isImplRun false
+OPTRACE "read constraints: implementation" START { }
+  read_xdc C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc
+OPTRACE "read constraints: implementation" END { }
+OPTRACE "add files" END { }
+OPTRACE "link_design" START { }
+  set_param project.isImplRun true
+  link_design -top cable_delay_tester_wrapper -part xck26-sfvc784-2LV-c 
+OPTRACE "link_design" END { }
+  set_param project.isImplRun false
+OPTRACE "gray box cells" START { }
+OPTRACE "gray box cells" END { }
 OPTRACE "init_design_reports" START { REPORT }
 OPTRACE "init_design_reports" END { }
 OPTRACE "init_design_write_hwdef" START { }

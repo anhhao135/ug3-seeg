@@ -2,8 +2,8 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-// Date        : Mon Sep  9 08:49:39 2024
-// Host        : DESKTOP-JS8NSUT running 64-bit major release  (build 9200)
+// Date        : Tue Sep 10 15:19:48 2024
+// Host        : GramForGram running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_rhd_spi_master_0_0/cable_delay_tester_rhd_spi_master_0_0_sim_netlist.v
 // Design      : cable_delay_tester_rhd_spi_master_0_0
@@ -34,7 +34,7 @@ module cable_delay_tester_rhd_spi_master_0_0
   output CS;
   output SCLK;
   input MISO;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 18000972, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN cable_delay_tester_clk_wiz_0_0_clk_18M, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 17996785, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN cable_delay_tester_clk_wiz_0_0_clk_18M, INSERT_VIP 0" *) input clk;
   output busy;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rstn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rstn;
   input start;

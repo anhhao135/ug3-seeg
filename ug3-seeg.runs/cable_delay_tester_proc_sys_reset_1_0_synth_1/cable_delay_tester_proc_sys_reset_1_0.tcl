@@ -95,7 +95,7 @@ set_property ip_output_repo c:/Repos/ug3-seeg/ug3-seeg.cache/ip [current_project
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet c:/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_1_0/cable_delay_tester_proc_sys_reset_1_0.xci
+read_ip -quiet C:/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_1_0/cable_delay_tester_proc_sys_reset_1_0.xci
 set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_1_0/cable_delay_tester_proc_sys_reset_1_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_1_0/cable_delay_tester_proc_sys_reset_1_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_1_0/cable_delay_tester_proc_sys_reset_1_0_ooc.xdc]

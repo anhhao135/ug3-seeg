@@ -2,11 +2,11 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-// Date        : Mon Sep  9 08:49:46 2024
-// Host        : DESKTOP-JS8NSUT running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_zynq_ultra_ps_e_0_0/cable_delay_tester_zynq_ultra_ps_e_0_0_stub.v
-// Design      : cable_delay_tester_zynq_ultra_ps_e_0_0
+// Date        : Tue Sep 10 11:48:21 2024
+// Host        : GramForGram running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode synth_stub -rename_top cable_delay_tester_zynq_ultra_ps_e_0_0 -prefix
+//               cable_delay_tester_zynq_ultra_ps_e_0_0_ jtag_axi_test_zynq_ultra_ps_e_0_0_stub.v
+// Design      : jtag_axi_test_zynq_ultra_ps_e_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xck26-sfvc784-2LV-c
 // --------------------------------------------------------------------------------

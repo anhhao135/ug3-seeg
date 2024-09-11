@@ -2,15 +2,15 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Mon Sep  9 13:00:02 2024
-//Host        : DESKTOP-JS8NSUT running 64-bit major release  (build 9200)
+//Date        : Tue Sep 10 15:14:53 2024
+//Host        : GramForGram running 64-bit major release  (build 9200)
 //Command     : generate_target cable_delay_tester.bd
 //Design      : cable_delay_tester
 //Purpose     : IP block netlist
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "cable_delay_tester,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=cable_delay_tester,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=14,numReposBlks=14,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "cable_delay_tester.hwdef" *) 
+(* CORE_GENERATION_INFO = "cable_delay_tester,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=cable_delay_tester,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=16,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=3,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "cable_delay_tester.hwdef" *) 
 module cable_delay_tester
    (CS_RHD,
     CS_RHS,
@@ -34,6 +34,25 @@ module cable_delay_tester
   wire clk_wiz_0_clk_18M;
   wire clk_wiz_0_clk_39M;
   wire clk_wiz_0_locked;
+  wire [31:0]jtag_axi_0_M_AXI_ARADDR;
+  wire [2:0]jtag_axi_0_M_AXI_ARPROT;
+  wire jtag_axi_0_M_AXI_ARREADY;
+  wire jtag_axi_0_M_AXI_ARVALID;
+  wire [31:0]jtag_axi_0_M_AXI_AWADDR;
+  wire [2:0]jtag_axi_0_M_AXI_AWPROT;
+  wire jtag_axi_0_M_AXI_AWREADY;
+  wire jtag_axi_0_M_AXI_AWVALID;
+  wire jtag_axi_0_M_AXI_BREADY;
+  wire [1:0]jtag_axi_0_M_AXI_BRESP;
+  wire jtag_axi_0_M_AXI_BVALID;
+  wire [31:0]jtag_axi_0_M_AXI_RDATA;
+  wire jtag_axi_0_M_AXI_RREADY;
+  wire [1:0]jtag_axi_0_M_AXI_RRESP;
+  wire jtag_axi_0_M_AXI_RVALID;
+  wire [31:0]jtag_axi_0_M_AXI_WDATA;
+  wire jtag_axi_0_M_AXI_WREADY;
+  wire [3:0]jtag_axi_0_M_AXI_WSTRB;
+  wire jtag_axi_0_M_AXI_WVALID;
   wire [0:0]proc_sys_reset_0_peripheral_aresetn;
   wire [0:0]reset_rhs_peripheral_aresetn;
   wire rhd_spi_master_0_CS;
@@ -49,6 +68,7 @@ module cable_delay_tester
   wire rhs_spi_master_0_busy;
   wire [31:0]rhs_spi_master_0_data_out;
   wire rhs_spi_master_0_done;
+  wire [31:0]seeg_top_0_reg0_debug;
   wire [0:0]xlconstant_0_dout;
   wire [15:0]xlconstant_1_dout;
   wire [7:0]xlconstant_2_dout;
@@ -88,6 +108,7 @@ module cable_delay_tester
        (.clk(zynq_ultra_ps_e_0_pl_clk0),
         .probe0(xlconstant_3_dout),
         .probe1(rhs_spi_master_0_data_out),
+        .probe10(seeg_top_0_reg0_debug),
         .probe2(MISO_RHS_1),
         .probe3(rhs_spi_master_0_MOSI),
         .probe4(rhs_spi_master_0_CS),
@@ -96,6 +117,28 @@ module cable_delay_tester
         .probe7(rhs_spi_master_0_done),
         .probe8(clk_wiz_0_clk_39M),
         .probe9(proc_sys_reset_0_peripheral_aresetn));
+  cable_delay_tester_jtag_axi_0_0 jtag_axi_0
+       (.aclk(clk_wiz_0_clk_39M),
+        .aresetn(reset_rhs_peripheral_aresetn),
+        .m_axi_araddr(jtag_axi_0_M_AXI_ARADDR),
+        .m_axi_arprot(jtag_axi_0_M_AXI_ARPROT),
+        .m_axi_arready(jtag_axi_0_M_AXI_ARREADY),
+        .m_axi_arvalid(jtag_axi_0_M_AXI_ARVALID),
+        .m_axi_awaddr(jtag_axi_0_M_AXI_AWADDR),
+        .m_axi_awprot(jtag_axi_0_M_AXI_AWPROT),
+        .m_axi_awready(jtag_axi_0_M_AXI_AWREADY),
+        .m_axi_awvalid(jtag_axi_0_M_AXI_AWVALID),
+        .m_axi_bready(jtag_axi_0_M_AXI_BREADY),
+        .m_axi_bresp(jtag_axi_0_M_AXI_BRESP),
+        .m_axi_bvalid(jtag_axi_0_M_AXI_BVALID),
+        .m_axi_rdata(jtag_axi_0_M_AXI_RDATA),
+        .m_axi_rready(jtag_axi_0_M_AXI_RREADY),
+        .m_axi_rresp(jtag_axi_0_M_AXI_RRESP),
+        .m_axi_rvalid(jtag_axi_0_M_AXI_RVALID),
+        .m_axi_wdata(jtag_axi_0_M_AXI_WDATA),
+        .m_axi_wready(jtag_axi_0_M_AXI_WREADY),
+        .m_axi_wstrb(jtag_axi_0_M_AXI_WSTRB),
+        .m_axi_wvalid(jtag_axi_0_M_AXI_WVALID));
   cable_delay_tester_proc_sys_reset_0_1 reset_rhd
        (.aux_reset_in(1'b1),
         .dcm_locked(clk_wiz_0_locked),
@@ -137,6 +180,112 @@ module cable_delay_tester
         .oversample_offset(xlconstant_5_dout),
         .rstn(reset_rhs_peripheral_aresetn),
         .start(xlconstant_4_dout));
+  cable_delay_tester_seeg_top_0_0 seeg_top_0
+       (.M_AXIS_ACLK(clk_wiz_0_clk_39M),
+        .M_AXIS_ARESETN(reset_rhs_peripheral_aresetn),
+        .M_AXIS_tready(1'b1),
+        .RHD_MISO1_A(1'b0),
+        .RHD_MISO1_B(1'b0),
+        .RHD_MISO1_C(1'b0),
+        .RHD_MISO1_D(1'b0),
+        .RHD_MISO1_E(1'b0),
+        .RHD_MISO1_F(1'b0),
+        .RHD_MISO1_G(1'b0),
+        .RHD_MISO1_H(1'b0),
+        .RHD_MISO1_I(1'b0),
+        .RHD_MISO1_I_N(1'b0),
+        .RHD_MISO1_I_P(1'b0),
+        .RHD_MISO1_J(1'b0),
+        .RHD_MISO1_J_N(1'b0),
+        .RHD_MISO1_J_P(1'b0),
+        .RHD_MISO1_K(1'b0),
+        .RHD_MISO1_K_N(1'b0),
+        .RHD_MISO1_K_P(1'b0),
+        .RHD_MISO1_L(1'b0),
+        .RHD_MISO1_L_N(1'b0),
+        .RHD_MISO1_L_P(1'b0),
+        .RHD_MISO1_M(1'b0),
+        .RHD_MISO1_M_N(1'b0),
+        .RHD_MISO1_M_P(1'b0),
+        .RHD_MISO1_N(1'b0),
+        .RHD_MISO1_N_N(1'b0),
+        .RHD_MISO1_N_P(1'b0),
+        .RHD_MISO1_O(1'b0),
+        .RHD_MISO1_O_N(1'b0),
+        .RHD_MISO1_O_P(1'b0),
+        .RHD_MISO1_P(1'b0),
+        .RHD_MISO1_P_N(1'b0),
+        .RHD_MISO1_P_P(1'b0),
+        .RHD_MISO2_A(1'b0),
+        .RHD_MISO2_B(1'b0),
+        .RHD_MISO2_C(1'b0),
+        .RHD_MISO2_D(1'b0),
+        .RHD_MISO2_E(1'b0),
+        .RHD_MISO2_F(1'b0),
+        .RHD_MISO2_G(1'b0),
+        .RHD_MISO2_H(1'b0),
+        .RHD_MISO2_I(1'b0),
+        .RHD_MISO2_I_N(1'b0),
+        .RHD_MISO2_I_P(1'b0),
+        .RHD_MISO2_J(1'b0),
+        .RHD_MISO2_J_N(1'b0),
+        .RHD_MISO2_J_P(1'b0),
+        .RHD_MISO2_K(1'b0),
+        .RHD_MISO2_K_N(1'b0),
+        .RHD_MISO2_K_P(1'b0),
+        .RHD_MISO2_L(1'b0),
+        .RHD_MISO2_L_N(1'b0),
+        .RHD_MISO2_L_P(1'b0),
+        .RHD_MISO2_M(1'b0),
+        .RHD_MISO2_M_N(1'b0),
+        .RHD_MISO2_M_P(1'b0),
+        .RHD_MISO2_N(1'b0),
+        .RHD_MISO2_N_N(1'b0),
+        .RHD_MISO2_N_P(1'b0),
+        .RHD_MISO2_O(1'b0),
+        .RHD_MISO2_O_N(1'b0),
+        .RHD_MISO2_O_P(1'b0),
+        .RHD_MISO2_P(1'b0),
+        .RHD_MISO2_P_N(1'b0),
+        .RHD_MISO2_P_P(1'b0),
+        .RHS_MISO_A(1'b0),
+        .RHS_MISO_B(1'b0),
+        .RHS_MISO_C(1'b0),
+        .RHS_MISO_D(1'b0),
+        .RHS_MISO_E(1'b0),
+        .RHS_MISO_F(1'b0),
+        .RHS_MISO_G(1'b0),
+        .RHS_MISO_H(1'b0),
+        .RHS_MISO_I(1'b0),
+        .RHS_MISO_J(1'b0),
+        .RHS_MISO_K(1'b0),
+        .RHS_MISO_L(1'b0),
+        .RHS_MISO_M(1'b0),
+        .RHS_MISO_N(1'b0),
+        .RHS_MISO_O(1'b0),
+        .RHS_MISO_P(1'b0),
+        .S_AXI_ACLK(clk_wiz_0_clk_39M),
+        .S_AXI_ARADDR(jtag_axi_0_M_AXI_ARADDR),
+        .S_AXI_ARESETN(reset_rhs_peripheral_aresetn),
+        .S_AXI_ARPROT(jtag_axi_0_M_AXI_ARPROT),
+        .S_AXI_ARREADY(jtag_axi_0_M_AXI_ARREADY),
+        .S_AXI_ARVALID(jtag_axi_0_M_AXI_ARVALID),
+        .S_AXI_AWADDR(jtag_axi_0_M_AXI_AWADDR),
+        .S_AXI_AWPROT(jtag_axi_0_M_AXI_AWPROT),
+        .S_AXI_AWREADY(jtag_axi_0_M_AXI_AWREADY),
+        .S_AXI_AWVALID(jtag_axi_0_M_AXI_AWVALID),
+        .S_AXI_BREADY(jtag_axi_0_M_AXI_BREADY),
+        .S_AXI_BRESP(jtag_axi_0_M_AXI_BRESP),
+        .S_AXI_BVALID(jtag_axi_0_M_AXI_BVALID),
+        .S_AXI_RDATA(jtag_axi_0_M_AXI_RDATA),
+        .S_AXI_RREADY(jtag_axi_0_M_AXI_RREADY),
+        .S_AXI_RRESP(jtag_axi_0_M_AXI_RRESP),
+        .S_AXI_RVALID(jtag_axi_0_M_AXI_RVALID),
+        .S_AXI_WDATA(jtag_axi_0_M_AXI_WDATA),
+        .S_AXI_WREADY(jtag_axi_0_M_AXI_WREADY),
+        .S_AXI_WSTRB(jtag_axi_0_M_AXI_WSTRB),
+        .S_AXI_WVALID(jtag_axi_0_M_AXI_WVALID),
+        .reg0_debug(seeg_top_0_reg0_debug));
   cable_delay_tester_xlconstant_0_0 xlconstant_0
        (.dout(xlconstant_0_dout));
   cable_delay_tester_xlconstant_1_0 xlconstant_1

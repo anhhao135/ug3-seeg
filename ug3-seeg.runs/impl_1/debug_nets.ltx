@@ -724,8 +724,134 @@
                                         "parentNetId": 127
                                     }
                                 ]
+                            },
+                            {
+                                "name": "probe10",
+                                "id": 21,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 31,
+                                "portIndex": 10,
+                                "nets": [
+                                    {
+                                        "name": "cable_delay_tester_i/seeg_top_0_reg0_debug",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[31]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[30]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[29]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[28]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[27]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[26]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[25]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[24]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[23]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[22]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[21]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[20]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[19]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[18]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[17]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[16]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[15]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[14]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[13]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[12]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[11]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[10]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[9]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[8]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[7]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[6]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[5]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[4]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[3]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[2]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[1]"
+                                            },
+                                            {
+                                                "name": "cable_delay_tester_i/seeg_top_0_reg0_debug[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
+                    },
+                    {
+                        "type": "XSDBS_V2",
+                        "name": "cable_delay_tester_i/jtag_axi_0",
+                        "spec": "labtools_xsdbslavelib_v2",
+                        "ipName": "jtag_axi",
+                        "core_location": {
+                            "user_chain": 1,
+                            "slave_index": 2,
+                            "bscan_switch_index": 0
+                        },
+                        "uuid": "049C9EDFAFDD5CB89C94B03CE1C438F1"
                     }
                 ],
                 "parent_nets": [
@@ -796,27 +922,19 @@
                         "name": "cable_delay_tester_i/clk_wiz_0/inst/clk_39M",
                         "state_reg": [
                             {
-                                "name": "cable_delay_tester_i/rhs_spi_master_0/inst/FSM_sequential_state_reg[0]",
+                                "name": "cable_delay_tester_i/jtag_axi_0/inst/jtag_axi_engine_u/rd_done_state_reg[0]",
                                 "states": [
                                     {
-                                        "name": "PRE_BUSY",
-                                        "val": "001"
-                                    },
-                                    {
-                                        "name": "BUSY",
+                                        "name": "RDQ_CMD_CNT",
                                         "val": "010"
                                     },
                                     {
-                                        "name": "POST_BUSY",
-                                        "val": "011"
-                                    },
-                                    {
-                                        "name": "DONE",
+                                        "name": "RDQ_DONE_CNT",
                                         "val": "100"
                                     },
                                     {
-                                        "name": "READY",
-                                        "val": "000"
+                                        "name": "RDQ_IDLE",
+                                        "val": "001"
                                     }
                                 ]
                             }

@@ -114,6 +114,10 @@ set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-
 set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_1_0/cable_delay_tester_proc_sys_reset_1_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_1_0/cable_delay_tester_proc_sys_reset_1_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_1_0/cable_delay_tester_proc_sys_reset_1_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_jtag_axi_0_0/constraints/jtag_axi.xdc]
+set_property used_in_synthesis false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_jtag_axi_0_0/constraints/cable_delay_tester_jtag_axi_0_0_impl.xdc]
+set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_jtag_axi_0_0/constraints/cable_delay_tester_jtag_axi_0_0_impl.xdc]
+set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_jtag_axi_0_0/cable_delay_tester_jtag_axi_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/cable_delay_tester_ooc.xdc]
 
 OPTRACE "Adding files" END { }

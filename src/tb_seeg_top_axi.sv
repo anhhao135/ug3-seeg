@@ -60,6 +60,10 @@ initial begin
 
   mtestWDataL = 32'h22222222; //binary is 00010001000100010001000100010001 i.e. all miso lines are assumed to have 1 clock cycle delay
   mst_agent_0.AXI4LITE_WRITE_BURST(32'd120, mtestProtectionType, mtestWDataL, mtestBresp);
+  mtestWDataL = 32'h22222222; //binary is 00010001000100010001000100010001 i.e. all miso lines are assumed to have 1 clock cycle delay
+  mst_agent_0.AXI4LITE_WRITE_BURST(32'd0, mtestProtectionType, mtestWDataL, mtestBresp);
+
+  #1000ns;
 
   $finish;
 

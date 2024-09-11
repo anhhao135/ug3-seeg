@@ -48,4 +48,10 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==cable_delay
 # IP: bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_1_0/cable_delay_tester_proc_sys_reset_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==cable_delay_tester_proc_sys_reset_1_0 || ORIG_REF_NAME==cable_delay_tester_proc_sys_reset_1_0} -quiet] -quiet
 
+# IP: bd/cable_delay_tester/ip/cable_delay_tester_jtag_axi_0_0/cable_delay_tester_jtag_axi_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==cable_delay_tester_jtag_axi_0_0 || ORIG_REF_NAME==cable_delay_tester_jtag_axi_0_0} -quiet] -quiet
+
+# IP: bd/cable_delay_tester/ip/cable_delay_tester_seeg_top_0_0/cable_delay_tester_seeg_top_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==cable_delay_tester_seeg_top_0_0 || ORIG_REF_NAME==cable_delay_tester_seeg_top_0_0} -quiet] -quiet
+
 # XDC: c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/cable_delay_tester_ooc.xdc

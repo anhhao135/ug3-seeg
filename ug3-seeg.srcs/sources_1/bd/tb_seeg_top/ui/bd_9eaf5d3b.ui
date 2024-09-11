@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.89465",
-   "Default View_TopLeft":"-238,-3",
+   "Default View_ScaleFactor":"0.441943",
+   "Default View_TopLeft":"-935,-213",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
 #  -string -flagsOSRD
@@ -16,7 +16,7 @@ preplace netloc M_AXIS_ARESETN_1 1 0 2 N 100 N
 preplace netloc S_AXI_ACLK_1 1 0 2 20 120 N
 preplace netloc S_AXI_ARESETN_1 1 0 2 40 140 N
 preplace netloc axi_vip_0_M_AXI 1 1 1 240 20n
-levelinfo -pg 1 -10 140 430 590
+levelinfo -pg 1 -10 140 430 600
 pagesize -pg 1 -db -bbox -sgen -200 -60 670 2180
 "
 }

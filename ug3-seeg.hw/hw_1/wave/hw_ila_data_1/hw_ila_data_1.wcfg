@@ -10,101 +10,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0"></ZoomStartTime>
-      <ZoomEndTime time="4,097"></ZoomEndTime>
-      <Cursor1Time time="1,586"></Cursor1Time>
+      <ZoomEndTime time="2,771"></ZoomEndTime>
+      <Cursor1Time time="684"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="454"></NameColumnWidth>
-      <ValueColumnWidth column_width="84"></ValueColumnWidth>
+      <NameColumnWidth column_width="274"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="11" />
+   <WVObjectSize size="0" />
    <wave_markers>
    </wave_markers>
-   <wvobject fp_name="cable_delay_tester_i/rhd_spi_master_0_a_data_out" type="array">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cable_delay_tester_i/rhd_spi_master_0_a_data_out[15:0]</obj_property>
-      <obj_property name="ObjectShortName">rhd_spi_master_0_a_data_out[15:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="cable_delay_tester_i/rhd_spi_master_0_b_data_out" type="array">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cable_delay_tester_i/rhd_spi_master_0_b_data_out[15:0]</obj_property>
-      <obj_property name="ObjectShortName">rhd_spi_master_0_b_data_out[15:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="cable_delay_tester_i/rhd_spi_master_0_done" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cable_delay_tester_i/rhd_spi_master_0_done</obj_property>
-      <obj_property name="ObjectShortName">rhd_spi_master_0_done</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="cable_delay_tester_i/rhd_spi_master_0_busy" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cable_delay_tester_i/rhd_spi_master_0_busy</obj_property>
-      <obj_property name="ObjectShortName">rhd_spi_master_0_busy</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="cable_delay_tester_i/rhd_spi_master_0_SCLK" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cable_delay_tester_i/rhd_spi_master_0_SCLK</obj_property>
-      <obj_property name="ObjectShortName">rhd_spi_master_0_SCLK</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="cable_delay_tester_i/rhd_spi_master_0_CS" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cable_delay_tester_i/rhd_spi_master_0_CS</obj_property>
-      <obj_property name="ObjectShortName">rhd_spi_master_0_CS</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="cable_delay_tester_i/rhd_spi_master_0_MOSI" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cable_delay_tester_i/rhd_spi_master_0_MOSI</obj_property>
-      <obj_property name="ObjectShortName">rhd_spi_master_0_MOSI</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="cable_delay_tester_i/MISO_1" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cable_delay_tester_i/MISO_1</obj_property>
-      <obj_property name="ObjectShortName">MISO_1</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="cable_delay_tester_i/clk_wiz_0_clk_18M" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cable_delay_tester_i/clk_wiz_0_clk_18M</obj_property>
-      <obj_property name="ObjectShortName">clk_wiz_0_clk_18M</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="cable_delay_tester_i/xlconstant_1_dout" type="array">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cable_delay_tester_i/xlconstant_1_dout[15:0]</obj_property>
-      <obj_property name="ObjectShortName">xlconstant_1_dout[15:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="cable_delay_tester_i/proc_sys_reset_0_peripheral_aresetn_1" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cable_delay_tester_i/proc_sys_reset_0_peripheral_aresetn_1</obj_property>
-      <obj_property name="ObjectShortName">proc_sys_reset_0_peripheral_aresetn_1</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
 </wave_config>

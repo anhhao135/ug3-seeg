@@ -3,16 +3,16 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Mon Sep  9 13:00:12 2024
-# Process ID: 29640
+# Start of session at: Tue Sep 10 15:16:05 2024
+# Process ID: 13564
 # Current directory: C:/Repos/ug3-seeg/ug3-seeg.runs/cable_delay_tester_proc_sys_reset_0_1_synth_1
 # Command line: vivado.exe -log cable_delay_tester_proc_sys_reset_0_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cable_delay_tester_proc_sys_reset_0_1.tcl
 # Log file: C:/Repos/ug3-seeg/ug3-seeg.runs/cable_delay_tester_proc_sys_reset_0_1_synth_1/cable_delay_tester_proc_sys_reset_0_1.vds
 # Journal file: C:/Repos/ug3-seeg/ug3-seeg.runs/cable_delay_tester_proc_sys_reset_0_1_synth_1\vivado.jou
-# Running On: DESKTOP-JS8NSUT, OS: Windows, CPU Frequency: 3600 MHz, CPU Physical cores: 8, Host memory: 34265 MB
+# Running On: GramForGram, OS: Windows, CPU Frequency: 2611 MHz, CPU Physical cores: 12, Host memory: 16847 MB
 #-----------------------------------------------------------
 source cable_delay_tester_proc_sys_reset_0_1.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 454.750 ; gain = 160.102
+create_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 456.840 ; gain = 162.250
 INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: cable_delay_tester_proc_sys_reset_0_1
 Command: synth_design -top cable_delay_tester_proc_sys_reset_0_1 -part xck26-sfvc784-2LV-c -incremental_mode off -mode out_of_context
 Starting synth_design
@@ -21,9 +21,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xck26'
 INFO: [Device 21-403] Loading part xck26-sfvc784-2LV-c
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 16108
+INFO: [Synth 8-7075] Helper process launched with PID 26108
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1842.691 ; gain = 338.848
+Starting RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:31 . Memory (MB): peak = 1841.418 ; gain = 339.824
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'cable_delay_tester_proc_sys_reset_0_1' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_0_1/synth/cable_delay_tester_proc_sys_reset_0_1.vhd:74]
 	Parameter C_FAMILY bound to: zynquplus - type: string 
@@ -78,18 +78,18 @@ WARNING: [Synth 8-7129] Port prmry_vect_in[1] in module cdc_sync is either uncon
 WARNING: [Synth 8-7129] Port prmry_vect_in[0] in module cdc_sync is either unconnected or has no load
 WARNING: [Synth 8-7129] Port scndry_resetn in module cdc_sync is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1937.191 ; gain = 433.348
+Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:37 . Memory (MB): peak = 1936.586 ; gain = 434.992
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1937.191 ; gain = 433.348
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:37 . Memory (MB): peak = 1936.586 ; gain = 434.992
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1937.191 ; gain = 433.348
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:37 . Memory (MB): peak = 1936.586 ; gain = 434.992
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1937.191 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1936.586 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 13 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -97,7 +97,7 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_0_1/cable_delay_tester_proc_sys_reset_0_1_ooc.xdc] for cell 'U0'
-create_clock: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1999.410 ; gain = 3.988
+create_clock: Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 2034.992 ; gain = 0.805
 Finished Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_0_1/cable_delay_tester_proc_sys_reset_0_1_ooc.xdc] for cell 'U0'
 Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_0_1/cable_delay_tester_proc_sys_reset_0_1_board.xdc] for cell 'U0'
 Finished Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_0_1/cable_delay_tester_proc_sys_reset_0_1_board.xdc] for cell 'U0'
@@ -107,16 +107,16 @@ Parsing XDC File [C:/Repos/ug3-seeg/ug3-seeg.runs/cable_delay_tester_proc_sys_re
 Finished Parsing XDC File [C:/Repos/ug3-seeg/ug3-seeg.runs/cable_delay_tester_proc_sys_reset_0_1_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1999.410 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2034.992 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 13 instances were transformed.
   FDR => FDRE: 12 instances
   SRL16 => SRL16E: 1 instance 
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 2000.371 ; gain = 0.961
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.094 . Memory (MB): peak = 2036.035 ; gain = 1.043
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2000.371 ; gain = 496.527
+Finished Constraint Validation : Time (s): cpu = 00:00:40 ; elapsed = 00:01:15 . Memory (MB): peak = 2036.035 ; gain = 534.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -124,17 +124,17 @@ Start Loading Part and Timing Information
 Loading part: xck26-sfvc784-2LV-c
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2000.371 ; gain = 496.527
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:40 ; elapsed = 00:01:15 . Memory (MB): peak = 2036.035 ; gain = 534.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  C:/Repos/ug3-seeg/ug3-seeg.runs/cable_delay_tester_proc_sys_reset_0_1_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2000.371 ; gain = 496.527
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:01:15 . Memory (MB): peak = 2036.035 ; gain = 534.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2000.371 ; gain = 496.527
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:40 ; elapsed = 00:01:16 . Memory (MB): peak = 2036.035 ; gain = 534.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -170,25 +170,25 @@ WARNING: [Synth 8-3332] Sequential element (EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GE
 WARNING: [Synth 8-3332] Sequential element (EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d5) is unused and will be removed from module proc_sys_reset.
 WARNING: [Synth 8-3332] Sequential element (EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d6) is unused and will be removed from module proc_sys_reset.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2000.371 ; gain = 496.527
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:01:20 . Memory (MB): peak = 2036.035 ; gain = 534.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2491.430 ; gain = 987.586
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:07 ; elapsed = 00:02:03 . Memory (MB): peak = 2494.480 ; gain = 992.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2491.430 ; gain = 987.586
+Finished Timing Optimization : Time (s): cpu = 00:01:07 ; elapsed = 00:02:03 . Memory (MB): peak = 2494.480 ; gain = 992.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2520.051 ; gain = 1016.207
+Finished Technology Mapping : Time (s): cpu = 00:01:07 ; elapsed = 00:02:03 . Memory (MB): peak = 2523.129 ; gain = 1021.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -206,37 +206,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 2520.051 ; gain = 1016.207
+Finished IO Insertion : Time (s): cpu = 00:01:14 ; elapsed = 00:02:20 . Memory (MB): peak = 2523.129 ; gain = 1021.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 2520.051 ; gain = 1016.207
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:14 ; elapsed = 00:02:20 . Memory (MB): peak = 2523.129 ; gain = 1021.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 2520.051 ; gain = 1016.207
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:14 ; elapsed = 00:02:20 . Memory (MB): peak = 2523.129 ; gain = 1021.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 2520.051 ; gain = 1016.207
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:14 ; elapsed = 00:02:20 . Memory (MB): peak = 2523.129 ; gain = 1021.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 2520.051 ; gain = 1016.207
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:14 ; elapsed = 00:02:20 . Memory (MB): peak = 2523.129 ; gain = 1021.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 2520.051 ; gain = 1016.207
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:14 ; elapsed = 00:02:20 . Memory (MB): peak = 2523.129 ; gain = 1021.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -264,18 +264,18 @@ Report Cell Usage:
 |10    |FDSE  |     4|
 +------+------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 2520.051 ; gain = 1016.207
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:14 ; elapsed = 00:02:20 . Memory (MB): peak = 2523.129 ; gain = 1021.535
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 2520.051 ; gain = 953.027
-Synthesis Optimization Complete : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 2520.051 ; gain = 1016.207
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:46 ; elapsed = 00:02:00 . Memory (MB): peak = 2523.129 ; gain = 922.086
+Synthesis Optimization Complete : Time (s): cpu = 00:01:14 ; elapsed = 00:02:21 . Memory (MB): peak = 2523.129 ; gain = 1021.535
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2520.051 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2523.129 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2559.973 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2561.926 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 9 instances were transformed.
   FDR => FDRE: 8 instances
@@ -285,7 +285,7 @@ Synth Design complete | Checksum: 1321d2b3
 INFO: [Common 17-83] Releasing license: Synthesis
 46 Infos, 10 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:51 ; elapsed = 00:00:53 . Memory (MB): peak = 2559.973 ; gain = 2032.258
+synth_design: Time (s): cpu = 00:01:28 ; elapsed = 00:03:20 . Memory (MB): peak = 2561.926 ; gain = 2034.648
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
 INFO: [Common 17-1381] The checkpoint 'C:/Repos/ug3-seeg/ug3-seeg.runs/cable_delay_tester_proc_sys_reset_0_1_synth_1/cable_delay_tester_proc_sys_reset_0_1.dcp' has been generated.
@@ -293,4 +293,4 @@ INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP cable_delay_tes
 INFO: [Coretcl 2-1174] Renamed 6 cell refs.
 INFO: [Common 17-1381] The checkpoint 'C:/Repos/ug3-seeg/ug3-seeg.runs/cable_delay_tester_proc_sys_reset_0_1_synth_1/cable_delay_tester_proc_sys_reset_0_1.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file cable_delay_tester_proc_sys_reset_0_1_utilization_synth.rpt -pb cable_delay_tester_proc_sys_reset_0_1_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Sep  9 13:01:16 2024...
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 10 15:20:04 2024...

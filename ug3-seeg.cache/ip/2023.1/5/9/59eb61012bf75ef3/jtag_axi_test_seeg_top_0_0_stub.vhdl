@@ -1,0 +1,159 @@
+-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+-- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+-- --------------------------------------------------------------------------------
+-- Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+-- Date        : Tue Sep 10 11:47:49 2024
+-- Host        : GramForGram running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode synth_stub -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
+--               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ jtag_axi_test_seeg_top_0_0_stub.vhdl
+-- Design      : jtag_axi_test_seeg_top_0_0
+-- Purpose     : Stub declaration of top-level module interface
+-- Device      : xck26-sfvc784-2LV-c
+-- --------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
+  Port ( 
+    M_AXIS_ACLK : in STD_LOGIC;
+    M_AXIS_ARESETN : in STD_LOGIC;
+    M_AXIS_tdata : out STD_LOGIC_VECTOR ( 63 downto 0 );
+    M_AXIS_tvalid : out STD_LOGIC;
+    M_AXIS_tready : in STD_LOGIC;
+    M_AXIS_tlast : out STD_LOGIC;
+    S_AXI_ACLK : in STD_LOGIC;
+    S_AXI_ARESETN : in STD_LOGIC;
+    S_AXI_AWADDR : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    S_AXI_AWPROT : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    S_AXI_AWVALID : in STD_LOGIC;
+    S_AXI_AWREADY : out STD_LOGIC;
+    S_AXI_WDATA : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    S_AXI_WSTRB : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    S_AXI_WVALID : in STD_LOGIC;
+    S_AXI_WREADY : out STD_LOGIC;
+    S_AXI_BRESP : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    S_AXI_BVALID : out STD_LOGIC;
+    S_AXI_BREADY : in STD_LOGIC;
+    S_AXI_ARADDR : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    S_AXI_ARPROT : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    S_AXI_ARVALID : in STD_LOGIC;
+    S_AXI_ARREADY : out STD_LOGIC;
+    S_AXI_RDATA : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    S_AXI_RRESP : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    S_AXI_RVALID : out STD_LOGIC;
+    S_AXI_RREADY : in STD_LOGIC;
+    RHD_CS : out STD_LOGIC;
+    RHD_MOSI : out STD_LOGIC;
+    RHD_SCLK : out STD_LOGIC;
+    RHD_MISO1_A : in STD_LOGIC;
+    RHD_MISO2_A : in STD_LOGIC;
+    RHD_MISO1_B : in STD_LOGIC;
+    RHD_MISO2_B : in STD_LOGIC;
+    RHD_MISO1_C : in STD_LOGIC;
+    RHD_MISO2_C : in STD_LOGIC;
+    RHD_MISO1_D : in STD_LOGIC;
+    RHD_MISO2_D : in STD_LOGIC;
+    RHD_MISO1_E : in STD_LOGIC;
+    RHD_MISO2_E : in STD_LOGIC;
+    RHD_MISO1_F : in STD_LOGIC;
+    RHD_MISO2_F : in STD_LOGIC;
+    RHD_MISO1_G : in STD_LOGIC;
+    RHD_MISO2_G : in STD_LOGIC;
+    RHD_MISO1_H : in STD_LOGIC;
+    RHD_MISO2_H : in STD_LOGIC;
+    RHD_MISO1_I : in STD_LOGIC;
+    RHD_MISO2_I : in STD_LOGIC;
+    RHD_MISO1_J : in STD_LOGIC;
+    RHD_MISO2_J : in STD_LOGIC;
+    RHD_MISO1_K : in STD_LOGIC;
+    RHD_MISO2_K : in STD_LOGIC;
+    RHD_MISO1_L : in STD_LOGIC;
+    RHD_MISO2_L : in STD_LOGIC;
+    RHD_MISO1_M : in STD_LOGIC;
+    RHD_MISO2_M : in STD_LOGIC;
+    RHD_MISO1_N : in STD_LOGIC;
+    RHD_MISO2_N : in STD_LOGIC;
+    RHD_MISO1_O : in STD_LOGIC;
+    RHD_MISO2_O : in STD_LOGIC;
+    RHD_MISO1_P : in STD_LOGIC;
+    RHD_MISO2_P : in STD_LOGIC;
+    RHD_MISO1_I_P : in STD_LOGIC;
+    RHD_MISO1_I_N : in STD_LOGIC;
+    RHD_MISO2_I_P : in STD_LOGIC;
+    RHD_MISO2_I_N : in STD_LOGIC;
+    RHD_MISO1_J_P : in STD_LOGIC;
+    RHD_MISO1_J_N : in STD_LOGIC;
+    RHD_MISO2_J_P : in STD_LOGIC;
+    RHD_MISO2_J_N : in STD_LOGIC;
+    RHD_MISO1_K_P : in STD_LOGIC;
+    RHD_MISO1_K_N : in STD_LOGIC;
+    RHD_MISO2_K_P : in STD_LOGIC;
+    RHD_MISO2_K_N : in STD_LOGIC;
+    RHD_MISO1_L_P : in STD_LOGIC;
+    RHD_MISO1_L_N : in STD_LOGIC;
+    RHD_MISO2_L_P : in STD_LOGIC;
+    RHD_MISO2_L_N : in STD_LOGIC;
+    RHD_MISO1_M_P : in STD_LOGIC;
+    RHD_MISO1_M_N : in STD_LOGIC;
+    RHD_MISO2_M_P : in STD_LOGIC;
+    RHD_MISO2_M_N : in STD_LOGIC;
+    RHD_MISO1_N_P : in STD_LOGIC;
+    RHD_MISO1_N_N : in STD_LOGIC;
+    RHD_MISO2_N_P : in STD_LOGIC;
+    RHD_MISO2_N_N : in STD_LOGIC;
+    RHD_MISO1_O_P : in STD_LOGIC;
+    RHD_MISO1_O_N : in STD_LOGIC;
+    RHD_MISO2_O_P : in STD_LOGIC;
+    RHD_MISO2_O_N : in STD_LOGIC;
+    RHD_MISO1_P_P : in STD_LOGIC;
+    RHD_MISO1_P_N : in STD_LOGIC;
+    RHD_MISO2_P_P : in STD_LOGIC;
+    RHD_MISO2_P_N : in STD_LOGIC;
+    RHS_CS : out STD_LOGIC;
+    RHS_SCLK : out STD_LOGIC;
+    RHS_MOSI_A : out STD_LOGIC;
+    RHS_MOSI_B : out STD_LOGIC;
+    RHS_MOSI_C : out STD_LOGIC;
+    RHS_MOSI_D : out STD_LOGIC;
+    RHS_MOSI_E : out STD_LOGIC;
+    RHS_MOSI_F : out STD_LOGIC;
+    RHS_MOSI_G : out STD_LOGIC;
+    RHS_MOSI_H : out STD_LOGIC;
+    RHS_MOSI_I : out STD_LOGIC;
+    RHS_MOSI_J : out STD_LOGIC;
+    RHS_MOSI_K : out STD_LOGIC;
+    RHS_MOSI_L : out STD_LOGIC;
+    RHS_MOSI_M : out STD_LOGIC;
+    RHS_MOSI_N : out STD_LOGIC;
+    RHS_MOSI_O : out STD_LOGIC;
+    RHS_MOSI_P : out STD_LOGIC;
+    RHS_MISO_A : in STD_LOGIC;
+    RHS_MISO_B : in STD_LOGIC;
+    RHS_MISO_C : in STD_LOGIC;
+    RHS_MISO_D : in STD_LOGIC;
+    RHS_MISO_E : in STD_LOGIC;
+    RHS_MISO_F : in STD_LOGIC;
+    RHS_MISO_G : in STD_LOGIC;
+    RHS_MISO_H : in STD_LOGIC;
+    RHS_MISO_I : in STD_LOGIC;
+    RHS_MISO_J : in STD_LOGIC;
+    RHS_MISO_K : in STD_LOGIC;
+    RHS_MISO_L : in STD_LOGIC;
+    RHS_MISO_M : in STD_LOGIC;
+    RHS_MISO_N : in STD_LOGIC;
+    RHS_MISO_O : in STD_LOGIC;
+    RHS_MISO_P : in STD_LOGIC;
+    reg0_debug : out STD_LOGIC_VECTOR ( 31 downto 0 )
+  );
+
+end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix;
+
+architecture stub of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
+attribute syn_black_box : boolean;
+attribute black_box_pad_pin : string;
+attribute syn_black_box of stub : architecture is true;
+attribute black_box_pad_pin of stub : architecture is "M_AXIS_ACLK,M_AXIS_ARESETN,M_AXIS_tdata[63:0],M_AXIS_tvalid,M_AXIS_tready,M_AXIS_tlast,S_AXI_ACLK,S_AXI_ARESETN,S_AXI_AWADDR[31:0],S_AXI_AWPROT[2:0],S_AXI_AWVALID,S_AXI_AWREADY,S_AXI_WDATA[31:0],S_AXI_WSTRB[3:0],S_AXI_WVALID,S_AXI_WREADY,S_AXI_BRESP[1:0],S_AXI_BVALID,S_AXI_BREADY,S_AXI_ARADDR[31:0],S_AXI_ARPROT[2:0],S_AXI_ARVALID,S_AXI_ARREADY,S_AXI_RDATA[31:0],S_AXI_RRESP[1:0],S_AXI_RVALID,S_AXI_RREADY,RHD_CS,RHD_MOSI,RHD_SCLK,RHD_MISO1_A,RHD_MISO2_A,RHD_MISO1_B,RHD_MISO2_B,RHD_MISO1_C,RHD_MISO2_C,RHD_MISO1_D,RHD_MISO2_D,RHD_MISO1_E,RHD_MISO2_E,RHD_MISO1_F,RHD_MISO2_F,RHD_MISO1_G,RHD_MISO2_G,RHD_MISO1_H,RHD_MISO2_H,RHD_MISO1_I,RHD_MISO2_I,RHD_MISO1_J,RHD_MISO2_J,RHD_MISO1_K,RHD_MISO2_K,RHD_MISO1_L,RHD_MISO2_L,RHD_MISO1_M,RHD_MISO2_M,RHD_MISO1_N,RHD_MISO2_N,RHD_MISO1_O,RHD_MISO2_O,RHD_MISO1_P,RHD_MISO2_P,RHD_MISO1_I_P,RHD_MISO1_I_N,RHD_MISO2_I_P,RHD_MISO2_I_N,RHD_MISO1_J_P,RHD_MISO1_J_N,RHD_MISO2_J_P,RHD_MISO2_J_N,RHD_MISO1_K_P,RHD_MISO1_K_N,RHD_MISO2_K_P,RHD_MISO2_K_N,RHD_MISO1_L_P,RHD_MISO1_L_N,RHD_MISO2_L_P,RHD_MISO2_L_N,RHD_MISO1_M_P,RHD_MISO1_M_N,RHD_MISO2_M_P,RHD_MISO2_M_N,RHD_MISO1_N_P,RHD_MISO1_N_N,RHD_MISO2_N_P,RHD_MISO2_N_N,RHD_MISO1_O_P,RHD_MISO1_O_N,RHD_MISO2_O_P,RHD_MISO2_O_N,RHD_MISO1_P_P,RHD_MISO1_P_N,RHD_MISO2_P_P,RHD_MISO2_P_N,RHS_CS,RHS_SCLK,RHS_MOSI_A,RHS_MOSI_B,RHS_MOSI_C,RHS_MOSI_D,RHS_MOSI_E,RHS_MOSI_F,RHS_MOSI_G,RHS_MOSI_H,RHS_MOSI_I,RHS_MOSI_J,RHS_MOSI_K,RHS_MOSI_L,RHS_MOSI_M,RHS_MOSI_N,RHS_MOSI_O,RHS_MOSI_P,RHS_MISO_A,RHS_MISO_B,RHS_MISO_C,RHS_MISO_D,RHS_MISO_E,RHS_MISO_F,RHS_MISO_G,RHS_MISO_H,RHS_MISO_I,RHS_MISO_J,RHS_MISO_K,RHS_MISO_L,RHS_MISO_M,RHS_MISO_N,RHS_MISO_O,RHS_MISO_P,reg0_debug[31:0]";
+attribute X_CORE_INFO : string;
+attribute X_CORE_INFO of stub : architecture is "seeg_top,Vivado 2023.1";
+begin
+end;

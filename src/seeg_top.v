@@ -217,7 +217,9 @@ module seeg_top #
     input wire RHS_MISO_M,
     input wire RHS_MISO_N,
     input wire RHS_MISO_O,
-    input wire RHS_MISO_P
+    input wire RHS_MISO_P,
+
+    output wire [31:0] reg0_debug
 
 );
 
@@ -526,6 +528,8 @@ module seeg_top #
     reg [C_S_AXI_DATA_WIDTH-1:0]	 reg_data_out;
     integer	 byte_index;
     reg	 aw_en;
+
+    assign reg0_debug = slv_reg0;
 
     // I/O Connections assignments
 

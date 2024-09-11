@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date             : Mon Sep  9 13:25:23 2024
-| Host             : DESKTOP-JS8NSUT running 64-bit major release  (build 9200)
+| Date             : Tue Sep 10 15:32:55 2024
+| Host             : GramForGram running 64-bit major release  (build 9200)
 | Command          : report_power -file cable_delay_tester_wrapper_power_routed.rpt -pb cable_delay_tester_wrapper_power_summary_routed.pb -rpx cable_delay_tester_wrapper_power_routed.rpx
 | Design           : cable_delay_tester_wrapper
 | Device           : xck26-sfvc784-2LV-c
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 3.024        |
+| Total On-Chip Power (W)  | 3.032        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 2.700        |
+| Dynamic (W)              | 2.707        |
 | Device Static (W)        | 0.325        |
 | Effective TJA (C/W)      | 2.3          |
 | Max Ambient (C)          | 78.0         |
@@ -52,24 +52,25 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.011 |        7 |       --- |             --- |
-| CLB Logic                |     0.002 |     9095 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     2628 |    117120 |            2.24 |
-|   LUT as Shift Register  |    <0.001 |      333 |     57600 |            0.58 |
-|   Register               |    <0.001 |     4573 |    234240 |            1.95 |
-|   LUT as Distributed RAM |    <0.001 |       20 |     57600 |            0.03 |
-|   CARRY8                 |    <0.001 |       84 |     14640 |            0.57 |
-|   Others                 |     0.000 |      598 |       --- |             --- |
-|   F7/F8 Muxes            |     0.000 |        8 |    117120 |           <0.01 |
-| Signals                  |     0.002 |     6663 |       --- |             --- |
-| Block RAM                |     0.008 |       15 |       144 |           10.42 |
+| Clocks                   |     0.015 |        7 |       --- |             --- |
+| CLB Logic                |     0.002 |    13365 |       --- |             --- |
+|   LUT as Logic           |     0.001 |     3522 |    117120 |            3.01 |
+|   LUT as Shift Register  |    <0.001 |      368 |     57600 |            0.64 |
+|   LUT as Distributed RAM |    <0.001 |      180 |     57600 |            0.31 |
+|   Register               |    <0.001 |     7278 |    234240 |            3.11 |
+|   CARRY8                 |    <0.001 |       87 |     14640 |            0.59 |
+|   Others                 |     0.000 |      701 |       --- |             --- |
+|   F7/F8 Muxes            |     0.000 |      137 |    117120 |            0.12 |
+|   BUFG                   |     0.000 |        1 |        32 |            3.13 |
+| Signals                  |     0.002 |    10152 |       --- |             --- |
+| Block RAM                |     0.010 |       21 |       144 |           14.58 |
 | MMCM                     |     0.000 |        0 |       --- |             --- |
 | I/O                      |     0.002 |        8 |       189 |            4.23 |
 | PS8                      |     2.675 |        1 |       --- |             --- |
 | Static Power             |     0.325 |          |           |                 |
 |   PS Static              |     0.000 |          |           |                 |
 |   PL Static              |     0.325 |          |           |                 |
-| Total                    |     3.024 |          |           |                 |
+| Total                    |     3.032 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -79,7 +80,7 @@ Table of Contents
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source          | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint          |       0.720 |     0.118 |       0.029 |      0.089 |       NA    | Unspecified | NA         |
+| Vccint          |       0.720 |     0.129 |       0.040 |      0.089 |       NA    | Unspecified | NA         |
 | Vccint_io       |       0.850 |     0.036 |       0.000 |      0.036 |       NA    | Unspecified | NA         |
 | Vccbram         |       0.850 |     0.003 |       0.002 |      0.001 |       NA    | Unspecified | NA         |
 | Vccaux          |       1.800 |     0.075 |       0.000 |      0.075 |       NA    | Unspecified | NA         |
@@ -170,12 +171,16 @@ Table of Contents
 +----------------------------+-----------+
 | Name                       | Power (W) |
 +----------------------------+-----------+
-| cable_delay_tester_wrapper |     2.700 |
-|   cable_delay_tester_i     |     2.696 |
+| cable_delay_tester_wrapper |     2.707 |
+|   cable_delay_tester_i     |     2.703 |
 |     ila_rhd                |     0.009 |
 |       inst                 |     0.009 |
-|     ila_rhs                |     0.011 |
-|       inst                 |     0.011 |
+|     ila_rhs                |     0.013 |
+|       inst                 |     0.013 |
+|     jtag_axi_0             |     0.004 |
+|       inst                 |     0.004 |
+|     seeg_top_0             |     0.001 |
+|       inst                 |     0.001 |
 |     zynq_ultra_ps_e_0      |     2.675 |
 |       inst                 |     2.675 |
 |   dbg_hub                  |     0.002 |
