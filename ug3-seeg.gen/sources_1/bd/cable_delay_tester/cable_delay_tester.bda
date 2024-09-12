@@ -187,24 +187,6 @@
                 "VH": "2",
                 "VT": "PM",
                 "TU": "active"
-            },
-            "V3": {
-                "VT": "AC",
-                "BA": "0x00000000",
-                "HA": "0xFFFFFFFF",
-                "BP": "C_BASEADDR",
-                "HP": "C_HIGHADDR",
-                "MA": "Data",
-                "MX": "/jtag_axi_0",
-                "MI": "M_AXI",
-                "MS": "SEG_seeg_top_0_reg0",
-                "MV": "xilinx.com:ip:jtag_axi:1.2",
-                "SX": "/seeg_top_0",
-                "SI": "S_AXI",
-                "SS": "reg0",
-                "SV": "xilinx.com:module_ref:seeg_top:1.0",
-                "TM": "both",
-                "TU": "register"
             }
         },
         "edges": [
@@ -215,11 +197,6 @@
             {
                 "src": "V1",
                 "trg": "V2"
-            },
-            {
-                "src": "V3",
-                "trg": "V2",
-                "EH": "2"
             }
         ]
     }

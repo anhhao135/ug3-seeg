@@ -7,8 +7,7 @@
       "name": "tb_seeg_top",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2023.1",
-      "validated": "true"
+      "tool_version": "2023.1"
     },
     "design_tree": {
       "axi_vip_0": "",
@@ -17,58 +16,18 @@
     "ports": {
       "M_AXIS_ARESETN": {
         "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_LOW",
-            "value_src": "default"
-          }
-        }
+        "direction": "I"
       },
       "S_AXI_ARESETN": {
         "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_LOW",
-            "value_src": "default"
-          }
-        }
+        "direction": "I"
       },
       "S_AXI_ACLK": {
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "ASSOCIATED_RESET": {
-            "value": "S_AXI_ARESETN",
-            "value_src": "default"
-          },
-          "CLK_DOMAIN": {
-            "value": "tb_seeg_top_S_AXI_ACLK",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "39000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
           }
         }
       },
@@ -76,28 +35,8 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "ASSOCIATED_RESET": {
-            "value": "M_AXIS_ARESETN",
-            "value_src": "default"
-          },
-          "CLK_DOMAIN": {
-            "value": "tb_seeg_top_M_AXIS_ACLK",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "250000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
           }
         }
       }
@@ -205,14 +144,6 @@
               "HAS_TLAST": {
                 "value": "1",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "250000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "tb_seeg_top_M_AXIS_ACLK",
-                "value_src": "default_prop"
               }
             },
             "port_maps": {
@@ -248,10 +179,6 @@
               "PROTOCOL": {
                 "value": "AXI4LITE",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "39000000",
-                "value_src": "user_prop"
               },
               "ID_WIDTH": {
                 "value": "0",
@@ -336,18 +263,6 @@
               "MAX_BURST_LENGTH": {
                 "value": "1",
                 "value_src": "auto"
-              },
-              "CLK_DOMAIN": {
-                "value": "tb_seeg_top_S_AXI_ACLK",
-                "value_src": "default_prop"
-              },
-              "RUSER_BITS_PER_BYTE": {
-                "value": "0",
-                "value_src": "user_prop"
-              },
-              "WUSER_BITS_PER_BYTE": {
-                "value": "0",
-                "value_src": "user_prop"
               }
             },
             "memory_map_ref": "S_AXI",
@@ -461,14 +376,6 @@
               "ASSOCIATED_RESET": {
                 "value": "M_AXIS_ARESETN",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "250000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "tb_seeg_top_M_AXIS_ACLK",
-                "value_src": "default_prop"
               }
             }
           },
@@ -493,14 +400,6 @@
               "ASSOCIATED_RESET": {
                 "value": "S_AXI_ARESETN",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "39000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "tb_seeg_top_S_AXI_ACLK",
-                "value_src": "default_prop"
               }
             }
           },
