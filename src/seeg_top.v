@@ -289,7 +289,10 @@ module seeg_top #
     .zcheck_start(slv_reg0[2]),
     .zcheck_scale(slv_reg0[4:3]),
     .busy(slv_reg31[0]),
+    .busy_recording(slv_reg31[3]),
+    .busy_zcheck(slv_reg31[4]),
     .zcheck_done(slv_reg31[1]),
+    .current_state(slv_reg31[15:8]),
 
     .stim_pulse_length(slv_reg3[15:0]),
     .stim_pulse_magnitude(slv_reg1[13:6]),
@@ -497,7 +500,8 @@ module seeg_top #
     reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg30;
     wire [C_S_AXI_DATA_WIDTH-1:0]	slv_reg31; //read only
 
-    assign slv_reg31[31:3] = 0; //unused part of register
+    assign slv_reg31[7:5] = 0; //unused part of register
+    assign slv_reg31[31:16] = 0; //unused part of register
 
     wire	 slv_reg_rden;
     wire	 slv_reg_wren;

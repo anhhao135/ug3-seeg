@@ -192,19 +192,27 @@ module seeg (
     output reg data_out_record_valid,
     output wire [2559:0] data_out_zcheck, //on valid, this will be 8 x 16 bit sample sine cycles of a channel, at 20 ks/s, starting with rhd, then rhs, all 2304 channels sequentially
     output reg data_out_zcheck_valid,
-    output wire [1:0] stim_waveform_data_out
+    output wire [1:0] stim_waveform_data_out,
+
+    wire busy_recording,
+    wire busy_zcheck,
+
+    wire [7:0] current_state
     
     
 );
+
 
     wire clk_rhd;
     wire clk_rhs_zcheck;
     wire clk_rhs;
     //clock_divider ClockDivideByTwo (.clock_in(clk), .clock_out(clk_rhd), .divisor(2)); //rhs runs on a clock twice as fast as rhd
-    clock_divider ClockDivideByEight (.clock_in(clk), .clock_out(clk_rhd), .divisor(8)); //rhs runs on a clock 8 times as fast as rhd
-    clock_divider ClockDivideByFour (.clock_in(clk), .clock_out(clk_rhs_zcheck), .divisor(4)); //rhs during zcheck mode needs a clock that is 4 times slower
+    clock_divider ClockDivideByFour (.clock_in(clk), .clock_out(clk_rhd), .divisor(4)); //rhs runs on a clock 8 times as fast as rhd
+    clock_divider ClockDivideByTwo (.clock_in(clk), .clock_out(clk_rhs_zcheck), .divisor(2)); //rhs during zcheck mode needs a clock that is 4 times slower
     localparam READY = 0, RESET = 1, CONFIG_START = 2, CONFIG_WAIT = 3, RECORD_START = 4, RECORD_WAIT = 5, RECORD_STOP = 6, ZCHECK_RHD_START = 7, ZCHECK_RHD_WAIT = 8, ZCHECK_RHS_START = 9, ZCHECK_RHS_WAIT = 10, ZCHECK_STOP = 11;
     reg [7:0] state = READY;
+
+    assign current_state = state;
 
     assign busy = (state != READY);
     assign zcheck_done = (state == ZCHECK_STOP);
@@ -223,6 +231,9 @@ module seeg (
     wire zcheck_in_progress;
     assign zcheck_in_progress = (state == ZCHECK_RHD_START) || (state == ZCHECK_RHD_WAIT) || (state == ZCHECK_RHS_START) || (state == ZCHECK_RHS_WAIT) || (state == ZCHECK_STOP);
 
+    assign busy_recording = (state == RECORD_START) || (state == RECORD_WAIT) || (state == RECORD_STOP);
+    assign busy_zcheck = zcheck_in_progress;
+
     assign clk_rhs = zcheck_in_progress ? clk_rhs_zcheck : clk;
 
     /*
@@ -230,8 +241,8 @@ module seeg (
     localparam RHS_CHANNELS = 256;
     */ //UNCOMMENT IN PRODUCTION
 
-    localparam RHD_CHANNELS = 7;
-    localparam RHS_CHANNELS = 5;
+    localparam RHD_CHANNELS = 2;
+    localparam RHS_CHANNELS = 1;
 
     reg [11:0] zcheck_global_channel_rhd = 0; // 0 - 2047
     reg [11:0] zcheck_global_channel_rhs = 0; //0 - 255
@@ -1207,7 +1218,7 @@ module seeg (
                         state = RECORD_STOP;
                     end
                     else begin
-                        if (done_rhd_flag && done_rhs_flag && busy_rhd == 0 && busy_rhs == 0) begin
+                        if (done_rhd_flag && done_rhs_flag && busy_rhd == 0) begin
                             data_out_record_valid = 1;
                             done_rhd_flag = 0;
                             done_rhs_flag = 0;

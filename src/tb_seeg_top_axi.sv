@@ -23,7 +23,14 @@ bit                                     rstn;
 xil_axi_prot_t                          mtestProtectionType = 3'b000;  
 xil_axi_resp_t                          mtestBresp;    
 bit [31:0]                              mtestWDataL; 
-bit [31:0]                              mtestRDataL; 
+bit [31:0]                              mtestRDataL;
+
+bit [31:0] start_record_command = 32'b1;
+bit [31:0] stop_record_command = 32'b10;
+bit [31:0] start_stim_finite_command = 32'b1000000;
+bit [31:0] start_stim_infinite_command = 32'b10000000;
+bit [31:0] stop_stim_infinite_command = 32'b100000000;
+bit [31:0] start_zcheck_command = 32'b100;
 
 tb_seeg_top_axi_vip_0_0_mst_t          mst_agent_0;
 
@@ -46,9 +53,8 @@ initial begin
 
 
 
-always #2 M_AXIS_ACLK <= ~M_AXIS_ACLK; //axi stream clock is 250 MHz
-always #12.82 S_AXI_ACLK = ~S_AXI_ACLK; //seeg top module clock is 39 MHz
-always #3.205 clk <= ~clk; //156 MHz
+
+always #6.41 clk <= ~clk; //78 MHz
 
 initial begin
   /*
@@ -69,12 +75,67 @@ initial begin
   #5000ns;
   rstn <= 1'b1;
   #5000ns;
+
+  mst_agent_0.AXI4LITE_WRITE_BURST(3 * 4, mtestProtectionType, {16'd1, 16'd1}, mtestBresp);
+  mst_agent_0.AXI4LITE_WRITE_BURST(4 * 4, mtestProtectionType, {16'd5, 16'd1}, mtestBresp);
+  mst_agent_0.AXI4LITE_WRITE_BURST(5 * 4, mtestProtectionType, {16'd2, 16'd3}, mtestBresp);
+  mst_agent_0.AXI4LITE_WRITE_BURST(6 * 4, mtestProtectionType, {16'd0, 16'd8}, mtestBresp);
+
+  /*
+
+
+  mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, start_zcheck_command, mtestBresp);
+  #500ns
+  mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, 0, mtestBresp);
+
+  #100ms;
+
+  */
+
+
+
   
 
-  mtestWDataL = 32'h22222222; //binary is 00010001000100010001000100010001 i.e. all miso lines are assumed to have 1 clock cycle delay
-  mst_agent_0.AXI4LITE_WRITE_BURST(32'd80, mtestProtectionType, mtestWDataL, mtestBresp);
+  mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, start_record_command, mtestBresp);
+  #500ns
+  mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, 0, mtestBresp);
 
-  #1000ns;
+  #1ms;
+
+  
+  mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, start_stim_finite_command, mtestBresp);
+  #500ns
+  mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, 0, mtestBresp);
+
+  #10ms;
+
+
+
+  /*
+
+  mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, start_stim_infinite_command, mtestBresp);
+  #500ns
+  mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, 0, mtestBresp);
+
+  #9ms;
+
+  mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, stop_stim_infinite_command, mtestBresp);
+  #500ns
+  mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, 0, mtestBresp);
+
+  #1ms;
+
+  */
+
+  
+
+  mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, stop_record_command, mtestBresp);
+  #500ns
+  mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, 0, mtestBresp);
+
+  #1ms;
+
+
 
   $finish;
 

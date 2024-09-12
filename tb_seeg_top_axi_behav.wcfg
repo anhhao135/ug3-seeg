@@ -14,126 +14,88 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="8.904065 us"></ZoomStartTime>
-      <ZoomEndTime time="24.804066 us"></ZoomEndTime>
-      <Cursor1Time time="11.554065 us"></Cursor1Time>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="25.350000001 ms"></ZoomEndTime>
+      <Cursor1Time time="1.594878510 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="220"></NameColumnWidth>
-      <ValueColumnWidth column_width="245"></ValueColumnWidth>
+      <NameColumnWidth column_width="365"></NameColumnWidth>
+      <ValueColumnWidth column_width="159"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="67" />
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/M_AXIS_ACLK" type="logic">
-      <obj_property name="ElementShortName">M_AXIS_ACLK</obj_property>
-      <obj_property name="ObjectShortName">M_AXIS_ACLK</obj_property>
+   <WVObjectSize size="15" />
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/RHS_SCLK" type="logic">
+      <obj_property name="ElementShortName">RHS_SCLK</obj_property>
+      <obj_property name="ObjectShortName">RHS_SCLK</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/M_AXIS_ARESETN" type="logic">
-      <obj_property name="ElementShortName">M_AXIS_ARESETN</obj_property>
-      <obj_property name="ObjectShortName">M_AXIS_ARESETN</obj_property>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/RHD_SCLK" type="logic">
+      <obj_property name="ElementShortName">RHD_SCLK</obj_property>
+      <obj_property name="ObjectShortName">RHD_SCLK</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/M_AXIS_tdata" type="array">
-      <obj_property name="ElementShortName">M_AXIS_tdata[63:0]</obj_property>
-      <obj_property name="ObjectShortName">M_AXIS_tdata[63:0]</obj_property>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/rhd_2048/zcheck_dac_command" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">zcheck_dac_command[7:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_dac_command[7:0]</obj_property>
+      <obj_property name="label">zcheck dac rhd</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">0</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">50</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/M_AXIS_tvalid" type="logic">
-      <obj_property name="ElementShortName">M_AXIS_tvalid</obj_property>
-      <obj_property name="ObjectShortName">M_AXIS_tvalid</obj_property>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/rhs_256/zcheck_dac_command" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">zcheck_dac_command[7:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_dac_command[7:0]</obj_property>
+      <obj_property name="label">zcheck dac rhs</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">0</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">50</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/M_AXIS_tready" type="logic">
-      <obj_property name="ElementShortName">M_AXIS_tready</obj_property>
-      <obj_property name="ObjectShortName">M_AXIS_tready</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/M_AXIS_tlast" type="logic">
-      <obj_property name="ElementShortName">M_AXIS_tlast</obj_property>
-      <obj_property name="ObjectShortName">M_AXIS_tlast</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_ACLK" type="logic">
-      <obj_property name="ElementShortName">S_AXI_ACLK</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_ACLK</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_ARESETN" type="logic">
-      <obj_property name="ElementShortName">S_AXI_ARESETN</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_ARESETN</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_AWADDR" type="array">
-      <obj_property name="ElementShortName">S_AXI_AWADDR[31:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_AWADDR[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_AWPROT" type="array">
-      <obj_property name="ElementShortName">S_AXI_AWPROT[2:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_AWPROT[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_AWVALID" type="logic">
-      <obj_property name="ElementShortName">S_AXI_AWVALID</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_AWVALID</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_AWREADY" type="logic">
-      <obj_property name="ElementShortName">S_AXI_AWREADY</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_AWREADY</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_WDATA" type="array">
-      <obj_property name="ElementShortName">S_AXI_WDATA[31:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_WDATA[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_WSTRB" type="array">
-      <obj_property name="ElementShortName">S_AXI_WSTRB[3:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_WSTRB[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_WVALID" type="logic">
-      <obj_property name="ElementShortName">S_AXI_WVALID</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_WVALID</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_WREADY" type="logic">
-      <obj_property name="ElementShortName">S_AXI_WREADY</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_WREADY</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_BRESP" type="array">
-      <obj_property name="ElementShortName">S_AXI_BRESP[1:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_BRESP[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_BVALID" type="logic">
-      <obj_property name="ElementShortName">S_AXI_BVALID</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_BVALID</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_BREADY" type="logic">
-      <obj_property name="ElementShortName">S_AXI_BREADY</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_BREADY</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_ARADDR" type="array">
-      <obj_property name="ElementShortName">S_AXI_ARADDR[31:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_ARADDR[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_ARPROT" type="array">
-      <obj_property name="ElementShortName">S_AXI_ARPROT[2:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_ARPROT[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_ARVALID" type="logic">
-      <obj_property name="ElementShortName">S_AXI_ARVALID</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_ARVALID</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_ARREADY" type="logic">
-      <obj_property name="ElementShortName">S_AXI_ARREADY</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_ARREADY</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_RDATA" type="array">
-      <obj_property name="ElementShortName">S_AXI_RDATA[31:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_RDATA[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_RRESP" type="array">
-      <obj_property name="ElementShortName">S_AXI_RRESP[1:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_RRESP[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_RVALID" type="logic">
-      <obj_property name="ElementShortName">S_AXI_RVALID</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_RVALID</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/S_AXI_RREADY" type="logic">
-      <obj_property name="ElementShortName">S_AXI_RREADY</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_RREADY</obj_property>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/rhs_256/stimulation_magnitude_debug" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">stimulation_magnitude_debug[7:0]</obj_property>
+      <obj_property name="ObjectShortName">stimulation_magnitude_debug[7:0]</obj_property>
+      <obj_property name="label">rhs stim waveform</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">0</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/rhs_256/stimulation_state" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">stimulation_state[7:0]</obj_property>
       <obj_property name="ObjectShortName">stimulation_state[7:0]</obj_property>
+      <obj_property name="label">rhs stim state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/current_state" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">current_state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[7:0]</obj_property>
+      <obj_property name="label">seeg state</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/rhs_256/rstn" type="logic">
       <obj_property name="ElementShortName">rstn</obj_property>
@@ -142,10 +104,6 @@
    <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/rhs_256/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/rhs_256/stim_finite_mode_done" type="logic">
-      <obj_property name="ElementShortName">stim_finite_mode_done</obj_property>
-      <obj_property name="ObjectShortName">stim_finite_mode_done</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_seeg_top_axi/DUT/M_AXIS_ACLK" type="logic">
       <obj_property name="ElementShortName">M_AXIS_ACLK</obj_property>
@@ -163,132 +121,381 @@
       <obj_property name="ElementShortName">S_AXI_ARESETN</obj_property>
       <obj_property name="ObjectShortName">S_AXI_ARESETN</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg0" type="array">
-      <obj_property name="ElementShortName">slv_reg0[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg0[31:0]</obj_property>
+   <wvobject fp_name="group208" type="group">
+      <obj_property name="label">axi4 lite regs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg0" type="array">
+         <obj_property name="ElementShortName">slv_reg0[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg0[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg1" type="array">
+         <obj_property name="ElementShortName">slv_reg1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg1[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg2" type="array">
+         <obj_property name="ElementShortName">slv_reg2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg2[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg3" type="array">
+         <obj_property name="ElementShortName">slv_reg3[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg3[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg4" type="array">
+         <obj_property name="ElementShortName">slv_reg4[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg4[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg5" type="array">
+         <obj_property name="ElementShortName">slv_reg5[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg5[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg6" type="array">
+         <obj_property name="ElementShortName">slv_reg6[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg6[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg7" type="array">
+         <obj_property name="ElementShortName">slv_reg7[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg7[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg8" type="array">
+         <obj_property name="ElementShortName">slv_reg8[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg8[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg9" type="array">
+         <obj_property name="ElementShortName">slv_reg9[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg9[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg10" type="array">
+         <obj_property name="ElementShortName">slv_reg10[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg10[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg11" type="array">
+         <obj_property name="ElementShortName">slv_reg11[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg11[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg12" type="array">
+         <obj_property name="ElementShortName">slv_reg12[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg12[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg13" type="array">
+         <obj_property name="ElementShortName">slv_reg13[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg13[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg14" type="array">
+         <obj_property name="ElementShortName">slv_reg14[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg14[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg15" type="array">
+         <obj_property name="ElementShortName">slv_reg15[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg15[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg16" type="array">
+         <obj_property name="ElementShortName">slv_reg16[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg16[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg17" type="array">
+         <obj_property name="ElementShortName">slv_reg17[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg17[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg18" type="array">
+         <obj_property name="ElementShortName">slv_reg18[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg18[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg19" type="array">
+         <obj_property name="ElementShortName">slv_reg19[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg19[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg20" type="array">
+         <obj_property name="ElementShortName">slv_reg20[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg20[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg21" type="array">
+         <obj_property name="ElementShortName">slv_reg21[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg21[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg22" type="array">
+         <obj_property name="ElementShortName">slv_reg22[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg22[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg23" type="array">
+         <obj_property name="ElementShortName">slv_reg23[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg23[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg24" type="array">
+         <obj_property name="ElementShortName">slv_reg24[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg24[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg25" type="array">
+         <obj_property name="ElementShortName">slv_reg25[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg25[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg26" type="array">
+         <obj_property name="ElementShortName">slv_reg26[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg26[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg27" type="array">
+         <obj_property name="ElementShortName">slv_reg27[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg27[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg28" type="array">
+         <obj_property name="ElementShortName">slv_reg28[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg28[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg29" type="array">
+         <obj_property name="ElementShortName">slv_reg29[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg29[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg30" type="array">
+         <obj_property name="ElementShortName">slv_reg30[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg30[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg31" type="array">
+         <obj_property name="ElementShortName">slv_reg31[31:0]</obj_property>
+         <obj_property name="ObjectShortName">slv_reg31[31:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg1" type="array">
-      <obj_property name="ElementShortName">slv_reg1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg1[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg2" type="array">
-      <obj_property name="ElementShortName">slv_reg2[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg2[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg3" type="array">
-      <obj_property name="ElementShortName">slv_reg3[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg3[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg4" type="array">
-      <obj_property name="ElementShortName">slv_reg4[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg4[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg5" type="array">
-      <obj_property name="ElementShortName">slv_reg5[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg5[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg6" type="array">
-      <obj_property name="ElementShortName">slv_reg6[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg6[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg7" type="array">
-      <obj_property name="ElementShortName">slv_reg7[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg7[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg8" type="array">
-      <obj_property name="ElementShortName">slv_reg8[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg8[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg9" type="array">
-      <obj_property name="ElementShortName">slv_reg9[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg9[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg10" type="array">
-      <obj_property name="ElementShortName">slv_reg10[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg10[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg11" type="array">
-      <obj_property name="ElementShortName">slv_reg11[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg11[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg12" type="array">
-      <obj_property name="ElementShortName">slv_reg12[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg12[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg13" type="array">
-      <obj_property name="ElementShortName">slv_reg13[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg13[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg14" type="array">
-      <obj_property name="ElementShortName">slv_reg14[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg14[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg15" type="array">
-      <obj_property name="ElementShortName">slv_reg15[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg15[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg16" type="array">
-      <obj_property name="ElementShortName">slv_reg16[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg16[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg17" type="array">
-      <obj_property name="ElementShortName">slv_reg17[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg17[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg18" type="array">
-      <obj_property name="ElementShortName">slv_reg18[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg18[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg19" type="array">
-      <obj_property name="ElementShortName">slv_reg19[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg19[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg20" type="array">
-      <obj_property name="ElementShortName">slv_reg20[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg20[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg21" type="array">
-      <obj_property name="ElementShortName">slv_reg21[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg21[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg22" type="array">
-      <obj_property name="ElementShortName">slv_reg22[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg22[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg23" type="array">
-      <obj_property name="ElementShortName">slv_reg23[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg23[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg24" type="array">
-      <obj_property name="ElementShortName">slv_reg24[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg24[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg25" type="array">
-      <obj_property name="ElementShortName">slv_reg25[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg25[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg26" type="array">
-      <obj_property name="ElementShortName">slv_reg26[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg26[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg27" type="array">
-      <obj_property name="ElementShortName">slv_reg27[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg27[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg28" type="array">
-      <obj_property name="ElementShortName">slv_reg28[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg28[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg29" type="array">
-      <obj_property name="ElementShortName">slv_reg29[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg29[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg30" type="array">
-      <obj_property name="ElementShortName">slv_reg30[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg30[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/slv_reg31" type="array">
-      <obj_property name="ElementShortName">slv_reg31[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg31[31:0]</obj_property>
+   <wvobject fp_name="group209" type="group">
+      <obj_property name="label">seeg io</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/rstn" type="logic">
+         <obj_property name="ElementShortName">rstn</obj_property>
+         <obj_property name="ObjectShortName">rstn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/busy" type="logic">
+         <obj_property name="ElementShortName">busy</obj_property>
+         <obj_property name="ObjectShortName">busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/record_start" type="logic">
+         <obj_property name="ElementShortName">record_start</obj_property>
+         <obj_property name="ObjectShortName">record_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/record_stop" type="logic">
+         <obj_property name="ElementShortName">record_stop</obj_property>
+         <obj_property name="ObjectShortName">record_stop</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/zcheck_start" type="logic">
+         <obj_property name="ElementShortName">zcheck_start</obj_property>
+         <obj_property name="ObjectShortName">zcheck_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/zcheck_done" type="logic">
+         <obj_property name="ElementShortName">zcheck_done</obj_property>
+         <obj_property name="ObjectShortName">zcheck_done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/zcheck_scale" type="array">
+         <obj_property name="ElementShortName">zcheck_scale[1:0]</obj_property>
+         <obj_property name="ObjectShortName">zcheck_scale[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_mask_probe_select" type="array">
+         <obj_property name="ElementShortName">stim_mask_probe_select[15:0]</obj_property>
+         <obj_property name="ObjectShortName">stim_mask_probe_select[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_mask_channel_positive" type="array">
+         <obj_property name="ElementShortName">stim_mask_channel_positive[15:0]</obj_property>
+         <obj_property name="ObjectShortName">stim_mask_channel_positive[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_mask_channel_negative" type="array">
+         <obj_property name="ElementShortName">stim_mask_channel_negative[15:0]</obj_property>
+         <obj_property name="ObjectShortName">stim_mask_channel_negative[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_bipolar_mode" type="logic">
+         <obj_property name="ElementShortName">stim_bipolar_mode</obj_property>
+         <obj_property name="ObjectShortName">stim_bipolar_mode</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_current_step_size" type="array">
+         <obj_property name="ElementShortName">stim_current_step_size[3:0]</obj_property>
+         <obj_property name="ObjectShortName">stim_current_step_size[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_pulse_length" type="array">
+         <obj_property name="ElementShortName">stim_pulse_length[15:0]</obj_property>
+         <obj_property name="ObjectShortName">stim_pulse_length[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_pulse_magnitude" type="array">
+         <obj_property name="ElementShortName">stim_pulse_magnitude[7:0]</obj_property>
+         <obj_property name="ObjectShortName">stim_pulse_magnitude[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_inter_bipulse_delay" type="array">
+         <obj_property name="ElementShortName">stim_inter_bipulse_delay[15:0]</obj_property>
+         <obj_property name="ObjectShortName">stim_inter_bipulse_delay[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_inter_pulse_delay" type="array">
+         <obj_property name="ElementShortName">stim_inter_pulse_delay[15:0]</obj_property>
+         <obj_property name="ObjectShortName">stim_inter_pulse_delay[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_inter_train_delay" type="array">
+         <obj_property name="ElementShortName">stim_inter_train_delay[15:0]</obj_property>
+         <obj_property name="ObjectShortName">stim_inter_train_delay[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_bipulses_per_train_count" type="array">
+         <obj_property name="ElementShortName">stim_bipulses_per_train_count[15:0]</obj_property>
+         <obj_property name="ObjectShortName">stim_bipulses_per_train_count[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_train_count" type="array">
+         <obj_property name="ElementShortName">stim_train_count[15:0]</obj_property>
+         <obj_property name="ObjectShortName">stim_train_count[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_charge_recovery_time" type="array">
+         <obj_property name="ElementShortName">stim_charge_recovery_time[15:0]</obj_property>
+         <obj_property name="ObjectShortName">stim_charge_recovery_time[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_rising_edge_first" type="logic">
+         <obj_property name="ElementShortName">stim_rising_edge_first</obj_property>
+         <obj_property name="ObjectShortName">stim_rising_edge_first</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_finite_mode_done" type="logic">
+         <obj_property name="ElementShortName">stim_finite_mode_done</obj_property>
+         <obj_property name="ObjectShortName">stim_finite_mode_done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_finite_mode_start" type="logic">
+         <obj_property name="ElementShortName">stim_finite_mode_start</obj_property>
+         <obj_property name="ObjectShortName">stim_finite_mode_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_infinite_mode_start" type="logic">
+         <obj_property name="ElementShortName">stim_infinite_mode_start</obj_property>
+         <obj_property name="ObjectShortName">stim_infinite_mode_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_infinite_mode_stop" type="logic">
+         <obj_property name="ElementShortName">stim_infinite_mode_stop</obj_property>
+         <obj_property name="ObjectShortName">stim_infinite_mode_stop</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/record_data_valid" type="logic">
+         <obj_property name="ElementShortName">record_data_valid</obj_property>
+         <obj_property name="ObjectShortName">record_data_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/zcheck_data_valid" type="logic">
+         <obj_property name="ElementShortName">zcheck_data_valid</obj_property>
+         <obj_property name="ObjectShortName">zcheck_data_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/loopback_mode" type="logic">
+         <obj_property name="ElementShortName">loopback_mode</obj_property>
+         <obj_property name="ObjectShortName">loopback_mode</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/data_out_record" type="array">
+         <obj_property name="ElementShortName">data_out_record[36863:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_record[36863:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/data_out_zcheck" type="array">
+         <obj_property name="ElementShortName">data_out_zcheck[2559:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_zcheck[2559:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/data_out_zcheck_valid" type="logic">
+         <obj_property name="ElementShortName">data_out_zcheck_valid</obj_property>
+         <obj_property name="ObjectShortName">data_out_zcheck_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/stim_waveform_data_out" type="array">
+         <obj_property name="ElementShortName">stim_waveform_data_out[1:0]</obj_property>
+         <obj_property name="ObjectShortName">stim_waveform_data_out[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/busy_recording" type="logic">
+         <obj_property name="ElementShortName">busy_recording</obj_property>
+         <obj_property name="ObjectShortName">busy_recording</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/busy_zcheck" type="logic">
+         <obj_property name="ElementShortName">busy_zcheck</obj_property>
+         <obj_property name="ObjectShortName">busy_zcheck</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/clk_rhd" type="logic">
+         <obj_property name="ElementShortName">clk_rhd</obj_property>
+         <obj_property name="ObjectShortName">clk_rhd</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/clk_rhs_zcheck" type="logic">
+         <obj_property name="ElementShortName">clk_rhs_zcheck</obj_property>
+         <obj_property name="ObjectShortName">clk_rhs_zcheck</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/clk_rhs" type="logic">
+         <obj_property name="ElementShortName">clk_rhs</obj_property>
+         <obj_property name="ObjectShortName">clk_rhs</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/state" type="array">
+         <obj_property name="ElementShortName">state[7:0]</obj_property>
+         <obj_property name="ObjectShortName">state[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/data_out_record_valid" type="logic">
+         <obj_property name="ElementShortName">data_out_record_valid</obj_property>
+         <obj_property name="ObjectShortName">data_out_record_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/done_rhd" type="logic">
+         <obj_property name="ElementShortName">done_rhd</obj_property>
+         <obj_property name="ObjectShortName">done_rhd</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/done_rhs" type="logic">
+         <obj_property name="ElementShortName">done_rhs</obj_property>
+         <obj_property name="ObjectShortName">done_rhs</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/busy_rhd" type="logic">
+         <obj_property name="ElementShortName">busy_rhd</obj_property>
+         <obj_property name="ObjectShortName">busy_rhd</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/busy_rhs" type="logic">
+         <obj_property name="ElementShortName">busy_rhs</obj_property>
+         <obj_property name="ObjectShortName">busy_rhs</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/done_rhd_flag" type="logic">
+         <obj_property name="ElementShortName">done_rhd_flag</obj_property>
+         <obj_property name="ObjectShortName">done_rhd_flag</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/done_rhs_flag" type="logic">
+         <obj_property name="ElementShortName">done_rhs_flag</obj_property>
+         <obj_property name="ObjectShortName">done_rhs_flag</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/config_start_flag" type="logic">
+         <obj_property name="ElementShortName">config_start_flag</obj_property>
+         <obj_property name="ObjectShortName">config_start_flag</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/record_start_flag_rhd" type="logic">
+         <obj_property name="ElementShortName">record_start_flag_rhd</obj_property>
+         <obj_property name="ObjectShortName">record_start_flag_rhd</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/record_start_flag_rhs" type="logic">
+         <obj_property name="ElementShortName">record_start_flag_rhs</obj_property>
+         <obj_property name="ObjectShortName">record_start_flag_rhs</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/zcheck_rhd_start_flag" type="logic">
+         <obj_property name="ElementShortName">zcheck_rhd_start_flag</obj_property>
+         <obj_property name="ObjectShortName">zcheck_rhd_start_flag</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/zcheck_rhs_start_flag" type="logic">
+         <obj_property name="ElementShortName">zcheck_rhs_start_flag</obj_property>
+         <obj_property name="ObjectShortName">zcheck_rhs_start_flag</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/zcheck_in_progress" type="logic">
+         <obj_property name="ElementShortName">zcheck_in_progress</obj_property>
+         <obj_property name="ObjectShortName">zcheck_in_progress</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/zcheck_global_channel_rhd" type="array">
+         <obj_property name="ElementShortName">zcheck_global_channel_rhd[11:0]</obj_property>
+         <obj_property name="ObjectShortName">zcheck_global_channel_rhd[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/zcheck_global_channel_rhs" type="array">
+         <obj_property name="ElementShortName">zcheck_global_channel_rhs[11:0]</obj_property>
+         <obj_property name="ObjectShortName">zcheck_global_channel_rhs[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/channel_out_rhd" type="array">
+         <obj_property name="ElementShortName">channel_out_rhd[7:0]</obj_property>
+         <obj_property name="ObjectShortName">channel_out_rhd[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/channel_out_rhs" type="array">
+         <obj_property name="ElementShortName">channel_out_rhs[7:0]</obj_property>
+         <obj_property name="ObjectShortName">channel_out_rhs[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/zcheck_chip_channel_rhd" type="array">
+         <obj_property name="ElementShortName">zcheck_chip_channel_rhd[11:0]</obj_property>
+         <obj_property name="ObjectShortName">zcheck_chip_channel_rhd[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/zcheck_chip_channel_rhs" type="array">
+         <obj_property name="ElementShortName">zcheck_chip_channel_rhs[11:0]</obj_property>
+         <obj_property name="ObjectShortName">zcheck_chip_channel_rhs[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/channel_loopback_rhd" type="array">
+         <obj_property name="ElementShortName">channel_loopback_rhd[7:0]</obj_property>
+         <obj_property name="ObjectShortName">channel_loopback_rhd[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/channel_loopback_rhs" type="array">
+         <obj_property name="ElementShortName">channel_loopback_rhs[7:0]</obj_property>
+         <obj_property name="ObjectShortName">channel_loopback_rhs[7:0]</obj_property>
+      </wvobject>
    </wvobject>
 </wave_config>

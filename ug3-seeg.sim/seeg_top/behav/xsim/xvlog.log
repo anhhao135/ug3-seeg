@@ -1,20 +1,2 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/clock_divider.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module clock_divider
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhd_2048.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module rhd_2048
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhd_diff_to_single.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module rhd_diff_to_single
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhd_spi_master.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module rhd_spi_master
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhd_spi_slave.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module rhd_spi_slave
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhs_256.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module rhs_256
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhs_spi_master.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module rhs_spi_master
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhs_spi_slave.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module rhs_spi_slave
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/seeg.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module seeg
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/seeg_top.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module seeg_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Repos/ug3-seeg/src/tb_seeg_top_axi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_seeg_top_axi

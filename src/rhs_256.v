@@ -120,7 +120,8 @@ module rhs_256 (
     //stimulation waveform state machine
     localparam IDLE = 0, FIRST_PULSE = 1, INTER_PULSE = 2, SECOND_PULSE = 3, INTER_BIPULSE = 4, INTER_TRAIN = 5, CHARGE_RECOVERY = 6, STIM_RESET = 7, PRE_STIM_CONFIG = 8, STIM_CONFIG = 9;
 
-    localparam DEFAULT_CHANNELS = 40; //34 recording channels + 6 for other commands
+    localparam DEFAULT_CHANNELS = 30;
+    localparam DEFAULT_CHANNELS_RECORDING = 20; //16 recording channels + some others
 
     localparam CHANNELS_PER_ADC = 16;
     localparam SPI_CONVERT_DELAY = 2; //Intan specifies two cycle delay for adc conversion to come back
@@ -1503,7 +1504,8 @@ module rhs_256 (
                             data_out[((15 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_P[31:16];
                             
                         end
-                        channel = channel + 1;
+                        channel = channel + 1; 
+
                         if (channel == DEFAULT_CHANNELS) begin
                             case (stimulation_state)
                                 FIRST_PULSE: stim_waveform_data_out = stim_rising_edge_first? 2 : 0;

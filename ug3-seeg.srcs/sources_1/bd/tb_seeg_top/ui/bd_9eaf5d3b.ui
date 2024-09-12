@@ -7,11 +7,11 @@
 #  -string -flagsOSRD
 preplace port port-id_M_AXIS_ARESETN -pg 1 -lvl 0 -x 0 -y 180 -defaultsOSRD
 preplace port port-id_S_AXI_ARESETN -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
-preplace port port-id_S_AXI_ACLK -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
-preplace port port-id_M_AXIS_ACLK -pg 1 -lvl 0 -x 0 -y 160 -defaultsOSRD
+preplace port port-id_S_AXI_ACLK -pg 1 -lvl 0 -x 0 -y 50 -defaultsOSRD
+preplace port port-id_M_AXIS_ACLK -pg 1 -lvl 0 -x 0 -y 150 -defaultsOSRD
 preplace inst axi_vip_0 -pg 1 -lvl 1 -x 140 -y 70 -defaultsOSRD
 preplace inst seeg_top_0 -pg 1 -lvl 2 -x 440 -y 910 -defaultsOSRD
-preplace netloc M_AXIS_ACLK_1 1 0 2 NJ 160 260J
+preplace netloc M_AXIS_ACLK_1 1 0 2 NJ 150 260J
 preplace netloc M_AXIS_ARESETN_1 1 0 2 NJ 180 240J
 preplace netloc S_AXI_ACLK_1 1 0 2 30 -10 270
 preplace netloc S_AXI_ARESETN_1 1 0 2 40 0 250
