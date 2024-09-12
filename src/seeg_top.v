@@ -501,7 +501,7 @@ module seeg_top #
     wire [C_S_AXI_DATA_WIDTH-1:0]	slv_reg31; //read only
 
     assign slv_reg31[7:5] = 0; //unused part of register
-    assign slv_reg31[31:16] = 0; //unused part of register
+    assign slv_reg31[31:16] = 16'hDEAD; //unused part of register
 
     wire	 slv_reg_rden;
     wire	 slv_reg_wren;

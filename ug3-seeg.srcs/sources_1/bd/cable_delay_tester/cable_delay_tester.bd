@@ -1851,6 +1851,9 @@
         "parameters": {
           "CONST_VAL": {
             "value": "0"
+          },
+          "CONST_WIDTH": {
+            "value": "8"
           }
         }
       }
