@@ -1,0 +1,240 @@
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L axi_infrastructure_v1_1_0 -L axi_vip_v1_1_14 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_seeg_top_axi_behav xil_defaultlib.tb_seeg_top_axi xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 4 for port 'divisor' [C:/Repos/ug3-seeg/src/seeg.v:210]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'CE' [C:/Repos/ug3-seeg/src/clock_divider.v:12]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 4 for port 'divisor' [C:/Repos/ug3-seeg/src/seeg.v:211]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'sampling_rate_20k' [C:/Repos/ug3-seeg/src/seeg.v:433]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_A1' [C:/Repos/ug3-seeg/src/seeg.v:472]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_A2' [C:/Repos/ug3-seeg/src/seeg.v:473]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_B1' [C:/Repos/ug3-seeg/src/seeg.v:474]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_B2' [C:/Repos/ug3-seeg/src/seeg.v:475]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_C1' [C:/Repos/ug3-seeg/src/seeg.v:476]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_C2' [C:/Repos/ug3-seeg/src/seeg.v:477]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_D1' [C:/Repos/ug3-seeg/src/seeg.v:478]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_D2' [C:/Repos/ug3-seeg/src/seeg.v:479]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_E1' [C:/Repos/ug3-seeg/src/seeg.v:480]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_E2' [C:/Repos/ug3-seeg/src/seeg.v:481]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_F1' [C:/Repos/ug3-seeg/src/seeg.v:482]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_F2' [C:/Repos/ug3-seeg/src/seeg.v:483]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_G1' [C:/Repos/ug3-seeg/src/seeg.v:484]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_G2' [C:/Repos/ug3-seeg/src/seeg.v:485]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_H1' [C:/Repos/ug3-seeg/src/seeg.v:486]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_H2' [C:/Repos/ug3-seeg/src/seeg.v:487]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_I1' [C:/Repos/ug3-seeg/src/seeg.v:488]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_I2' [C:/Repos/ug3-seeg/src/seeg.v:489]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_J1' [C:/Repos/ug3-seeg/src/seeg.v:490]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_J2' [C:/Repos/ug3-seeg/src/seeg.v:491]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_K1' [C:/Repos/ug3-seeg/src/seeg.v:492]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_K2' [C:/Repos/ug3-seeg/src/seeg.v:493]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_L1' [C:/Repos/ug3-seeg/src/seeg.v:494]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_L2' [C:/Repos/ug3-seeg/src/seeg.v:495]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_M1' [C:/Repos/ug3-seeg/src/seeg.v:496]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_M2' [C:/Repos/ug3-seeg/src/seeg.v:497]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_N1' [C:/Repos/ug3-seeg/src/seeg.v:498]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_N2' [C:/Repos/ug3-seeg/src/seeg.v:499]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_O1' [C:/Repos/ug3-seeg/src/seeg.v:500]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_O2' [C:/Repos/ug3-seeg/src/seeg.v:501]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_P1' [C:/Repos/ug3-seeg/src/seeg.v:502]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_P2' [C:/Repos/ug3-seeg/src/seeg.v:503]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 4 for port 'divisor' [C:/Repos/ug3-seeg/src/rhd_spi_master.v:40]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_A' [C:/Repos/ug3-seeg/src/seeg.v:576]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_B' [C:/Repos/ug3-seeg/src/seeg.v:577]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_C' [C:/Repos/ug3-seeg/src/seeg.v:578]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_D' [C:/Repos/ug3-seeg/src/seeg.v:579]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_E' [C:/Repos/ug3-seeg/src/seeg.v:580]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_F' [C:/Repos/ug3-seeg/src/seeg.v:581]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_G' [C:/Repos/ug3-seeg/src/seeg.v:582]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_H' [C:/Repos/ug3-seeg/src/seeg.v:583]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_I' [C:/Repos/ug3-seeg/src/seeg.v:584]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_J' [C:/Repos/ug3-seeg/src/seeg.v:585]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_K' [C:/Repos/ug3-seeg/src/seeg.v:586]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_L' [C:/Repos/ug3-seeg/src/seeg.v:587]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_M' [C:/Repos/ug3-seeg/src/seeg.v:588]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_N' [C:/Repos/ug3-seeg/src/seeg.v:589]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_O' [C:/Repos/ug3-seeg/src/seeg.v:590]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'oversample_offset_P' [C:/Repos/ug3-seeg/src/seeg.v:591]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 4 for port 'divisor' [C:/Repos/ug3-seeg/src/rhs_spi_master.v:36]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:600]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:610]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:620]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:630]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:640]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:650]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:660]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:670]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:680]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:690]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:700]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:710]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:720]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:730]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:740]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:750]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:760]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:770]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:780]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:790]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:800]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:810]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:820]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:830]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:840]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:850]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:860]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:870]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:880]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:890]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:900]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:910]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:921]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:930]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:939]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:948]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:957]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:966]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:975]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:984]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:993]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:1002]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:1011]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:1020]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:1029]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:1038]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:1047]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 5 for port 'channel' [C:/Repos/ug3-seeg/src/seeg.v:1056]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/seeg_top.v" Line 1. Module seeg_top_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_diff_to_single.v" Line 1. Module rhd_diff_to_single doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/seeg.v" Line 1. Module seeg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_2048.v" Line 1. Module rhd_2048_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhd_spi_master.v" Line 1. Module rhd_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_256.v" Line 1. Module rhs_256_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/clock_divider.v" Line 1. Module clock_divider doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Repos/ug3-seeg/src/rhs_spi_master.v" Line 1. Module rhs_spi_master doesn't have a timescale but at least one module in design has a timescale.
+INFO: [Common 17-14] Message 'XSIM 43-4099' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xilinx_vip.axi_vip_pkg
+Compiling package xilinx_vip.xil_common_vip_pkg
+Compiling package std.std
+Compiling module xilinx_vip.axi_vip_axi4pc(WDATA_WIDTH=32,RD...
+Compiling module xilinx_vip.cb
+Compiling module xilinx_vip.axi_vip_if(C_AXI_PROTOCOL=2,C_AX...
+Compiling module axi_vip_v1_1_14.axi_vip_v1_1_14_top(C_AXI_PROTOC...
+Compiling module xil_defaultlib.tb_seeg_top_axi_vip_0_0
+Compiling module unisims_ver.IBUFDS
+Compiling module xil_defaultlib.rhd_diff_to_single
+Compiling module unisims_ver.BUFGCE
+Compiling module xil_defaultlib.clock_divider
+Compiling module xil_defaultlib.rhd_spi_master
+Compiling module xil_defaultlib.rhd_2048_default
+Compiling module xil_defaultlib.rhs_spi_master
+Compiling module xil_defaultlib.rhs_256_default
+Compiling module xil_defaultlib.rhd_spi_slave
+Compiling module xil_defaultlib.rhs_spi_slave
+Compiling module xil_defaultlib.seeg
+Compiling module xil_defaultlib.seeg_top_default
+Compiling module xil_defaultlib.tb_seeg_top_seeg_top_0_0
+Compiling module xil_defaultlib.tb_seeg_top
+Compiling module xil_defaultlib.tb_seeg_top_wrapper
+Compiling module xil_defaultlib.tb_seeg_top_axi
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_seeg_top_axi_behav

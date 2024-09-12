@@ -144,6 +144,8 @@ module rhs_256 (
 
     reg [7:0] state = READY;
 
+    reg [7:0] state_latch;
+
 
     localparam STIM_WAVEFORM_DEBUG_BASELINE = 127;
     localparam STIM_CONFIG_CYCLES = 3; //allow 3 recording cycles for stim config to happen
@@ -494,7 +496,9 @@ module rhs_256 (
 
 
     //stimulation waveform state machine
-    always @(posedge (state == REC_DATA_LOAD) or negedge rstn or posedge stim_infinite_mode_start or posedge stim_finite_mode_start or posedge stim_infinite_mode_stop) begin
+    //always @(posedge (state == REC_DATA_LOAD) or negedge rstn or posedge stim_infinite_mode_start or posedge stim_finite_mode_start or posedge stim_infinite_mode_stop) begin
+
+    always @(posedge clk) begin
 
         if (!rstn) begin
             stim_delay_tracker = 0;
@@ -517,138 +521,146 @@ module rhs_256 (
             stimulation_state = CHARGE_RECOVERY;
         end
 
-        if (channel == CHANNELS_PER_ADC) begin
-            case(stimulation_state)
-                STIM_RESET: begin
-                    stim_delay_tracker = 0;
-                    stim_bipulses_per_train_count_tracker = 0;
-                    stim_train_count_tracker = 0;
-                    stim_infinite_mode = 0;
-                    stimulation_state = IDLE;
-                    stimulation_magnitude_debug = STIM_WAVEFORM_DEBUG_BASELINE;
-                    stim_finite_mode_done = 0;
-                end
+        if (state == REC_DATA_LOAD && state_latch != REC_DATA_LOAD) begin //detect rising edge of state becoming REC_DATA_LOAD
 
-                IDLE: begin
-                end
-
-                PRE_STIM_CONFIG: begin
-                    stim_delay_tracker = STIM_CONFIG_CYCLES; //allow stim config some room to settle
-                    stimulation_state = STIM_CONFIG;
-                end
-
-                STIM_CONFIG: begin
-                    stim_delay_tracker = stim_delay_tracker - 1;
-                    if (stim_delay_tracker == 0) begin
-                        stim_delay_tracker = stim_pulse_length;
-                        stimulation_state = FIRST_PULSE;
-                    end
-                end
-
-                FIRST_PULSE: begin
-                    if (stim_rising_edge_first) begin
-                        stimulation_magnitude_debug = 255;
-                    end
-                    else begin
-                        stimulation_magnitude_debug = 0;
+            if (channel == CHANNELS_PER_ADC) begin
+                case(stimulation_state)
+                    STIM_RESET: begin
+                        stim_delay_tracker = 0;
+                        stim_bipulses_per_train_count_tracker = 0;
+                        stim_train_count_tracker = 0;
+                        stim_infinite_mode = 0;
+                        stimulation_state = IDLE;
+                        stimulation_magnitude_debug = STIM_WAVEFORM_DEBUG_BASELINE;
+                        stim_finite_mode_done = 0;
                     end
 
-                    stim_delay_tracker = stim_delay_tracker - 1;
-                    if (stim_delay_tracker == 0) begin
-                        if (stim_inter_pulse_delay == 0) begin
+                    IDLE: begin
+                    end
+
+                    PRE_STIM_CONFIG: begin
+                        stim_delay_tracker = STIM_CONFIG_CYCLES; //allow stim config some room to settle
+                        stimulation_state = STIM_CONFIG;
+                    end
+
+                    STIM_CONFIG: begin
+                        stim_delay_tracker = stim_delay_tracker - 1;
+                        if (stim_delay_tracker == 0) begin
+                            stim_delay_tracker = stim_pulse_length;
+                            stimulation_state = FIRST_PULSE;
+                        end
+                    end
+
+                    FIRST_PULSE: begin
+                        if (stim_rising_edge_first) begin
+                            stimulation_magnitude_debug = 255;
+                        end
+                        else begin
+                            stimulation_magnitude_debug = 0;
+                        end
+
+                        stim_delay_tracker = stim_delay_tracker - 1;
+                        if (stim_delay_tracker == 0) begin
+                            if (stim_inter_pulse_delay == 0) begin
+                                stim_delay_tracker = stim_pulse_length;
+                                stimulation_state = SECOND_PULSE;
+                            end
+                            else begin
+                                stim_delay_tracker = stim_inter_pulse_delay;
+                                stimulation_state = INTER_PULSE;
+                            end
+                        end
+                    end
+
+                    INTER_PULSE: begin
+                        stimulation_magnitude_debug = STIM_WAVEFORM_DEBUG_BASELINE;
+                        stim_delay_tracker = stim_delay_tracker - 1;
+                        if (stim_delay_tracker == 0) begin
                             stim_delay_tracker = stim_pulse_length;
                             stimulation_state = SECOND_PULSE;
                         end
-                        else begin
-                            stim_delay_tracker = stim_inter_pulse_delay;
-                            stimulation_state = INTER_PULSE;
+                    end
+
+                    SECOND_PULSE: begin
+                        if (stim_rising_edge_first) begin
+                            stimulation_magnitude_debug = 0;
                         end
-                    end
-                end
-
-                INTER_PULSE: begin
-                    stimulation_magnitude_debug = STIM_WAVEFORM_DEBUG_BASELINE;
-                    stim_delay_tracker = stim_delay_tracker - 1;
-                    if (stim_delay_tracker == 0) begin
-                        stim_delay_tracker = stim_pulse_length;
-                        stimulation_state = SECOND_PULSE;
-                    end
-                end
-
-                SECOND_PULSE: begin
-                    if (stim_rising_edge_first) begin
-                        stimulation_magnitude_debug = 0;
-                    end
-                    else begin
-                        stimulation_magnitude_debug = 255;
-                    end
-
-                    stim_delay_tracker = stim_delay_tracker - 1;
-                    if (stim_delay_tracker == 0) begin
-
-                        if (stim_bipulses_per_train_count == 0 && stim_infinite_mode) begin //if bipulses per train count is set to 0, this means its a simple infinite bipulse
-                            stim_delay_tracker = stim_inter_bipulse_delay;
-                            stimulation_state = INTER_BIPULSE;
+                        else begin
+                            stimulation_magnitude_debug = 255;
                         end
 
-                        else begin
-                            stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count_tracker - 1;
-                            if (stim_bipulses_per_train_count_tracker == 0) begin
-                                stim_train_count_tracker = stim_train_count_tracker - 1;
-                                if (stim_train_count_tracker == 0 && stim_infinite_mode == 0) begin
-                                    stim_delay_tracker = stim_charge_recovery_time;
-                                    stimulation_state = CHARGE_RECOVERY;
-                                end
-                                else begin
-                                    if (stim_infinite_mode) begin
-                                        stim_train_count_tracker = stim_train_count;
-                                    end
-                                    stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count;
-                                    stim_delay_tracker = stim_inter_train_delay;
-                                    stimulation_state = INTER_TRAIN;
-                                end
-                            end
-                            else begin
+                        stim_delay_tracker = stim_delay_tracker - 1;
+                        if (stim_delay_tracker == 0) begin
+
+                            if (stim_bipulses_per_train_count == 0 && stim_infinite_mode) begin //if bipulses per train count is set to 0, this means its a simple infinite bipulse
                                 stim_delay_tracker = stim_inter_bipulse_delay;
                                 stimulation_state = INTER_BIPULSE;
                             end
+
+                            else begin
+                                stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count_tracker - 1;
+                                if (stim_bipulses_per_train_count_tracker == 0) begin
+                                    stim_train_count_tracker = stim_train_count_tracker - 1;
+                                    if (stim_train_count_tracker == 0 && stim_infinite_mode == 0) begin
+                                        stim_delay_tracker = stim_charge_recovery_time;
+                                        stimulation_state = CHARGE_RECOVERY;
+                                    end
+                                    else begin
+                                        if (stim_infinite_mode) begin
+                                            stim_train_count_tracker = stim_train_count;
+                                        end
+                                        stim_bipulses_per_train_count_tracker = stim_bipulses_per_train_count;
+                                        stim_delay_tracker = stim_inter_train_delay;
+                                        stimulation_state = INTER_TRAIN;
+                                    end
+                                end
+                                else begin
+                                    stim_delay_tracker = stim_inter_bipulse_delay;
+                                    stimulation_state = INTER_BIPULSE;
+                                end
+                            end
+
+
                         end
-
-
                     end
-                end
 
-                INTER_BIPULSE: begin
-                    stimulation_magnitude_debug = STIM_WAVEFORM_DEBUG_BASELINE;
-                    stim_delay_tracker = stim_delay_tracker - 1;
-                    if (stim_delay_tracker == 0) begin
-                        stim_delay_tracker = stim_pulse_length;
-                        stimulation_state = FIRST_PULSE;
-                    end
-                end
-
-                INTER_TRAIN: begin
-                    stimulation_magnitude_debug = STIM_WAVEFORM_DEBUG_BASELINE;
-                    stim_delay_tracker = stim_delay_tracker - 1;
-                    if (stim_delay_tracker == 0) begin
-                        stim_delay_tracker = stim_pulse_length;
-                        stimulation_state = FIRST_PULSE;
-                    end
-                end
-
-                CHARGE_RECOVERY: begin
-                    stimulation_magnitude_debug = STIM_WAVEFORM_DEBUG_BASELINE;
-                    stim_delay_tracker = stim_delay_tracker - 1;
-                    if (stim_delay_tracker == 0) begin
-                        if (stim_infinite_mode == 0) begin
-                            stim_finite_mode_done = 1;
+                    INTER_BIPULSE: begin
+                        stimulation_magnitude_debug = STIM_WAVEFORM_DEBUG_BASELINE;
+                        stim_delay_tracker = stim_delay_tracker - 1;
+                        if (stim_delay_tracker == 0) begin
+                            stim_delay_tracker = stim_pulse_length;
+                            stimulation_state = FIRST_PULSE;
                         end
-                        stimulation_state = STIM_RESET;
                     end
-                end
-                
-            endcase
+
+                    INTER_TRAIN: begin
+                        stimulation_magnitude_debug = STIM_WAVEFORM_DEBUG_BASELINE;
+                        stim_delay_tracker = stim_delay_tracker - 1;
+                        if (stim_delay_tracker == 0) begin
+                            stim_delay_tracker = stim_pulse_length;
+                            stimulation_state = FIRST_PULSE;
+                        end
+                    end
+
+                    CHARGE_RECOVERY: begin
+                        stimulation_magnitude_debug = STIM_WAVEFORM_DEBUG_BASELINE;
+                        stim_delay_tracker = stim_delay_tracker - 1;
+                        if (stim_delay_tracker == 0) begin
+                            if (stim_infinite_mode == 0) begin
+                                stim_finite_mode_done = 1;
+                            end
+                            stimulation_state = STIM_RESET;
+                        end
+                    end
+                    
+                endcase
+            end
+
         end
+
+        state_latch = state;
+
+        
     end
 
 

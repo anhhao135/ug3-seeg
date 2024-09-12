@@ -93,7 +93,7 @@ initial begin
   */
 
 
-
+  
   
 
   mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, start_record_command, mtestBresp);
@@ -102,6 +102,8 @@ initial begin
 
   #1ms;
 
+  /*
+
   
   mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, start_stim_finite_command, mtestBresp);
   #500ns
@@ -109,9 +111,9 @@ initial begin
 
   #10ms;
 
+  */
 
 
-  /*
 
   mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, start_stim_infinite_command, mtestBresp);
   #500ns
@@ -125,7 +127,6 @@ initial begin
 
   #1ms;
 
-  */
 
   
 
