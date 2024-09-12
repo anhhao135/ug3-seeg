@@ -116,30 +116,6 @@ module seeg_top #
     input wire RHD_MISO1_H,
     input wire RHD_MISO2_H,
 
-    input wire RHD_MISO1_I,
-    input wire RHD_MISO2_I,
-
-    input wire RHD_MISO1_J,
-    input wire RHD_MISO2_J,
-
-    input wire RHD_MISO1_K,
-    input wire RHD_MISO2_K,
-
-    input wire RHD_MISO1_L,
-    input wire RHD_MISO2_L,
-
-    input wire RHD_MISO1_M,
-    input wire RHD_MISO2_M,
-
-    input wire RHD_MISO1_N,
-    input wire RHD_MISO2_N,
-
-    input wire RHD_MISO1_O,
-    input wire RHD_MISO2_O,
-
-    input wire RHD_MISO1_P,
-    input wire RHD_MISO2_P,
-
     input wire RHD_MISO1_I_P,
     input wire RHD_MISO1_I_N,
     input wire RHD_MISO2_I_P,
@@ -217,13 +193,10 @@ module seeg_top #
     input wire RHS_MISO_M,
     input wire RHS_MISO_N,
     input wire RHS_MISO_O,
-    input wire RHS_MISO_P,
-
-    output wire [31:0] reg0_debug
+    input wire RHS_MISO_P
 
 );
 
-    /*
 
     wire RHD_MISO1_I;
     wire RHD_MISO2_I;
@@ -311,85 +284,85 @@ module seeg_top #
     seeg seeg(
     .clk(S_AXI_ACLK),
     .rstn(S_AXI_ARESETN),
-    .record_start(record_start),
-    .record_stop(record_stop),
-    .zcheck_start(zcheck_start),
-    .zcheck_scale(zcheck_scale),
-    .busy(busy),
-    .zcheck_done(zcheck_done),
+    .record_start(slv_reg0[0]),
+    .record_stop(slv_reg0[1]),
+    .zcheck_start(slv_reg0[2]),
+    .zcheck_scale(slv_reg0[4:3]),
+    .busy(slv_reg31[0]),
+    .zcheck_done(slv_reg31[1]),
 
-    .stim_pulse_length(stim_pulse_length),
-    .stim_pulse_magnitude(stim_pulse_magnitude),
-    .stim_inter_bipulse_delay(stim_inter_bipulse_delay),
-    .stim_inter_pulse_delay(stim_inter_pulse_delay),
-    .stim_inter_train_delay(stim_inter_train_delay),
-    .stim_bipulses_per_train_count(stim_bipulses_per_train_count),
-    .stim_train_count(stim_train_count),
-    .stim_charge_recovery_time(stim_charge_recovery_time),
-    .stim_rising_edge_first(stim_rising_edge_first),
+    .stim_pulse_length(slv_reg3[15:0]),
+    .stim_pulse_magnitude(slv_reg1[13:6]),
+    .stim_inter_bipulse_delay(slv_reg3[31:16]),
+    .stim_inter_pulse_delay(slv_reg4[15:0]),
+    .stim_inter_train_delay(slv_reg4[31:16]),
+    .stim_bipulses_per_train_count(slv_reg5[15:0]),
+    .stim_train_count(slv_reg5[31:16]),
+    .stim_charge_recovery_time(slv_reg6[15:0]),
+    .stim_rising_edge_first(slv_reg1[1]),
 
-    .stim_finite_mode_start(stim_finite_mode_start),
-    .stim_infinite_mode_start(stim_infinite_mode_start),
-    .stim_infinite_mode_stop(stim_infinite_mode_stop),
-    .stim_finite_mode_done(stim_finite_mode_done),
+    .stim_finite_mode_start(slv_reg0[6]),
+    .stim_infinite_mode_start(slv_reg0[7]),
+    .stim_infinite_mode_stop(slv_reg0[8]),
+    .stim_finite_mode_done(slv_reg31[2]),
     
-    .stim_mask_channel_positive(stim_mask_channel_positive),
-    .stim_mask_channel_negative(stim_mask_channel_negative),
-    .stim_current_step_size(stim_current_step_size),
-    .stim_bipolar_mode(stim_bipolar_mode),
-    .stim_mask_probe_select(stim_mask_probe_select),
+    .stim_mask_channel_positive(slv_reg2[15:0]),
+    .stim_mask_channel_negative(slv_reg2[31:16]),
+    .stim_current_step_size(slv_reg1[5:2]),
+    .stim_bipolar_mode(slv_reg1[0]),
+    .stim_mask_probe_select(slv_reg1[31:16]),
 
-    .loopback_mode(loopback_mode),
+    .loopback_mode(slv_reg0[5]),
 
-    .oversample_offset_A1(oversample_offset),
-    .oversample_offset_A2(oversample_offset),
-    .oversample_offset_B1(oversample_offset),
-    .oversample_offset_B2(oversample_offset),
-    .oversample_offset_C1(oversample_offset),
-    .oversample_offset_C2(oversample_offset),
-    .oversample_offset_D1(oversample_offset),
-    .oversample_offset_D2(oversample_offset),
-    .oversample_offset_E1(oversample_offset),
-    .oversample_offset_E2(oversample_offset),
-    .oversample_offset_F1(oversample_offset),
-    .oversample_offset_F2(oversample_offset),
-    .oversample_offset_G1(oversample_offset),
-    .oversample_offset_G2(oversample_offset),
-    .oversample_offset_H1(oversample_offset),
-    .oversample_offset_H2(oversample_offset),
-    .oversample_offset_I1(oversample_offset),
-    .oversample_offset_I2(oversample_offset),
-    .oversample_offset_J1(oversample_offset),
-    .oversample_offset_J2(oversample_offset),
-    .oversample_offset_K1(oversample_offset),
-    .oversample_offset_K2(oversample_offset),
-    .oversample_offset_L1(oversample_offset),
-    .oversample_offset_L2(oversample_offset),
-    .oversample_offset_M1(oversample_offset),
-    .oversample_offset_M2(oversample_offset),
-    .oversample_offset_N1(oversample_offset),
-    .oversample_offset_N2(oversample_offset),
-    .oversample_offset_O1(oversample_offset),
-    .oversample_offset_O2(oversample_offset),
-    .oversample_offset_P1(oversample_offset),
-    .oversample_offset_P2(oversample_offset),
+    .oversample_offset_A1(slv_reg7[7:0]),
+    .oversample_offset_A2(slv_reg7[15:8]),
+    .oversample_offset_B1(slv_reg7[23:16]),
+    .oversample_offset_B2(slv_reg7[31:24]),
+    .oversample_offset_C1(slv_reg8[7:0]),
+    .oversample_offset_C2(slv_reg8[15:8]),
+    .oversample_offset_D1(slv_reg8[23:16]),
+    .oversample_offset_D2(slv_reg8[31:24]),
+    .oversample_offset_E1(slv_reg9[7:0]),
+    .oversample_offset_E2(slv_reg9[15:8]),
+    .oversample_offset_F1(slv_reg9[23:16]),
+    .oversample_offset_F2(slv_reg9[31:24]),
+    .oversample_offset_G1(slv_reg10[7:0]),
+    .oversample_offset_G2(slv_reg10[15:8]),
+    .oversample_offset_H1(slv_reg10[23:16]),
+    .oversample_offset_H2(slv_reg10[31:24]),
+    .oversample_offset_I1(slv_reg11[7:0]),
+    .oversample_offset_I2(slv_reg11[15:8]),
+    .oversample_offset_J1(slv_reg11[23:16]),
+    .oversample_offset_J2(slv_reg11[31:24]),
+    .oversample_offset_K1(slv_reg12[7:0]),
+    .oversample_offset_K2(slv_reg12[15:8]),
+    .oversample_offset_L1(slv_reg12[23:16]),
+    .oversample_offset_L2(slv_reg12[31:24]),
+    .oversample_offset_M1(slv_reg13[7:0]),
+    .oversample_offset_M2(slv_reg13[15:8]),
+    .oversample_offset_N1(slv_reg13[23:16]),
+    .oversample_offset_N2(slv_reg13[31:24]),
+    .oversample_offset_O1(slv_reg14[7:0]),
+    .oversample_offset_O2(slv_reg14[15:8]),
+    .oversample_offset_P1(slv_reg14[23:16]),
+    .oversample_offset_P2(slv_reg14[31:24]),
 
-    .oversample_offset_A(oversample_offset),
-    .oversample_offset_B(oversample_offset),
-    .oversample_offset_C(oversample_offset),
-    .oversample_offset_D(oversample_offset),
-    .oversample_offset_E(oversample_offset),
-    .oversample_offset_F(oversample_offset),
-    .oversample_offset_G(oversample_offset),
-    .oversample_offset_H(oversample_offset),
-    .oversample_offset_I(oversample_offset),
-    .oversample_offset_J(oversample_offset),
-    .oversample_offset_K(oversample_offset),
-    .oversample_offset_L(oversample_offset),
-    .oversample_offset_M(oversample_offset),
-    .oversample_offset_N(oversample_offset),
-    .oversample_offset_O(oversample_offset),
-    .oversample_offset_P(oversample_offset),
+    .oversample_offset_A(slv_reg15[7:0]),
+    .oversample_offset_B(slv_reg15[15:8]),
+    .oversample_offset_C(slv_reg15[23:16]),
+    .oversample_offset_D(slv_reg15[31:24]),
+    .oversample_offset_E(slv_reg16[7:0]),
+    .oversample_offset_F(slv_reg16[15:8]),
+    .oversample_offset_G(slv_reg16[23:16]),
+    .oversample_offset_H(slv_reg16[31:24]),
+    .oversample_offset_I(slv_reg17[7:0]),
+    .oversample_offset_J(slv_reg17[15:8]),
+    .oversample_offset_K(slv_reg17[23:16]),
+    .oversample_offset_L(slv_reg17[31:24]),
+    .oversample_offset_M(slv_reg18[7:0]),
+    .oversample_offset_N(slv_reg18[15:8]),
+    .oversample_offset_O(slv_reg18[23:16]),
+    .oversample_offset_P(slv_reg18[31:24]),
 
     .CS_RHD(RHD_CS),
     .SCLK_RHD(RHD_SCLK),
@@ -460,25 +433,25 @@ module seeg_top #
     .MISO_M(RHS_MISO_M),
     .MISO_N(RHS_MISO_N),
     .MISO_O(RHS_MISO_O),
-    .MISO_P(RHS_MISO_P),
+    .MISO_P(RHS_MISO_P)
     );
 
-    */
+    
 
 
 
 
     // AXI4LITE signals
-    reg [C_S_AXI_ADDR_WIDTH-1 : 0] 	axi_awaddr;
-    reg  	axi_awready;
-    reg  	axi_wready;
-    reg [1 : 0] 	axi_bresp;
-    reg  	axi_bvalid;
-    reg [C_S_AXI_ADDR_WIDTH-1 : 0] 	axi_araddr;
-    reg  	axi_arready;
-    reg [C_S_AXI_DATA_WIDTH-1 : 0] 	axi_rdata;
-    reg [1 : 0] 	axi_rresp;
-    reg  	axi_rvalid;
+    reg [C_S_AXI_ADDR_WIDTH-1 : 0] 	axi_awaddr = 0;
+    reg  	axi_awready = 0;
+    reg  	axi_wready = 0;
+    reg [1 : 0] 	axi_bresp = 0;
+    reg  	axi_bvalid = 0;
+    reg [C_S_AXI_ADDR_WIDTH-1 : 0] 	axi_araddr = 0;
+    reg  	axi_arready = 0;
+    reg [C_S_AXI_DATA_WIDTH-1 : 0] 	axi_rdata = 0;
+    reg [1 : 0] 	axi_rresp = 0;
+    reg  	axi_rvalid = 0;
 
     // Example-specific design signals
     // local parameter for addressing 32 bit / 64 bit C_S_AXI_DATA_WIDTH
@@ -522,14 +495,15 @@ module seeg_top #
     reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg28;
     reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg29;
     reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg30;
-    reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg31;
+    wire [C_S_AXI_DATA_WIDTH-1:0]	slv_reg31; //read only
+
+    assign slv_reg31[31:3] = 0; //unused part of register
+
     wire	 slv_reg_rden;
     wire	 slv_reg_wren;
     reg [C_S_AXI_DATA_WIDTH-1:0]	 reg_data_out;
     integer	 byte_index;
     reg	 aw_en;
-
-    assign reg0_debug = slv_reg0;
 
     // I/O Connections assignments
 
@@ -669,7 +643,7 @@ module seeg_top #
             slv_reg28 <= 0;
             slv_reg29 <= 0;
             slv_reg30 <= 0;
-            slv_reg31 <= 0;
+            //slv_reg31 <= 0; slave register 31 is read only
         end 
         else begin
         if (slv_reg_wren)
@@ -922,7 +896,7 @@ module seeg_top #
                     // Slave register 2
                     slv_reg30[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                     end  
-
+                /*
                 5'd31:
                 for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
                     if ( S_AXI_WSTRB[byte_index] == 1 ) begin
@@ -930,6 +904,8 @@ module seeg_top #
                     // Slave register 3
                     slv_reg31[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                     end 
+                */
+                //slave register 31 is read only
             endcase
             end
         end

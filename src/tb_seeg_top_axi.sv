@@ -16,6 +16,8 @@ bit                                     M_AXIS_ACLK;
 bit                                     S_AXI_ACLK;
 bit                                     M_AXIS_ARESETN;
 bit                                     S_AXI_ARESETN;
+bit                                     clk;
+bit                                     rstn;
 
 
 xil_axi_prot_t                          mtestProtectionType = 3'b000;  
@@ -26,10 +28,10 @@ bit [31:0]                              mtestRDataL;
 tb_seeg_top_axi_vip_0_0_mst_t          mst_agent_0;
 
   `BD_WRAPPER DUT(
-    .M_AXIS_ACLK(M_AXIS_ACLK),
-    .M_AXIS_ARESETN(M_AXIS_ARESETN),
-    .S_AXI_ACLK(S_AXI_ACLK),
-    .S_AXI_ARESETN(S_AXI_ARESETN)
+    .M_AXIS_ACLK(clk),
+    .M_AXIS_ARESETN(rstn),
+    .S_AXI_ACLK(clk),
+    .S_AXI_ARESETN(rstn)
     ); 
   
 initial begin
@@ -46,8 +48,10 @@ initial begin
 
 always #2 M_AXIS_ACLK <= ~M_AXIS_ACLK; //axi stream clock is 250 MHz
 always #12.82 S_AXI_ACLK = ~S_AXI_ACLK; //seeg top module clock is 39 MHz
+always #3.205 clk <= ~clk; //156 MHz
 
 initial begin
+  /*
   M_AXIS_ARESETN <= 1'b1;
   S_AXI_ARESETN <= 1'b1;
   #200ns;
@@ -57,11 +61,18 @@ initial begin
   M_AXIS_ARESETN <= 1'b1;
   S_AXI_ARESETN <= 1'b1;
   #1000ns;
+  */
+
+  rstn <= 1'b1;
+  #500ns;
+  rstn <= 1'b0;
+  #5000ns;
+  rstn <= 1'b1;
+  #5000ns;
+  
 
   mtestWDataL = 32'h22222222; //binary is 00010001000100010001000100010001 i.e. all miso lines are assumed to have 1 clock cycle delay
-  mst_agent_0.AXI4LITE_WRITE_BURST(32'd120, mtestProtectionType, mtestWDataL, mtestBresp);
-  mtestWDataL = 32'h22222222; //binary is 00010001000100010001000100010001 i.e. all miso lines are assumed to have 1 clock cycle delay
-  mst_agent_0.AXI4LITE_WRITE_BURST(32'd0, mtestProtectionType, mtestWDataL, mtestBresp);
+  mst_agent_0.AXI4LITE_WRITE_BURST(32'd80, mtestProtectionType, mtestWDataL, mtestBresp);
 
   #1000ns;
 

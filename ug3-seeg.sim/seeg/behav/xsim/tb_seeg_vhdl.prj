@@ -1,8 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../ug3-seeg.ip_user_files/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_0_1/sim/cable_delay_tester_proc_sys_reset_0_1.vhd" \
-"../../../../ug3-seeg.ip_user_files/bd/cable_delay_tester/ip/cable_delay_tester_proc_sys_reset_1_0/sim/cable_delay_tester_proc_sys_reset_1_0.vhd" \
-"../../../../ug3-seeg.ip_user_files/bd/jtag_axi_test/ip/jtag_axi_test_proc_sys_reset_0_0/sim/jtag_axi_test_proc_sys_reset_0_0.vhd" \
-
-# Do not sort compile order
-nosort

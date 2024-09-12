@@ -496,6 +496,12 @@ module rhs_256 (
     always @(posedge (state == REC_DATA_LOAD) or negedge rstn or posedge stim_infinite_mode_start or posedge stim_finite_mode_start or posedge stim_infinite_mode_stop) begin
 
         if (!rstn) begin
+            stim_delay_tracker = 0;
+            stim_bipulses_per_train_count_tracker = 0;
+            stim_train_count_tracker = 0;
+            stim_infinite_mode = 0;
+            stimulation_magnitude_debug = STIM_WAVEFORM_DEBUG_BASELINE;
+            stim_finite_mode_done = 0;
             stimulation_state = STIM_RESET;
         end
         else if (stim_infinite_mode_start || stim_finite_mode_start) begin

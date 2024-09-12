@@ -571,54 +571,6 @@
           "RHD_MISO2_H": {
             "direction": "I"
           },
-          "RHD_MISO1_I": {
-            "direction": "I"
-          },
-          "RHD_MISO2_I": {
-            "direction": "I"
-          },
-          "RHD_MISO1_J": {
-            "direction": "I"
-          },
-          "RHD_MISO2_J": {
-            "direction": "I"
-          },
-          "RHD_MISO1_K": {
-            "direction": "I"
-          },
-          "RHD_MISO2_K": {
-            "direction": "I"
-          },
-          "RHD_MISO1_L": {
-            "direction": "I"
-          },
-          "RHD_MISO2_L": {
-            "direction": "I"
-          },
-          "RHD_MISO1_M": {
-            "direction": "I"
-          },
-          "RHD_MISO2_M": {
-            "direction": "I"
-          },
-          "RHD_MISO1_N": {
-            "direction": "I"
-          },
-          "RHD_MISO2_N": {
-            "direction": "I"
-          },
-          "RHD_MISO1_O": {
-            "direction": "I"
-          },
-          "RHD_MISO2_O": {
-            "direction": "I"
-          },
-          "RHD_MISO1_P": {
-            "direction": "I"
-          },
-          "RHD_MISO2_P": {
-            "direction": "I"
-          },
           "RHD_MISO1_I_P": {
             "direction": "I"
           },
@@ -816,11 +768,6 @@
           },
           "RHS_MISO_P": {
             "direction": "I"
-          },
-          "reg0_debug": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
           }
         }
       }

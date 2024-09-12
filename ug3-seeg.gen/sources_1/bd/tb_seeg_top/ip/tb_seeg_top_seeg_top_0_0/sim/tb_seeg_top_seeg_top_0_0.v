@@ -101,22 +101,6 @@ module tb_seeg_top_seeg_top_0_0 (
   RHD_MISO2_G,
   RHD_MISO1_H,
   RHD_MISO2_H,
-  RHD_MISO1_I,
-  RHD_MISO2_I,
-  RHD_MISO1_J,
-  RHD_MISO2_J,
-  RHD_MISO1_K,
-  RHD_MISO2_K,
-  RHD_MISO1_L,
-  RHD_MISO2_L,
-  RHD_MISO1_M,
-  RHD_MISO2_M,
-  RHD_MISO1_N,
-  RHD_MISO2_N,
-  RHD_MISO1_O,
-  RHD_MISO2_O,
-  RHD_MISO1_P,
-  RHD_MISO2_P,
   RHD_MISO1_I_P,
   RHD_MISO1_I_N,
   RHD_MISO2_I_P,
@@ -182,8 +166,7 @@ module tb_seeg_top_seeg_top_0_0 (
   RHS_MISO_M,
   RHS_MISO_N,
   RHS_MISO_O,
-  RHS_MISO_P,
-  reg0_debug
+  RHS_MISO_P
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS_ACLK, ASSOCIATED_BUSIF M_AXIS, ASSOCIATED_RESET M_AXIS_ARESETN, FREQ_HZ 250000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN tb_seeg_top_M_AXIS_ACLK, INSERT_VIP 0" *)
@@ -266,22 +249,6 @@ input wire RHD_MISO1_G;
 input wire RHD_MISO2_G;
 input wire RHD_MISO1_H;
 input wire RHD_MISO2_H;
-input wire RHD_MISO1_I;
-input wire RHD_MISO2_I;
-input wire RHD_MISO1_J;
-input wire RHD_MISO2_J;
-input wire RHD_MISO1_K;
-input wire RHD_MISO2_K;
-input wire RHD_MISO1_L;
-input wire RHD_MISO2_L;
-input wire RHD_MISO1_M;
-input wire RHD_MISO2_M;
-input wire RHD_MISO1_N;
-input wire RHD_MISO2_N;
-input wire RHD_MISO1_O;
-input wire RHD_MISO2_O;
-input wire RHD_MISO1_P;
-input wire RHD_MISO2_P;
 input wire RHD_MISO1_I_P;
 input wire RHD_MISO1_I_N;
 input wire RHD_MISO2_I_P;
@@ -348,7 +315,6 @@ input wire RHS_MISO_M;
 input wire RHS_MISO_N;
 input wire RHS_MISO_O;
 input wire RHS_MISO_P;
-output wire [31 : 0] reg0_debug;
 
   seeg_top #(
     .C_S_AXI_DATA_WIDTH(32),
@@ -400,22 +366,6 @@ output wire [31 : 0] reg0_debug;
     .RHD_MISO2_G(RHD_MISO2_G),
     .RHD_MISO1_H(RHD_MISO1_H),
     .RHD_MISO2_H(RHD_MISO2_H),
-    .RHD_MISO1_I(RHD_MISO1_I),
-    .RHD_MISO2_I(RHD_MISO2_I),
-    .RHD_MISO1_J(RHD_MISO1_J),
-    .RHD_MISO2_J(RHD_MISO2_J),
-    .RHD_MISO1_K(RHD_MISO1_K),
-    .RHD_MISO2_K(RHD_MISO2_K),
-    .RHD_MISO1_L(RHD_MISO1_L),
-    .RHD_MISO2_L(RHD_MISO2_L),
-    .RHD_MISO1_M(RHD_MISO1_M),
-    .RHD_MISO2_M(RHD_MISO2_M),
-    .RHD_MISO1_N(RHD_MISO1_N),
-    .RHD_MISO2_N(RHD_MISO2_N),
-    .RHD_MISO1_O(RHD_MISO1_O),
-    .RHD_MISO2_O(RHD_MISO2_O),
-    .RHD_MISO1_P(RHD_MISO1_P),
-    .RHD_MISO2_P(RHD_MISO2_P),
     .RHD_MISO1_I_P(RHD_MISO1_I_P),
     .RHD_MISO1_I_N(RHD_MISO1_I_N),
     .RHD_MISO2_I_P(RHD_MISO2_I_P),
@@ -481,7 +431,6 @@ output wire [31 : 0] reg0_debug;
     .RHS_MISO_M(RHS_MISO_M),
     .RHS_MISO_N(RHS_MISO_N),
     .RHS_MISO_O(RHS_MISO_O),
-    .RHS_MISO_P(RHS_MISO_P),
-    .reg0_debug(reg0_debug)
+    .RHS_MISO_P(RHS_MISO_P)
   );
 endmodule

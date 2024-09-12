@@ -30,9 +30,9 @@ module tb_seeg ();
     reg stim_infinite_mode_start = 0;
     reg stim_infinite_mode_stop = 0;
 
-    reg [7:0] oversample_offset = 0;
+    reg [7:0] oversample_offset = 2;
 
-    reg loopback_mode = 1;
+    reg loopback_mode = 0;
 
     seeg dut(
         .clk(clk),
@@ -135,6 +135,8 @@ module tb_seeg ();
         #1000000000;
 
         
+
+        
         
 
         /*
@@ -158,8 +160,8 @@ module tb_seeg ();
 
         */
 
-        
         /*
+        
         record_start <= 1;
         #500
         record_start <= 0;
@@ -172,8 +174,8 @@ module tb_seeg ();
         #500
         record_stop <= 0;
         #1000000
+        
         */
-
         
         
 

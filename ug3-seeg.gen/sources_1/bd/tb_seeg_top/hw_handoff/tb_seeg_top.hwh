@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Sep 11 09:40:58 2024" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Sep 11 18:11:07 2024" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="zynquplus" BOARD="xilinx.com:k26c:part0:1.4" DEVICE="xck26" NAME="tb_seeg_top" PACKAGE="sfvc784" SPEEDGRADE="-2LV"/>
 
@@ -405,22 +405,6 @@
         <PORT DIR="I" NAME="RHD_MISO2_G" SIGIS="undef"/>
         <PORT DIR="I" NAME="RHD_MISO1_H" SIGIS="undef"/>
         <PORT DIR="I" NAME="RHD_MISO2_H" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO1_I" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO2_I" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO1_J" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO2_J" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO1_K" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO2_K" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO1_L" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO2_L" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO1_M" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO2_M" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO1_N" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO2_N" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO1_O" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO2_O" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO1_P" SIGIS="undef"/>
-        <PORT DIR="I" NAME="RHD_MISO2_P" SIGIS="undef"/>
         <PORT DIR="I" NAME="RHD_MISO1_I_P" SIGIS="undef"/>
         <PORT DIR="I" NAME="RHD_MISO1_I_N" SIGIS="undef"/>
         <PORT DIR="I" NAME="RHD_MISO2_I_P" SIGIS="undef"/>
@@ -487,7 +471,6 @@
         <PORT DIR="I" NAME="RHS_MISO_N" SIGIS="undef"/>
         <PORT DIR="I" NAME="RHS_MISO_O" SIGIS="undef"/>
         <PORT DIR="I" NAME="RHS_MISO_P" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="31" NAME="reg0_debug" RIGHT="0" SIGIS="undef"/>
       </PORTS>
       <BUSINTERFACES>
         <BUSINTERFACE BUSNAME="__NOC__" NAME="M_AXIS" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
