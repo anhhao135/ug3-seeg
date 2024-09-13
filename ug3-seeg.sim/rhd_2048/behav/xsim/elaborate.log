@@ -1,0 +1,47 @@
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_8 -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_rhd_2048_behav xil_defaultlib.tb_rhd_2048 xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'fifo_read_en' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:50]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'fifo_write_en_ext' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:51]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'fifo_rst' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:52]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'fifo_read_en_zcheck' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:53]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 4 for port 'divisor' [C:/Repos/ug3-seeg/src/rhd_spi_master.v:40]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'CE' [C:/Repos/ug3-seeg/src/clock_divider.v:12]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:164]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:174]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:184]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:194]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:204]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:214]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:224]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:234]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:244]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:254]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:264]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:274]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:284]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:294]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:304]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:314]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:324]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:334]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:344]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:354]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:364]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:374]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:384]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:394]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:404]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:414]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:424]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:434]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:444]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:454]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:464]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 6 for port 'channel' [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:474]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

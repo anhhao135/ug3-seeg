@@ -1,0 +1,12 @@
+0.7
+2020.2
+May  7 2023
+15:24:31
+C:/Repos/ug3-seeg/src/clock_divider.v,1726163315,verilog,,C:/Repos/ug3-seeg/src/rhd_2048.v,,clock_divider,,xilinx_vip,C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include,,,,,
+C:/Repos/ug3-seeg/src/rhd_2048.v,1726268579,verilog,,C:/Repos/ug3-seeg/src/rhd_spi_master.v,,rhd_2048,,xilinx_vip,C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include,,,,,
+C:/Repos/ug3-seeg/src/rhd_spi_master.v,1725375309,verilog,,C:/Repos/ug3-seeg/src/rhd_spi_slave.v,,rhd_spi_master,,xilinx_vip,C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include,,,,,
+C:/Repos/ug3-seeg/src/rhd_spi_slave.v,1726249287,verilog,,C:/Repos/ug3-seeg/src/tb_rhd_2048.v,,rhd_spi_slave,,xilinx_vip,C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include,,,,,
+C:/Repos/ug3-seeg/src/tb_rhd_2048.v,1726268783,verilog,,,,tb_rhd_2048,,xilinx_vip,C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include,,,,,
+C:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/fifo_rhd/sim/fifo_rhd.v,1726268632,verilog,,C:/Repos/ug3-seeg/src/clock_divider.v,,fifo_rhd,,xilinx_vip,C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include,,,,,
+C:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/fifo_zcheck/sim/fifo_zcheck.v,1726268631,verilog,,C:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/fifo_rhd/sim/fifo_rhd.v,,fifo_zcheck,,xilinx_vip,C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include,,,,,
+C:/Repos/ug3-seeg/ug3-seeg.sim/rhd_2048/behav/xsim/glbl.v,1683266558,verilog,,,,glbl,,xilinx_vip,,,,,,

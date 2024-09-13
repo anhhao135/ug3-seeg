@@ -207,8 +207,8 @@ module seeg (
     wire clk_rhs_zcheck;
     wire clk_rhs;
     //clock_divider ClockDivideByTwo (.clock_in(clk), .clock_out(clk_rhd), .divisor(2)); //rhs runs on a clock twice as fast as rhd
-    clock_divider ClockDivideByFour (.clock_in(clk), .clock_out(clk_rhd), .divisor(4)); //rhs runs on a clock 8 times as fast as rhd
-    clock_divider ClockDivideByTwo (.clock_in(clk), .clock_out(clk_rhs_zcheck), .divisor(2)); //rhs during zcheck mode needs a clock that is 4 times slower
+    clock_divider ClockDivideByFour (.clock_in(clk), .clock_out(clk_rhd), .divisor(4)); //rhs runs on a clock 4 times as fast as rhd
+    clock_divider ClockDivideByTwo (.clock_in(clk), .clock_out(clk_rhs_zcheck), .divisor(2)); //rhs during zcheck mode needs a clock that is 2 times slower
     localparam READY = 0, RESET = 1, CONFIG_START = 2, CONFIG_WAIT = 3, RECORD_START = 4, RECORD_WAIT = 5, RECORD_STOP = 6, ZCHECK_RHD_START = 7, ZCHECK_RHD_WAIT = 8, ZCHECK_RHS_START = 9, ZCHECK_RHS_WAIT = 10, ZCHECK_STOP = 11;
     reg [7:0] state = READY;
 

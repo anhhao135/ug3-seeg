@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include" \
+"../../../../ug3-seeg.gen/sources_1/ip/fifo_zcheck/sim/fifo_zcheck.v" \
+"../../../../ug3-seeg.gen/sources_1/ip/fifo_rhd/sim/fifo_rhd.v" \
+"../../../../src/clock_divider.v" \
+"../../../../src/rhd_2048.v" \
+"../../../../src/rhd_spi_master.v" \
+"../../../../src/rhd_spi_slave.v" \
+"../../../../src/tb_rhd_2048.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
