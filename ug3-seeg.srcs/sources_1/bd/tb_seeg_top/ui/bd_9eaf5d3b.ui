@@ -1,9 +1,9 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.886356",
-   "Default View_TopLeft":"-167,-19",
+   "Default View_TopLeft":"-169,-20",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 TLS
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
 #  -string -flagsOSRD
 preplace port port-id_M_AXIS_ARESETN -pg 1 -lvl 0 -x 0 -y 180 -defaultsOSRD
 preplace port port-id_S_AXI_ARESETN -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD

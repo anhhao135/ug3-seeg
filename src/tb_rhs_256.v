@@ -93,6 +93,9 @@ module tb_rhs_256 ();
         .config_start(config_start),
         .record_start(record_start),
         .zcheck_start(zcheck_start),
+        .fifo_read_en(1),
+        .fifo_write_en_ext(1),
+        .fifo_rst(0),
         .zcheck_global_channel(zcheck_global_channel),
         .zcheck_scale(zcheck_scale),
         .oversample_offset_A(oversample_offset),
@@ -318,12 +321,12 @@ module tb_rhs_256 ();
         //forever #25.641 clk = ~clk; // 19.5 MHz for effective 2.5 kS /s
         //forever #12.82 clk = ~clk; //39 MHz
 
-        forever #12.82 clk = ~clk; //39 MHz
+        forever #6.41 clk = ~clk; //78 MHz
     end
 
     initial begin
 
-        zcheck_mode <= 1;
+        zcheck_mode <= 0;
         rstn <= 1;
         #500;
         rstn <= 0;
@@ -333,21 +336,24 @@ module tb_rhs_256 ();
 
         
 
+        /*
+
         zcheck_start <= 1;
         #500
         zcheck_start <= 0;
         #20000000
     
+        */
         
-
         /*
+        
         config_start <= 1;
         #500
         config_start <= 0;
         #1000000
         */
         
-        /*
+
         record_start <= 1;
         #600000
         stim_finite_mode_start <= 1;
@@ -360,7 +366,7 @@ module tb_rhs_256 ();
         #65000000
         record_start <= 0;
         #100000
-        */
+
 
         /*
 

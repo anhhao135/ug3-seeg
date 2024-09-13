@@ -3,7 +3,7 @@ module rhs_256 (
     input wire clk,
 
     input wire config_start,
-    input wire record_start,
+    input wire record_start,    
     input wire zcheck_start,
 
     input wire [11:0] zcheck_global_channel, //0 - 255, zcheck one channel at a time
@@ -23,6 +23,7 @@ module rhs_256 (
 
 
     output wire busy,
+    output wire busy_stim,
     output wire done, //on rising edge of done, data out for normal and zcheck mode is valid, so should be sampled
 
     input wire [7:0] oversample_offset_A,
@@ -42,7 +43,13 @@ module rhs_256 (
     input wire [7:0] oversample_offset_O,
     input wire [7:0] oversample_offset_P,
 
-    output reg[4095:0] data_out, //1 sample of all 256 channels
+    //output reg[4095:0] data_out, //1 sample of all 256 channels
+
+    input wire fifo_read_en,
+    input wire fifo_write_en_ext,
+    input wire fifo_rst,
+    output wire fifo_valid_out,
+    output wire [63:0] data_fifo_out,
 
     output wire CS,
     output wire SCLK,
@@ -199,8 +206,6 @@ module rhs_256 (
     wire [7:0] data_gather_index;
     assign data_gather_index = channel - 2;
 
-    wire [511:0] data_out_slice_debug;
-    assign data_out_slice_debug = data_out[(4095 - 512):(3584 - 512)]; //debug last 32 channels
 
     reg [7:0] write_register_address = 0;
     reg [15:0] write_register_data = 0;
@@ -252,7 +257,7 @@ module rhs_256 (
 
     assign done = (state == REC_DONE) || (state == CONFIG_DONE) || (state == ZCHECK_DONE);
     assign busy = (state != READY);
-
+    assign busy_stim = (stimulation_state != IDLE);
 
     rhs_spi_master A(
         .clk(clk),
@@ -495,6 +500,25 @@ module rhs_256 (
     );
 
 
+    reg [255:0] data_out = 0;
+    reg fifo_write_en = 0;
+
+    fifo_rhs fifo_rhs_inst(
+        .srst(!rstn || fifo_rst),
+        .wr_clk(clk),
+        .rd_clk(clk),
+        .din(data_out),
+        .wr_en(fifo_write_en && fifo_write_en_ext), // overwrite if FIFO is full, there are 2-channel delay in the SPI interface
+        .rd_en(fifo_read_en), // read when SPI is running + FIFO is not empty
+        .dout(data_fifo_out),
+        .full(),
+        .empty(),
+        .valid(valid_fifo_out),
+        .wr_rst_busy(),
+        .rd_rst_busy()
+        );
+
+
     //stimulation waveform state machine
     //always @(posedge (state == REC_DATA_LOAD) or negedge rstn or posedge stim_infinite_mode_start or posedge stim_finite_mode_start or posedge stim_infinite_mode_stop) begin
 
@@ -665,6 +689,8 @@ module rhs_256 (
 
 
     always @(posedge clk) begin
+
+        fifo_write_en = 0;
 
         if (!rstn) begin
             state = RESET;
@@ -1498,6 +1524,8 @@ module rhs_256 (
                     if (&done_all) begin
                         if (channel < CHANNELS_PER_ADC + SPI_CONVERT_DELAY && channel >= SPI_CONVERT_DELAY) begin
 
+                            /*
+
                             data_out[((0 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_A[31:16];
                             data_out[((1 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_B[31:16];
                             data_out[((2 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_C[31:16];
@@ -1514,6 +1542,30 @@ module rhs_256 (
                             data_out[((13 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_N[31:16];
                             data_out[((14 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_O[31:16];
                             data_out[((15 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_P[31:16];
+
+                            */
+
+
+
+                            data_out[((0) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_A[31:16];
+                            data_out[((1) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_B[31:16];
+                            data_out[((2) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_C[31:16];
+                            data_out[((3) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_D[31:16];
+                            data_out[((4) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_E[31:16];
+                            data_out[((5) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_F[31:16];
+                            data_out[((6) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_G[31:16];
+                            data_out[((7) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_H[31:16];
+                            data_out[((8) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_I[31:16];
+                            data_out[((9) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_J[31:16];
+                            data_out[((10) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_K[31:16];
+                            data_out[((11) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_L[31:16];
+                            data_out[((12) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_M[31:16];
+                            data_out[((13) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_N[31:16];
+                            data_out[((14) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_O[31:16];
+                            data_out[((15) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_P[31:16];
+
+
+                            fifo_write_en = 1;
                             
                         end
                         channel = channel + 1; 
