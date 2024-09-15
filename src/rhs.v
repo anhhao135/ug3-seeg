@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 
 
-
+/*author hao le*/
 
 module rhs
     (
