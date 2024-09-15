@@ -482,7 +482,7 @@ module tb_rhd_2048 ();
     end
 
     initial begin
-        zcheck_mode <= 0;
+        zcheck_mode <= 1;
         rstn <= 1;
         #500;
         rstn <= 0;
@@ -491,12 +491,12 @@ module tb_rhd_2048 ();
         #500
 
         
-        /*
+        
         zcheck_start <= 1;
         #500
         zcheck_start <= 0;
         #10000000
-        */
+        
 
 
         /*
@@ -506,11 +506,12 @@ module tb_rhd_2048 ();
         #1000000
         */
 
-        
+        /*
         record_start <= 1;
         #3000000
         record_start <= 0;
         #100000
+        */
         
         
         $finish;

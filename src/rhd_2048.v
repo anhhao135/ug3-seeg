@@ -1163,258 +1163,254 @@ module rhd_2048 (
                     if (&done_all) begin
 
                         if (channel == SPI_CONVERT_DELAY + 1) begin
+
+                            fifo_write_en = 1;
                             zcheck_data_sample_debug = 1;
-
-
-                            /*
-                            
-
+                        
                             case(zcheck_probe_select)
 
                                 0: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_A1;
+                                            fifo_data_in <= data_out_a_A1;
                                         else
-                                            data_out_zcheck <= data_out_b_A1;
+                                            fifo_data_in <= data_out_b_A1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_A2;
+                                            fifo_data_in <= data_out_a_A2;
                                         else
-                                            data_out_zcheck <= data_out_b_A2;
+                                            fifo_data_in <= data_out_b_A2;
                                     end
                                 end
 
                                 1: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_B1;
+                                            fifo_data_in <= data_out_a_B1;
                                         else
-                                            data_out_zcheck <= data_out_b_B1;
+                                            fifo_data_in <= data_out_b_B1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_B2;
+                                            fifo_data_in <= data_out_a_B2;
                                         else
-                                            data_out_zcheck <= data_out_b_B2;
+                                            fifo_data_in <= data_out_b_B2;
                                     end
                                 end
 
                                 2: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_C1;
+                                            fifo_data_in <= data_out_a_C1;
                                         else
-                                            data_out_zcheck <= data_out_b_C1;
+                                            fifo_data_in <= data_out_b_C1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_C2;
+                                            fifo_data_in <= data_out_a_C2;
                                         else
-                                            data_out_zcheck <= data_out_b_C2;
+                                            fifo_data_in <= data_out_b_C2;
                                     end
                                 end
 
                                 3: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_D1;
+                                            fifo_data_in <= data_out_a_D1;
                                         else
-                                            data_out_zcheck <= data_out_b_D1;
+                                            fifo_data_in <= data_out_b_D1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_D2;
+                                            fifo_data_in <= data_out_a_D2;
                                         else
-                                            data_out_zcheck <= data_out_b_D2;
+                                            fifo_data_in <= data_out_b_D2;
                                     end
                                 end
 
                                 4: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_E1;
+                                            fifo_data_in <= data_out_a_E1;
                                         else
-                                            data_out_zcheck <= data_out_b_E1;
+                                            fifo_data_in <= data_out_b_E1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_E2;
+                                            fifo_data_in <= data_out_a_E2;
                                         else
-                                            data_out_zcheck <= data_out_b_E2;
+                                            fifo_data_in <= data_out_b_E2;
                                     end
                                 end
 
                                 5: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_F1;
+                                            fifo_data_in <= data_out_a_F1;
                                         else
-                                            data_out_zcheck <= data_out_b_F1;
+                                            fifo_data_in <= data_out_b_F1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_F2;
+                                            fifo_data_in <= data_out_a_F2;
                                         else
-                                            data_out_zcheck <= data_out_b_F2;
+                                            fifo_data_in <= data_out_b_F2;
                                     end
                                 end
 
                                 6: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_G1;
+                                            fifo_data_in <= data_out_a_G1;
                                         else
-                                            data_out_zcheck <= data_out_b_G1;
+                                            fifo_data_in <= data_out_b_G1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_G2;
+                                            fifo_data_in <= data_out_a_G2;
                                         else
-                                            data_out_zcheck <= data_out_b_G2;
+                                            fifo_data_in <= data_out_b_G2;
                                     end
                                 end
 
                                 7: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_H1;
+                                            fifo_data_in <= data_out_a_H1;
                                         else
-                                            data_out_zcheck <= data_out_b_H1;
+                                            fifo_data_in <= data_out_b_H1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_H2;
+                                            fifo_data_in <= data_out_a_H2;
                                         else
-                                            data_out_zcheck <= data_out_b_H2;
+                                            fifo_data_in <= data_out_b_H2;
                                     end
                                 end
 
                                 8: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_I1;
+                                            fifo_data_in <= data_out_a_I1;
                                         else
-                                            data_out_zcheck <= data_out_b_I1;
+                                            fifo_data_in <= data_out_b_I1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_I2;
+                                            fifo_data_in <= data_out_a_I2;
                                         else
-                                            data_out_zcheck <= data_out_b_I2;
+                                            fifo_data_in <= data_out_b_I2;
                                     end
                                 end
 
                                 9: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_J1;
+                                            fifo_data_in <= data_out_a_J1;
                                         else
-                                            data_out_zcheck <= data_out_b_J1;
+                                            fifo_data_in <= data_out_b_J1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_J2;
+                                            fifo_data_in <= data_out_a_J2;
                                         else
-                                            data_out_zcheck <= data_out_b_J2;
+                                            fifo_data_in <= data_out_b_J2;
                                     end
                                 end
 
                                 10: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_K1;
+                                            fifo_data_in <= data_out_a_K1;
                                         else
-                                            data_out_zcheck <= data_out_b_K1;
+                                            fifo_data_in <= data_out_b_K1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_K2;
+                                            fifo_data_in <= data_out_a_K2;
                                         else
-                                            data_out_zcheck <= data_out_b_K2;
+                                            fifo_data_in <= data_out_b_K2;
                                     end
                                 end
 
                                 11: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_L1;
+                                            fifo_data_in <= data_out_a_L1;
                                         else
-                                            data_out_zcheck <= data_out_b_L1;
+                                            fifo_data_in <= data_out_b_L1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_L2;
+                                            fifo_data_in <= data_out_a_L2;
                                         else
-                                            data_out_zcheck <= data_out_b_L2;
+                                            fifo_data_in <= data_out_b_L2;
                                     end
                                 end
 
                                 12: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_M1;
+                                            fifo_data_in <= data_out_a_M1;
                                         else
-                                            data_out_zcheck <= data_out_b_M1;
+                                            fifo_data_in <= data_out_b_M1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_M2;
+                                            fifo_data_in <= data_out_a_M2;
                                         else
-                                            data_out_zcheck <= data_out_b_M2;
+                                            fifo_data_in <= data_out_b_M2;
                                     end
                                 end
 
                                 13: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_N1;
+                                            fifo_data_in <= data_out_a_N1;
                                         else
-                                            data_out_zcheck <= data_out_b_N1;
+                                            fifo_data_in <= data_out_b_N1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_N2;
+                                            fifo_data_in <= data_out_a_N2;
                                         else
-                                            data_out_zcheck <= data_out_b_N2;
+                                            fifo_data_in <= data_out_b_N2;
                                     end
                                 end
 
                                 14: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_O1;
+                                            fifo_data_in <= data_out_a_O1;
                                         else
-                                            data_out_zcheck <= data_out_b_O1;
+                                            fifo_data_in <= data_out_b_O1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_O2;
+                                            fifo_data_in <= data_out_a_O2;
                                         else
-                                            data_out_zcheck <= data_out_b_O2;
+                                            fifo_data_in <= data_out_b_O2;
                                     end
                                 end
 
                                 15: begin
                                     if (zcheck_chip_select == 0) begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_P1;
+                                            fifo_data_in <= data_out_a_P1;
                                         else
-                                            data_out_zcheck <= data_out_b_P1;
+                                            fifo_data_in <= data_out_b_P1;
                                     end
                                     else begin
                                         if (zcheck_adc_select == 0)
-                                            data_out_zcheck <= data_out_a_P2;
+                                            fifo_data_in <= data_out_a_P2;
                                         else
-                                            data_out_zcheck <= data_out_b_P2;
+                                            fifo_data_in <= data_out_b_P2;
                                     end
                                 end
                             endcase
 
-                            */
-
-                            //fifo_write_en_zcheck = 1;
+                            
 
                         end
                     
@@ -1764,7 +1760,7 @@ module rhd_2048 (
 
 
                         end
-                        
+
                         channel = channel + 1;
                         fifo_load_index = 0;
 

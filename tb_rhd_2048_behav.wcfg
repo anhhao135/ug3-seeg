@@ -12,9 +12,9 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="2,174.000001 us"></ZoomEndTime>
-      <Cursor1Time time="32.230737 us"></Cursor1Time>
+      <ZoomStartTime time="0.177406456 ms"></ZoomStartTime>
+      <ZoomEndTime time="21.917406457 ms"></ZoomEndTime>
+      <Cursor1Time time="3.800739789 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="283"></NameColumnWidth>
@@ -105,6 +105,10 @@
       <obj_property name="ElementShortName">SCLK</obj_property>
       <obj_property name="ObjectShortName">SCLK</obj_property>
    </wvobject>
+   <wvobject fp_name="/tb_rhd_2048/dut/MOSI" type="logic">
+      <obj_property name="ElementShortName">MOSI</obj_property>
+      <obj_property name="ObjectShortName">MOSI</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_rhd_2048/dut/zcheck_cycle_counter" type="array">
       <obj_property name="ElementShortName">zcheck_cycle_counter[3:0]</obj_property>
       <obj_property name="ObjectShortName">zcheck_cycle_counter[3:0]</obj_property>
@@ -121,7 +125,12 @@
    <wvobject fp_name="/tb_rhd_2048/dut/zcheck_dac_command" type="array">
       <obj_property name="ElementShortName">zcheck_dac_command[7:0]</obj_property>
       <obj_property name="ObjectShortName">zcheck_dac_command[7:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">0</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhd_2048/dut/zcheck_data_gather_index" type="array">
       <obj_property name="ElementShortName">zcheck_data_gather_index[7:0]</obj_property>
@@ -202,10 +211,6 @@
    <wvobject fp_name="/tb_rhd_2048/dut/CS" type="logic">
       <obj_property name="ElementShortName">CS</obj_property>
       <obj_property name="ObjectShortName">CS</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhd_2048/dut/MOSI" type="logic">
-      <obj_property name="ElementShortName">MOSI</obj_property>
-      <obj_property name="ObjectShortName">MOSI</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhd_2048/dut/MISO1_A" type="logic">
       <obj_property name="ElementShortName">MISO1_A</obj_property>
