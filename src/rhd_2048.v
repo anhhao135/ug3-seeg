@@ -915,7 +915,7 @@ module rhd_2048 (
         .wr_clk(clk),
         .rd_clk(clk),
         .din(fifo_data_in),
-        .wr_en(fifo_write_en && fifo_write_en_ext),
+        .wr_en(fifo_write_en),
         .rd_en(fifo_read_en),
         .dout(fifo_data_out),
         .full(),
@@ -924,6 +924,8 @@ module rhd_2048 (
         .wr_rst_busy(),
         .rd_rst_busy()
     );
+
+    reg [6:0] fifo_load_index = 0; //0 - 63 index to load data received into fifo from all 32 ADC
 
     always @(posedge clk) begin
 
@@ -1029,6 +1031,7 @@ module rhd_2048 (
                     data_out_a_P2_reg = 0;
                     data_out_b_P2_reg = 0;
 
+                    fifo_load_index = 0;
 
                     state = READY;
                 end
@@ -1161,6 +1164,10 @@ module rhd_2048 (
 
                         if (channel == SPI_CONVERT_DELAY + 1) begin
                             zcheck_data_sample_debug = 1;
+
+
+                            /*
+                            
 
                             case(zcheck_probe_select)
 
@@ -1405,7 +1412,9 @@ module rhd_2048 (
                                 end
                             endcase
 
-                            fifo_write_en_zcheck = 1;
+                            */
+
+                            //fifo_write_en_zcheck = 1;
 
                         end
                     
@@ -1673,95 +1682,171 @@ module rhd_2048 (
                     if (&done_all) begin
                         if (channel < CHANNELS_PER_ADC + SPI_CONVERT_DELAY && channel >= SPI_CONVERT_DELAY) begin
 
-                            data_out_a_A1 = data_out_a_A1;
-                            data_out_b_A1 = data_out_b_A1;
-                            data_out_a_A2 = data_out_a_A2;
-                            data_out_b_A2 = data_out_b_A2;
+                            data_out_a_A1_reg = data_out_a_A1;
+                            data_out_b_A1_reg = data_out_b_A1;
+                            data_out_a_A2_reg = data_out_a_A2;
+                            data_out_b_A2_reg = data_out_b_A2;
                             
-                            data_out_a_B1 = data_out_a_B1;
-                            data_out_b_B1 = data_out_b_B1;
-                            data_out_a_B2 = data_out_a_B2;
-                            data_out_b_B2 = data_out_b_B2;
+                            data_out_a_B1_reg = data_out_a_B1;
+                            data_out_b_B1_reg = data_out_b_B1;
+                            data_out_a_B2_reg = data_out_a_B2;
+                            data_out_b_B2_reg = data_out_b_B2;
 
-                            data_out_a_C1 = data_out_a_C1;
-                            data_out_b_C1 = data_out_b_C1;
-                            data_out_a_C2 = data_out_a_C2;
-                            data_out_b_C2 = data_out_b_C2;
+                            data_out_a_C1_reg = data_out_a_C1;
+                            data_out_b_C1_reg = data_out_b_C1;
+                            data_out_a_C2_reg = data_out_a_C2;
+                            data_out_b_C2_reg = data_out_b_C2;
 
-                            data_out_a = data_out_a_D1;
-                            data_out_b = data_out_b_D1;
-                            data_out_a = data_out_a_D2;
-                            data_out_b = data_out_b_D2;
+                            data_out_a_D1_reg = data_out_a_D1;
+                            data_out_b_D1_reg = data_out_b_D1;
+                            data_out_a_D2_reg = data_out_a_D2;
+                            data_out_b_D2_reg = data_out_b_D2;
 
-                            data_out_a = data_out_a_E1;
-                            data_out_b = data_out_b_E1;
-                            data_out_a = data_out_a_E2;
-                            data_out_b = data_out_b_E2;
+                            data_out_a_E1_reg = data_out_a_E1;
+                            data_out_b_E1_reg = data_out_b_E1;
+                            data_out_a_E2_reg = data_out_a_E2;
+                            data_out_b_E2_reg = data_out_b_E2;
                             
-                            data_out_a = data_out_a_F1;
-                            data_out_b = data_out_b_F1;
-                            data_out_a = data_out_a_F2;
-                            data_out_b = data_out_b_F2;
+                            data_out_a_F1_reg = data_out_a_F1;
+                            data_out_b_F1_reg = data_out_b_F1;
+                            data_out_a_F2_reg = data_out_a_F2;
+                            data_out_b_F2_reg = data_out_b_F2;
 
-                            data_out_a = data_out_a_G1;
-                            data_out_b = data_out_b_G1;
-                            data_out_a = data_out_a_G2;
-                            data_out_b = data_out_b_G2;
+                            data_out_a_G1_reg = data_out_a_G1;
+                            data_out_b_G1_reg = data_out_b_G1;
+                            data_out_a_G2_reg = data_out_a_G2;
+                            data_out_b_G2_reg = data_out_b_G2;
 
-                            data_out_a = data_out_a_H1;
-                            data_out_b = data_out_b_H1;
-                            data_out_a = data_out_a_H2;
-                            data_out_b = data_out_b_H2;
+                            data_out_a_H1_reg = data_out_a_H1;
+                            data_out_b_H1_reg = data_out_b_H1;
+                            data_out_a_H2_reg = data_out_a_H2;
+                            data_out_b_H2_reg = data_out_b_H2;
 
-                            data_out_a = data_out_a_I1;
-                            data_out_b = data_out_b_I1;
-                            data_out_a = data_out_a_I2;
-                            data_out_b = data_out_b_I2;
+                            data_out_a_I1_reg = data_out_a_I1;
+                            data_out_b_I1_reg = data_out_b_I1;
+                            data_out_a_I2_reg = data_out_a_I2;
+                            data_out_b_I2_reg = data_out_b_I2;
                             
-                            data_out_a = data_out_a_J1;
-                            data_out_b = data_out_b_J1;
-                            data_out_a = data_out_a_J2;
-                            data_out_b = data_out_b_J2;
+                            data_out_a_J1_reg = data_out_a_J1;
+                            data_out_b_J1_reg = data_out_b_J1;
+                            data_out_a_J2_reg = data_out_a_J2;
+                            data_out_b_J2_reg = data_out_b_J2;
 
-                            data_out_a = data_out_a_K1;
-                            data_out_b = data_out_b_K1;
-                            data_out_a = data_out_a_K2;
-                            data_out_b = data_out_b_K2;
+                            data_out_a_K1_reg = data_out_a_K1;
+                            data_out_b_K1_reg = data_out_b_K1;
+                            data_out_a_K2_reg = data_out_a_K2;
+                            data_out_b_K2_reg = data_out_b_K2;
 
-                            data_out_a = data_out_a_L1;
-                            data_out_b = data_out_b_L1;
-                            data_out_a = data_out_a_L2;
-                            data_out_b = data_out_b_L2;
+                            data_out_a_L1_reg = data_out_a_L1;
+                            data_out_b_L1_reg = data_out_b_L1;
+                            data_out_a_L2_reg = data_out_a_L2;
+                            data_out_b_L2_reg = data_out_b_L2;
 
-                            data_out_a = data_out_a_M1;
-                            data_out_b = data_out_b_M1;
-                            data_out_a = data_out_a_M2;
-                            data_out_b = data_out_b_M2;
+                            data_out_a_M1_reg = data_out_a_M1;
+                            data_out_b_M1_reg = data_out_b_M1;
+                            data_out_a_M2_reg = data_out_a_M2;
+                            data_out_b_M2_reg = data_out_b_M2;
                             
-                            data_out_a = data_out_a_N1;
-                            data_out_b = data_out_b_N1;
-                            data_out_a = data_out_a_N2;
-                            data_out_b = data_out_b_N2;
+                            data_out_a_N1_reg = data_out_a_N1;
+                            data_out_b_N1_reg = data_out_b_N1;
+                            data_out_a_N2_reg = data_out_a_N2;
+                            data_out_b_N2_reg = data_out_b_N2;
 
-                            data_out_a = data_out_a_O1;
-                            data_out_b = data_out_b_O1;
-                            data_out_a = data_out_a_O2;
-                            data_out_b = data_out_b_O2;
+                            data_out_a_O1_reg = data_out_a_O1;
+                            data_out_b_O1_reg = data_out_b_O1;
+                            data_out_a_O2_reg = data_out_a_O2;
+                            data_out_b_O2_reg = data_out_b_O2;
 
-                            data_out_a = data_out_a_P1;
-                            data_out_b = data_out_b_P1;
-                            data_out_a = data_out_a_P2;
-                            data_out_b = data_out_b_P2;
-
-                            //fifo_write_en = 1;
+                            data_out_a_P1_reg = data_out_a_P1;
+                            data_out_b_P1_reg = data_out_b_P1;
+                            data_out_a_P2_reg = data_out_a_P2;
+                            data_out_b_P2_reg = data_out_b_P2;
 
 
                         end
+                        
                         channel = channel + 1;
+                        fifo_load_index = 0;
+
                         if (channel == DEFAULT_CHANNELS)
                             state = REC_DONE;
                         else
                             state = REC_DATA_LOAD;
+                    end
+                    else if (channel > SPI_CONVERT_DELAY && channel <= CHANNELS_PER_ADC + SPI_CONVERT_DELAY && fifo_load_index < 64) begin
+
+                        fifo_write_en = 1;
+
+                        case (fifo_load_index)
+                            0: fifo_data_in = data_out_a_A1_reg;
+                            1 : fifo_data_in = data_out_b_A1_reg;
+                            2 : fifo_data_in = data_out_a_A2_reg;
+                            3 : fifo_data_in = data_out_b_A2_reg;
+                            4 : fifo_data_in = data_out_a_B1_reg;
+                            5 : fifo_data_in = data_out_b_B1_reg;
+                            6 : fifo_data_in = data_out_a_B2_reg;
+                            7 : fifo_data_in = data_out_b_B2_reg;
+                            8 : fifo_data_in = data_out_a_C1_reg;
+                            9 : fifo_data_in = data_out_b_C1_reg;
+                            10 : fifo_data_in = data_out_a_C2_reg;
+                            11 : fifo_data_in = data_out_b_C2_reg;
+                            12 : fifo_data_in = data_out_a_D1_reg;
+                            13 : fifo_data_in = data_out_b_D1_reg;
+                            14 : fifo_data_in = data_out_a_D2_reg;
+                            15 : fifo_data_in = data_out_b_D2_reg;
+                            16 : fifo_data_in = data_out_a_E1_reg;
+                            17 : fifo_data_in = data_out_b_E1_reg;
+                            18 : fifo_data_in = data_out_a_E2_reg;
+                            19 : fifo_data_in = data_out_b_E2_reg;
+                            20 : fifo_data_in = data_out_a_F1_reg;
+                            21 : fifo_data_in = data_out_b_F1_reg;
+                            22 : fifo_data_in = data_out_a_F2_reg;
+                            23 : fifo_data_in = data_out_b_F2_reg;
+                            24 : fifo_data_in = data_out_a_G1_reg;
+                            25 : fifo_data_in = data_out_b_G1_reg;
+                            26 : fifo_data_in = data_out_a_G2_reg;
+                            27 : fifo_data_in = data_out_b_G2_reg;
+                            28 : fifo_data_in = data_out_a_H1_reg;
+                            29 : fifo_data_in = data_out_b_H1_reg;
+                            30 : fifo_data_in = data_out_a_H2_reg;
+                            31 : fifo_data_in = data_out_b_H2_reg;
+                            32 : fifo_data_in = data_out_a_I1_reg;
+                            33 : fifo_data_in = data_out_b_I1_reg;
+                            34 : fifo_data_in = data_out_a_I2_reg;
+                            35 : fifo_data_in = data_out_b_I2_reg;
+                            36 : fifo_data_in = data_out_a_J1_reg;
+                            37 : fifo_data_in = data_out_b_J1_reg;
+                            38 : fifo_data_in = data_out_a_J2_reg;
+                            39 : fifo_data_in = data_out_b_J2_reg;
+                            40 : fifo_data_in = data_out_a_K1_reg;
+                            41 : fifo_data_in = data_out_b_K1_reg;
+                            42 : fifo_data_in = data_out_a_K2_reg;
+                            43 : fifo_data_in = data_out_b_K2_reg;
+                            44 : fifo_data_in = data_out_a_L1_reg;
+                            45 : fifo_data_in = data_out_b_L1_reg;
+                            46 : fifo_data_in = data_out_a_L2_reg;
+                            47 : fifo_data_in = data_out_b_L2_reg;
+                            48 : fifo_data_in = data_out_a_M1_reg;
+                            49 : fifo_data_in = data_out_b_M1_reg;
+                            50 : fifo_data_in = data_out_a_M2_reg;
+                            51 : fifo_data_in = data_out_b_M2_reg;
+                            52 : fifo_data_in = data_out_a_N1_reg;
+                            53 : fifo_data_in = data_out_b_N1_reg;
+                            54 : fifo_data_in = data_out_a_N2_reg;
+                            55 : fifo_data_in = data_out_b_N2_reg;
+                            56 : fifo_data_in = data_out_a_O1_reg;
+                            57 : fifo_data_in = data_out_b_O1_reg;
+                            58 : fifo_data_in = data_out_a_O2_reg;
+                            59 : fifo_data_in = data_out_b_O2_reg;
+                            60 : fifo_data_in = data_out_a_P1_reg;
+                            61 : fifo_data_in = data_out_b_P1_reg;
+                            62 : fifo_data_in = data_out_a_P2_reg;
+                            63 : fifo_data_in = data_out_b_P2_reg;
+                            default: fifo_write_en = 0;
+                        endcase
+
+                        fifo_load_index = fifo_load_index + 1;
+
                     end
 
                 end

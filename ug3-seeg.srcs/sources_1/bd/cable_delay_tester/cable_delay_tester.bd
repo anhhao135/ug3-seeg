@@ -1927,13 +1927,17 @@
             "left": "1",
             "right": "0"
           },
-          "fifo_read_en_zcheck": {
+          "fifo_read_en": {
             "direction": "I"
           },
-          "fifo_valid_out_zcheck": {
+          "fifo_rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "fifo_valid_out": {
             "direction": "O"
           },
-          "data_fifo_out_zcheck": {
+          "fifo_data_out": {
             "direction": "O",
             "left": "63",
             "right": "0"
@@ -2102,29 +2106,6 @@
           "oversample_offset_P2": {
             "direction": "I",
             "left": "7",
-            "right": "0"
-          },
-          "fifo_read_en": {
-            "direction": "I"
-          },
-          "fifo_write_en_ext": {
-            "direction": "I"
-          },
-          "fifo_rst": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "fifo_valid_out": {
-            "direction": "O"
-          },
-          "data_fifo_out_1": {
-            "direction": "O",
-            "left": "63",
-            "right": "0"
-          },
-          "data_fifo_out_2": {
-            "direction": "O",
-            "left": "63",
             "right": "0"
           },
           "CS": {

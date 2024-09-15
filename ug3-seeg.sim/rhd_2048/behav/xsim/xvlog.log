@@ -1,0 +1,44 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/fifo_16_to_64/sim/fifo_16_to_64.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_16_to_64
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/clock_divider.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clock_divider
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhd_2048.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rhd_2048
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhd_spi_master.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rhd_spi_master
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/rhd_spi_slave.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rhd_spi_slave
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/tb_rhd_2048.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_rhd_2048
+WARNING: [VRFC 10-2938] 'MISO1_A' is already implicitly declared on line 88 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:123]
+WARNING: [VRFC 10-2938] 'MISO2_A' is already implicitly declared on line 89 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:124]
+WARNING: [VRFC 10-2938] 'MISO1_B' is already implicitly declared on line 90 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:125]
+WARNING: [VRFC 10-2938] 'MISO2_B' is already implicitly declared on line 91 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:126]
+WARNING: [VRFC 10-2938] 'MISO1_C' is already implicitly declared on line 92 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:127]
+WARNING: [VRFC 10-2938] 'MISO2_C' is already implicitly declared on line 93 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:128]
+WARNING: [VRFC 10-2938] 'MISO1_D' is already implicitly declared on line 94 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:129]
+WARNING: [VRFC 10-2938] 'MISO2_D' is already implicitly declared on line 95 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:130]
+WARNING: [VRFC 10-2938] 'MISO1_E' is already implicitly declared on line 96 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:131]
+WARNING: [VRFC 10-2938] 'MISO2_E' is already implicitly declared on line 97 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:132]
+WARNING: [VRFC 10-2938] 'MISO1_F' is already implicitly declared on line 98 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:133]
+WARNING: [VRFC 10-2938] 'MISO2_F' is already implicitly declared on line 99 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:134]
+WARNING: [VRFC 10-2938] 'MISO1_G' is already implicitly declared on line 100 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:135]
+WARNING: [VRFC 10-2938] 'MISO2_G' is already implicitly declared on line 101 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:136]
+WARNING: [VRFC 10-2938] 'MISO1_H' is already implicitly declared on line 102 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:137]
+WARNING: [VRFC 10-2938] 'MISO2_H' is already implicitly declared on line 103 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:138]
+WARNING: [VRFC 10-2938] 'MISO1_I' is already implicitly declared on line 104 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:139]
+WARNING: [VRFC 10-2938] 'MISO2_I' is already implicitly declared on line 105 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:140]
+WARNING: [VRFC 10-2938] 'MISO1_J' is already implicitly declared on line 106 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:141]
+WARNING: [VRFC 10-2938] 'MISO2_J' is already implicitly declared on line 107 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:142]
+WARNING: [VRFC 10-2938] 'MISO1_K' is already implicitly declared on line 108 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:143]
+WARNING: [VRFC 10-2938] 'MISO2_K' is already implicitly declared on line 109 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:144]
+WARNING: [VRFC 10-2938] 'MISO1_L' is already implicitly declared on line 110 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:145]
+WARNING: [VRFC 10-2938] 'MISO2_L' is already implicitly declared on line 111 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:146]
+WARNING: [VRFC 10-2938] 'MISO1_M' is already implicitly declared on line 112 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:147]
+WARNING: [VRFC 10-2938] 'MISO2_M' is already implicitly declared on line 113 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:148]
+WARNING: [VRFC 10-2938] 'MISO1_N' is already implicitly declared on line 114 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:149]
+WARNING: [VRFC 10-2938] 'MISO2_N' is already implicitly declared on line 115 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:150]
+WARNING: [VRFC 10-2938] 'MISO1_O' is already implicitly declared on line 116 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:151]
+WARNING: [VRFC 10-2938] 'MISO2_O' is already implicitly declared on line 117 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:152]
+WARNING: [VRFC 10-2938] 'MISO1_P' is already implicitly declared on line 118 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:153]
+WARNING: [VRFC 10-2938] 'MISO2_P' is already implicitly declared on line 119 [C:/Repos/ug3-seeg/src/tb_rhd_2048.v:154]

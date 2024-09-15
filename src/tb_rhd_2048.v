@@ -48,9 +48,7 @@ module tb_rhd_2048 ();
         .zcheck_global_channel(zcheck_global_channel),
         .zcheck_scale(zcheck_scale),
         .fifo_read_en(1),
-        .fifo_write_en_ext(1),
         .fifo_rst(0),
-        .fifo_read_en_zcheck(1),
         .oversample_offset_A1(oversample_offset),
         .oversample_offset_A2(oversample_offset),
         .oversample_offset_B1(oversample_offset),
@@ -484,7 +482,7 @@ module tb_rhd_2048 ();
     end
 
     initial begin
-        zcheck_mode <= 1;
+        zcheck_mode <= 0;
         rstn <= 1;
         #500;
         rstn <= 0;
@@ -493,12 +491,12 @@ module tb_rhd_2048 ();
         #500
 
         
-
+        /*
         zcheck_start <= 1;
         #500
         zcheck_start <= 0;
         #10000000
-        
+        */
 
 
         /*
@@ -508,12 +506,12 @@ module tb_rhd_2048 ();
         #1000000
         */
 
-        /*
+        
         record_start <= 1;
         #3000000
         record_start <= 0;
         #100000
-        */
+        
         
         $finish;
     end
