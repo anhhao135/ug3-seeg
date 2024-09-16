@@ -30,8 +30,10 @@ module rhd_2048 (
 
     input wire fifo_read_en,
     input wire fifo_rst,
+    input wire fifo_write_en_external,
     output wire fifo_valid_out,
     output wire [63:0] fifo_data_out,
+    
 
 
     output wire busy,
@@ -915,7 +917,7 @@ module rhd_2048 (
         .wr_clk(clk),
         .rd_clk(clk),
         .din(fifo_data_in),
-        .wr_en(fifo_write_en),
+        .wr_en(fifo_write_en && fifo_write_en_external),
         .rd_en(fifo_read_en),
         .dout(fifo_data_out),
         .full(),

@@ -7,7 +7,8 @@
       "name": "cable_delay_tester",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2023.1"
+      "tool_version": "2023.1",
+      "validated": "true"
     },
     "design_tree": {
       "zynq_ultra_ps_e_0": "",
@@ -19,7 +20,8 @@
       "xlconstant_1": "",
       "rst_ps8_0_99M": "",
       "rhs_spi_master_0": "",
-      "rhd_2048_0": ""
+      "rhd_2048_0": "",
+      "rhs_256_0": ""
     },
     "ports": {
       "MISO_RHS": {
@@ -1905,6 +1907,14 @@
               "ASSOCIATED_RESET": {
                 "value": "rstn",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "99999001",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "cable_delay_tester_zynq_ultra_ps_e_0_0_pl_clk0",
+                "value_src": "default_prop"
               }
             }
           },
@@ -1932,6 +1942,9 @@
           },
           "fifo_rst": {
             "type": "rst",
+            "direction": "I"
+          },
+          "fifo_write_en_external": {
             "direction": "I"
           },
           "fifo_valid_out": {
@@ -2222,6 +2235,363 @@
             "direction": "I"
           }
         }
+      },
+      "rhs_256_0": {
+        "vlnv": "xilinx.com:module_ref:rhs_256:1.0",
+        "xci_name": "cable_delay_tester_rhs_256_0_0",
+        "xci_path": "ip\\cable_delay_tester_rhs_256_0_0\\cable_delay_tester_rhs_256_0_0.xci",
+        "inst_hier_path": "rhs_256_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "rhs_256",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "rstn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rstn",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "99999001",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "cable_delay_tester_zynq_ultra_ps_e_0_0_pl_clk0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "config_start": {
+            "direction": "I"
+          },
+          "record_start": {
+            "direction": "I"
+          },
+          "zcheck_start": {
+            "direction": "I"
+          },
+          "zcheck_global_channel": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "zcheck_scale": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "busy": {
+            "direction": "O"
+          },
+          "busy_stim": {
+            "direction": "O"
+          },
+          "done": {
+            "direction": "O"
+          },
+          "oversample_offset_A": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_B": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_C": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_D": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_E": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_F": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_G": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_H": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_I": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_J": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_K": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_L": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_M": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_N": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_O": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_P": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "fifo_read_en": {
+            "direction": "I"
+          },
+          "fifo_rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "fifo_write_en_external": {
+            "direction": "I"
+          },
+          "fifo_valid_out": {
+            "direction": "O"
+          },
+          "fifo_data_out": {
+            "direction": "O",
+            "left": "63",
+            "right": "0"
+          },
+          "CS": {
+            "direction": "O"
+          },
+          "SCLK": {
+            "direction": "O"
+          },
+          "MOSI_A": {
+            "direction": "O"
+          },
+          "MOSI_B": {
+            "direction": "O"
+          },
+          "MOSI_C": {
+            "direction": "O"
+          },
+          "MOSI_D": {
+            "direction": "O"
+          },
+          "MOSI_E": {
+            "direction": "O"
+          },
+          "MOSI_F": {
+            "direction": "O"
+          },
+          "MOSI_G": {
+            "direction": "O"
+          },
+          "MOSI_H": {
+            "direction": "O"
+          },
+          "MOSI_I": {
+            "direction": "O"
+          },
+          "MOSI_J": {
+            "direction": "O"
+          },
+          "MOSI_K": {
+            "direction": "O"
+          },
+          "MOSI_L": {
+            "direction": "O"
+          },
+          "MOSI_M": {
+            "direction": "O"
+          },
+          "MOSI_N": {
+            "direction": "O"
+          },
+          "MOSI_O": {
+            "direction": "O"
+          },
+          "MOSI_P": {
+            "direction": "O"
+          },
+          "MISO_A": {
+            "direction": "I"
+          },
+          "MISO_B": {
+            "direction": "I"
+          },
+          "MISO_C": {
+            "direction": "I"
+          },
+          "MISO_D": {
+            "direction": "I"
+          },
+          "MISO_E": {
+            "direction": "I"
+          },
+          "MISO_F": {
+            "direction": "I"
+          },
+          "MISO_G": {
+            "direction": "I"
+          },
+          "MISO_H": {
+            "direction": "I"
+          },
+          "MISO_I": {
+            "direction": "I"
+          },
+          "MISO_J": {
+            "direction": "I"
+          },
+          "MISO_K": {
+            "direction": "I"
+          },
+          "MISO_L": {
+            "direction": "I"
+          },
+          "MISO_M": {
+            "direction": "I"
+          },
+          "MISO_N": {
+            "direction": "I"
+          },
+          "MISO_O": {
+            "direction": "I"
+          },
+          "MISO_P": {
+            "direction": "I"
+          },
+          "stim_mask_probe_select": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "stim_mask_channel_positive": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "stim_mask_channel_negative": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "stim_bipolar_mode": {
+            "direction": "I"
+          },
+          "stim_current_step_size": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "channel_out": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "stim_pulse_length": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "stim_pulse_magnitude": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "stim_inter_bipulse_delay": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "stim_inter_pulse_delay": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "stim_inter_train_delay": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "stim_bipulses_per_train_count": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "stim_train_count": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "stim_charge_recovery_time": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "stim_rising_edge_first": {
+            "direction": "I"
+          },
+          "stim_finite_mode_done": {
+            "direction": "O"
+          },
+          "stim_finite_mode_start": {
+            "direction": "I"
+          },
+          "stim_infinite_mode_start": {
+            "direction": "I"
+          },
+          "stim_infinite_mode_stop": {
+            "direction": "I"
+          },
+          "stim_waveform_data_out": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
+          }
+        }
       }
     },
     "nets": {
@@ -2294,7 +2664,8 @@
       "rst_ps8_0_99M_peripheral_aresetn": {
         "ports": [
           "rst_ps8_0_99M/peripheral_aresetn",
-          "rhd_2048_0/rstn"
+          "rhd_2048_0/rstn",
+          "rhs_256_0/rstn"
         ]
       },
       "xlconstant_0_dout": {
@@ -2324,7 +2695,8 @@
           "zynq_ultra_ps_e_0/saxihpc0_fpd_aclk",
           "ila_rhs/clk",
           "rst_ps8_0_99M/slowest_sync_clk",
-          "rhd_2048_0/clk"
+          "rhd_2048_0/clk",
+          "rhs_256_0/clk"
         ]
       },
       "zynq_ultra_ps_e_0_pl_resetn0": {

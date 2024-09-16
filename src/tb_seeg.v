@@ -32,7 +32,7 @@ module tb_seeg ();
 
     reg [7:0] oversample_offset = 2;
 
-    reg loopback_mode = 0;
+    reg loopback_mode = 1;
 
     seeg dut(
         .clk(clk),
@@ -116,7 +116,7 @@ module tb_seeg ();
     initial begin
         clk = 0;
         //forever #12.82 clk = ~clk; //39 MHz
-        forever #3.205 clk = ~clk; //156 MHz
+        forever #6.41 clk = ~clk; //156 MHz
     end
 
     initial begin
@@ -127,7 +127,7 @@ module tb_seeg ();
         rstn <= 1;
         #500
 
-        /*
+        /*        
 
         zcheck_start <= 1;
         #500
@@ -161,6 +161,8 @@ module tb_seeg ();
         */
 
         
+
+        
         
         record_start <= 1;
         #500
@@ -174,6 +176,7 @@ module tb_seeg ();
         #500
         record_stop <= 0;
         #1000000
+        
         
         
         

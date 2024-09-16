@@ -7,81 +7,120 @@
          <top_modules>
             <top_module name="glbl" />
             <top_module name="tb_seeg" />
+            <top_module name="vcomponents" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
-      <ZoomEndTime time="171.200000001 ms"></ZoomEndTime>
-      <Cursor1Time time="0.570000000 ms"></Cursor1Time>
+      <ZoomEndTime time="5.870000001 ms"></ZoomEndTime>
+      <Cursor1Time time="0.431784010 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="309"></NameColumnWidth>
-      <ValueColumnWidth column_width="143"></ValueColumnWidth>
+      <ValueColumnWidth column_width="135"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="61" />
-   <wvobject fp_name="/tb_seeg/rstn" type="logic">
-      <obj_property name="ElementShortName">rstn</obj_property>
-      <obj_property name="ObjectShortName">rstn</obj_property>
+   <WVObjectSize size="80" />
+   <wvobject fp_name="/tb_seeg/dut/rhd_2048/fifo_read_en" type="logic">
+      <obj_property name="ElementShortName">fifo_read_en</obj_property>
+      <obj_property name="ObjectShortName">fifo_read_en</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/busy" type="logic">
-      <obj_property name="ElementShortName">busy</obj_property>
-      <obj_property name="ObjectShortName">busy</obj_property>
+   <wvobject fp_name="/tb_seeg/dut/rhd_2048/fifo_rst" type="logic">
+      <obj_property name="ElementShortName">fifo_rst</obj_property>
+      <obj_property name="ObjectShortName">fifo_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhd_2048/fifo_valid_out" type="logic">
+      <obj_property name="ElementShortName">fifo_valid_out</obj_property>
+      <obj_property name="ObjectShortName">fifo_valid_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhd_2048/fifo_data_out" type="array">
+      <obj_property name="ElementShortName">fifo_data_out[63:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_data_out[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhd_2048/fifo_inst_0/empty" type="logic">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhd_2048/fifo_inst_0/wr_en" type="logic">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhd_2048/fifo_inst_0/din" type="array">
+      <obj_property name="ElementShortName">din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">din[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_seeg/dut/clk_rhd" type="logic">
       <obj_property name="ElementShortName">clk_rhd</obj_property>
       <obj_property name="ObjectShortName">clk_rhd</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/clk_rhs_zcheck" type="logic">
-      <obj_property name="ElementShortName">clk_rhs_zcheck</obj_property>
-      <obj_property name="ObjectShortName">clk_rhs_zcheck</obj_property>
+   <wvobject type="divider" fp_name="divider496">
+      <obj_property name="label">rhd above</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhs_256/fifo_read_en" type="logic">
+      <obj_property name="ElementShortName">fifo_read_en</obj_property>
+      <obj_property name="ObjectShortName">fifo_read_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhs_256/fifo_rst" type="logic">
+      <obj_property name="ElementShortName">fifo_rst</obj_property>
+      <obj_property name="ObjectShortName">fifo_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhs_256/fifo_valid_out" type="logic">
+      <obj_property name="ElementShortName">fifo_valid_out</obj_property>
+      <obj_property name="ObjectShortName">fifo_valid_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhs_256/fifo_data_out" type="array">
+      <obj_property name="ElementShortName">fifo_data_out[63:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_data_out[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhs_256/fifo_inst_0/empty" type="logic">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhs_256/fifo_inst_0/wr_en" type="logic">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhs_256/fifo_inst_0/din" type="array">
+      <obj_property name="ElementShortName">din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">din[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_seeg/dut/clk_rhs" type="logic">
       <obj_property name="ElementShortName">clk_rhs</obj_property>
       <obj_property name="ObjectShortName">clk_rhs</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider487">
+      <obj_property name="label">rhs above</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_seeg/dut/state" type="array">
       <obj_property name="ElementShortName">state[7:0]</obj_property>
       <obj_property name="ObjectShortName">state[7:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/record_start" type="logic">
-      <obj_property name="ElementShortName">record_start</obj_property>
-      <obj_property name="ObjectShortName">record_start</obj_property>
+   <wvobject fp_name="/tb_seeg/dut/fifo_read_en_rhd" type="logic">
+      <obj_property name="ElementShortName">fifo_read_en_rhd</obj_property>
+      <obj_property name="ObjectShortName">fifo_read_en_rhd</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/record_stop" type="logic">
-      <obj_property name="ElementShortName">record_stop</obj_property>
-      <obj_property name="ObjectShortName">record_stop</obj_property>
+   <wvobject fp_name="/tb_seeg/dut/fifo_rst_rhd" type="logic">
+      <obj_property name="ElementShortName">fifo_rst_rhd</obj_property>
+      <obj_property name="ObjectShortName">fifo_rst_rhd</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/zcheck_start" type="logic">
-      <obj_property name="ElementShortName">zcheck_start</obj_property>
-      <obj_property name="ObjectShortName">zcheck_start</obj_property>
+   <wvobject fp_name="/tb_seeg/dut/fifo_write_en_rhd" type="logic">
+      <obj_property name="ElementShortName">fifo_write_en_rhd</obj_property>
+      <obj_property name="ObjectShortName">fifo_write_en_rhd</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/zcheck_in_progress" type="logic">
-      <obj_property name="ElementShortName">zcheck_in_progress</obj_property>
-      <obj_property name="ObjectShortName">zcheck_in_progress</obj_property>
+   <wvobject fp_name="/tb_seeg/dut/fifo_read_en_rhs" type="logic">
+      <obj_property name="ElementShortName">fifo_read_en_rhs</obj_property>
+      <obj_property name="ObjectShortName">fifo_read_en_rhs</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/zcheck_done" type="logic">
-      <obj_property name="ElementShortName">zcheck_done</obj_property>
-      <obj_property name="ObjectShortName">zcheck_done</obj_property>
+   <wvobject fp_name="/tb_seeg/dut/fifo_rst_rhs" type="logic">
+      <obj_property name="ElementShortName">fifo_rst_rhs</obj_property>
+      <obj_property name="ObjectShortName">fifo_rst_rhs</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/zcheck_global_channel_rhd" type="array">
-      <obj_property name="ElementShortName">zcheck_global_channel_rhd[11:0]</obj_property>
-      <obj_property name="ObjectShortName">zcheck_global_channel_rhd[11:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/zcheck_global_channel_rhs" type="array">
-      <obj_property name="ElementShortName">zcheck_global_channel_rhs[11:0]</obj_property>
-      <obj_property name="ObjectShortName">zcheck_global_channel_rhs[11:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/zcheck_rhd_start_flag" type="logic">
-      <obj_property name="ElementShortName">zcheck_rhd_start_flag</obj_property>
-      <obj_property name="ObjectShortName">zcheck_rhd_start_flag</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/zcheck_rhs_start_flag" type="logic">
-      <obj_property name="ElementShortName">zcheck_rhs_start_flag</obj_property>
-      <obj_property name="ObjectShortName">zcheck_rhs_start_flag</obj_property>
+   <wvobject fp_name="/tb_seeg/dut/fifo_write_en_rhs" type="logic">
+      <obj_property name="ElementShortName">fifo_write_en_rhs</obj_property>
+      <obj_property name="ObjectShortName">fifo_write_en_rhs</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_seeg/dut/done_rhd" type="logic">
       <obj_property name="ElementShortName">done_rhd</obj_property>
@@ -131,6 +170,56 @@
       <obj_property name="ElementShortName">config_done_reset_flag</obj_property>
       <obj_property name="ObjectShortName">config_done_reset_flag</obj_property>
    </wvobject>
+   <wvobject fp_name="/tb_seeg/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/busy" type="logic">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/clk_rhs_zcheck" type="logic">
+      <obj_property name="ElementShortName">clk_rhs_zcheck</obj_property>
+      <obj_property name="ObjectShortName">clk_rhs_zcheck</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/record_start" type="logic">
+      <obj_property name="ElementShortName">record_start</obj_property>
+      <obj_property name="ObjectShortName">record_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/record_stop" type="logic">
+      <obj_property name="ElementShortName">record_stop</obj_property>
+      <obj_property name="ObjectShortName">record_stop</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/zcheck_start" type="logic">
+      <obj_property name="ElementShortName">zcheck_start</obj_property>
+      <obj_property name="ObjectShortName">zcheck_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/zcheck_in_progress" type="logic">
+      <obj_property name="ElementShortName">zcheck_in_progress</obj_property>
+      <obj_property name="ObjectShortName">zcheck_in_progress</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/zcheck_done" type="logic">
+      <obj_property name="ElementShortName">zcheck_done</obj_property>
+      <obj_property name="ObjectShortName">zcheck_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/zcheck_global_channel_rhd" type="array">
+      <obj_property name="ElementShortName">zcheck_global_channel_rhd[11:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_global_channel_rhd[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/zcheck_global_channel_rhs" type="array">
+      <obj_property name="ElementShortName">zcheck_global_channel_rhs[11:0]</obj_property>
+      <obj_property name="ObjectShortName">zcheck_global_channel_rhs[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/zcheck_rhd_start_flag" type="logic">
+      <obj_property name="ElementShortName">zcheck_rhd_start_flag</obj_property>
+      <obj_property name="ObjectShortName">zcheck_rhd_start_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/zcheck_rhs_start_flag" type="logic">
+      <obj_property name="ElementShortName">zcheck_rhs_start_flag</obj_property>
+      <obj_property name="ObjectShortName">zcheck_rhs_start_flag</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_seeg/dut/stim_finite_mode_done" type="logic">
       <obj_property name="ElementShortName">stim_finite_mode_done</obj_property>
       <obj_property name="ObjectShortName">stim_finite_mode_done</obj_property>
@@ -178,18 +267,6 @@
    <wvobject fp_name="/tb_seeg/dut/stim_waveform_data_out" type="array">
       <obj_property name="ElementShortName">stim_waveform_data_out[1:0]</obj_property>
       <obj_property name="ObjectShortName">stim_waveform_data_out[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/data_out_record_valid" type="logic">
-      <obj_property name="ElementShortName">data_out_record_valid</obj_property>
-      <obj_property name="ObjectShortName">data_out_record_valid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/data_out_zcheck" type="array">
-      <obj_property name="ElementShortName">data_out_zcheck[2559:0]</obj_property>
-      <obj_property name="ObjectShortName">data_out_zcheck[2559:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_seeg/dut/data_out_zcheck_valid" type="logic">
-      <obj_property name="ElementShortName">data_out_zcheck_valid</obj_property>
-      <obj_property name="ObjectShortName">data_out_zcheck_valid</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_seeg/dut/busy_recording" type="logic">
       <obj_property name="ElementShortName">busy_recording</obj_property>

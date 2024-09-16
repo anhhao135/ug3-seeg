@@ -188,10 +188,8 @@ module seeg (
     input wire [7:0] oversample_offset_O,
     input wire [7:0] oversample_offset_P,
 
-    output wire [36863:0] data_out_record, //on valid, this will be a sample of all channels 2048 rhd + 256 rhs
-    output reg data_out_record_valid,
-    output wire [2559:0] data_out_zcheck, //on valid, this will be 8 x 16 bit sample sine cycles of a channel, at 20 ks/s, starting with rhd, then rhs, all 2304 channels sequentially
-    output reg data_out_zcheck_valid,
+    output wire [63:0] data_out,
+    output wire valid_out,
     output wire [1:0] stim_waveform_data_out,
 
     wire busy_recording,
@@ -407,16 +405,18 @@ module seeg (
     reg config_done_zcheck_flag = 0; //indicates if after config is done whether zcheck state should be entered
     reg config_done_reset_flag = 0; //indicates if after config is done whether reset state should be entered; this should be done after recording and zcheck as a register reset cycle
 
-    wire [2559:0] zcheck_data_out_rhd;
-    wire [2559:0] zcheck_data_out_rhs;
-    assign data_out_zcheck = (state == ZCHECK_RHS_START || state == ZCHECK_RHS_WAIT) ? zcheck_data_out_rhs : zcheck_data_out_rhd;
 
-    wire [32767:0] data_out_rhd;
-    wire [4095:0] data_out_rhs;
-    reg [32767:0] data_out_rhd_reg = 0;
-    reg [4095:0] data_out_rhs_reg = 0;
-    assign data_out_record = {data_out_rhs_reg, data_out_rhd_reg};
+    reg fifo_read_en_rhd = 0;
+    reg fifo_rst_rhd = 1;
+    reg fifo_write_en_rhd = 0;
+    wire fifo_valid_out_rhd;
+    wire fifo_data_out_rhd;
 
+    reg fifo_read_en_rhs = 0;
+    reg fifo_rst_rhs = 1;
+    reg fifo_write_en_rhs = 0;
+    wire fifo_valid_out_rhs;
+    wire fifo_data_out_rhs;
 
 
 
@@ -431,9 +431,14 @@ module seeg (
         .zcheck_global_channel(zcheck_global_channel_rhd),
         .zcheck_scale(zcheck_scale),
         .sampling_rate_20k(0), //hardcoded to 0 for now, only 2.5 kS/s
-        .data_out(data_out_rhd),
-        .zcheck_data_out(zcheck_data_out_rhd),
         .channel_out(channel_out_rhd),
+
+        .fifo_read_en(fifo_read_en_rhd),
+        .fifo_rst(fifo_rst_rhd),
+        .fifo_write_en_external(fifo_write_en_rhd),
+        .fifo_valid_out(fifo_valid_out_rhd),
+        .fifo_data_out(fifo_data_out_rhd),
+
         .CS(CS_RHD),
         .SCLK(SCLK_RHD),
         .MOSI(MOSI_RHD),
@@ -513,9 +518,12 @@ module seeg (
         .busy(busy_rhs),
         .channel_out(channel_out_rhs),
 
-        .data_out(data_out_rhs),
+        .fifo_read_en(fifo_read_en_rhs),
+        .fifo_rst(fifo_rst_rhs),
+        .fifo_write_en_external(fifo_write_en_rhs),
+        .fifo_valid_out(fifo_valid_out_rhs),
+        .fifo_data_out(fifo_data_out_rhs),
 
-        .zcheck_data_out(zcheck_data_out_rhs),
         .zcheck_global_channel(zcheck_global_channel_rhs),
         .zcheck_scale(zcheck_scale),
 
@@ -1064,9 +1072,6 @@ module seeg (
             state = RESET;
         end
         else begin
-            
-            data_out_record_valid = 0;
-            data_out_zcheck_valid = 0;
 
             case (state)
                 RESET: begin
@@ -1077,16 +1082,22 @@ module seeg (
                     zcheck_rhs_start_flag = 0;
                     done_rhd_flag = 0;
                     done_rhs_flag = 0;
-                    state = READY;
+
                     zcheck_global_channel_rhd = 0;
                     zcheck_global_channel_rhs = 0;
                     config_done_record_flag = 0;
                     config_done_zcheck_flag = 0;
                     config_done_reset_flag = 0; 
-                    data_out_record_valid = 0;
-                    data_out_zcheck_valid = 0;
-                    data_out_rhd_reg = 0;
-                    data_out_rhs_reg = 0;
+
+                    fifo_read_en_rhd = 0;
+                    fifo_rst_rhd = 1;
+                    fifo_write_en_rhd = 0;
+
+                    fifo_read_en_rhs = 0;
+                    fifo_rst_rhs = 1;
+                    fifo_write_en_rhs = 0;
+
+                    state = READY;
                 end
 
                 READY: begin
@@ -1149,6 +1160,15 @@ module seeg (
                             state = ZCHECK_RHD_WAIT;
                         end
                     end
+
+                    fifo_read_en_rhd = 1;
+                    fifo_rst_rhd = 0;
+                    fifo_write_en_rhd = 1;
+                    
+                    fifo_read_en_rhs = 1;
+                    fifo_rst_rhs = 0;
+                    fifo_write_en_rhs = 0;
+
                 end
 
                 ZCHECK_RHD_WAIT: begin
@@ -1159,7 +1179,6 @@ module seeg (
                     end 
                     else if (done_rhd && !done_rhd_flag) begin
                         done_rhd_flag = 1;
-                        data_out_zcheck_valid = 1;
                     end
                 end
 
@@ -1175,6 +1194,13 @@ module seeg (
                             state = ZCHECK_RHS_WAIT;
                         end
                     end
+                    fifo_read_en_rhd = 1;
+                    fifo_rst_rhd = 0;
+                    fifo_write_en_rhd = 0;
+                    
+                    fifo_read_en_rhs = 1;
+                    fifo_rst_rhs = 0;
+                    fifo_write_en_rhs = 1;
                 end
 
                 ZCHECK_RHS_WAIT: begin
@@ -1185,7 +1211,6 @@ module seeg (
                     end 
                     else if (done_rhs && !done_rhs_flag) begin
                         done_rhs_flag = 1;
-                        data_out_zcheck_valid = 1;
                     end
                 end
 
@@ -1211,6 +1236,16 @@ module seeg (
                         end
                     end
 
+                    fifo_read_en_rhd = 1;
+                    fifo_rst_rhd = 0;
+                    fifo_write_en_rhd = 1;
+                    
+                    fifo_read_en_rhs = 1;
+                    fifo_rst_rhs = 0;
+                    fifo_write_en_rhs = 0;
+
+
+
                 end
 
                 RECORD_WAIT: begin
@@ -1219,19 +1254,22 @@ module seeg (
                     end
                     else begin
                         if (done_rhd_flag && done_rhs_flag && busy_rhd == 0) begin
-                            data_out_record_valid = 1;
                             done_rhd_flag = 0;
                             done_rhs_flag = 0;
                             state = RECORD_START;
                         end
                         else begin
                             if (done_rhd && !done_rhd_flag) begin
-                                data_out_rhd_reg = data_out_rhd;
                                 done_rhd_flag = 1;
+                                fifo_write_en_rhd = 0;
                             end
-                            if (done_rhs && !done_rhs_flag) begin
-                                data_out_rhs_reg = data_out_rhs;
+                            if (done_rhs && !done_rhs_flag && fifo_write_en_rhs == 0) begin
+                                //done_rhs_flag = 1;
+                                fifo_write_en_rhs = 1;
+                            end
+                            else if (done_rhs && !done_rhs_flag && fifo_write_en_rhs == 1) begin
                                 done_rhs_flag = 1;
+                                fifo_write_en_rhs = 0;
                             end
                         end
 
