@@ -12,68 +12,94 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="13,816.404 ns"></ZoomStartTime>
-      <ZoomEndTime time="13,884.005 ns"></ZoomEndTime>
-      <Cursor1Time time="13,872.704 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="1,050.000001 us"></ZoomEndTime>
+      <Cursor1Time time="125.757790 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="231"></NameColumnWidth>
-      <ValueColumnWidth column_width="279"></ValueColumnWidth>
+      <ValueColumnWidth column_width="275"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="87" />
-   <wvobject fp_name="/tb_rhs_256/dut/fifo_rhs_inst/srst" type="logic">
-      <obj_property name="ElementShortName">srst</obj_property>
-      <obj_property name="ObjectShortName">srst</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/fifo_rhs_inst/wr_clk" type="logic">
-      <obj_property name="ElementShortName">wr_clk</obj_property>
-      <obj_property name="ObjectShortName">wr_clk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/fifo_rhs_inst/rd_clk" type="logic">
-      <obj_property name="ElementShortName">rd_clk</obj_property>
-      <obj_property name="ObjectShortName">rd_clk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/fifo_rhs_inst/din" type="array">
-      <obj_property name="ElementShortName">din[255:0]</obj_property>
-      <obj_property name="ObjectShortName">din[255:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/fifo_rhs_inst/wr_en" type="logic">
-      <obj_property name="ElementShortName">wr_en</obj_property>
-      <obj_property name="ObjectShortName">wr_en</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/fifo_rhs_inst/rd_en" type="logic">
-      <obj_property name="ElementShortName">rd_en</obj_property>
-      <obj_property name="ObjectShortName">rd_en</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/fifo_rhs_inst/dout" type="array">
-      <obj_property name="ElementShortName">dout[63:0]</obj_property>
-      <obj_property name="ObjectShortName">dout[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/fifo_rhs_inst/full" type="logic">
-      <obj_property name="ElementShortName">full</obj_property>
-      <obj_property name="ObjectShortName">full</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/fifo_rhs_inst/empty" type="logic">
-      <obj_property name="ElementShortName">empty</obj_property>
-      <obj_property name="ObjectShortName">empty</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/fifo_rhs_inst/valid" type="logic">
-      <obj_property name="ElementShortName">valid</obj_property>
-      <obj_property name="ObjectShortName">valid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/fifo_rhs_inst/wr_rst_busy" type="logic">
-      <obj_property name="ElementShortName">wr_rst_busy</obj_property>
-      <obj_property name="ObjectShortName">wr_rst_busy</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/fifo_rhs_inst/rd_rst_busy" type="logic">
-      <obj_property name="ElementShortName">rd_rst_busy</obj_property>
-      <obj_property name="ObjectShortName">rd_rst_busy</obj_property>
-   </wvobject>
+   <WVObjectSize size="86" />
    <wvobject fp_name="/tb_rhs_256/dut/done" type="logic">
       <obj_property name="ElementShortName">done</obj_property>
       <obj_property name="ObjectShortName">done</obj_property>
    </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/fifo_inst_0/srst" type="logic">
+      <obj_property name="ElementShortName">srst</obj_property>
+      <obj_property name="ObjectShortName">srst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/fifo_inst_0/wr_clk" type="logic">
+      <obj_property name="ElementShortName">wr_clk</obj_property>
+      <obj_property name="ObjectShortName">wr_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/fifo_inst_0/rd_clk" type="logic">
+      <obj_property name="ElementShortName">rd_clk</obj_property>
+      <obj_property name="ObjectShortName">rd_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/fifo_inst_0/din" type="array">
+      <obj_property name="ElementShortName">din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">din[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/fifo_inst_0/wr_en" type="logic">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/fifo_inst_0/rd_en" type="logic">
+      <obj_property name="ElementShortName">rd_en</obj_property>
+      <obj_property name="ObjectShortName">rd_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/fifo_inst_0/dout" type="array">
+      <obj_property name="ElementShortName">dout[63:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/fifo_inst_0/full" type="logic">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/fifo_inst_0/empty" type="logic">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/fifo_inst_0/valid" type="logic">
+      <obj_property name="ElementShortName">valid</obj_property>
+      <obj_property name="ObjectShortName">valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/fifo_inst_0/wr_rst_busy" type="logic">
+      <obj_property name="ElementShortName">wr_rst_busy</obj_property>
+      <obj_property name="ObjectShortName">wr_rst_busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/fifo_inst_0/rd_rst_busy" type="logic">
+      <obj_property name="ElementShortName">rd_rst_busy</obj_property>
+      <obj_property name="ObjectShortName">rd_rst_busy</obj_property>
+   </wvobject>
    <wvobject type="divider" fp_name="divider283">
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/fifo_load_index" type="array">
+      <obj_property name="ElementShortName">fifo_load_index[6:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_load_index[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/state" type="array">
+      <obj_property name="ElementShortName">state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">state[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/stimulation_state" type="array">
+      <obj_property name="ElementShortName">stimulation_state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">stimulation_state[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/record_start" type="logic">
+      <obj_property name="ElementShortName">record_start</obj_property>
+      <obj_property name="ObjectShortName">record_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_256/dut/zcheck_start" type="logic">
+      <obj_property name="ElementShortName">zcheck_start</obj_property>
+      <obj_property name="ObjectShortName">zcheck_start</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/stim_pulse_length" type="array">
       <obj_property name="ElementShortName">stim_pulse_length[15:0]</obj_property>
@@ -165,18 +191,6 @@
       <obj_property name="AnalogHorizLine">0.000000</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">40</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/stimulation_state" type="array">
-      <obj_property name="ElementShortName">stimulation_state[7:0]</obj_property>
-      <obj_property name="ObjectShortName">stimulation_state[7:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <obj_property name="CustomSignalColor">#D2691E</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/state" type="array">
-      <obj_property name="ElementShortName">state[7:0]</obj_property>
-      <obj_property name="ObjectShortName">state[7:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider83">
       <obj_property name="label">New Divider</obj_property>
@@ -366,10 +380,6 @@
       <obj_property name="ElementShortName">zcheck_cycle_counter[3:0]</obj_property>
       <obj_property name="ObjectShortName">zcheck_cycle_counter[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/zcheck_data_out" type="array">
-      <obj_property name="ElementShortName">zcheck_data_out[2559:0]</obj_property>
-      <obj_property name="ObjectShortName">zcheck_data_out[2559:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/zcheck_data_sample_debug" type="logic">
       <obj_property name="ElementShortName">zcheck_data_sample_debug</obj_property>
       <obj_property name="ObjectShortName">zcheck_data_sample_debug</obj_property>
@@ -409,14 +419,6 @@
       <obj_property name="ObjectShortName">zcheck_data_gather_index[7:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/record_start" type="logic">
-      <obj_property name="ElementShortName">record_start</obj_property>
-      <obj_property name="ObjectShortName">record_start</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/zcheck_start" type="logic">
-      <obj_property name="ElementShortName">zcheck_start</obj_property>
-      <obj_property name="ObjectShortName">zcheck_start</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/zcheck_global_channel" type="array">
       <obj_property name="ElementShortName">zcheck_global_channel[11:0]</obj_property>
       <obj_property name="ObjectShortName">zcheck_global_channel[11:0]</obj_property>
@@ -425,10 +427,6 @@
    <wvobject fp_name="/tb_rhs_256/dut/zcheck_scale" type="array">
       <obj_property name="ElementShortName">zcheck_scale[1:0]</obj_property>
       <obj_property name="ObjectShortName">zcheck_scale[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_rhs_256/dut/zcheck_data_out" type="array">
-      <obj_property name="ElementShortName">zcheck_data_out[2559:0]</obj_property>
-      <obj_property name="ObjectShortName">zcheck_data_out[2559:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_rhs_256/dut/channel_out" type="array">
       <obj_property name="ElementShortName">channel_out[7:0]</obj_property>

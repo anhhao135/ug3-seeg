@@ -16,7 +16,7 @@ module rhs_256 (
     //SEEG contacts expected to be below 100k
     //11 = 10pF 38nA 3.8mV (should be ok)
 
-    output reg [2559:0] zcheck_data_out,
+    //output reg [2559:0] zcheck_data_out,
     //16 * 20 * 8 = 2560
     //this is 8 cycles of 1kHz sine at 20 kS/s for one channel
     //depending on the zcheck channel, this will be 8 sine cycles of zcheck recording for all 16 rhs chips for 16-probe system
@@ -46,10 +46,10 @@ module rhs_256 (
     //output reg[4095:0] data_out, //1 sample of all 256 channels
 
     input wire fifo_read_en,
-    input wire fifo_write_en_ext,
     input wire fifo_rst,
     output wire fifo_valid_out,
-    output wire [63:0] data_fifo_out,
+    output wire [63:0] fifo_data_out,
+
 
     output wire CS,
     output wire SCLK,
@@ -254,6 +254,23 @@ module rhs_256 (
     wire [31:0] data_out_N;
     wire [31:0] data_out_O;
     wire [31:0] data_out_P;
+
+    reg [15:0] data_out_A_reg = 0;
+    reg [15:0] data_out_B_reg = 0;
+    reg [15:0] data_out_C_reg = 0;
+    reg [15:0] data_out_D_reg = 0;
+    reg [15:0] data_out_E_reg = 0;
+    reg [15:0] data_out_F_reg = 0;
+    reg [15:0] data_out_G_reg = 0;
+    reg [15:0] data_out_H_reg = 0;
+    reg [15:0] data_out_I_reg = 0;
+    reg [15:0] data_out_J_reg = 0;
+    reg [15:0] data_out_K_reg = 0;
+    reg [15:0] data_out_L_reg = 0;
+    reg [15:0] data_out_M_reg = 0;
+    reg [15:0] data_out_N_reg = 0;
+    reg [15:0] data_out_O_reg = 0;
+    reg [15:0] data_out_P_reg = 0;
 
     assign done = (state == REC_DONE) || (state == CONFIG_DONE) || (state == ZCHECK_DONE);
     assign busy = (state != READY);
@@ -500,23 +517,25 @@ module rhs_256 (
     );
 
 
-    reg [255:0] data_out = 0;
+    reg [15:0] fifo_data_in = 0;
     reg fifo_write_en = 0;
 
-    fifo_rhs fifo_rhs_inst(
+    fifo_16_to_64 fifo_inst_0(
         .srst(!rstn || fifo_rst),
         .wr_clk(clk),
         .rd_clk(clk),
-        .din(data_out),
-        .wr_en(fifo_write_en && fifo_write_en_ext), // overwrite if FIFO is full, there are 2-channel delay in the SPI interface
-        .rd_en(fifo_read_en), // read when SPI is running + FIFO is not empty
-        .dout(data_fifo_out),
+        .din(fifo_data_in),
+        .wr_en(fifo_write_en),
+        .rd_en(fifo_read_en),
+        .dout(fifo_data_out),
         .full(),
         .empty(),
-        .valid(valid_fifo_out),
+        .valid(fifo_valid_out),
         .wr_rst_busy(),
         .rd_rst_busy()
-        );
+    );
+
+    reg [6:0] fifo_load_index = 0; //0 - 15 index to load data received into fifo from all 15 ADC
 
 
     //stimulation waveform state machine
@@ -720,13 +739,33 @@ module rhs_256 (
                     data_in_N = 0;
                     data_in_O = 0;
                     data_in_P = 0;
+
+                    data_out_A_reg = 0;
+                    data_out_B_reg = 0;
+                    data_out_C_reg = 0;
+                    data_out_D_reg = 0;
+                    data_out_E_reg = 0;
+                    data_out_F_reg = 0;
+                    data_out_G_reg = 0;
+                    data_out_H_reg = 0;
+                    data_out_I_reg = 0;
+                    data_out_J_reg = 0;
+                    data_out_K_reg = 0;
+                    data_out_L_reg = 0;
+                    data_out_M_reg = 0;
+                    data_out_N_reg = 0;
+                    data_out_O_reg = 0;
+                    data_out_P_reg = 0;
+
                     start = 0;
                     channel = 0;
-                    data_out = 0;
                     zcheck_cycle_counter = ZCHECK_CYCLES;
                     zcheck_dac_command = 0;
                     zcheck_data_sample_debug = 0;
-                    zcheck_data_out = 0;
+
+                    fifo_data_in = 0;
+                    fifo_load_index = 0;
+
                     state = READY;
                 end
 
@@ -1524,51 +1563,26 @@ module rhs_256 (
                     if (&done_all) begin
                         if (channel < CHANNELS_PER_ADC + SPI_CONVERT_DELAY && channel >= SPI_CONVERT_DELAY) begin
 
-                            /*
-
-                            data_out[((0 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_A[31:16];
-                            data_out[((1 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_B[31:16];
-                            data_out[((2 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_C[31:16];
-                            data_out[((3 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_D[31:16];
-                            data_out[((4 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_E[31:16];
-                            data_out[((5 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_F[31:16];
-                            data_out[((6 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_G[31:16];
-                            data_out[((7 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_H[31:16];
-                            data_out[((8 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_I[31:16];
-                            data_out[((9 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_J[31:16];
-                            data_out[((10 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_K[31:16];
-                            data_out[((11 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_L[31:16];
-                            data_out[((12 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_M[31:16];
-                            data_out[((13 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_N[31:16];
-                            data_out[((14 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_O[31:16];
-                            data_out[((15 * CHANNELS_PER_ADC + data_gather_index) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_P[31:16];
-
-                            */
-
-
-
-                            data_out[((0) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_A[31:16];
-                            data_out[((1) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_B[31:16];
-                            data_out[((2) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_C[31:16];
-                            data_out[((3) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_D[31:16];
-                            data_out[((4) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_E[31:16];
-                            data_out[((5) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_F[31:16];
-                            data_out[((6) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_G[31:16];
-                            data_out[((7) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_H[31:16];
-                            data_out[((8) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_I[31:16];
-                            data_out[((9) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_J[31:16];
-                            data_out[((10) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_K[31:16];
-                            data_out[((11) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_L[31:16];
-                            data_out[((12) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_M[31:16];
-                            data_out[((13) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_N[31:16];
-                            data_out[((14) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_O[31:16];
-                            data_out[((15) * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_P[31:16];
-
-
-                            fifo_write_en = 1;
+                            data_out_A_reg <= data_out_A[31:16];
+                            data_out_B_reg <= data_out_B[31:16];
+                            data_out_C_reg <= data_out_C[31:16];
+                            data_out_D_reg <= data_out_D[31:16];
+                            data_out_E_reg <= data_out_E[31:16];
+                            data_out_F_reg <= data_out_F[31:16];
+                            data_out_G_reg <= data_out_G[31:16];
+                            data_out_H_reg <= data_out_H[31:16];
+                            data_out_I_reg <= data_out_I[31:16];
+                            data_out_J_reg <= data_out_J[31:16];
+                            data_out_K_reg <= data_out_K[31:16];
+                            data_out_L_reg <= data_out_L[31:16];
+                            data_out_M_reg <= data_out_M[31:16];
+                            data_out_N_reg <= data_out_N[31:16];
+                            data_out_O_reg <= data_out_O[31:16];
+                            data_out_P_reg <= data_out_P[31:16];
                             
                         end
                         channel = channel + 1; 
+                        fifo_load_index = 0;
 
                         if (channel == DEFAULT_CHANNELS) begin
                             case (stimulation_state)
@@ -1580,6 +1594,33 @@ module rhs_256 (
                         end
                         else
                             state = REC_DATA_LOAD;
+                    end
+                    else if (channel > SPI_CONVERT_DELAY && channel <= CHANNELS_PER_ADC + SPI_CONVERT_DELAY && fifo_load_index < 16) begin
+
+                        fifo_write_en = 1;
+
+                        case (fifo_load_index)
+                            0: fifo_data_in = data_out_A_reg;
+                            1 : fifo_data_in = data_out_B_reg;
+                            2 : fifo_data_in = data_out_C_reg;
+                            3 : fifo_data_in = data_out_D_reg;
+                            4 : fifo_data_in = data_out_E_reg;
+                            5 : fifo_data_in = data_out_F_reg;
+                            6 : fifo_data_in = data_out_G_reg;
+                            7 : fifo_data_in = data_out_H_reg;
+                            8 : fifo_data_in = data_out_I_reg;
+                            9 : fifo_data_in = data_out_J_reg;
+                            10 : fifo_data_in = data_out_K_reg;
+                            11 : fifo_data_in = data_out_L_reg;
+                            12 : fifo_data_in = data_out_M_reg;
+                            13 : fifo_data_in = data_out_N_reg;
+                            14 : fifo_data_in = data_out_O_reg;
+                            15 : fifo_data_in = data_out_P_reg;
+                            default: fifo_write_en = 0;
+                        endcase
+
+                        fifo_load_index = fifo_load_index + 1;
+
                     end
 
                 end
@@ -1745,57 +1786,59 @@ module rhs_256 (
                     if (&done_all) begin
 
                         if (channel == SPI_CONVERT_DELAY + 1) begin
+
+                            fifo_write_en = 1;
                             zcheck_data_sample_debug = 1;
 
                             case(zcheck_probe_select)
 
                                 0: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_A[31:16];
+                                    fifo_data_in <= data_out_A[31:16];
                                 end
                                 1: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_B[31:16];
+                                    fifo_data_in <= data_out_B[31:16];
                                 end
                                 2: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_C[31:16];
+                                    fifo_data_in <= data_out_C[31:16];
                                 end
                                 3: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_D[31:16];
+                                    fifo_data_in <= data_out_D[31:16];
                                 end
                                 4: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_E[31:16];
+                                    fifo_data_in <= data_out_E[31:16];
                                 end
                                 5: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_F[31:16];
+                                    fifo_data_in <= data_out_F[31:16];
                                 end
                                 6: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_G[31:16];
+                                    fifo_data_in <= data_out_G[31:16];
                                 end
                                 7: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_H[31:16];
+                                    fifo_data_in <= data_out_H[31:16];
                                 end
                                 8: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_I[31:16];
+                                    fifo_data_in <= data_out_I[31:16];
                                 end
                                 9: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_J[31:16];
+                                    fifo_data_in <= data_out_J[31:16];
                                 end
                                 10: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_K[31:16];
+                                    fifo_data_in <= data_out_K[31:16];
                                 end
                                 11: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_L[31:16];
+                                    fifo_data_in <= data_out_L[31:16];
                                 end
                                 12: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_M[31:16];
+                                    fifo_data_in <= data_out_M[31:16];
                                 end
                                 13: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_N[31:16];
+                                    fifo_data_in <= data_out_N[31:16];
                                 end
                                 14: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_O[31:16];
+                                    fifo_data_in <= data_out_O[31:16];
                                 end
                                 15: begin
-                                    zcheck_data_out[(zcheck_data_gather_index * ADC_SAMPLE_BIT_RESOLUTION) +: ADC_SAMPLE_BIT_RESOLUTION] <= data_out_P[31:16];
+                                    fifo_data_in <= data_out_P[31:16];
                                 end
 
                             endcase

@@ -75,7 +75,7 @@ module tb_rhs_256 ();
     wire [7:0] rhs_channel_dut;
     wire [7:0] rhs_channel;
 
-    reg [11:0] zcheck_global_channel = 255;
+    reg [11:0] zcheck_global_channel = 169;
     reg [1:0] zcheck_scale = 2'b11;
 
     localparam CHANNELS_PER_CHIP = 16;
@@ -94,7 +94,6 @@ module tb_rhs_256 ();
         .record_start(record_start),
         .zcheck_start(zcheck_start),
         .fifo_read_en(1),
-        .fifo_write_en_ext(1),
         .fifo_rst(0),
         .zcheck_global_channel(zcheck_global_channel),
         .zcheck_scale(zcheck_scale),
@@ -326,7 +325,7 @@ module tb_rhs_256 ();
 
     initial begin
 
-        zcheck_mode <= 0;
+        zcheck_mode <= 1;
         rstn <= 1;
         #500;
         rstn <= 0;
@@ -336,14 +335,14 @@ module tb_rhs_256 ();
 
         
 
-        /*
+        
 
         zcheck_start <= 1;
         #500
         zcheck_start <= 0;
         #20000000
     
-        */
+        
         
         /*
         
@@ -353,6 +352,7 @@ module tb_rhs_256 ();
         #1000000
         */
         
+        /*
 
         record_start <= 1;
         #600000
@@ -366,6 +366,7 @@ module tb_rhs_256 ();
         #65000000
         record_start <= 0;
         #100000
+        */
 
 
         /*
