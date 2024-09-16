@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"cable_delay_tester": {
+			"proto_instances": {
+			}
+		}
+	}
+}

@@ -95,6 +95,7 @@ module tb_rhs_256 ();
         .zcheck_start(zcheck_start),
         .fifo_read_en(1),
         .fifo_rst(0),
+        .fifo_write_en_external(1),
         .zcheck_global_channel(zcheck_global_channel),
         .zcheck_scale(zcheck_scale),
         .oversample_offset_A(oversample_offset),
@@ -325,7 +326,7 @@ module tb_rhs_256 ();
 
     initial begin
 
-        zcheck_mode <= 1;
+        zcheck_mode <= 0;
         rstn <= 1;
         #500;
         rstn <= 0;
@@ -335,14 +336,14 @@ module tb_rhs_256 ();
 
         
 
-        
+        /*
 
         zcheck_start <= 1;
         #500
         zcheck_start <= 0;
         #20000000
     
-        
+        /*
         
         /*
         
@@ -352,7 +353,7 @@ module tb_rhs_256 ();
         #1000000
         */
         
-        /*
+        
 
         record_start <= 1;
         #600000
@@ -366,7 +367,7 @@ module tb_rhs_256 ();
         #65000000
         record_start <= 0;
         #100000
-        */
+
 
 
         /*

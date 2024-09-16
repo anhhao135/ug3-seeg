@@ -1,6 +1,7 @@
 module rhd_2048 (
     input wire rstn,
     input wire clk,
+    input wire clk_fifo_out,
 
     input wire config_start,
     input wire record_start,
@@ -915,7 +916,7 @@ module rhd_2048 (
     fifo_16_to_64 fifo_inst_0(
         .srst(!rstn || fifo_rst),
         .wr_clk(clk),
-        .rd_clk(clk),
+        .rd_clk(clk_fifo_out),
         .din(fifo_data_in),
         .wr_en(fifo_write_en && fifo_write_en_external),
         .rd_en(fifo_read_en),

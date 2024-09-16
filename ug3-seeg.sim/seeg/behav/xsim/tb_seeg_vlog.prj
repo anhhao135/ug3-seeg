@@ -1,0 +1,18 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../ug3-seeg.gen/sources_1/bd/cable_delay_tester/ipshared/ec67/hdl" --include "../../../../ug3-seeg.gen/sources_1/bd/cable_delay_tester/ipshared/f805/hdl" --include "../../../../ug3-seeg.gen/sources_1/bd/cable_delay_tester/ipshared/30ef" --include "C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include" \
+"../../../../ug3-seeg.gen/sources_1/ip/fifo_16_to_64/sim/fifo_16_to_64.v" \
+"../../../../src/clock_divider.v" \
+"../../../../src/rhd_2048.v" \
+"../../../../src/rhd_spi_master.v" \
+"../../../../src/rhd_spi_slave.v" \
+"../../../../src/rhs_256.v" \
+"../../../../src/rhs_spi_master.v" \
+"../../../../src/rhs_spi_slave.v" \
+"../../../../src/seeg.v" \
+"../../../../src/tb_seeg.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

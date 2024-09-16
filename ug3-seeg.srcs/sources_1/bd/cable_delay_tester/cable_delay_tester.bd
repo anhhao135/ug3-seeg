@@ -7,8 +7,7 @@
       "name": "cable_delay_tester",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2023.1",
-      "validated": "true"
+      "tool_version": "2023.1"
     },
     "design_tree": {
       "zynq_ultra_ps_e_0": "",
@@ -1907,14 +1906,6 @@
               "ASSOCIATED_RESET": {
                 "value": "rstn",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "99999001",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "cable_delay_tester_zynq_ultra_ps_e_0_0_pl_clk0",
-                "value_src": "default_prop"
               }
             }
           },
@@ -2264,14 +2255,6 @@
               "ASSOCIATED_RESET": {
                 "value": "rstn",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "99999001",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "cable_delay_tester_zynq_ultra_ps_e_0_0_pl_clk0",
-                "value_src": "default_prop"
               }
             }
           },

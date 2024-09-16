@@ -13,14 +13,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
-      <ZoomEndTime time="5.870000001 ms"></ZoomEndTime>
-      <Cursor1Time time="0.431784010 ms"></Cursor1Time>
+      <ZoomEndTime time="10.980000001 ms"></ZoomEndTime>
+      <Cursor1Time time="0.800935910 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="309"></NameColumnWidth>
-      <ValueColumnWidth column_width="135"></ValueColumnWidth>
+      <ValueColumnWidth column_width="131"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="80" />
+   <WVObjectSize size="83" />
    <wvobject fp_name="/tb_seeg/dut/rhd_2048/fifo_read_en" type="logic">
       <obj_property name="ElementShortName">fifo_read_en</obj_property>
       <obj_property name="ObjectShortName">fifo_read_en</obj_property>
@@ -92,6 +92,20 @@
    <wvobject type="divider" fp_name="divider487">
       <obj_property name="label">rhs above</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/fifo_dump_en" type="logic">
+      <obj_property name="ElementShortName">fifo_dump_en</obj_property>
+      <obj_property name="ObjectShortName">fifo_dump_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhd_64_bit_chunks_counter" type="array">
+      <obj_property name="ElementShortName">rhd_64_bit_chunks_counter[9:0]</obj_property>
+      <obj_property name="ObjectShortName">rhd_64_bit_chunks_counter[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg/dut/rhs_64_bit_chunks_counter" type="array">
+      <obj_property name="ElementShortName">rhs_64_bit_chunks_counter[9:0]</obj_property>
+      <obj_property name="ObjectShortName">rhs_64_bit_chunks_counter[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_seeg/dut/state" type="array">
       <obj_property name="ElementShortName">state[7:0]</obj_property>

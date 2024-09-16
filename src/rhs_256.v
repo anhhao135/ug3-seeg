@@ -128,7 +128,7 @@ module rhs_256 (
     //stimulation waveform state machine
     localparam IDLE = 0, FIRST_PULSE = 1, INTER_PULSE = 2, SECOND_PULSE = 3, INTER_BIPULSE = 4, INTER_TRAIN = 5, CHARGE_RECOVERY = 6, STIM_RESET = 7, PRE_STIM_CONFIG = 8, STIM_CONFIG = 9;
 
-    localparam DEFAULT_CHANNELS = 30;
+    localparam DEFAULT_CHANNELS = 40;
     localparam DEFAULT_CHANNELS_RECORDING = 20; //16 recording channels + some others
 
     localparam CHANNELS_PER_ADC = 16;
@@ -1585,7 +1585,10 @@ module rhs_256 (
                         channel = channel + 1; 
                         fifo_load_index = 0;
 
-                        if (channel == DEFAULT_CHANNELS) begin
+                        if (channel == DEFAULT_CHANNELS_RECORDING) begin
+                        end
+
+                        if (channel == DEFAULT_CHANNELS_RECORDING && stimulation_state != STIM_CONFIG) begin
                             case (stimulation_state)
                                 FIRST_PULSE: stim_waveform_data_out = stim_rising_edge_first? 2 : 0;
                                 SECOND_PULSE: stim_waveform_data_out = stim_rising_edge_first? 0 : 2;
@@ -1593,8 +1596,13 @@ module rhs_256 (
                             endcase
                             state = REC_DONE;
                         end
-                        else
+                        else if (channel == DEFAULT_CHANNELS && stimulation_state == STIM_CONFIG) begin
+                            state = REC_DONE;
+                        end
+                        else begin
                             state = REC_DATA_LOAD;
+                        end
+
                     end
                     else if (channel > SPI_CONVERT_DELAY && channel <= CHANNELS_PER_ADC + SPI_CONVERT_DELAY && fifo_load_index < 16) begin
 
