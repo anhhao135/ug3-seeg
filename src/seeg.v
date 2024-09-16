@@ -41,9 +41,6 @@ module seeg (
     input wire stim_infinite_mode_start,
     input wire stim_infinite_mode_stop,
 
-    output reg record_data_valid,
-    output reg zcheck_data_valid,
-
     input wire loopback_mode, //fake generated data from internal slaves
 
 
@@ -188,17 +185,18 @@ module seeg (
     input wire [7:0] oversample_offset_O,
     input wire [7:0] oversample_offset_P,
 
-    output wire [63:0] data_out,
-    output wire valid_out,
+    output reg [63:0] data_out,
+    output reg valid_out,
+    output reg last_out,
     output wire [1:0] stim_waveform_data_out,
 
-    wire busy_recording,
-    wire busy_zcheck,
+    output wire busy_recording,
+    output wire busy_zcheck,
 
-    wire [7:0] current_state,
+    output wire [7:0] current_state,
 
-    wire [7:0] batch_size,
-    wire aux_signal
+    input wire [15:0] batch_size,
+    input wire aux_signal
     
     
 );
@@ -242,16 +240,21 @@ module seeg (
     localparam RHS_CHANNELS = 256;
     */ //UNCOMMENT IN PRODUCTION
 
-    localparam RHD_64_BIT_CHUNKS = 512;
-    localparam RHS_64_BIT_CHUNKS = 64;
+    
+    localparam RHD_CHANNELS = 1;
+    localparam RHS_CHANNELS = 2;
+
+    localparam RHD_64_BIT_CHUNKS = 512; //for recording
+    localparam RHS_64_BIT_CHUNKS = 64; //for recording
+
+    localparam ZCHECK_64_BIT_CHUNKS = 40; //for zcheck
 
     reg [9:0] rhd_64_bit_chunks_counter = RHD_64_BIT_CHUNKS;
     reg [9:0] rhs_64_bit_chunks_counter = RHS_64_BIT_CHUNKS;
+    reg [9:0] zcheck_64_bit_chunks_counter = ZCHECK_64_BIT_CHUNKS;
 
+    reg [15:0] batch_size_counter = 0;
 
-    
-    localparam RHD_CHANNELS = 2;
-    localparam RHS_CHANNELS = 1;
 
     reg [11:0] zcheck_global_channel_rhd = 0; // 0 - 2047
     reg [11:0] zcheck_global_channel_rhs = 0; //0 - 255
@@ -417,20 +420,23 @@ module seeg (
     reg config_done_reset_flag = 0; //indicates if after config is done whether reset state should be entered; this should be done after recording and zcheck as a register reset cycle
 
 
+
     reg fifo_read_en_rhd = 0;
     reg fifo_rst_rhd = 1;
     reg fifo_write_en_rhd = 0;
     wire fifo_valid_out_rhd;
-    wire fifo_data_out_rhd;
+    wire [63:0] fifo_data_out_rhd;
 
     reg fifo_read_en_rhs = 0;
     reg fifo_rst_rhs = 1;
     reg fifo_write_en_rhs = 0;
     wire fifo_valid_out_rhs;
-    wire fifo_data_out_rhs;
+    wire [63:0] fifo_data_out_rhs;
 
     reg fifo_dump_en = 0;
 
+    reg [63:0] fifo_data_out_header = 0;
+    reg fifo_valid_out_header = 0;
 
 
     rhd_2048 rhd_2048(
@@ -524,6 +530,7 @@ module seeg (
 
     rhs_256 rhs_256(
         .clk(clk_rhs),
+        .clk_fifo_out(clk),
         .rstn(rstn),
         .config_start(config_start_flag),
         .record_start(record_start_flag_rhs),
@@ -1113,7 +1120,17 @@ module seeg (
 
                     rhd_64_bit_chunks_counter = RHD_64_BIT_CHUNKS;
                     rhs_64_bit_chunks_counter = RHS_64_BIT_CHUNKS;
+                    zcheck_64_bit_chunks_counter = ZCHECK_64_BIT_CHUNKS;
                     fifo_dump_en = 0;
+
+                    fifo_data_out_header = 0;
+                    fifo_valid_out_header = 0;
+
+                    data_out = 0;
+                    valid_out = 0;
+                    last_out = 0;
+
+                    batch_size_counter = batch_size;
 
                     state = READY;
                 end
@@ -1130,6 +1147,7 @@ module seeg (
                 end
 
                 CONFIG_START: begin
+                    batch_size_counter = batch_size;
                     config_start_flag = 1;
                     if (busy_rhd && busy_rhs) begin
                         config_start_flag = 0;
@@ -1179,17 +1197,29 @@ module seeg (
                         end
                     end
 
-                    fifo_read_en_rhd = 1;
+                    data_out = 0;
+                    valid_out = 0;
+                    last_out = 0;
+
+                    fifo_read_en_rhd = 0;
                     fifo_rst_rhd = 0;
                     fifo_write_en_rhd = 1;
                     
-                    fifo_read_en_rhs = 1;
+                    fifo_read_en_rhs = 0;
                     fifo_rst_rhs = 0;
                     fifo_write_en_rhs = 0;
 
                 end
 
                 ZCHECK_RHD_WAIT: begin
+
+                    fifo_read_en_rhd = 1;
+                    fifo_read_en_rhs = 0;
+                    data_out = fifo_data_out_rhd;
+                    valid_out = fifo_valid_out_rhd;
+                    last_out = 0;
+
+
                     if (done_rhd_flag && busy_rhd == 0) begin
                         done_rhd_flag = 0;
                         zcheck_global_channel_rhd = zcheck_global_channel_rhd + 1;
@@ -1212,16 +1242,30 @@ module seeg (
                             state = ZCHECK_RHS_WAIT;
                         end
                     end
-                    fifo_read_en_rhd = 1;
+
+                    data_out = 0;
+                    valid_out = 0;
+                    last_out = 0;
+
+                    fifo_read_en_rhd = 0;
                     fifo_rst_rhd = 0;
                     fifo_write_en_rhd = 0;
                     
-                    fifo_read_en_rhs = 1;
+                    fifo_read_en_rhs = 0;
                     fifo_rst_rhs = 0;
                     fifo_write_en_rhs = 1;
                 end
 
                 ZCHECK_RHS_WAIT: begin
+
+                    fifo_read_en_rhd = 0;
+                    fifo_read_en_rhs = 1;
+                    data_out = fifo_data_out_rhs;
+                    valid_out = fifo_valid_out_rhs;
+                    last_out = 0;
+
+
+
                     if (done_rhs_flag && busy_rhs == 0) begin
                         done_rhs_flag = 0;
                         zcheck_global_channel_rhs = zcheck_global_channel_rhs + 1;
@@ -1230,9 +1274,34 @@ module seeg (
                     else if (done_rhs && !done_rhs_flag) begin
                         done_rhs_flag = 1;
                     end
+
+
+                    if (fifo_valid_out_rhs) begin
+                        zcheck_64_bit_chunks_counter = zcheck_64_bit_chunks_counter - 1;
+                    end
+
+                    if (zcheck_64_bit_chunks_counter == 0) begin
+                        if (zcheck_global_channel_rhs == RHS_CHANNELS - 1) begin
+                            last_out = 1;
+                        end
+                        zcheck_64_bit_chunks_counter = ZCHECK_64_BIT_CHUNKS;
+                    end
                 end
 
                 ZCHECK_STOP: begin
+
+                    fifo_read_en_rhd = 0;
+                    fifo_rst_rhd = 0;
+                    fifo_write_en_rhd = 0;
+                    
+                    fifo_read_en_rhs = 0;
+                    fifo_rst_rhs = 0;
+                    fifo_write_en_rhs = 0;
+
+                    data_out = 0;
+                    valid_out = 0;
+                    last_out = 0;
+
                     if (!busy_rhd && !busy_rhs) begin
                         config_done_reset_flag = 1;
                         state = CONFIG_START;
@@ -1270,17 +1339,30 @@ module seeg (
 
                     fifo_read_en_rhd = 0;
                     fifo_read_en_rhs = 0;
+                    data_out = 0;
+                    valid_out = 0;
+                    last_out = 0;
 
                     if (fifo_dump_en) begin
                         if (rhd_64_bit_chunks_counter > 0) begin
                             fifo_read_en_rhd = 1;
+                            data_out = fifo_data_out_rhd;
+                            valid_out = fifo_valid_out_rhd;
                             if (fifo_valid_out_rhd) begin
                                 rhd_64_bit_chunks_counter = rhd_64_bit_chunks_counter - 1;
                             end
                         end
                         else if (rhs_64_bit_chunks_counter > 0) begin
                             fifo_read_en_rhs = 1;
+                            data_out = fifo_data_out_rhs;
+                            valid_out = fifo_valid_out_rhs;
                             if (fifo_valid_out_rhs) begin
+                                if (rhs_64_bit_chunks_counter == 1) begin
+                                    if (batch_size_counter == 0) begin
+                                        last_out = 1;
+                                        batch_size_counter = batch_size;
+                                    end
+                                end
                                 rhs_64_bit_chunks_counter = rhs_64_bit_chunks_counter - 1;
                             end
                         end
@@ -1291,6 +1373,9 @@ module seeg (
                     end
                     else begin
                         if (done_rhd_flag && done_rhs_flag && busy_rhd == 0) begin
+
+                            batch_size_counter = batch_size_counter - 1;
+
                             done_rhd_flag = 0;
                             done_rhs_flag = 0;
                             fifo_dump_en = 1;
