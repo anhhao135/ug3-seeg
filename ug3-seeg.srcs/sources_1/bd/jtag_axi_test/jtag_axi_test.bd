@@ -7,8 +7,7 @@
       "name": "jtag_axi_test",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2023.1",
-      "validated": "true"
+      "tool_version": "2023.1"
     },
     "design_tree": {
       "zynq_ultra_ps_e_0": "",
@@ -2020,6 +2019,9 @@
         "xci_path": "ip/jtag_axi_test_ila_0_1/jtag_axi_test_ila_0_1.xci",
         "inst_hier_path": "ila_0",
         "parameters": {
+          "C_DATA_DEPTH": {
+            "value": "65536"
+          },
           "C_MONITOR_TYPE": {
             "value": "Native"
           },
