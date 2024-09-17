@@ -1,43 +1,43 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.409816",
-   "Default View_TopLeft":"163,1074",
+   "Default View_TopLeft":"163,1076",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
 preplace port port-id_MISO_RHS -pg 1 -lvl 0 -x 0 -y 1540 -defaultsOSRD
-preplace port port-id_MOSI_RHS -pg 1 -lvl 6 -x 2180 -y 1600 -defaultsOSRD
-preplace port port-id_CS_RHS -pg 1 -lvl 6 -x 2180 -y 1620 -defaultsOSRD
-preplace port port-id_SCLK_RHS -pg 1 -lvl 6 -x 2180 -y 1640 -defaultsOSRD
+preplace port port-id_MOSI_RHS -pg 1 -lvl 6 -x 2260 -y 1600 -defaultsOSRD
+preplace port port-id_CS_RHS -pg 1 -lvl 6 -x 2260 -y 1620 -defaultsOSRD
+preplace port port-id_SCLK_RHS -pg 1 -lvl 6 -x 2260 -y 1640 -defaultsOSRD
 preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -x 330 -y 1950 -defaultsOSRD
-preplace inst clk_wiz_0 -pg 1 -lvl 2 -x 730 -y 1880 -defaultsOSRD
-preplace inst xlconstant_3 -pg 1 -lvl 3 -x 1010 -y 1710 -defaultsOSRD
-preplace inst ila_rhs -pg 1 -lvl 5 -x 1910 -y 1790 -defaultsOSRD
-preplace inst reset_rhs -pg 1 -lvl 3 -x 1010 -y 2060 -defaultsOSRD
-preplace inst xlconstant_0 -pg 1 -lvl 3 -x 1010 -y 1610 -defaultsOSRD
-preplace inst xlconstant_1 -pg 1 -lvl 3 -x 1010 -y 1810 -defaultsOSRD
-preplace inst rst_ps8_0_99M -pg 1 -lvl 4 -x 1400 -y 1980 -defaultsOSRD
-preplace inst rhs_spi_master_0 -pg 1 -lvl 4 -x 1400 -y 1600 -defaultsOSRD
-preplace inst rhs_256_0 -pg 1 -lvl 5 -x 1910 -y 2570 -defaultsOSRD
-preplace inst rhd_2048_0 -pg 1 -lvl 5 -x 1910 -y 800 -defaultsOSRD
-preplace netloc MISO_RHS_1 1 0 5 NJ 1540 NJ 1540 NJ 1540 1230 1490 1670J
-preplace netloc clk_wiz_0_clk_39M 1 2 3 830 1880 1200 1880 NJ
-preplace netloc clk_wiz_0_locked 1 2 1 820 1890n
-preplace netloc reset_rhs_peripheral_aresetn 1 3 1 1210 1590n
-preplace netloc rhs_spi_master_0_CS 1 4 2 1640 1620 NJ
-preplace netloc rhs_spi_master_0_MOSI 1 4 2 1660 1610 2150J
-preplace netloc rhs_spi_master_0_SCLK 1 4 2 1610 1640 NJ
-preplace netloc rhs_spi_master_0_busy 1 4 1 1580 1610n
-preplace netloc rhs_spi_master_0_data_out 1 4 1 1630 1650n
-preplace netloc rhs_spi_master_0_done 1 4 1 1570 1630n
-preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 4 1 1620 50n
+preplace inst clk_wiz_0 -pg 1 -lvl 2 -x 740 -y 1880 -defaultsOSRD
+preplace inst xlconstant_3 -pg 1 -lvl 3 -x 1040 -y 1710 -defaultsOSRD
+preplace inst ila_rhs -pg 1 -lvl 5 -x 1970 -y 1790 -defaultsOSRD
+preplace inst reset_rhs -pg 1 -lvl 3 -x 1040 -y 2060 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 3 -x 1040 -y 1610 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 3 -x 1040 -y 1810 -defaultsOSRD
+preplace inst rst_ps8_0_99M -pg 1 -lvl 4 -x 1440 -y 1980 -defaultsOSRD
+preplace inst rhs_spi_master_0 -pg 1 -lvl 4 -x 1440 -y 1600 -defaultsOSRD
+preplace inst rhs_256_0 -pg 1 -lvl 5 -x 1970 -y 2570 -defaultsOSRD
+preplace inst rhd_2048_0 -pg 1 -lvl 5 -x 1970 -y 800 -defaultsOSRD
+preplace netloc MISO_RHS_1 1 0 5 NJ 1540 NJ 1540 NJ 1540 1260 1490 1700J
+preplace netloc clk_wiz_0_clk_39M 1 2 3 850 1880 1230 1880 NJ
+preplace netloc clk_wiz_0_locked 1 2 1 840 1890n
+preplace netloc reset_rhs_peripheral_aresetn 1 3 1 1240 1590n
+preplace netloc rhs_spi_master_0_CS 1 4 2 1670 1620 NJ
+preplace netloc rhs_spi_master_0_MOSI 1 4 2 1690 1610 2240J
+preplace netloc rhs_spi_master_0_SCLK 1 4 2 1640 1640 NJ
+preplace netloc rhs_spi_master_0_busy 1 4 1 1630 1610n
+preplace netloc rhs_spi_master_0_data_out 1 4 1 1660 1650n
+preplace netloc rhs_spi_master_0_done 1 4 1 1620 1630n
+preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 4 1 1650 50n
 preplace netloc xlconstant_0_dout 1 3 1 NJ 1610
-preplace netloc xlconstant_1_dout 1 3 1 1220J 1650n
-preplace netloc xlconstant_3_dout 1 3 2 1230 1720 NJ
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 5 20 1860 640 1810 840J 1870 1190 1870 1650
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 3 NJ 1960 840 1960 N
-levelinfo -pg 1 0 330 730 1010 1400 1910 2180
-pagesize -pg 1 -db -bbox -sgen -130 -10 2310 3220
+preplace netloc xlconstant_1_dout 1 3 1 1250J 1650n
+preplace netloc xlconstant_3_dout 1 3 2 1260 1720 NJ
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 5 20 1860 640 1810 860J 1870 1220 1870 1680
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 3 NJ 1960 860 1960 N
+levelinfo -pg 1 0 330 740 1040 1440 1970 2260
+pagesize -pg 1 -db -bbox -sgen -130 -10 2390 3220
 "
 }
 {

@@ -1,9 +1,9 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.545617",
-   "Default View_TopLeft":"-847,-95",
+   "Default View_TopLeft":"-847,-9",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
 preplace port port-id_M_AXIS_ARESETN -pg 1 -lvl 0 -x 0 -y 180 -defaultsOSRD
 preplace port port-id_S_AXI_ARESETN -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
@@ -11,11 +11,11 @@ preplace port port-id_S_AXI_ACLK -pg 1 -lvl 0 -x 0 -y 50 -defaultsOSRD
 preplace port port-id_M_AXIS_ACLK -pg 1 -lvl 0 -x 0 -y 150 -defaultsOSRD
 preplace inst axi_vip_0 -pg 1 -lvl 1 -x 140 -y 70 -defaultsOSRD
 preplace inst seeg_top_0 -pg 1 -lvl 2 -x 440 -y 910 -defaultsOSRD
-preplace netloc M_AXIS_ACLK_1 1 0 2 NJ 150 260J
-preplace netloc M_AXIS_ARESETN_1 1 0 2 NJ 180 240J
-preplace netloc S_AXI_ACLK_1 1 0 2 30 -10 270
+preplace netloc M_AXIS_ACLK_1 1 0 2 NJ 150 240J
+preplace netloc M_AXIS_ARESETN_1 1 0 2 NJ 180 NJ
+preplace netloc S_AXI_ACLK_1 1 0 2 30 200 N
 preplace netloc S_AXI_ARESETN_1 1 0 2 40 0 250
-preplace netloc axi_vip_0_M_AXI 1 1 1 280 70n
+preplace netloc axi_vip_0_M_AXI 1 1 1 260 70n
 levelinfo -pg 1 0 140 440 760 930
 pagesize -pg 1 -db -bbox -sgen -180 -20 930 1810
 "

@@ -40,7 +40,7 @@
       "zynq_ultra_ps_e_0": {
         "vlnv": "xilinx.com:ip:zynq_ultra_ps_e:3.5",
         "xci_name": "cable_delay_tester_zynq_ultra_ps_e_0_0",
-        "xci_path": "ip\\cable_delay_tester_zynq_ultra_ps_e_0_0\\cable_delay_tester_zynq_ultra_ps_e_0_0.xci",
+        "xci_path": "ip/cable_delay_tester_zynq_ultra_ps_e_0_0/cable_delay_tester_zynq_ultra_ps_e_0_0.xci",
         "inst_hier_path": "zynq_ultra_ps_e_0",
         "parameters": {
           "PSU_BANK_0_IO_STANDARD": {
@@ -1660,7 +1660,7 @@
       "clk_wiz_0": {
         "vlnv": "xilinx.com:ip:clk_wiz:6.0",
         "xci_name": "cable_delay_tester_clk_wiz_0_0",
-        "xci_path": "ip\\cable_delay_tester_clk_wiz_0_0\\cable_delay_tester_clk_wiz_0_0.xci",
+        "xci_path": "ip/cable_delay_tester_clk_wiz_0_0/cable_delay_tester_clk_wiz_0_0.xci",
         "inst_hier_path": "clk_wiz_0",
         "parameters": {
           "CLKOUT1_JITTER": {
@@ -1728,7 +1728,7 @@
       "xlconstant_3": {
         "vlnv": "xilinx.com:ip:xlconstant:1.1",
         "xci_name": "cable_delay_tester_xlconstant_3_0",
-        "xci_path": "ip\\cable_delay_tester_xlconstant_3_0\\cable_delay_tester_xlconstant_3_0.xci",
+        "xci_path": "ip/cable_delay_tester_xlconstant_3_0/cable_delay_tester_xlconstant_3_0.xci",
         "inst_hier_path": "xlconstant_3",
         "parameters": {
           "CONST_VAL": {
@@ -1742,7 +1742,7 @@
       "ila_rhs": {
         "vlnv": "xilinx.com:ip:ila:6.2",
         "xci_name": "cable_delay_tester_ila_0_1",
-        "xci_path": "ip\\cable_delay_tester_ila_0_1\\cable_delay_tester_ila_0_1.xci",
+        "xci_path": "ip/cable_delay_tester_ila_0_1/cable_delay_tester_ila_0_1.xci",
         "inst_hier_path": "ila_rhs",
         "parameters": {
           "C_DATA_DEPTH": {
@@ -1768,19 +1768,19 @@
       "reset_rhs": {
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "cable_delay_tester_proc_sys_reset_1_0",
-        "xci_path": "ip\\cable_delay_tester_proc_sys_reset_1_0\\cable_delay_tester_proc_sys_reset_1_0.xci",
+        "xci_path": "ip/cable_delay_tester_proc_sys_reset_1_0/cable_delay_tester_proc_sys_reset_1_0.xci",
         "inst_hier_path": "reset_rhs"
       },
       "xlconstant_0": {
         "vlnv": "xilinx.com:ip:xlconstant:1.1",
         "xci_name": "cable_delay_tester_xlconstant_0_1",
-        "xci_path": "ip\\cable_delay_tester_xlconstant_0_1\\cable_delay_tester_xlconstant_0_1.xci",
+        "xci_path": "ip/cable_delay_tester_xlconstant_0_1/cable_delay_tester_xlconstant_0_1.xci",
         "inst_hier_path": "xlconstant_0"
       },
       "xlconstant_1": {
         "vlnv": "xilinx.com:ip:xlconstant:1.1",
         "xci_name": "cable_delay_tester_xlconstant_1_1",
-        "xci_path": "ip\\cable_delay_tester_xlconstant_1_1\\cable_delay_tester_xlconstant_1_1.xci",
+        "xci_path": "ip/cable_delay_tester_xlconstant_1_1/cable_delay_tester_xlconstant_1_1.xci",
         "inst_hier_path": "xlconstant_1",
         "parameters": {
           "CONST_VAL": {
@@ -1794,13 +1794,13 @@
       "rst_ps8_0_99M": {
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "cable_delay_tester_rst_ps8_0_99M_0",
-        "xci_path": "ip\\cable_delay_tester_rst_ps8_0_99M_0\\cable_delay_tester_rst_ps8_0_99M_0.xci",
+        "xci_path": "ip/cable_delay_tester_rst_ps8_0_99M_0/cable_delay_tester_rst_ps8_0_99M_0.xci",
         "inst_hier_path": "rst_ps8_0_99M"
       },
       "rhs_spi_master_0": {
         "vlnv": "xilinx.com:module_ref:rhs_spi_master:1.0",
         "xci_name": "cable_delay_tester_rhs_spi_master_0_0",
-        "xci_path": "ip\\cable_delay_tester_rhs_spi_master_0_0\\cable_delay_tester_rhs_spi_master_0_0.xci",
+        "xci_path": "ip/cable_delay_tester_rhs_spi_master_0_0/cable_delay_tester_rhs_spi_master_0_0.xci",
         "inst_hier_path": "rhs_spi_master_0",
         "reference_info": {
           "ref_type": "hdl",
@@ -1827,18 +1827,6 @@
               "ASSOCIATED_RESET": {
                 "value": "rstn",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "78000972",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "cable_delay_tester_clk_wiz_0_0_clk_78M",
-                "value_src": "default_prop"
               }
             }
           },
@@ -1881,7 +1869,7 @@
       "rhs_256_0": {
         "vlnv": "xilinx.com:module_ref:rhs_256:1.0",
         "xci_name": "cable_delay_tester_rhs_256_0_0",
-        "xci_path": "ip\\cable_delay_tester_rhs_256_0_0\\cable_delay_tester_rhs_256_0_0.xci",
+        "xci_path": "ip/cable_delay_tester_rhs_256_0_0/cable_delay_tester_rhs_256_0_0.xci",
         "inst_hier_path": "rhs_256_0",
         "reference_info": {
           "ref_type": "hdl",
@@ -2233,7 +2221,7 @@
       "rhd_2048_0": {
         "vlnv": "xilinx.com:module_ref:rhd_2048:1.0",
         "xci_name": "cable_delay_tester_rhd_2048_0_0",
-        "xci_path": "ip\\cable_delay_tester_rhd_2048_0_0\\cable_delay_tester_rhd_2048_0_0.xci",
+        "xci_path": "ip/cable_delay_tester_rhd_2048_0_0/cable_delay_tester_rhd_2048_0_0.xci",
         "inst_hier_path": "rhd_2048_0",
         "reference_info": {
           "ref_type": "hdl",

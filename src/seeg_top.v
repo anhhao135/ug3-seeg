@@ -169,14 +169,24 @@ module seeg_top #
     output wire RHS_MOSI_F,
     output wire RHS_MOSI_G,
     output wire RHS_MOSI_H,
-    output wire RHS_MOSI_I,
-    output wire RHS_MOSI_J,
-    output wire RHS_MOSI_K,
-    output wire RHS_MOSI_L,
-    output wire RHS_MOSI_M,
-    output wire RHS_MOSI_N,
-    output wire RHS_MOSI_O,
-    output wire RHS_MOSI_P,
+
+    output wire RHS_MOSI_I_P,
+    output wire RHS_MOSI_I_N,
+    output wire RHS_MOSI_J_P,
+    output wire RHS_MOSI_J_N,
+    output wire RHS_MOSI_K_P,
+    output wire RHS_MOSI_K_N,
+    output wire RHS_MOSI_L_P,
+    output wire RHS_MOSI_L_N,
+    output wire RHS_MOSI_M_P,
+    output wire RHS_MOSI_M_N,
+    output wire RHS_MOSI_N_P,
+    output wire RHS_MOSI_N_N,
+    output wire RHS_MOSI_O_P,
+    output wire RHS_MOSI_O_N,
+    output wire RHS_MOSI_P_P,
+    output wire RHS_MOSI_P_N,
+
 
     input wire RHS_MISO_A,
     input wire RHS_MISO_B,
@@ -186,43 +196,28 @@ module seeg_top #
     input wire RHS_MISO_F,
     input wire RHS_MISO_G,
     input wire RHS_MISO_H,
-    input wire RHS_MISO_I,
-    input wire RHS_MISO_J,
-    input wire RHS_MISO_K,
-    input wire RHS_MISO_L,
-    input wire RHS_MISO_M,
-    input wire RHS_MISO_N,
-    input wire RHS_MISO_O,
-    input wire RHS_MISO_P,
+
+    input wire RHS_MISO_I_P,
+    input wire RHS_MISO_I_N,
+    input wire RHS_MISO_J_P,
+    input wire RHS_MISO_J_N,
+    input wire RHS_MISO_K_P,
+    input wire RHS_MISO_K_N,
+    input wire RHS_MISO_L_P,
+    input wire RHS_MISO_L_N,
+    input wire RHS_MISO_M_P,
+    input wire RHS_MISO_M_N,
+    input wire RHS_MISO_N_P,
+    input wire RHS_MISO_N_N,
+    input wire RHS_MISO_O_P,
+    input wire RHS_MISO_O_N,
+    input wire RHS_MISO_P_P,
+    input wire RHS_MISO_P_N,
+
 
     input wire aux_signal
 
 );
-
-
-    wire RHD_MISO1_I;
-    wire RHD_MISO2_I;
-
-    wire RHD_MISO1_J;
-    wire RHD_MISO2_J;
-
-    wire RHD_MISO1_K;
-    wire RHD_MISO2_K;
-
-    wire RHD_MISO1_L;
-    wire RHD_MISO2_L;
-
-    wire RHD_MISO1_M;
-    wire RHD_MISO2_M;
-
-    wire RHD_MISO1_N;
-    wire RHD_MISO2_N;
-
-    wire RHD_MISO1_O;
-    wire RHD_MISO2_O;
-
-    wire RHD_MISO1_P;
-    wire RHD_MISO2_P;
 
 
     rhd_diff_to_single rhdDiffToSingle(
@@ -281,6 +276,78 @@ module seeg_top #
     .MISO2_P_P(RHD_MISO2_P_P),
     .MISO2_P_N(RHD_MISO2_P_N),
     .MISO2_P(RHD_MISO2_P)
+    );
+
+    rhs_single_diff_converter rhsSingleDiffConverter(
+    .MISO_I_P(RHS_MISO_I_P),
+    .MISO_I_N(RHS_MISO_I_N),
+    .MISO_I(RHS_MISO_I),
+
+    .MISO_J_P(RHS_MISO_J_P),
+    .MISO_J_N(RHS_MISO_J_N),
+    .MISO_J(RHS_MISO_J),
+
+    .MISO_K_P(RHS_MISO_K_P),
+    .MISO_K_N(RHS_MISO_K_N),
+    .MISO_K(RHS_MISO_K),
+
+    .MISO_L_P(RHS_MISO_L_P),
+    .MISO_L_N(RHS_MISO_L_N),
+    .MISO_L(RHS_MISO_L),
+
+    .MISO_M_P(RHS_MISO_M_P),
+    .MISO_M_N(RHS_MISO_M_N),
+    .MISO_M(RHS_MISO_M),
+
+    .MISO_N_P(RHS_MISO_N_P),
+    .MISO_N_N(RHS_MISO_N_N),
+    .MISO_N(RHS_MISO_N),
+
+    .MISO_O_P(RHS_MISO_O_P),
+    .MISO_O_N(RHS_MISO_O_N),
+    .MISO_O(RHS_MISO_O),
+
+    .MISO_P_P(RHS_MISO_P_P),
+    .MISO_P_N(RHS_MISO_P_N),
+    .MISO_P(RHS_MISO_P),
+
+
+
+
+
+    .MOSI_I_P(RHS_MOSI_I_P),
+    .MOSI_I_N(RHS_MOSI_I_N),
+    .MOSI_I(RHS_MOSI_I),
+
+    .MOSI_J_P(RHS_MOSI_J_P),
+    .MOSI_J_N(RHS_MOSI_J_N),
+    .MOSI_J(RHS_MOSI_J),
+
+    .MOSI_K_P(RHS_MOSI_K_P),
+    .MOSI_K_N(RHS_MOSI_K_N),
+    .MOSI_K(RHS_MOSI_K),
+
+    .MOSI_L_P(RHS_MOSI_L_P),
+    .MOSI_L_N(RHS_MOSI_L_N),
+    .MOSI_L(RHS_MOSI_L),
+
+    .MOSI_M_P(RHS_MOSI_M_P),
+    .MOSI_M_N(RHS_MOSI_M_N),
+    .MOSI_M(RHS_MOSI_M),
+
+    .MOSI_N_P(RHS_MOSI_N_P),
+    .MOSI_N_N(RHS_MOSI_N_N),
+    .MOSI_N(RHS_MOSI_N),
+
+    .MOSI_O_P(RHS_MOSI_O_P),
+    .MOSI_O_N(RHS_MOSI_O_N),
+    .MOSI_O(RHS_MOSI_O),
+
+    .MOSI_P_P(RHS_MOSI_P_P),
+    .MOSI_P_N(RHS_MOSI_P_N),
+    .MOSI_P(RHS_MOSI_P)
+
+    
     );
 
     seeg seeg(
