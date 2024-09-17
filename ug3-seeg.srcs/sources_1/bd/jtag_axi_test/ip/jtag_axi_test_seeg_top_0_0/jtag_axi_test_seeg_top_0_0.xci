@@ -153,7 +153,8 @@
         "RHS_MISO_M": [ { "direction": "in" } ],
         "RHS_MISO_N": [ { "direction": "in" } ],
         "RHS_MISO_O": [ { "direction": "in" } ],
-        "RHS_MISO_P": [ { "direction": "in" } ]
+        "RHS_MISO_P": [ { "direction": "in" } ],
+        "aux_signal": [ { "direction": "in" } ]
       },
       "interfaces": {
         "M_AXIS": {

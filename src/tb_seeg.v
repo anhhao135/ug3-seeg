@@ -42,6 +42,7 @@ module tb_seeg ();
         .zcheck_start(zcheck_start),
         .zcheck_scale(zcheck_scale),
         .batch_size(4),
+        .aux_signal(1),
 
         .stim_pulse_length(stim_pulse_length),
         .stim_pulse_magnitude(stim_pulse_magnitude),
@@ -128,7 +129,7 @@ module tb_seeg ();
         rstn <= 1;
         #500
 
-
+        
 
         zcheck_start <= 1;
         #500
@@ -177,8 +178,8 @@ module tb_seeg ();
         #500
         record_stop <= 0;
         #1000000
-
         */
+        
         
         
         

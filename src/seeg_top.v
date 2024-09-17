@@ -193,7 +193,9 @@ module seeg_top #
     input wire RHS_MISO_M,
     input wire RHS_MISO_N,
     input wire RHS_MISO_O,
-    input wire RHS_MISO_P
+    input wire RHS_MISO_P,
+
+    input wire aux_signal
 
 );
 
@@ -287,13 +289,16 @@ module seeg_top #
     .record_start(slv_reg0[0]),
     .record_stop(slv_reg0[1]),
     .zcheck_start(slv_reg0[2]),
-    .zcheck_scale(slv_reg0[4:3]),
+    .zcheck_scale(slv_reg20[2:1]),
     .busy(slv_reg31[0]),
     .busy_recording(slv_reg31[3]),
     .busy_zcheck(slv_reg31[4]),
     .zcheck_done(slv_reg31[1]),
     .current_state(slv_reg31[15:8]),
-
+    .aux_signal(aux_signal),
+    .data_out(M_AXIS_tdata),
+    .valid_out(M_AXIS_tvalid),
+    .last_out(M_AXIS_tlast),
     .stim_pulse_length(slv_reg3[15:0]),
     .stim_pulse_magnitude(slv_reg1[13:6]),
     .stim_inter_bipulse_delay(slv_reg3[31:16]),
@@ -315,7 +320,9 @@ module seeg_top #
     .stim_bipolar_mode(slv_reg1[0]),
     .stim_mask_probe_select(slv_reg1[31:16]),
 
-    .loopback_mode(slv_reg0[5]),
+    .loopback_mode(slv_reg20[0]),
+
+    .batch_size(slv_reg19[15:0]),
 
     .oversample_offset_A1(slv_reg7[7:0]),
     .oversample_offset_A2(slv_reg7[15:8]),

@@ -19,8 +19,8 @@
       "xlconstant_1": "",
       "rst_ps8_0_99M": "",
       "rhs_spi_master_0": "",
-      "rhd_2048_0": "",
-      "rhs_256_0": ""
+      "rhs_256_0": "",
+      "rhd_2048_0": ""
     },
     "ports": {
       "MISO_RHS": {
@@ -1878,355 +1878,6 @@
           }
         }
       },
-      "rhd_2048_0": {
-        "vlnv": "xilinx.com:module_ref:rhd_2048:1.0",
-        "xci_name": "cable_delay_tester_rhd_2048_0_0",
-        "xci_path": "ip\\cable_delay_tester_rhd_2048_0_0\\cable_delay_tester_rhd_2048_0_0.xci",
-        "inst_hier_path": "rhd_2048_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "rhd_2048",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "rstn": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "constant"
-              }
-            }
-          },
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rstn",
-                "value_src": "constant"
-              }
-            }
-          },
-          "config_start": {
-            "direction": "I"
-          },
-          "record_start": {
-            "direction": "I"
-          },
-          "zcheck_start": {
-            "direction": "I"
-          },
-          "zcheck_global_channel": {
-            "direction": "I",
-            "left": "11",
-            "right": "0"
-          },
-          "zcheck_scale": {
-            "direction": "I",
-            "left": "1",
-            "right": "0"
-          },
-          "fifo_read_en": {
-            "direction": "I"
-          },
-          "fifo_rst": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "fifo_write_en_external": {
-            "direction": "I"
-          },
-          "fifo_valid_out": {
-            "direction": "O"
-          },
-          "fifo_data_out": {
-            "direction": "O",
-            "left": "63",
-            "right": "0"
-          },
-          "busy": {
-            "direction": "O"
-          },
-          "done": {
-            "direction": "O"
-          },
-          "oversample_offset_A1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_A2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_B1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_B2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_C1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_C2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_D1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_D2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_E1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_E2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_F1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_F2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_G1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_G2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_H1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_H2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_I1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_I2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_J1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_J2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_K1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_K2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_L1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_L2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_M1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_M2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_N1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_N2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_O1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_O2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_P1": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "oversample_offset_P2": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "CS": {
-            "direction": "O"
-          },
-          "SCLK": {
-            "direction": "O"
-          },
-          "MOSI": {
-            "direction": "O"
-          },
-          "MISO1_A": {
-            "direction": "I"
-          },
-          "MISO2_A": {
-            "direction": "I"
-          },
-          "MISO1_B": {
-            "direction": "I"
-          },
-          "MISO2_B": {
-            "direction": "I"
-          },
-          "MISO1_C": {
-            "direction": "I"
-          },
-          "MISO2_C": {
-            "direction": "I"
-          },
-          "MISO1_D": {
-            "direction": "I"
-          },
-          "MISO2_D": {
-            "direction": "I"
-          },
-          "MISO1_E": {
-            "direction": "I"
-          },
-          "MISO2_E": {
-            "direction": "I"
-          },
-          "MISO1_F": {
-            "direction": "I"
-          },
-          "MISO2_F": {
-            "direction": "I"
-          },
-          "MISO1_G": {
-            "direction": "I"
-          },
-          "MISO2_G": {
-            "direction": "I"
-          },
-          "MISO1_H": {
-            "direction": "I"
-          },
-          "MISO2_H": {
-            "direction": "I"
-          },
-          "MISO1_I": {
-            "direction": "I"
-          },
-          "MISO2_I": {
-            "direction": "I"
-          },
-          "MISO1_J": {
-            "direction": "I"
-          },
-          "MISO2_J": {
-            "direction": "I"
-          },
-          "MISO1_K": {
-            "direction": "I"
-          },
-          "MISO2_K": {
-            "direction": "I"
-          },
-          "MISO1_L": {
-            "direction": "I"
-          },
-          "MISO2_L": {
-            "direction": "I"
-          },
-          "MISO1_M": {
-            "direction": "I"
-          },
-          "MISO2_M": {
-            "direction": "I"
-          },
-          "MISO1_N": {
-            "direction": "I"
-          },
-          "MISO2_N": {
-            "direction": "I"
-          },
-          "MISO1_O": {
-            "direction": "I"
-          },
-          "MISO2_O": {
-            "direction": "I"
-          },
-          "MISO1_P": {
-            "direction": "I"
-          },
-          "MISO2_P": {
-            "direction": "I"
-          },
-          "channel_out": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "sampling_rate_20k": {
-            "direction": "I"
-          }
-        }
-      },
       "rhs_256_0": {
         "vlnv": "xilinx.com:module_ref:rhs_256:1.0",
         "xci_name": "cable_delay_tester_rhs_256_0_0",
@@ -2257,6 +1908,9 @@
                 "value_src": "constant"
               }
             }
+          },
+          "clk_fifo_out": {
+            "direction": "I"
           },
           "config_start": {
             "direction": "I"
@@ -2575,6 +2229,358 @@
             "right": "0"
           }
         }
+      },
+      "rhd_2048_0": {
+        "vlnv": "xilinx.com:module_ref:rhd_2048:1.0",
+        "xci_name": "cable_delay_tester_rhd_2048_0_0",
+        "xci_path": "ip\\cable_delay_tester_rhd_2048_0_0\\cable_delay_tester_rhd_2048_0_0.xci",
+        "inst_hier_path": "rhd_2048_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "rhd_2048",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "rstn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rstn",
+                "value_src": "constant"
+              }
+            }
+          },
+          "clk_fifo_out": {
+            "direction": "I"
+          },
+          "config_start": {
+            "direction": "I"
+          },
+          "record_start": {
+            "direction": "I"
+          },
+          "zcheck_start": {
+            "direction": "I"
+          },
+          "zcheck_global_channel": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "zcheck_scale": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "fifo_read_en": {
+            "direction": "I"
+          },
+          "fifo_rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "fifo_write_en_external": {
+            "direction": "I"
+          },
+          "fifo_valid_out": {
+            "direction": "O"
+          },
+          "fifo_data_out": {
+            "direction": "O",
+            "left": "63",
+            "right": "0"
+          },
+          "busy": {
+            "direction": "O"
+          },
+          "done": {
+            "direction": "O"
+          },
+          "oversample_offset_A1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_A2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_B1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_B2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_C1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_C2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_D1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_D2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_E1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_E2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_F1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_F2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_G1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_G2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_H1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_H2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_I1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_I2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_J1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_J2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_K1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_K2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_L1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_L2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_M1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_M2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_N1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_N2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_O1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_O2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_P1": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "oversample_offset_P2": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "CS": {
+            "direction": "O"
+          },
+          "SCLK": {
+            "direction": "O"
+          },
+          "MOSI": {
+            "direction": "O"
+          },
+          "MISO1_A": {
+            "direction": "I"
+          },
+          "MISO2_A": {
+            "direction": "I"
+          },
+          "MISO1_B": {
+            "direction": "I"
+          },
+          "MISO2_B": {
+            "direction": "I"
+          },
+          "MISO1_C": {
+            "direction": "I"
+          },
+          "MISO2_C": {
+            "direction": "I"
+          },
+          "MISO1_D": {
+            "direction": "I"
+          },
+          "MISO2_D": {
+            "direction": "I"
+          },
+          "MISO1_E": {
+            "direction": "I"
+          },
+          "MISO2_E": {
+            "direction": "I"
+          },
+          "MISO1_F": {
+            "direction": "I"
+          },
+          "MISO2_F": {
+            "direction": "I"
+          },
+          "MISO1_G": {
+            "direction": "I"
+          },
+          "MISO2_G": {
+            "direction": "I"
+          },
+          "MISO1_H": {
+            "direction": "I"
+          },
+          "MISO2_H": {
+            "direction": "I"
+          },
+          "MISO1_I": {
+            "direction": "I"
+          },
+          "MISO2_I": {
+            "direction": "I"
+          },
+          "MISO1_J": {
+            "direction": "I"
+          },
+          "MISO2_J": {
+            "direction": "I"
+          },
+          "MISO1_K": {
+            "direction": "I"
+          },
+          "MISO2_K": {
+            "direction": "I"
+          },
+          "MISO1_L": {
+            "direction": "I"
+          },
+          "MISO2_L": {
+            "direction": "I"
+          },
+          "MISO1_M": {
+            "direction": "I"
+          },
+          "MISO2_M": {
+            "direction": "I"
+          },
+          "MISO1_N": {
+            "direction": "I"
+          },
+          "MISO2_N": {
+            "direction": "I"
+          },
+          "MISO1_O": {
+            "direction": "I"
+          },
+          "MISO2_O": {
+            "direction": "I"
+          },
+          "MISO1_P": {
+            "direction": "I"
+          },
+          "MISO2_P": {
+            "direction": "I"
+          },
+          "channel_out": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "sampling_rate_20k": {
+            "direction": "I"
+          }
+        }
       }
     },
     "nets": {
@@ -2647,8 +2653,8 @@
       "rst_ps8_0_99M_peripheral_aresetn": {
         "ports": [
           "rst_ps8_0_99M/peripheral_aresetn",
-          "rhd_2048_0/rstn",
-          "rhs_256_0/rstn"
+          "rhs_256_0/rstn",
+          "rhd_2048_0/rstn"
         ]
       },
       "xlconstant_0_dout": {
@@ -2678,8 +2684,8 @@
           "zynq_ultra_ps_e_0/saxihpc0_fpd_aclk",
           "ila_rhs/clk",
           "rst_ps8_0_99M/slowest_sync_clk",
-          "rhd_2048_0/clk",
-          "rhs_256_0/clk"
+          "rhs_256_0/clk",
+          "rhd_2048_0/clk"
         ]
       },
       "zynq_ultra_ps_e_0_pl_resetn0": {

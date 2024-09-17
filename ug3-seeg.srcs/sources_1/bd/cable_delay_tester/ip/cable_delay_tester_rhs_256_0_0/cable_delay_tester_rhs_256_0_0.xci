@@ -38,6 +38,7 @@
       "ports": {
         "rstn": [ { "direction": "in" } ],
         "clk": [ { "direction": "in" } ],
+        "clk_fifo_out": [ { "direction": "in" } ],
         "config_start": [ { "direction": "in" } ],
         "record_start": [ { "direction": "in" } ],
         "zcheck_start": [ { "direction": "in" } ],
