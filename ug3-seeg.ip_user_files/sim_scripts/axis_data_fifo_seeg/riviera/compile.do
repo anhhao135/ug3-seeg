@@ -1,0 +1,44 @@
+transcript off
+onbreak {quit -force}
+onerror {quit -force}
+transcript on
+
+vlib work
+vmap -link {C:/Repos/ug3-seeg/ug3-seeg.cache/compile_simlib/riviera}
+vlib riviera/xilinx_vip
+vlib riviera/xpm
+vlib riviera/axis_infrastructure_v1_1_0
+vlib riviera/axis_data_fifo_v2_0_10
+vlib riviera/xil_defaultlib
+
+vlog -work xilinx_vip  -incr -l axi_vip_v1_1_14 "+incdir+C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include" -l xilinx_vip -l xpm -l axis_infrastructure_v1_1_0 -l axis_data_fifo_v2_0_10 -l xil_defaultlib \
+"C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi4stream_vip_axi4streampc.sv" \
+"C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv" \
+"C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/xil_common_vip_pkg.sv" \
+"C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi4stream_vip_pkg.sv" \
+"C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_pkg.sv" \
+"C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi4stream_vip_if.sv" \
+"C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/axi_vip_if.sv" \
+"C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/clk_vip_if.sv" \
+"C:/Xilinx/Vivado/2023.1/data/xilinx_vip/hdl/rst_vip_if.sv" \
+
+vlog -work xpm  -incr -l axi_vip_v1_1_14 "+incdir+../../../ipstatic/hdl" "+incdir+C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include" -l xilinx_vip -l xpm -l axis_infrastructure_v1_1_0 -l axis_data_fifo_v2_0_10 -l xil_defaultlib \
+"C:/Xilinx/Vivado/2023.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"C:/Xilinx/Vivado/2023.1/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
+"C:/Xilinx/Vivado/2023.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+
+vcom -work xpm -93  -incr \
+"C:/Xilinx/Vivado/2023.1/data/ip/xpm/xpm_VCOMP.vhd" \
+
+vlog -work axis_infrastructure_v1_1_0  -incr -v2k5 "+incdir+../../../ipstatic/hdl" "+incdir+C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include" -l xilinx_vip -l xpm -l axis_infrastructure_v1_1_0 -l axis_data_fifo_v2_0_10 -l xil_defaultlib \
+"../../../ipstatic/hdl/axis_infrastructure_v1_1_vl_rfs.v" \
+
+vlog -work axis_data_fifo_v2_0_10  -incr -v2k5 "+incdir+../../../ipstatic/hdl" "+incdir+C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include" -l xilinx_vip -l xpm -l axis_infrastructure_v1_1_0 -l axis_data_fifo_v2_0_10 -l xil_defaultlib \
+"../../../ipstatic/hdl/axis_data_fifo_v2_0_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -incr -v2k5 "+incdir+../../../ipstatic/hdl" "+incdir+C:/Xilinx/Vivado/2023.1/data/xilinx_vip/include" -l xilinx_vip -l xpm -l axis_infrastructure_v1_1_0 -l axis_data_fifo_v2_0_10 -l xil_defaultlib \
+"../../../../ug3-seeg.gen/sources_1/ip/axis_data_fifo_seeg/sim/axis_data_fifo_seeg.v" \
+
+vlog -work xil_defaultlib \
+"glbl.v"
+

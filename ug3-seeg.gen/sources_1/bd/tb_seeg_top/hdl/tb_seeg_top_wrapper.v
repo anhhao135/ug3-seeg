@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Mon Sep 16 16:57:35 2024
+//Date        : Wed Sep 18 12:13:06 2024
 //Host        : Gingham running 64-bit major release  (build 9200)
 //Command     : generate_target tb_seeg_top_wrapper.bd
 //Design      : tb_seeg_top_wrapper
@@ -13,21 +13,25 @@
 module tb_seeg_top_wrapper
    (M_AXIS_ACLK,
     M_AXIS_ARESETN,
+    M_AXIS_tready,
     S_AXI_ACLK,
     S_AXI_ARESETN);
   input M_AXIS_ACLK;
   input M_AXIS_ARESETN;
+  input M_AXIS_tready;
   input S_AXI_ACLK;
   input S_AXI_ARESETN;
 
   wire M_AXIS_ACLK;
   wire M_AXIS_ARESETN;
+  wire M_AXIS_tready;
   wire S_AXI_ACLK;
   wire S_AXI_ARESETN;
 
   tb_seeg_top tb_seeg_top_i
        (.M_AXIS_ACLK(M_AXIS_ACLK),
         .M_AXIS_ARESETN(M_AXIS_ARESETN),
+        .M_AXIS_tready(M_AXIS_tready),
         .S_AXI_ACLK(S_AXI_ACLK),
         .S_AXI_ARESETN(S_AXI_ARESETN));
 endmodule

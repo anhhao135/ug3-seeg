@@ -239,17 +239,16 @@ module seeg (
 
     assign clk_rhs = zcheck_in_progress ? clk_rhs_zcheck : clk;
 
-    
+
     localparam RHD_CHANNELS = 2048;
     localparam RHS_CHANNELS = 256;
-     //UNCOMMENT IN PRODUCTION
+    
 
     /*
     localparam RHD_CHANNELS = 4;
     localparam RHS_CHANNELS = 6;
     */
-    //uncomment in sim
-    
+
     localparam RHD_64_BIT_CHUNKS = 512; //for recording
     localparam RHS_64_BIT_CHUNKS = 64; //for recording
 
@@ -959,7 +958,8 @@ module seeg (
         .MISO(MISO_A_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(272)) B_slave(
@@ -968,7 +968,8 @@ module seeg (
         .MISO(MISO_B_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(416)) C_slave(
@@ -977,7 +978,8 @@ module seeg (
         .MISO(MISO_C_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(560)) D_slave(
@@ -986,7 +988,8 @@ module seeg (
         .MISO(MISO_D_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(704)) E_slave(
@@ -995,7 +998,8 @@ module seeg (
         .MISO(MISO_E_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(848)) F_slave(
@@ -1004,7 +1008,8 @@ module seeg (
         .MISO(MISO_F_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(992)) G_slave(
@@ -1013,7 +1018,8 @@ module seeg (
         .MISO(MISO_G_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(1136)) H_slave(
@@ -1022,7 +1028,8 @@ module seeg (
         .MISO(MISO_H_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(1280)) I_slave(
@@ -1031,7 +1038,8 @@ module seeg (
         .MISO(MISO_I_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(1424)) J_slave(
@@ -1040,7 +1048,8 @@ module seeg (
         .MISO(MISO_J_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(1568)) K_slave(
@@ -1049,7 +1058,8 @@ module seeg (
         .MISO(MISO_K_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(1712)) L_slave(
@@ -1058,7 +1068,8 @@ module seeg (
         .MISO(MISO_L_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(1856)) M_slave(
@@ -1067,7 +1078,8 @@ module seeg (
         .MISO(MISO_M_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(2000)) N_slave(
@@ -1076,7 +1088,8 @@ module seeg (
         .MISO(MISO_N_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(2144)) O_slave(
@@ -1085,7 +1098,8 @@ module seeg (
         .MISO(MISO_O_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     rhs_spi_slave #(.STARTING_SEED(2288)) P_slave(
@@ -1094,7 +1108,8 @@ module seeg (
         .MISO(MISO_P_loopback),
         .CS(CS_RHS),
         .channel(channel_loopback_rhs),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk_rhs)
     );
 
     

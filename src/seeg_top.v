@@ -350,6 +350,10 @@ module seeg_top #
     
     );
 
+    wire [63:0] data_out_module;
+    wire valid_out_module;
+    wire last_out_module;
+
     seeg seeg(
     .clk(S_AXI_ACLK),
     .rstn(S_AXI_ARESETN),
@@ -363,9 +367,9 @@ module seeg_top #
     .zcheck_done(slv_reg31[1]),
     .current_state(slv_reg31[15:8]),
     .aux_signal(aux_signal),
-    .data_out(M_AXIS_tdata),
-    .valid_out(M_AXIS_tvalid),
-    .last_out(M_AXIS_tlast),
+    .data_out(data_out_module),
+    .valid_out(valid_out_module),
+    .last_out(last_out_module),
     .stim_pulse_length(slv_reg3[15:0]),
     .stim_pulse_magnitude(slv_reg1[13:6]),
     .stim_inter_bipulse_delay(slv_reg3[31:16]),
@@ -513,9 +517,19 @@ module seeg_top #
     .MISO_P(RHS_MISO_P)
     );
 
-    
 
-
+    axis_data_fifo_seeg axis_data_fifo_seeg_0 (
+    .s_axis_aresetn(M_AXIS_ARESETN),  // input wire s_axis_aresetn
+    .s_axis_aclk(M_AXIS_ACLK),        // input wire s_axis_aclk
+    .s_axis_tvalid(valid_out_module),    // input wire s_axis_tvalid
+    .s_axis_tready(),    // output wire s_axis_tready
+    .s_axis_tdata(data_out_module),      // input wire [63 : 0] s_axis_tdata
+    .s_axis_tlast(last_out_module),      // input wire s_axis_tlast
+    .m_axis_tvalid(M_AXIS_tvalid),    // output wire m_axis_tvalid
+    .m_axis_tready(M_AXIS_tready),    // input wire m_axis_tready
+    .m_axis_tdata(M_AXIS_tdata),      // output wire [63 : 0] m_axis_tdata
+    .m_axis_tlast(M_AXIS_tlast)      // output wire m_axis_tlast
+    );
 
 
     // AXI4LITE signals

@@ -2020,7 +2020,7 @@
         "inst_hier_path": "ila_0",
         "parameters": {
           "C_DATA_DEPTH": {
-            "value": "65536"
+            "value": "32768"
           },
           "C_MONITOR_TYPE": {
             "value": "Native"
@@ -3108,12 +3108,6 @@
           "seeg_top_0/RHS_MISO_P_P"
         ]
       },
-      "axis_data_fifo_0_s_axis_tready": {
-        "ports": [
-          "axis_data_fifo_0/s_axis_tready",
-          "ila_0/probe12"
-        ]
-      },
       "clk_wiz_0_clk_39M": {
         "ports": [
           "clk_wiz_0/clk_78M",
@@ -3138,27 +3132,6 @@
           "axis_data_fifo_0/s_axis_aresetn",
           "seeg_top_0/M_AXIS_ARESETN",
           "seeg_top_0/S_AXI_ARESETN"
-        ]
-      },
-      "seeg_top_0_M_AXIS_tdata": {
-        "ports": [
-          "seeg_top_0/M_AXIS_tdata",
-          "ila_0/probe9",
-          "axis_data_fifo_0/s_axis_tdata"
-        ]
-      },
-      "seeg_top_0_M_AXIS_tlast": {
-        "ports": [
-          "seeg_top_0/M_AXIS_tlast",
-          "ila_0/probe10",
-          "axis_data_fifo_0/s_axis_tlast"
-        ]
-      },
-      "seeg_top_0_M_AXIS_tvalid": {
-        "ports": [
-          "seeg_top_0/M_AXIS_tvalid",
-          "ila_0/probe11",
-          "axis_data_fifo_0/s_axis_tvalid"
         ]
       },
       "seeg_top_0_RHD_CS": {

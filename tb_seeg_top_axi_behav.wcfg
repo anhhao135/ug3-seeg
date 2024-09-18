@@ -16,37 +16,61 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
-      <ZoomEndTime time="255.500000001 ms"></ZoomEndTime>
-      <Cursor1Time time="17.759860090 ms"></Cursor1Time>
+      <ZoomEndTime time="415.844307979 ms"></ZoomEndTime>
+      <Cursor1Time time="0.001000000 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="365"></NameColumnWidth>
-      <ValueColumnWidth column_width="155"></ValueColumnWidth>
+      <ValueColumnWidth column_width="147"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="20" />
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/M_AXIS_tdata" type="array">
-      <obj_property name="ElementShortName">M_AXIS_tdata[63:0]</obj_property>
-      <obj_property name="ObjectShortName">M_AXIS_tdata[63:0]</obj_property>
+   <WVObjectSize size="26" />
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/axis_data_fifo_seeg_0/s_axis_aresetn" type="logic">
+      <obj_property name="ElementShortName">s_axis_aresetn</obj_property>
+      <obj_property name="ObjectShortName">s_axis_aresetn</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/M_AXIS_tvalid" type="logic">
-      <obj_property name="ElementShortName">M_AXIS_tvalid</obj_property>
-      <obj_property name="ObjectShortName">M_AXIS_tvalid</obj_property>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/axis_data_fifo_seeg_0/s_axis_aclk" type="logic">
+      <obj_property name="ElementShortName">s_axis_aclk</obj_property>
+      <obj_property name="ObjectShortName">s_axis_aclk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/M_AXIS_tready" type="logic">
-      <obj_property name="ElementShortName">M_AXIS_tready</obj_property>
-      <obj_property name="ObjectShortName">M_AXIS_tready</obj_property>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/axis_data_fifo_seeg_0/s_axis_tvalid" type="logic">
+      <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/M_AXIS_tlast" type="logic">
-      <obj_property name="ElementShortName">M_AXIS_tlast</obj_property>
-      <obj_property name="ObjectShortName">M_AXIS_tlast</obj_property>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/axis_data_fifo_seeg_0/s_axis_tready" type="logic">
+      <obj_property name="ElementShortName">s_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tready</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/M_AXIS_ACLK" type="logic">
-      <obj_property name="ElementShortName">M_AXIS_ACLK</obj_property>
-      <obj_property name="ObjectShortName">M_AXIS_ACLK</obj_property>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/axis_data_fifo_seeg_0/s_axis_tdata" type="array">
+      <obj_property name="ElementShortName">s_axis_tdata[63:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tdata[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_seeg_top_axi/DUT/M_AXIS_ARESETN" type="logic">
-      <obj_property name="ElementShortName">M_AXIS_ARESETN</obj_property>
-      <obj_property name="ObjectShortName">M_AXIS_ARESETN</obj_property>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/axis_data_fifo_seeg_0/s_axis_tlast" type="logic">
+      <obj_property name="ElementShortName">s_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/axis_data_fifo_seeg_0/m_axis_tvalid" type="logic">
+      <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/axis_data_fifo_seeg_0/m_axis_tready" type="logic">
+      <obj_property name="ElementShortName">m_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/axis_data_fifo_seeg_0/m_axis_tdata" type="array">
+      <obj_property name="ElementShortName">m_axis_tdata[63:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tdata[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/axis_data_fifo_seeg_0/m_axis_tlast" type="logic">
+      <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/axis_data_fifo_seeg_0/prog_empty" type="logic">
+      <obj_property name="ElementShortName">prog_empty</obj_property>
+      <obj_property name="ObjectShortName">prog_empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/axis_data_fifo_seeg_0/prog_full" type="logic">
+      <obj_property name="ElementShortName">prog_full</obj_property>
+      <obj_property name="ObjectShortName">prog_full</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider509">
       <obj_property name="label">stream top</obj_property>

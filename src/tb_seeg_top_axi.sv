@@ -12,12 +12,13 @@ module tb_seeg_top_axi();
 
 xil_axi_uint                           mst_agent_verbosity = 0;  
 
-bit                                     M_AXIS_ACLK;
-bit                                     S_AXI_ACLK;
-bit                                     M_AXIS_ARESETN;
-bit                                     S_AXI_ARESETN;
-bit                                     clk;
-bit                                     rstn;
+bit M_AXIS_ACLK;
+bit S_AXI_ACLK;
+bit M_AXIS_ARESETN;
+bit S_AXI_ARESETN;
+bit tready;                                  
+bit clk;
+bit rstn;
 
 
 xil_axi_prot_t                          mtestProtectionType = 3'b000;  
@@ -38,7 +39,8 @@ tb_seeg_top_axi_vip_0_0_mst_t          mst_agent_0;
     .M_AXIS_ACLK(clk),
     .M_AXIS_ARESETN(rstn),
     .S_AXI_ACLK(clk),
-    .S_AXI_ARESETN(rstn)
+    .S_AXI_ARESETN(rstn),
+    .M_AXIS_tready(tready)
     ); 
   
 initial begin
@@ -68,6 +70,7 @@ initial begin
   S_AXI_ARESETN <= 1'b1;
   #1000ns;
   */
+  tready <= 0;
 
   rstn <= 1'b1;
   #500ns;
@@ -83,7 +86,7 @@ initial begin
   mst_agent_0.AXI4LITE_WRITE_BURST(19 * 4, mtestProtectionType, {16'd0, 16'd4}, mtestBresp); //batch size
   mst_agent_0.AXI4LITE_WRITE_BURST(20 * 4, mtestProtectionType, {16'd0, 16'd1}, mtestBresp); //loopback
 
-
+/*
 
   mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, start_zcheck_command, mtestBresp);
   #500ns
@@ -91,19 +94,23 @@ initial begin
 
   #100ms;
 
+*/
 
 
 
-
-  /*
+  
 
   mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, start_record_command, mtestBresp);
   #500ns
   mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, 0, mtestBresp);
 
-  #1ms;
+  #5ms;
 
-  */
+  tready <= 1;
+
+  #5ms;
+
+  
 
   /*
 
@@ -133,7 +140,7 @@ initial begin
   */
   
 
-  /*
+  
 
   mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, stop_record_command, mtestBresp);
   #500ns
@@ -141,7 +148,7 @@ initial begin
 
   #1ms;
 
-  */
+  
 
 
 
