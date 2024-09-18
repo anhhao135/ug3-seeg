@@ -9,7 +9,7 @@ module tb_rhs_spi_master ();
     reg start = 0;
     reg [31:0] data_in = 32'hDEADBEEF;
 
-    reg [7:0] oversample_offset = 3;
+    reg [7:0] oversample_offset = 0;
 
     wire SCLK;
     wire MOSI;
@@ -35,7 +35,8 @@ module tb_rhs_spi_master ();
         .MISO(MISO),
         .CS(CS),
         .channel(channel),
-        .rstn(rstn)
+        .rstn(rstn),
+        .clk(clk)
     );
 
     initial begin

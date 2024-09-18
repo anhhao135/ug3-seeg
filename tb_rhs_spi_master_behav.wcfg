@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_rhs_spi_master_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_rhs_spi_master" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.201727 us"></ZoomStartTime>
+      <ZoomEndTime time="14.861728 us"></ZoomEndTime>
+      <Cursor1Time time="2.645060 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="365"></NameColumnWidth>
+      <ValueColumnWidth column_width="155"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="16" />
+   <wvobject fp_name="/tb_rhs_spi_master/dut_2/MOSI" type="logic">
+      <obj_property name="ElementShortName">MOSI</obj_property>
+      <obj_property name="ObjectShortName">MOSI</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_spi_master/dut_2/CS" type="logic">
+      <obj_property name="ElementShortName">CS</obj_property>
+      <obj_property name="ObjectShortName">CS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_spi_master/dut_2/SCLK" type="logic">
+      <obj_property name="ElementShortName">SCLK</obj_property>
+      <obj_property name="ObjectShortName">SCLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_spi_master/dut_2/MISO" type="logic">
+      <obj_property name="ElementShortName">MISO</obj_property>
+      <obj_property name="ObjectShortName">MISO</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_spi_master/dut_2/channel" type="array">
+      <obj_property name="ElementShortName">channel[4:0]</obj_property>
+      <obj_property name="ObjectShortName">channel[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_spi_master/dut_2/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_spi_master/dut_2/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_spi_master/dut_2/miso_out" type="logic">
+      <obj_property name="ElementShortName">miso_out</obj_property>
+      <obj_property name="ObjectShortName">miso_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_spi_master/dut_2/counter_0_15" type="array">
+      <obj_property name="ElementShortName">counter_0_15[15:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_0_15[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_spi_master/dut_2/miso_out_reg" type="array">
+      <obj_property name="ElementShortName">miso_out_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">miso_out_reg[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_spi_master/dut_2/sclk_counter" type="array">
+      <obj_property name="ElementShortName">sclk_counter[6:0]</obj_property>
+      <obj_property name="ObjectShortName">sclk_counter[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider660">
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_spi_master/dut/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_spi_master/dut/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_spi_master/dut/data_in" type="array">
+      <obj_property name="ElementShortName">data_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_rhs_spi_master/dut/data_out" type="array">
+      <obj_property name="ElementShortName">data_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[31:0]</obj_property>
+   </wvobject>
+</wave_config>

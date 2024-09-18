@@ -324,7 +324,7 @@
       "zynq_ultra_ps_e_0": {
         "vlnv": "xilinx.com:ip:zynq_ultra_ps_e:3.5",
         "xci_name": "jtag_axi_test_zynq_ultra_ps_e_0_0",
-        "xci_path": "ip/jtag_axi_test_zynq_ultra_ps_e_0_0/jtag_axi_test_zynq_ultra_ps_e_0_0.xci",
+        "xci_path": "ip\\jtag_axi_test_zynq_ultra_ps_e_0_0\\jtag_axi_test_zynq_ultra_ps_e_0_0.xci",
         "inst_hier_path": "zynq_ultra_ps_e_0",
         "parameters": {
           "PSU_BANK_0_IO_STANDARD": {
@@ -1944,7 +1944,7 @@
       "jtag_axi_0": {
         "vlnv": "xilinx.com:ip:jtag_axi:1.2",
         "xci_name": "jtag_axi_test_jtag_axi_0_0",
-        "xci_path": "ip/jtag_axi_test_jtag_axi_0_0/jtag_axi_test_jtag_axi_0_0.xci",
+        "xci_path": "ip\\jtag_axi_test_jtag_axi_0_0\\jtag_axi_test_jtag_axi_0_0.xci",
         "inst_hier_path": "jtag_axi_0",
         "parameters": {
           "M_AXI_ADDR_WIDTH": {
@@ -1978,13 +1978,13 @@
       "proc_sys_reset_0": {
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "jtag_axi_test_proc_sys_reset_0_0",
-        "xci_path": "ip/jtag_axi_test_proc_sys_reset_0_0/jtag_axi_test_proc_sys_reset_0_0.xci",
+        "xci_path": "ip\\jtag_axi_test_proc_sys_reset_0_0\\jtag_axi_test_proc_sys_reset_0_0.xci",
         "inst_hier_path": "proc_sys_reset_0"
       },
       "clk_wiz_0": {
         "vlnv": "xilinx.com:ip:clk_wiz:6.0",
         "xci_name": "jtag_axi_test_clk_wiz_0_0",
-        "xci_path": "ip/jtag_axi_test_clk_wiz_0_0/jtag_axi_test_clk_wiz_0_0.xci",
+        "xci_path": "ip\\jtag_axi_test_clk_wiz_0_0\\jtag_axi_test_clk_wiz_0_0.xci",
         "inst_hier_path": "clk_wiz_0",
         "parameters": {
           "CLKOUT1_JITTER": {
@@ -2016,7 +2016,7 @@
       "ila_0": {
         "vlnv": "xilinx.com:ip:ila:6.2",
         "xci_name": "jtag_axi_test_ila_0_1",
-        "xci_path": "ip/jtag_axi_test_ila_0_1/jtag_axi_test_ila_0_1.xci",
+        "xci_path": "ip\\jtag_axi_test_ila_0_1\\jtag_axi_test_ila_0_1.xci",
         "inst_hier_path": "ila_0",
         "parameters": {
           "C_DATA_DEPTH": {
@@ -2036,13 +2036,13 @@
       "axis_data_fifo_0": {
         "vlnv": "xilinx.com:ip:axis_data_fifo:2.0",
         "xci_name": "jtag_axi_test_axis_data_fifo_0_0",
-        "xci_path": "ip/jtag_axi_test_axis_data_fifo_0_0/jtag_axi_test_axis_data_fifo_0_0.xci",
+        "xci_path": "ip\\jtag_axi_test_axis_data_fifo_0_0\\jtag_axi_test_axis_data_fifo_0_0.xci",
         "inst_hier_path": "axis_data_fifo_0"
       },
       "seeg_top_0": {
         "vlnv": "xilinx.com:module_ref:seeg_top:1.0",
         "xci_name": "jtag_axi_test_seeg_top_0_0",
-        "xci_path": "ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0.xci",
+        "xci_path": "ip\\jtag_axi_test_seeg_top_0_0\\jtag_axi_test_seeg_top_0_0.xci",
         "inst_hier_path": "seeg_top_0",
         "reference_info": {
           "ref_type": "hdl",
@@ -2086,18 +2086,6 @@
               "HAS_TLAST": {
                 "value": "1",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "78000972",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "jtag_axi_test_clk_wiz_0_0_clk_78M",
-                "value_src": "default_prop"
               }
             },
             "port_maps": {
@@ -2133,10 +2121,6 @@
               "PROTOCOL": {
                 "value": "AXI4LITE",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "78000972",
-                "value_src": "ip_prop"
               },
               "ID_WIDTH": {
                 "value": "0",
@@ -2221,14 +2205,6 @@
               "MAX_BURST_LENGTH": {
                 "value": "1",
                 "value_src": "auto"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "jtag_axi_test_clk_wiz_0_0_clk_78M",
-                "value_src": "default_prop"
               }
             },
             "memory_map_ref": "S_AXI",
@@ -2342,18 +2318,6 @@
               "ASSOCIATED_RESET": {
                 "value": "M_AXIS_ARESETN",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "78000972",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "jtag_axi_test_clk_wiz_0_0_clk_78M",
-                "value_src": "default_prop"
               }
             }
           },
@@ -2378,18 +2342,6 @@
               "ASSOCIATED_RESET": {
                 "value": "S_AXI_ARESETN",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "78000972",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "jtag_axi_test_clk_wiz_0_0_clk_78M",
-                "value_src": "default_prop"
               }
             }
           },
