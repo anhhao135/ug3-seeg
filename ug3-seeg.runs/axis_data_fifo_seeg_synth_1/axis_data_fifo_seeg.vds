@@ -3,8 +3,8 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Wed Sep 18 12:28:25 2024
-# Process ID: 27416
+# Start of session at: Wed Sep 18 12:59:04 2024
+# Process ID: 19288
 # Current directory: C:/Repos/ug3-seeg/ug3-seeg.runs/axis_data_fifo_seeg_synth_1
 # Command line: vivado.exe -log axis_data_fifo_seeg.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source axis_data_fifo_seeg.tcl
 # Log file: C:/Repos/ug3-seeg/ug3-seeg.runs/axis_data_fifo_seeg_synth_1/axis_data_fifo_seeg.vds
@@ -12,7 +12,7 @@
 # Running On: Gingham, OS: Windows, CPU Frequency: 3600 MHz, CPU Physical cores: 8, Host memory: 34265 MB
 #-----------------------------------------------------------
 source axis_data_fifo_seeg.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 473.762 ; gain = 160.031
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 471.949 ; gain = 158.906
 INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: axis_data_fifo_seeg
 Command: synth_design -top axis_data_fifo_seeg -part xck26-sfvc784-2LV-c -incremental_mode off -mode out_of_context
 Starting synth_design
@@ -21,9 +21,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xck26'
 INFO: [Device 21-403] Loading part xck26-sfvc784-2LV-c
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 29088
+INFO: [Synth 8-7075] Helper process launched with PID 3936
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1857.828 ; gain = 339.832
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1857.977 ; gain = 338.121
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'axis_data_fifo_seeg' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/axis_data_fifo_seeg/synth/axis_data_fifo_seeg.v:53]
 INFO: [Synth 8-6157] synthesizing module 'axis_data_fifo_v2_0_10_top' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/axis_data_fifo_seeg/hdl/axis_data_fifo_v2_0_vl_rfs.v:54]
@@ -162,23 +162,24 @@ WARNING: [Synth 8-7129] Port injectdbiterrb in module xpm_memory_base is either 
 WARNING: [Synth 8-7129] Port m_aclk in module xpm_fifo_axis is either unconnected or has no load
 WARNING: [Synth 8-7129] Port m_axis_aclk in module axis_data_fifo_v2_0_10_top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2010.668 ; gain = 492.672
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2010.633 ; gain = 490.777
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2010.668 ; gain = 492.672
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2010.633 ; gain = 490.777
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2010.668 ; gain = 492.672
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2010.633 ; gain = 490.777
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 2010.668 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 2010.633 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/axis_data_fifo_seeg/axis_data_fifo_seeg_ooc.xdc] for cell 'inst'
+create_clock: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2099.586 ; gain = 3.484
 Finished Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/axis_data_fifo_seeg/axis_data_fifo_seeg_ooc.xdc] for cell 'inst'
 Parsing XDC File [C:/Repos/ug3-seeg/ug3-seeg.runs/axis_data_fifo_seeg_synth_1/dont_touch.xdc]
 Finished Parsing XDC File [C:/Repos/ug3-seeg/ug3-seeg.runs/axis_data_fifo_seeg_synth_1/dont_touch.xdc]
@@ -187,14 +188,14 @@ Resolution: To avoid this warning, move constraints listed in [.Xil/axis_data_fi
 INFO: [Project 1-1714] 2 XPM XDC files have been applied to the design.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2099.898 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2099.586 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 2100.023 ; gain = 0.125
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 2099.992 ; gain = 0.406
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2100.023 ; gain = 582.027
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 2099.992 ; gain = 580.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -202,7 +203,7 @@ Start Loading Part and Timing Information
 Loading part: xck26-sfvc784-2LV-c
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2100.023 ; gain = 582.027
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 2099.992 ; gain = 580.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -211,7 +212,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  C:/Repos/
 Applied set_property KEEP_HIERARCHY = SOFT for inst/\gen_fifo.xpm_fifo_axis_inst /\gaxis_rst_sync.xpm_cdc_sync_rst_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for inst/\gen_fifo.xpm_fifo_axis_inst . (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2100.023 ; gain = 582.027
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 2099.992 ; gain = 580.137
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'gen_fwft.curr_fwft_state_reg' in module 'xpm_fifo_base'
 INFO: [Synth 8-6792] Large memory block ("xpm_memory_base:/gen_wr_a.gen_word_narrow.mem_reg") is implemented using BRAM instead of URAM due to insufficient pipeline registers. Use of ram_style="ultra" and/or providing sufficient pipeline registers is recommended
@@ -239,7 +240,7 @@ INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'gen_fwft.curr_fwft_state_reg' using encoding 'sequential' in module 'xpm_fifo_base'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2100.023 ; gain = 582.027
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 2099.992 ; gain = 580.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -296,7 +297,7 @@ INFO: [Synth 8-5555] Implemented Block Ram Cascade chain of height 8 and width 1
 INFO: [Synth 8-5555] Implemented Block Ram Cascade chain of height 8 and width 9 for RAM "inst/\gen_fifo.xpm_fifo_axis_inst /xpm_fifo_base_inst/\gen_sdpram.xpm_memory_base_inst /gen_wr_a.gen_word_narrow.mem_reg"
 INFO: [Synth 8-5555] Implemented Block Ram Cascade chain of height 2 and width 2 for RAM "inst/\gen_fifo.xpm_fifo_axis_inst /xpm_fifo_base_inst/\gen_sdpram.xpm_memory_base_inst /gen_wr_a.gen_word_narrow.mem_reg"
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2100.023 ; gain = 582.027
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 2099.992 ; gain = 580.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -317,13 +318,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 2556.727 ; gain = 1038.730
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:45 . Memory (MB): peak = 2553.543 ; gain = 1033.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2565.590 ; gain = 1047.594
+Finished Timing Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:45 . Memory (MB): peak = 2562.035 ; gain = 1042.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -349,7 +350,7 @@ INFO: [Synth 8-7052] The timing for the instance inst/gen_fifo.xpm_fifo_axis_ins
 INFO: [Synth 8-7052] The timing for the instance inst/gen_fifo.xpm_fifo_axis_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_bram_39 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance inst/gen_fifo.xpm_fifo_axis_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_bram_47 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2585.215 ; gain = 1067.219
+Finished Technology Mapping : Time (s): cpu = 00:00:39 ; elapsed = 00:00:46 . Memory (MB): peak = 2581.684 ; gain = 1061.828
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -367,37 +368,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 2594.473 ; gain = 1076.477
+Finished IO Insertion : Time (s): cpu = 00:00:43 ; elapsed = 00:00:50 . Memory (MB): peak = 2588.977 ; gain = 1069.121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 2594.473 ; gain = 1076.477
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:43 ; elapsed = 00:00:50 . Memory (MB): peak = 2588.977 ; gain = 1069.121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 2594.473 ; gain = 1076.477
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:43 ; elapsed = 00:00:50 . Memory (MB): peak = 2588.977 ; gain = 1069.121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 2594.473 ; gain = 1076.477
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:43 ; elapsed = 00:00:50 . Memory (MB): peak = 2588.977 ; gain = 1069.121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 2594.473 ; gain = 1076.477
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:43 ; elapsed = 00:00:50 . Memory (MB): peak = 2588.977 ; gain = 1069.121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 2594.473 ; gain = 1076.477
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:43 ; elapsed = 00:00:50 . Memory (MB): peak = 2588.977 ; gain = 1069.121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -425,18 +426,18 @@ Report Cell Usage:
 |20    |FDSE     |     9|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 2594.473 ; gain = 1076.477
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:43 ; elapsed = 00:00:50 . Memory (MB): peak = 2588.977 ; gain = 1069.121
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 115 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:35 . Memory (MB): peak = 2594.473 ; gain = 987.121
-Synthesis Optimization Complete : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 2594.473 ; gain = 1076.477
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:43 . Memory (MB): peak = 2588.977 ; gain = 979.762
+Synthesis Optimization Complete : Time (s): cpu = 00:00:43 ; elapsed = 00:00:50 . Memory (MB): peak = 2588.977 ; gain = 1069.121
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 2606.512 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 2602.039 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2630.891 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2624.465 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
@@ -444,7 +445,7 @@ Synth Design complete | Checksum: 3a152a74
 INFO: [Common 17-83] Releasing license: Synthesis
 88 Infos, 104 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 2630.891 ; gain = 2086.453
+synth_design: Time (s): cpu = 00:00:51 ; elapsed = 00:01:00 . Memory (MB): peak = 2624.465 ; gain = 2080.371
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
 INFO: [Common 17-1381] The checkpoint 'C:/Repos/ug3-seeg/ug3-seeg.runs/axis_data_fifo_seeg_synth_1/axis_data_fifo_seeg.dcp' has been generated.
@@ -452,4 +453,4 @@ INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP axis_data_fifo_
 INFO: [Coretcl 2-1174] Renamed 11 cell refs.
 INFO: [Common 17-1381] The checkpoint 'C:/Repos/ug3-seeg/ug3-seeg.runs/axis_data_fifo_seeg_synth_1/axis_data_fifo_seeg.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file axis_data_fifo_seeg_utilization_synth.rpt -pb axis_data_fifo_seeg_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Sep 18 12:29:26 2024...
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 18 13:00:16 2024...

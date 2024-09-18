@@ -1,0 +1,587 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date              : Wed Sep 18 13:16:56 2024
+| Host              : Gingham running 64-bit major release  (build 9200)
+| Command           : report_clock_utilization -file jtag_axi_test_wrapper_clock_utilization_routed.rpt
+| Design            : jtag_axi_test_wrapper
+| Device            : xck26-sfvc784
+| Speed File        : -2LV  PRODUCTION 1.30 05-15-2022
+| Temperature Grade : C
+| Design State      : Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+Clock Utilization Report
+
+Table of Contents
+-----------------
+1. Clock Primitive Utilization
+2. Global Clock Resources
+3. Global Clock Source Details
+4. Clock Regions : Clock Primitives
+5. Clock Regions : Load Primitives
+6. Clock Regions : Global Clock Summary
+7. Clock Regions : Routing Resource Utilization
+8. Device Cell Placement Summary for Global Clock g0
+9. Device Cell Placement Summary for Global Clock g1
+10. Device Cell Placement Summary for Global Clock g2
+11. Device Cell Placement Summary for Global Clock g3
+12. Device Cell Placement Summary for Global Clock g4
+13. Device Cell Placement Summary for Global Clock g5
+14. Device Cell Placement Summary for Global Clock g6
+15. Device Cell Placement Summary for Global Clock g7
+16. Device Cell Placement Summary for Global Clock g8
+17. Clock Region Cell Placement per Global Clock: Region X1Y0
+18. Clock Region Cell Placement per Global Clock: Region X2Y0
+19. Clock Region Cell Placement per Global Clock: Region X0Y1
+20. Clock Region Cell Placement per Global Clock: Region X1Y1
+21. Clock Region Cell Placement per Global Clock: Region X2Y1
+22. Clock Region Cell Placement per Global Clock: Region X0Y2
+23. Clock Region Cell Placement per Global Clock: Region X1Y2
+24. Clock Region Cell Placement per Global Clock: Region X2Y2
+25. Clock Region Cell Placement per Global Clock: Region X0Y3
+26. Clock Region Cell Placement per Global Clock: Region X1Y3
+27. Clock Region Cell Placement per Global Clock: Region X2Y3
+
+1. Clock Primitive Utilization
+------------------------------
+
++------------+------+-----------+-----+--------------+--------+
+| Type       | Used | Available | LOC | Clock Region | Pblock |
++------------+------+-----------+-----+--------------+--------+
+| BUFGCE     |    8 |       112 |   0 |            0 |      0 |
+| BUFGCE_DIV |    0 |        16 |   0 |            0 |      0 |
+| BUFGCTRL   |    0 |        32 |   0 |            0 |      0 |
+| BUFG_GT    |    0 |        96 |   0 |            0 |      0 |
+| BUFG_PS    |    1 |        96 |   0 |            0 |      0 |
+| MMCM       |    1 |         4 |   0 |            0 |      0 |
+| PLL        |    0 |         8 |   0 |            0 |      0 |
++------------+------+-----------+-----+--------------+--------+
+
+
+2. Global Clock Resources
+-------------------------
+
++-----------+-----------+-----------------+------------+---------------+--------------+------+-------------------+------------------+-------------------+-------------+-----------------+--------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Global Id | Source Id | Driver Type/Pin | Constraint | Site          | Clock Region | Root | Clock Delay Group | Clock Low Fanout | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock                                                                                               | Driver Pin                                                                              | Net                                                                               |
++-----------+-----------+-----------------+------------+---------------+--------------+------+-------------------+------------------+-------------------+-------------+-----------------+--------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| g0        | src0      | BUFGCE/O        | None       | BUFGCE_X0Y82  | X1Y3         | X1Y1 |                   |                  |                10 |        5450 |               1 |       12.820 | clk_78M_jtag_axi_test_clk_wiz_0_0                                                                   | jtag_axi_test_i/clk_wiz_0/inst/clkout1_buf/O                                            | jtag_axi_test_i/clk_wiz_0/inst/clk_78M                                            |
+| g1        | src1      | BUFGCE/O        | None       | BUFGCE_X0Y48  | X1Y2         | X1Y2 |                   |                  |                 4 |        3725 |               0 |              |                                                                                                     | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByFour/BUFGCE_inst/O                    | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByFour/clk_rhd                    |
+| g2        | src0      | BUFGCE/O        | None       | BUFGCE_X0Y49  | X1Y2         | X1Y2 |                   |                  |                 4 |        1679 |               0 |       12.820 | clk_78M_jtag_axi_test_clk_wiz_0_0                                                                   | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByTwo/clk_BUFG_inst/O                   | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByTwo/clk_BUFGCE                  |
+| g3        | src2      | BUFGCE/O        | None       | BUFGCE_X0Y77  | X1Y3         | X2Y2 |                   |                  |                 1 |         465 |               0 |       50.000 | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.u_bufg_icon_tck/O                    | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                                            |
+| g4        | src3      | BUFG_PS/O       | None       | BUFG_PS_X0Y89 | X0Y3         | X0Y2 |                   |                  |                 2 |           1 |               1 |       10.000 | clk_pl_0                                                                                            | jtag_axi_test_i/zynq_ultra_ps_e_0/inst/buffer_pl_clk_0.PL_CLK_0_BUFG/O                  | jtag_axi_test_i/zynq_ultra_ps_e_0/inst/pl_clk0                                    |
+| g5        | src4      | BUFGCE/O        | None       | BUFGCE_X0Y80  | X1Y3         | X1Y3 | n/a               |                  |                 4 |           0 |            4086 |          n/a | n/a                                                                                                 | jtag_axi_test_i/proc_sys_reset_0/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N_bufg_place/O    | jtag_axi_test_i/proc_sys_reset_0/U0/peripheral_aresetn[0]                         |
+| g6        | src5      | BUFGCE/O        | None       | BUFGCE_X0Y50  | X1Y2         | X1Y2 | n/a               |                  |                 6 |           0 |             129 |          n/a | n/a                                                                                                 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/A1/ClockDivideByEight/BUFGCE_inst/O       | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/A1/ClockDivideByEight/BUFGCE_inst_0 |
+| g7        | src6      | BUFGCE/O        | None       | BUFGCE_X0Y86  | X1Y3         | X1Y3 | n/a               |                  |                 3 |           0 |            1024 |          n/a | n/a                                                                                                 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/H2/data_out_b_A2_reg[15]_i_2_bufg_place/O | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/H2/S_AXI_ARESETN_0[0]               |
+| g8        | src7      | BUFGCE/O        | None       | BUFGCE_X0Y52  | X1Y2         | X1Y2 | n/a               |                  |                 4 |           0 |              38 |          n/a | n/a                                                                                                 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/A/ClockDivideByEight/BUFGCE_inst/O         | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/A/ClockDivideByEight/BUFGCE_inst_0   |
++-----------+-----------+-----------------+------------+---------------+--------------+------+-------------------+------------------+-------------------+-------------+-----------------+--------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+
+
+3. Global Clock Source Details
+------------------------------
+
++-----------+-----------+--------------------+------------+------------------+--------------+-------------+-----------------+---------------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------+
+| Source Id | Global Id | Driver Type/Pin    | Constraint | Site             | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock                                                                                        | Driver Pin                                                                                                | Net                                                                            |
++-----------+-----------+--------------------+------------+------------------+--------------+-------------+-----------------+---------------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------+
+| src0      | g0        | MMCME4_ADV/CLKOUT0 | None       | MMCM_X0Y3        | X1Y3         |           1 |               0 |              12.820 | clk_78M_jtag_axi_test_clk_wiz_0_0                                                                   | jtag_axi_test_i/clk_wiz_0/inst/mmcme4_adv_inst/CLKOUT0                                                    | jtag_axi_test_i/clk_wiz_0/inst/clk_78M_jtag_axi_test_clk_wiz_0_0               |
+| src0      | g2        | LUT3/O             | None       | SLICE_X23Y152    | X1Y2         |           1 |               0 |              12.820 | clk_78M_jtag_axi_test_clk_wiz_0_0                                                                   | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByTwo/CS_i_2__0/O                                         | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByTwo/clk                      |
+| src1      | g1        | FDRE/Q             | None       | SLICE_X23Y151    | X1Y2         |           1 |               0 |                     |                                                                                                     | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByFour/clock_out_pre_buff_reg/Q                           | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByFour/clock_out_pre_buff      |
+| src2      | g3        | BSCANE2/TCK        | None       | CONFIG_SITE_X0Y0 | X2Y2         |           1 |               0 |              50.000 | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/TCK                | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/TCK              |
+| src3      | g4        | PS8/PLCLK[0]       | None       | PS8_X0Y0         | X0Y1         |           1 |               0 |              10.000 | clk_pl_0                                                                                            | jtag_axi_test_i/zynq_ultra_ps_e_0/inst/PS8_i/PLCLK[0]                                                     | jtag_axi_test_i/zynq_ultra_ps_e_0/inst/pl_clk_unbuffered[0]                    |
+| src4      | g5        | FDRE/Q             | None       | SLICE_X22Y230    | X0Y3         |           1 |               0 |                     |                                                                                                     | jtag_axi_test_i/proc_sys_reset_0/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q                                 | jtag_axi_test_i/proc_sys_reset_0/U0/peripheral_aresetn[0]_bufg_place           |
+| src5      | g6        | FDRE/Q             | None       | SLICE_X38Y176    | X1Y2         |           1 |               0 |                     |                                                                                                     | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/A1/ClockDivideByEight/clock_out_pre_buff_reg_lopt_replica/Q | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/A1/ClockDivideByEight/Q_replN    |
+| src6      | g7        | LUT6/O             | None       | SLICE_X45Y189    | X2Y3         |           1 |               1 |                     |                                                                                                     | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/H2/data_out_b_A2_reg[15]_i_2/O                              | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/H2/S_AXI_ARESETN_0[0]_bufg_place |
+| src7      | g8        | FDRE/Q             | None       | SLICE_X36Y163    | X1Y2         |           1 |               0 |                     |                                                                                                     | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/A/ClockDivideByEight/clock_out_pre_buff_reg_lopt_replica/Q   | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/A/ClockDivideByEight/Q_replN      |
++-----------+-----------+--------------------+------------+------------------+--------------+-------------+-----------------+---------------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+
+
+4. Clock Regions : Clock Primitives
+-----------------------------------
+
++-------------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+|                   |  Global Clock |     BUFGCE    |   BUFGCE_DIV  |    BUFGCTRL   |    BUFG_GT    |    BUFG_PS    |      MMCM     |      PLL      |
++-------------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| Clock Region Name | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail |
++-------------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| X0Y0              |     0 |    24 |     0 |     4 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y0              |     1 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X2Y0              |     1 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X0Y1              |     2 |    24 |     0 |     4 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y1              |     3 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X2Y1              |     3 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X0Y2              |     2 |    24 |     0 |     4 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y2              |     7 |    24 |     4 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X2Y2              |     7 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X0Y3              |     2 |    24 |     0 |     4 |     0 |     0 |     0 |     0 |     0 |     0 |     1 |    24 |     0 |     0 |     0 |     0 |
+| X1Y3              |     8 |    24 |     4 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     0 |     1 |     1 |     0 |     2 |
+| X2Y3              |     7 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |
++-------------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+* Global Clock column represents track count; while other columns represents cell counts
+
+
+5. Clock Regions : Load Primitives
+----------------------------------
+
++-------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+|                   |   Global Clock   |        FF        |      LUTRAM      |  Block RAM (18K) |       URAM       |        DSP       |        GT        |      HARD IP     |
++-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
+| Clock Region Name | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   |
++-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
+| X0Y0              |      0 |      24 |      0 |   22080 |      0 |    6240 |      0 |       0 |      0 |       0 |      0 |     144 |      0 |       0 |      0 |       0 |
+| X1Y0              |      1 |      24 |      9 |   17280 |      0 |    5280 |     24 |      24 |      0 |       0 |      0 |     144 |      0 |       0 |      0 |       0 |
+| X2Y0              |      1 |      24 |     34 |   19200 |      0 |    2880 |     46 |      48 |      0 |      16 |      0 |      24 |      0 |       4 |      0 |       1 |
+| X0Y1              |      2 |      24 |      6 |   22080 |      0 |    6240 |      0 |       0 |      0 |       0 |      0 |     144 |      0 |       0 |      0 |       0 |
+| X1Y1              |      3 |      24 |     18 |   17280 |      0 |    5280 |     24 |      24 |      0 |       0 |      0 |     144 |      0 |       0 |      0 |       0 |
+| X2Y1              |      3 |      24 |   1035 |   19200 |     78 |    2880 |     48 |      48 |      0 |      16 |      0 |      24 |      0 |       4 |      0 |       1 |
+| X0Y2              |      2 |      24 |      0 |   22080 |      0 |    6240 |      0 |       0 |      0 |       0 |      0 |     144 |      0 |       0 |      0 |       0 |
+| X1Y2              |      7 |      24 |    885 |   17280 |      1 |    5280 |     21 |      24 |      0 |       0 |      0 |     144 |      0 |       0 |      0 |       0 |
+| X2Y2              |      7 |      24 |   3723 |   19200 |     44 |    2880 |     46 |      48 |      0 |      16 |      0 |      24 |      0 |       4 |      0 |       0 |
+| X0Y3              |      2 |      24 |     33 |   22080 |      1 |    6240 |      0 |       0 |      0 |       0 |      0 |     144 |      0 |       0 |      0 |       0 |
+| X1Y3              |      8 |      24 |   1086 |   17280 |      0 |    5280 |     16 |      24 |      0 |       0 |      0 |     144 |      0 |       0 |      0 |       0 |
+| X2Y3              |      7 |      24 |   4095 |   19200 |     21 |    2880 |     42 |      48 |      0 |      16 |      0 |      24 |      0 |       4 |      0 |       0 |
++-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
+* Global Clock column represents track count; while other columns represents cell counts
+
+
+6. Clock Regions : Global Clock Summary
+---------------------------------------
+
+All Modules
++----+----+----+----+
+|    | X0 | X1 | X2 |
++----+----+----+----+
+| Y3 |  1 |  4 |  0 |
+| Y2 |  0 |  4 |  0 |
+| Y1 |  0 |  0 |  0 |
+| Y0 |  0 |  0 |  0 |
++----+----+----+----+
+
+
+7. Clock Regions : Routing Resource Utilization
+-----------------------------------------------
+
+All Modules
++-------------------+----------------------+----------------------+----------------------+----------------------+
+|                   |        HROUTES       |        HDISTRS       |        VROUTES       |        VDISTRS       |
++-------------------+------+-------+-------+------+-------+-------+------+-------+-------+------+-------+-------+
+| Clock Region Name | Used | Avail | Util% | Used | Avail | Util% | Used | Avail | Util% | Used | Avail | Util% |
++-------------------+------+-------+-------+------+-------+-------+------+-------+-------+------+-------+-------+
+| X0Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y0              |    0 |    24 |  0.00 |    1 |    24 |  4.17 |    0 |    24 |  0.00 |    1 |    24 |  4.17 |
+| X2Y0              |    0 |    24 |  0.00 |    1 |    24 |  4.17 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y1              |    0 |    24 |  0.00 |    2 |    24 |  8.33 |    0 |    24 |  0.00 |    1 |    24 |  4.17 |
+| X1Y1              |    0 |    24 |  0.00 |    3 |    24 | 12.50 |    1 |    24 |  4.17 |    3 |    24 | 12.50 |
+| X2Y1              |    0 |    24 |  0.00 |    3 |    24 | 12.50 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y2              |    0 |    24 |  0.00 |    2 |    24 |  8.33 |    1 |    24 |  4.17 |    1 |    24 |  4.17 |
+| X1Y2              |    0 |    24 |  0.00 |    7 |    24 | 29.17 |    1 |    24 |  4.17 |    7 |    24 | 29.17 |
+| X2Y2              |    0 |    24 |  0.00 |    7 |    24 | 29.17 |    1 |    24 |  4.17 |    1 |    24 |  4.17 |
+| X0Y3              |    2 |    24 |  8.33 |    2 |    24 |  8.33 |    1 |    24 |  4.17 |    0 |    24 |  0.00 |
+| X1Y3              |    3 |    24 | 12.50 |    8 |    24 | 33.33 |    1 |    24 |  4.17 |    2 |    24 |  8.33 |
+| X2Y3              |    1 |    24 |  4.17 |    7 |    24 | 29.17 |    1 |    24 |  4.17 |    0 |    24 |  0.00 |
++-------------------+------+-------+-------+------+-------+-------+------+-------+-------+------+-------+-------+
+
+
+8. Device Cell Placement Summary for Global Clock g0
+----------------------------------------------------
+
++-----------+-----------------+-------------------+-----------------------------------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock                             | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                    |
++-----------+-----------------+-------------------+-----------------------------------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------------------------------+
+| g0        | BUFGCE/O        | X1Y3              | clk_78M_jtag_axi_test_clk_wiz_0_0 |      12.820 | {0.000 6.410} | X1Y1     |        5339 |        0 |              0 |        0 | jtag_axi_test_i/clk_wiz_0/inst/clk_78M |
++-----------+-----------------+-------------------+-----------------------------------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++----+-----+----------+-------+-----------------------+
+|    | X0  | X1       | X2    | HORIZONTAL PROG DELAY |
++----+-----+----------+-------+-----------------------+
+| Y3 |  34 |  (D) 300 |  1737 |                     0 |
+| Y2 |   0 |      268 |  1749 |                     1 |
+| Y1 |   6 |   (R) 30 |  1137 |                     1 |
+| Y0 |   0 |       21 |    57 |                     0 |
++----+-----+----------+-------+-----------------------+
+
+
+9. Device Cell Placement Summary for Global Clock g1
+----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                            |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------------------------------------------------------+
+| g1        | BUFGCE/O        | X1Y2              |       |             |               | X1Y2     |        3725 |        0 |              0 |        0 | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByFour/clk_rhd |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++----+----+-------------+-------+-----------------------+
+|    | X0 | X1          | X2    | HORIZONTAL PROG DELAY |
++----+----+-------------+-------+-----------------------+
+| Y3 |  0 |         549 |   970 |                     0 |
+| Y2 |  0 | (R) (D) 629 |  1577 |                     0 |
+| Y1 |  0 |           0 |     0 |                     - |
+| Y0 |  0 |           0 |     0 |                     - |
++----+----+-------------+-------+-----------------------+
+
+
+10. Device Cell Placement Summary for Global Clock g2
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-----------------------------------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock                             | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                              |
++-----------+-----------------+-------------------+-----------------------------------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------+
+| g2        | BUFGCE/O        | X1Y2              | clk_78M_jtag_axi_test_clk_wiz_0_0 |      12.820 | {0.000 6.410} | X1Y2     |        1679 |        0 |              0 |        0 | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByTwo/clk_BUFGCE |
++-----------+-----------------+-------------------+-----------------------------------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++----+----+-----------+-------+-----------------------+
+|    | X0 | X1        | X2    | HORIZONTAL PROG DELAY |
++----+----+-----------+-------+-----------------------+
+| Y3 |  0 |       245 |  1432 |                     0 |
+| Y2 |  0 | (R) (D) 1 |     1 |                     0 |
+| Y1 |  0 |         0 |     0 |                     - |
+| Y0 |  0 |         0 |     0 |                     - |
++----+----+-----------+-------+-----------------------+
+
+
+11. Device Cell Placement Summary for Global Clock g3
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-----------------------------------------------------------------------------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock                                                                                               | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                    |
++-----------+-----------------+-------------------+-----------------------------------------------------------------------------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+----------------------------------------+
+| g3        | BUFGCE/O        | X1Y3              | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK |      50.000 | {0.000 25.000} | X2Y2     |         465 |        0 |              0 |        0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i |
++-----------+-----------------+-------------------+-----------------------------------------------------------------------------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++----+----+--------+---------+-----------------------+
+|    | X0 | X1     | X2      | HORIZONTAL PROG DELAY |
++----+----+--------+---------+-----------------------+
+| Y3 |  0 |  (D) 0 |       0 |                     - |
+| Y2 |  0 |      0 | (R) 465 |                     0 |
+| Y1 |  0 |      0 |       0 |                     - |
+| Y0 |  0 |      0 |       0 |                     - |
++----+----+--------+---------+-----------------------+
+
+
+12. Device Cell Placement Summary for Global Clock g4
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                            |
++-----------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------+
+| g4        | BUFG_PS/O       | X0Y3              | clk_pl_0 |      10.000 | {0.000 5.000} | X0Y2     |           1 |        0 |              1 |        0 | jtag_axi_test_i/zynq_ultra_ps_e_0/inst/pl_clk0 |
++-----------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++----+--------+----+----+-----------------------+
+|    | X0     | X1 | X2 | HORIZONTAL PROG DELAY |
++----+--------+----+----+-----------------------+
+| Y3 |  (D) 0 |  1 |  0 |                     1 |
+| Y2 |  (R) 0 |  0 |  0 |                     - |
+| Y1 |      1 |  0 |  0 |                     0 |
+| Y0 |      0 |  0 |  0 |                     - |
++----+--------+----+----+-----------------------+
+
+
+13. Device Cell Placement Summary for Global Clock g5
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                       |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------------------------+
+| g5        | BUFGCE/O        | X1Y3              |       |             |               | X1Y3     |        4086 |        0 |              0 |        0 | jtag_axi_test_i/proc_sys_reset_0/U0/peripheral_aresetn[0] |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++----+----+-------------+-------+-----------------------+
+|    | X0 | X1          | X2    | HORIZONTAL PROG DELAY |
++----+----+-------------+-------+-----------------------+
+| Y3 |  0 | (R) (D) 868 |  2183 |                     0 |
+| Y2 |  0 |         244 |   791 |                     0 |
+| Y1 |  0 |           0 |     0 |                     - |
+| Y0 |  0 |           0 |     0 |                     - |
++----+----+-------------+-------+-----------------------+
+
+
+14. Device Cell Placement Summary for Global Clock g6
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                               |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------------------------------------------------+
+| g6        | BUFGCE/O        | X1Y2              |       |             |               | X1Y2     |         128 |        1 |              0 |        0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/A1/ClockDivideByEight/BUFGCE_inst_0 |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++----+----+------------+-----+-----------------------+
+|    | X0 | X1         | X2  | HORIZONTAL PROG DELAY |
++----+----+------------+-----+-----------------------+
+| Y3 |  0 |         46 |   6 |                     0 |
+| Y2 |  1 | (R) (D) 64 |  11 |                     0 |
+| Y1 |  0 |          0 |   1 |                     0 |
+| Y0 |  0 |          0 |   0 |                     - |
++----+----+------------+-----+-----------------------+
+
+
+15. Device Cell Placement Summary for Global Clock g7
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                 |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------------------+
+| g7        | BUFGCE/O        | X1Y3              |       |             |               | X1Y3     |        1024 |        0 |              0 |        0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/H2/S_AXI_ARESETN_0[0] |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++----+----+-----------+------+-----------------------+
+|    | X0 | X1        | X2   | HORIZONTAL PROG DELAY |
++----+----+-----------+------+-----------------------+
+| Y3 |  0 | (R) (D) 0 |  142 |                     0 |
+| Y2 |  0 |       144 |  738 |                     0 |
+| Y1 |  0 |         0 |    0 |                     - |
+| Y0 |  0 |         0 |    0 |                     - |
++----+----+-----------+------+-----------------------+
+
+
+16. Device Cell Placement Summary for Global Clock g8
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                             |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------------------------------+
+| g8        | BUFGCE/O        | X1Y2              |       |             |               | X1Y2     |          37 |        1 |              0 |        0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/A/ClockDivideByEight/BUFGCE_inst_0 |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++----+----+-----------+-----+-----------------------+
+|    | X0 | X1        | X2  | HORIZONTAL PROG DELAY |
++----+----+-----------+-----+-----------------------+
+| Y3 |  0 |        23 |  12 |                     0 |
+| Y2 |  1 | (R) (D) 0 |   0 |                     0 |
+| Y1 |  0 |         0 |   2 |                     0 |
+| Y0 |  0 |         0 |   0 |                     - |
++----+----+-----------+-----+-----------------------+
+
+
+17. Clock Region Cell Placement per Global Clock: Region X1Y0
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+----------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                    |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+----------------------------------------+
+| g0        | 10    | BUFGCE/O        | None       |          21 |               0 |  9 |           0 |   12 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/clk_wiz_0/inst/clk_78M |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+----------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+
+
+18. Clock Region Cell Placement per Global Clock: Region X2Y0
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+----------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                    |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+----------------------------------------+
+| g0        | 10    | BUFGCE/O        | None       |          57 |               0 | 34 |           0 |   23 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/clk_wiz_0/inst/clk_78M |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+----------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+
+
+19. Clock Region Cell Placement per Global Clock: Region X0Y1
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                            |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+------------------------------------------------+
+| g0        | 10    | BUFGCE/O        | None       |           6 |               0 |  6 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/clk_wiz_0/inst/clk_78M         |
+| g4        | 17    | BUFG_PS/O       | None       |           1 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/zynq_ultra_ps_e_0/inst/pl_clk0 |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+
+
+20. Clock Region Cell Placement per Global Clock: Region X1Y1
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                               |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+| g0        | 10    | BUFGCE/O        | None       |          30 |               0 | 18 |           0 |   12 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/clk_wiz_0/inst/clk_78M                                            |
+| g6+       | 2     | BUFGCE/O        | None       |           0 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/A1/ClockDivideByEight/BUFGCE_inst_0 |
+| g8+       | 4     | BUFGCE/O        | None       |           0 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/A/ClockDivideByEight/BUFGCE_inst_0   |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
+
+
+21. Clock Region Cell Placement per Global Clock: Region X2Y1
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                               |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+| g0        | 10    | BUFGCE/O        | None       |        1137 |               0 | 1035 |          78 |   24 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/clk_wiz_0/inst/clk_78M                                            |
+| g6        | 2     | BUFGCE/O        | None       |           0 |               1 |    0 |           1 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/A1/ClockDivideByEight/BUFGCE_inst_0 |
+| g8        | 4     | BUFGCE/O        | None       |           0 |               2 |    0 |           1 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/A/ClockDivideByEight/BUFGCE_inst_0   |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+
+
+22. Clock Region Cell Placement per Global Clock: Region X0Y2
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                               |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+| g4+       | 17    | BUFG_PS/O       | None       |           0 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/zynq_ultra_ps_e_0/inst/pl_clk0                                    |
+| g6        | 2     | BUFGCE/O        | None       |           0 |               1 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/A1/ClockDivideByEight/BUFGCE_inst_0 |
+| g8        | 4     | BUFGCE/O        | None       |           0 |               1 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/A/ClockDivideByEight/BUFGCE_inst_0   |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
+
+
+23. Clock Region Cell Placement per Global Clock: Region X1Y2
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                               |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+| g0        | 10    | BUFGCE/O        | None       |         267 |               1 | 255 |           1 |   11 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/clk_wiz_0/inst/clk_78M                                            |
+| g1        | 0     | BUFGCE/O        | None       |         629 |               0 | 629 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByFour/clk_rhd                    |
+| g2        | 1     | BUFGCE/O        | None       |           1 |               0 |   1 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByTwo/clk_BUFGCE                  |
+| g5        | 8     | BUFGCE/O        | None       |           0 |             244 | 244 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/proc_sys_reset_0/U0/peripheral_aresetn[0]                         |
+| g6        | 2     | BUFGCE/O        | None       |           0 |              64 |   0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/A1/ClockDivideByEight/BUFGCE_inst_0 |
+| g7        | 14    | BUFGCE/O        | None       |           0 |             144 | 144 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/H2/S_AXI_ARESETN_0[0]               |
+| g8+       | 4     | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/A/ClockDivideByEight/BUFGCE_inst_0   |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
+
+
+24. Clock Region Cell Placement per Global Clock: Region X2Y2
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                               |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+| g0        | 10    | BUFGCE/O        | None       |        1749 |               0 | 1685 |          41 |   23 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/clk_wiz_0/inst/clk_78M                                            |
+| g1        | 0     | BUFGCE/O        | None       |        1577 |               0 | 1576 |           0 |    1 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByFour/clk_rhd                    |
+| g2        | 1     | BUFGCE/O        | None       |           1 |               0 |    0 |           0 |    1 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByTwo/clk_BUFGCE                  |
+| g3        | 5     | BUFGCE/O        | None       |         465 |               0 |  462 |           3 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                                            |
+| g5        | 8     | BUFGCE/O        | None       |           0 |             791 |  791 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/proc_sys_reset_0/U0/peripheral_aresetn[0]                         |
+| g6        | 2     | BUFGCE/O        | None       |           0 |              11 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/A1/ClockDivideByEight/BUFGCE_inst_0 |
+| g7        | 14    | BUFGCE/O        | None       |           0 |             738 |  738 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/H2/S_AXI_ARESETN_0[0]               |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+
+
+25. Clock Region Cell Placement per Global Clock: Region X0Y3
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                            |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+------------------------------------------------+
+| g0        | 10    | BUFGCE/O        | None       |          34 |               0 | 33 |           1 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/clk_wiz_0/inst/clk_78M         |
+| g4+       | 17    | BUFG_PS/O       | None       |           0 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/zynq_ultra_ps_e_0/inst/pl_clk0 |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
+
+
+26. Clock Region Cell Placement per Global Clock: Region X1Y3
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                               |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+| g0        | 10    | BUFGCE/O        | None       |         300 |               0 | 292 |           0 |    8 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/clk_wiz_0/inst/clk_78M                                            |
+| g1        | 0     | BUFGCE/O        | None       |         549 |               0 | 549 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByFour/clk_rhd                    |
+| g2        | 1     | BUFGCE/O        | None       |         245 |               0 | 245 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByTwo/clk_BUFGCE                  |
+| g3+       | 5     | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                                            |
+| g4        | 17    | BUFG_PS/O       | None       |           0 |               1 |   0 |           0 |    0 |    0 |   0 |  0 |    1 |   0 |       0 | jtag_axi_test_i/zynq_ultra_ps_e_0/inst/pl_clk0                                    |
+| g5        | 8     | BUFGCE/O        | None       |           0 |             868 | 868 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/proc_sys_reset_0/U0/peripheral_aresetn[0]                         |
+| g6        | 2     | BUFGCE/O        | None       |           0 |              46 |   0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/A1/ClockDivideByEight/BUFGCE_inst_0 |
+| g7+       | 14    | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/H2/S_AXI_ARESETN_0[0]               |
+| g8        | 4     | BUFGCE/O        | None       |           0 |              23 |   0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/A/ClockDivideByEight/BUFGCE_inst_0   |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
+
+
+27. Clock Region Cell Placement per Global Clock: Region X2Y3
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                               |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+| g0        | 10    | BUFGCE/O        | None       |        1737 |               0 | 1695 |          21 |   21 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/clk_wiz_0/inst/clk_78M                                            |
+| g1        | 0     | BUFGCE/O        | None       |         970 |               0 |  969 |           0 |    1 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByFour/clk_rhd                    |
+| g2        | 1     | BUFGCE/O        | None       |        1432 |               0 | 1431 |           0 |    1 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/ClockDivideByTwo/clk_BUFGCE                  |
+| g3+       | 5     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                                            |
+| g5        | 8     | BUFGCE/O        | None       |           0 |            2183 | 2183 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/proc_sys_reset_0/U0/peripheral_aresetn[0]                         |
+| g6        | 2     | BUFGCE/O        | None       |           0 |               6 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/A1/ClockDivideByEight/BUFGCE_inst_0 |
+| g7        | 14    | BUFGCE/O        | None       |           0 |             142 |  142 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhd_2048/H2/S_AXI_ARESETN_0[0]               |
+| g8        | 4     | BUFGCE/O        | None       |           0 |              12 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/A/ClockDivideByEight/BUFGCE_inst_0   |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
+
+
