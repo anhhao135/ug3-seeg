@@ -156,6 +156,30 @@ module seeg_top #
     input wire RHD_MISO2_P_P,
     input wire RHD_MISO2_P_N,
 
+    output wire RHD_MISO1_I_DEBUG,
+    output wire RHD_MISO2_I_DEBUG,
+
+    output wire RHD_MISO1_J_DEBUG,
+    output wire RHD_MISO2_J_DEBUG,
+
+    output wire RHD_MISO1_K_DEBUG,
+    output wire RHD_MISO2_K_DEBUG,
+
+    output wire RHD_MISO1_L_DEBUG,
+    output wire RHD_MISO2_L_DEBUG,
+
+    output wire RHD_MISO1_M_DEBUG,
+    output wire RHD_MISO2_M_DEBUG,
+
+    output wire RHD_MISO1_N_DEBUG,
+    output wire RHD_MISO2_N_DEBUG,
+
+    output wire RHD_MISO1_O_DEBUG,
+    output wire RHD_MISO2_O_DEBUG,
+
+    output wire RHD_MISO1_P_DEBUG,
+    output wire RHD_MISO2_P_DEBUG,
+
 
     //RHS data
 
@@ -213,6 +237,25 @@ module seeg_top #
     input wire RHS_MISO_O_N,
     input wire RHS_MISO_P_P,
     input wire RHS_MISO_P_N,
+
+
+    output wire RHS_MISO_I_DEBUG,
+    output wire RHS_MISO_J_DEBUG,
+    output wire RHS_MISO_K_DEBUG,
+    output wire RHS_MISO_L_DEBUG,
+    output wire RHS_MISO_M_DEBUG,
+    output wire RHS_MISO_N_DEBUG,
+    output wire RHS_MISO_O_DEBUG,
+    output wire RHS_MISO_P_DEBUG,
+
+    output wire RHS_MOSI_I_DEBUG,
+    output wire RHS_MOSI_J_DEBUG,
+    output wire RHS_MOSI_K_DEBUG,
+    output wire RHS_MOSI_L_DEBUG,
+    output wire RHS_MOSI_M_DEBUG,
+    output wire RHS_MOSI_N_DEBUG,
+    output wire RHS_MOSI_O_DEBUG,
+    output wire RHS_MOSI_P_DEBUG,
 
 
     input wire aux_signal

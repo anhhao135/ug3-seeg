@@ -15,11 +15,10 @@
       "jtag_axi_0": "",
       "proc_sys_reset_0": "",
       "clk_wiz_0": "",
-      "ila_0": "",
       "xlconstant_0": "",
       "seeg_top_0": "",
-      "diff_to_single_0": "",
-      "diff_to_single_1": ""
+      "ila_rhd": "",
+      "ila_rhs": ""
     },
     "ports": {
       "RHD_CS": {
@@ -330,7 +329,7 @@
       "zynq_ultra_ps_e_0": {
         "vlnv": "xilinx.com:ip:zynq_ultra_ps_e:3.5",
         "xci_name": "jtag_axi_test_zynq_ultra_ps_e_0_0",
-        "xci_path": "ip/jtag_axi_test_zynq_ultra_ps_e_0_0/jtag_axi_test_zynq_ultra_ps_e_0_0.xci",
+        "xci_path": "ip\\jtag_axi_test_zynq_ultra_ps_e_0_0\\jtag_axi_test_zynq_ultra_ps_e_0_0.xci",
         "inst_hier_path": "zynq_ultra_ps_e_0",
         "parameters": {
           "PSU_BANK_0_IO_STANDARD": {
@@ -1950,7 +1949,7 @@
       "jtag_axi_0": {
         "vlnv": "xilinx.com:ip:jtag_axi:1.2",
         "xci_name": "jtag_axi_test_jtag_axi_0_0",
-        "xci_path": "ip/jtag_axi_test_jtag_axi_0_0/jtag_axi_test_jtag_axi_0_0.xci",
+        "xci_path": "ip\\jtag_axi_test_jtag_axi_0_0\\jtag_axi_test_jtag_axi_0_0.xci",
         "inst_hier_path": "jtag_axi_0",
         "parameters": {
           "M_AXI_ADDR_WIDTH": {
@@ -1984,13 +1983,13 @@
       "proc_sys_reset_0": {
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "jtag_axi_test_proc_sys_reset_0_0",
-        "xci_path": "ip/jtag_axi_test_proc_sys_reset_0_0/jtag_axi_test_proc_sys_reset_0_0.xci",
+        "xci_path": "ip\\jtag_axi_test_proc_sys_reset_0_0\\jtag_axi_test_proc_sys_reset_0_0.xci",
         "inst_hier_path": "proc_sys_reset_0"
       },
       "clk_wiz_0": {
         "vlnv": "xilinx.com:ip:clk_wiz:6.0",
         "xci_name": "jtag_axi_test_clk_wiz_0_0",
-        "xci_path": "ip/jtag_axi_test_clk_wiz_0_0/jtag_axi_test_clk_wiz_0_0.xci",
+        "xci_path": "ip\\jtag_axi_test_clk_wiz_0_0\\jtag_axi_test_clk_wiz_0_0.xci",
         "inst_hier_path": "clk_wiz_0",
         "parameters": {
           "CLKOUT1_JITTER": {
@@ -2019,36 +2018,16 @@
           }
         }
       },
-      "ila_0": {
-        "vlnv": "xilinx.com:ip:ila:6.2",
-        "xci_name": "jtag_axi_test_ila_0_1",
-        "xci_path": "ip/jtag_axi_test_ila_0_1/jtag_axi_test_ila_0_1.xci",
-        "inst_hier_path": "ila_0",
-        "parameters": {
-          "C_DATA_DEPTH": {
-            "value": "32768"
-          },
-          "C_MONITOR_TYPE": {
-            "value": "Native"
-          },
-          "C_NUM_OF_PROBES": {
-            "value": "21"
-          },
-          "C_PROBE9_WIDTH": {
-            "value": "64"
-          }
-        }
-      },
       "xlconstant_0": {
         "vlnv": "xilinx.com:ip:xlconstant:1.1",
         "xci_name": "jtag_axi_test_xlconstant_0_0",
-        "xci_path": "ip/jtag_axi_test_xlconstant_0_0/jtag_axi_test_xlconstant_0_0.xci",
+        "xci_path": "ip\\jtag_axi_test_xlconstant_0_0\\jtag_axi_test_xlconstant_0_0.xci",
         "inst_hier_path": "xlconstant_0"
       },
       "seeg_top_0": {
         "vlnv": "xilinx.com:module_ref:seeg_top:1.0",
         "xci_name": "jtag_axi_test_seeg_top_0_0",
-        "xci_path": "ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0.xci",
+        "xci_path": "ip\\jtag_axi_test_seeg_top_0_0\\jtag_axi_test_seeg_top_0_0.xci",
         "inst_hier_path": "seeg_top_0",
         "reference_info": {
           "ref_type": "hdl",
@@ -2562,6 +2541,54 @@
           "RHD_MISO2_P_N": {
             "direction": "I"
           },
+          "RHD_MISO1_I_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO2_I_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO1_J_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO2_J_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO1_K_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO2_K_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO1_L_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO2_L_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO1_M_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO2_M_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO1_N_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO2_N_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO1_O_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO2_O_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO1_P_DEBUG": {
+            "direction": "O"
+          },
+          "RHD_MISO2_P_DEBUG": {
+            "direction": "O"
+          },
           "RHS_CS": {
             "direction": "O"
           },
@@ -2712,52 +2739,84 @@
           "RHS_MISO_P_N": {
             "direction": "I"
           },
+          "RHS_MISO_I_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MISO_J_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MISO_K_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MISO_L_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MISO_M_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MISO_N_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MISO_O_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MISO_P_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MOSI_I_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MOSI_J_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MOSI_K_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MOSI_L_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MOSI_M_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MOSI_N_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MOSI_O_DEBUG": {
+            "direction": "O"
+          },
+          "RHS_MOSI_P_DEBUG": {
+            "direction": "O"
+          },
           "aux_signal": {
             "direction": "I"
           }
         }
       },
-      "diff_to_single_0": {
-        "vlnv": "xilinx.com:module_ref:diff_to_single:1.0",
-        "xci_name": "jtag_axi_test_diff_to_single_0_0",
-        "xci_path": "ip/jtag_axi_test_diff_to_single_0_0/jtag_axi_test_diff_to_single_0_0.xci",
-        "inst_hier_path": "diff_to_single_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "diff_to_single",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "in_p": {
-            "direction": "I"
+      "ila_rhd": {
+        "vlnv": "xilinx.com:ip:ila:6.2",
+        "xci_name": "jtag_axi_test_ila_0_2",
+        "xci_path": "ip\\jtag_axi_test_ila_0_2\\jtag_axi_test_ila_0_2.xci",
+        "inst_hier_path": "ila_rhd",
+        "parameters": {
+          "C_MONITOR_TYPE": {
+            "value": "Native"
           },
-          "in_n": {
-            "direction": "I"
-          },
-          "out_single": {
-            "direction": "O"
+          "C_NUM_OF_PROBES": {
+            "value": "35"
           }
         }
       },
-      "diff_to_single_1": {
-        "vlnv": "xilinx.com:module_ref:diff_to_single:1.0",
-        "xci_name": "jtag_axi_test_diff_to_single_1_0",
-        "xci_path": "ip/jtag_axi_test_diff_to_single_1_0/jtag_axi_test_diff_to_single_1_0.xci",
-        "inst_hier_path": "diff_to_single_1",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "diff_to_single",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "in_p": {
-            "direction": "I"
+      "ila_rhs": {
+        "vlnv": "xilinx.com:ip:ila:6.2",
+        "xci_name": "jtag_axi_test_ila_0_3",
+        "xci_path": "ip\\jtag_axi_test_ila_0_3\\jtag_axi_test_ila_0_3.xci",
+        "inst_hier_path": "ila_rhs",
+        "parameters": {
+          "C_MONITOR_TYPE": {
+            "value": "Native"
           },
-          "in_n": {
-            "direction": "I"
-          },
-          "out_single": {
-            "direction": "O"
+          "C_NUM_OF_PROBES": {
+            "value": "34"
           }
         }
       }
@@ -2774,57 +2833,63 @@
       "Net": {
         "ports": [
           "xlconstant_0/dout",
-          "ila_0/probe12",
           "seeg_top_0/M_AXIS_tready"
         ]
       },
       "RHD_MISO1_A_1": {
         "ports": [
           "RHD_MISO1_A",
-          "ila_0/probe3",
-          "seeg_top_0/RHD_MISO1_A"
+          "seeg_top_0/RHD_MISO1_A",
+          "ila_rhd/probe2"
         ]
       },
       "RHD_MISO1_B_1": {
         "ports": [
           "RHD_MISO1_B",
-          "seeg_top_0/RHD_MISO1_B"
+          "seeg_top_0/RHD_MISO1_B",
+          "ila_rhd/probe4"
         ]
       },
       "RHD_MISO1_C_1": {
         "ports": [
           "RHD_MISO1_C",
-          "seeg_top_0/RHD_MISO1_C"
+          "seeg_top_0/RHD_MISO1_C",
+          "ila_rhd/probe6"
         ]
       },
       "RHD_MISO1_D_1": {
         "ports": [
           "RHD_MISO1_D",
-          "seeg_top_0/RHD_MISO1_D"
+          "seeg_top_0/RHD_MISO1_D",
+          "ila_rhd/probe8"
         ]
       },
       "RHD_MISO1_E_1": {
         "ports": [
           "RHD_MISO1_E",
-          "seeg_top_0/RHD_MISO1_E"
+          "seeg_top_0/RHD_MISO1_E",
+          "ila_rhd/probe10"
         ]
       },
       "RHD_MISO1_F_1": {
         "ports": [
           "RHD_MISO1_F",
-          "seeg_top_0/RHD_MISO1_F"
+          "seeg_top_0/RHD_MISO1_F",
+          "ila_rhd/probe12"
         ]
       },
       "RHD_MISO1_G_1": {
         "ports": [
           "RHD_MISO1_G",
-          "seeg_top_0/RHD_MISO1_G"
+          "seeg_top_0/RHD_MISO1_G",
+          "ila_rhd/probe14"
         ]
       },
       "RHD_MISO1_H_1": {
         "ports": [
           "RHD_MISO1_H",
-          "seeg_top_0/RHD_MISO1_H"
+          "seeg_top_0/RHD_MISO1_H",
+          "ila_rhd/probe16"
         ]
       },
       "RHD_MISO1_I_N_1": {
@@ -2926,50 +2991,57 @@
       "RHD_MISO2_A_1": {
         "ports": [
           "RHD_MISO2_A",
-          "ila_0/probe4",
-          "seeg_top_0/RHD_MISO2_A"
+          "seeg_top_0/RHD_MISO2_A",
+          "ila_rhd/probe3"
         ]
       },
       "RHD_MISO2_B_1": {
         "ports": [
           "RHD_MISO2_B",
-          "seeg_top_0/RHD_MISO2_B"
+          "seeg_top_0/RHD_MISO2_B",
+          "ila_rhd/probe5"
         ]
       },
       "RHD_MISO2_C_1": {
         "ports": [
           "RHD_MISO2_C",
-          "seeg_top_0/RHD_MISO2_C"
+          "seeg_top_0/RHD_MISO2_C",
+          "ila_rhd/probe7"
         ]
       },
       "RHD_MISO2_D_1": {
         "ports": [
           "RHD_MISO2_D",
-          "seeg_top_0/RHD_MISO2_D"
+          "seeg_top_0/RHD_MISO2_D",
+          "ila_rhd/probe9"
         ]
       },
       "RHD_MISO2_E_1": {
         "ports": [
           "RHD_MISO2_E",
-          "seeg_top_0/RHD_MISO2_E"
+          "seeg_top_0/RHD_MISO2_E",
+          "ila_rhd/probe11"
         ]
       },
       "RHD_MISO2_F_1": {
         "ports": [
           "RHD_MISO2_F",
-          "seeg_top_0/RHD_MISO2_F"
+          "seeg_top_0/RHD_MISO2_F",
+          "ila_rhd/probe13"
         ]
       },
       "RHD_MISO2_G_1": {
         "ports": [
           "RHD_MISO2_G",
-          "seeg_top_0/RHD_MISO2_G"
+          "seeg_top_0/RHD_MISO2_G",
+          "ila_rhd/probe15"
         ]
       },
       "RHD_MISO2_H_1": {
         "ports": [
           "RHD_MISO2_H",
-          "seeg_top_0/RHD_MISO2_H"
+          "seeg_top_0/RHD_MISO2_H",
+          "ila_rhd/probe17"
         ]
       },
       "RHD_MISO2_I_N_1": {
@@ -3071,67 +3143,69 @@
       "RHS_MISO_A_1": {
         "ports": [
           "RHS_MISO_A",
-          "ila_0/probe8",
-          "seeg_top_0/RHS_MISO_A"
+          "seeg_top_0/RHS_MISO_A",
+          "ila_rhs/probe16"
         ]
       },
       "RHS_MISO_B_1": {
         "ports": [
           "RHS_MISO_B",
           "seeg_top_0/RHS_MISO_B",
-          "ila_0/probe14"
+          "ila_rhs/probe17"
         ]
       },
       "RHS_MISO_C_1": {
         "ports": [
           "RHS_MISO_C",
           "seeg_top_0/RHS_MISO_C",
-          "ila_0/probe20"
+          "ila_rhs/probe18"
         ]
       },
       "RHS_MISO_D_1": {
         "ports": [
           "RHS_MISO_D",
           "seeg_top_0/RHS_MISO_D",
-          "ila_0/probe16"
+          "ila_rhs/probe19"
         ]
       },
       "RHS_MISO_E_1": {
         "ports": [
           "RHS_MISO_E",
-          "seeg_top_0/RHS_MISO_E"
+          "seeg_top_0/RHS_MISO_E",
+          "ila_rhs/probe20"
         ]
       },
       "RHS_MISO_F_1": {
         "ports": [
           "RHS_MISO_F",
-          "seeg_top_0/RHS_MISO_F"
+          "seeg_top_0/RHS_MISO_F",
+          "ila_rhs/probe21"
         ]
       },
       "RHS_MISO_G_1": {
         "ports": [
           "RHS_MISO_G",
-          "seeg_top_0/RHS_MISO_G"
+          "seeg_top_0/RHS_MISO_G",
+          "ila_rhs/probe22"
         ]
       },
       "RHS_MISO_H_1": {
         "ports": [
           "RHS_MISO_H",
-          "seeg_top_0/RHS_MISO_H"
+          "seeg_top_0/RHS_MISO_H",
+          "ila_rhs/probe23"
         ]
       },
       "RHS_MISO_I_N_1": {
         "ports": [
           "RHS_MISO_I_N",
-          "seeg_top_0/RHS_MISO_I_N",
-          "diff_to_single_0/in_n"
+          "seeg_top_0/RHS_MISO_I_N"
         ]
       },
       "RHS_MISO_I_P_1": {
         "ports": [
           "RHS_MISO_I_P",
-          "seeg_top_0/RHS_MISO_I_P",
-          "diff_to_single_0/in_p"
+          "seeg_top_0/RHS_MISO_I_P"
         ]
       },
       "RHS_MISO_J_N_1": {
@@ -3223,27 +3297,16 @@
           "clk_wiz_0/clk_78M",
           "proc_sys_reset_0/slowest_sync_clk",
           "jtag_axi_0/aclk",
-          "ila_0/clk",
           "seeg_top_0/M_AXIS_ACLK",
-          "seeg_top_0/S_AXI_ACLK"
+          "seeg_top_0/S_AXI_ACLK",
+          "ila_rhd/clk",
+          "ila_rhs/clk"
         ]
       },
       "clk_wiz_0_locked": {
         "ports": [
           "clk_wiz_0/locked",
           "proc_sys_reset_0/dcm_locked"
-        ]
-      },
-      "diff_to_single_0_out": {
-        "ports": [
-          "diff_to_single_0/out_single",
-          "ila_0/probe18"
-        ]
-      },
-      "diff_to_single_1_out": {
-        "ports": [
-          "diff_to_single_1/out_single",
-          "ila_0/probe17"
         ]
       },
       "proc_sys_reset_0_peripheral_aresetn": {
@@ -3254,116 +3317,256 @@
           "seeg_top_0/S_AXI_ARESETN"
         ]
       },
-      "seeg_top_0_M_AXIS_tdata": {
-        "ports": [
-          "seeg_top_0/M_AXIS_tdata",
-          "ila_0/probe9"
-        ]
-      },
-      "seeg_top_0_M_AXIS_tlast": {
-        "ports": [
-          "seeg_top_0/M_AXIS_tlast",
-          "ila_0/probe10"
-        ]
-      },
-      "seeg_top_0_M_AXIS_tvalid": {
-        "ports": [
-          "seeg_top_0/M_AXIS_tvalid",
-          "ila_0/probe11"
-        ]
-      },
       "seeg_top_0_RHD_CS": {
         "ports": [
           "seeg_top_0/RHD_CS",
           "RHD_CS",
-          "ila_0/probe0"
+          "ila_rhd/probe34"
+        ]
+      },
+      "seeg_top_0_RHD_MISO1_I_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO1_I_DEBUG",
+          "ila_rhd/probe18"
+        ]
+      },
+      "seeg_top_0_RHD_MISO1_J_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO1_J_DEBUG",
+          "ila_rhd/probe20"
+        ]
+      },
+      "seeg_top_0_RHD_MISO1_K_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO1_K_DEBUG",
+          "ila_rhd/probe22"
+        ]
+      },
+      "seeg_top_0_RHD_MISO1_L_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO1_L_DEBUG",
+          "ila_rhd/probe24"
+        ]
+      },
+      "seeg_top_0_RHD_MISO1_M_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO1_M_DEBUG",
+          "ila_rhd/probe26"
+        ]
+      },
+      "seeg_top_0_RHD_MISO1_N_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO1_N_DEBUG",
+          "ila_rhd/probe28"
+        ]
+      },
+      "seeg_top_0_RHD_MISO1_O_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO1_O_DEBUG",
+          "ila_rhd/probe30"
+        ]
+      },
+      "seeg_top_0_RHD_MISO1_P_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO1_P_DEBUG",
+          "ila_rhd/probe32"
+        ]
+      },
+      "seeg_top_0_RHD_MISO2_I_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO2_I_DEBUG",
+          "ila_rhd/probe19"
+        ]
+      },
+      "seeg_top_0_RHD_MISO2_J_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO2_J_DEBUG",
+          "ila_rhd/probe21"
+        ]
+      },
+      "seeg_top_0_RHD_MISO2_K_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO2_K_DEBUG",
+          "ila_rhd/probe23"
+        ]
+      },
+      "seeg_top_0_RHD_MISO2_L_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO2_L_DEBUG",
+          "ila_rhd/probe25"
+        ]
+      },
+      "seeg_top_0_RHD_MISO2_M_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO2_M_DEBUG",
+          "ila_rhd/probe27"
+        ]
+      },
+      "seeg_top_0_RHD_MISO2_N_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO2_N_DEBUG",
+          "ila_rhd/probe29"
+        ]
+      },
+      "seeg_top_0_RHD_MISO2_O_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO2_O_DEBUG",
+          "ila_rhd/probe31"
+        ]
+      },
+      "seeg_top_0_RHD_MISO2_P_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHD_MISO2_P_DEBUG",
+          "ila_rhd/probe33"
         ]
       },
       "seeg_top_0_RHD_MOSI": {
         "ports": [
           "seeg_top_0/RHD_MOSI",
           "RHD_MOSI",
-          "ila_0/probe1"
+          "ila_rhd/probe0"
         ]
       },
       "seeg_top_0_RHD_SCLK": {
         "ports": [
           "seeg_top_0/RHD_SCLK",
           "RHD_SCLK",
-          "ila_0/probe2"
+          "ila_rhd/probe1"
         ]
       },
       "seeg_top_0_RHS_CS": {
         "ports": [
           "seeg_top_0/RHS_CS",
           "RHS_CS",
-          "ila_0/probe5"
+          "ila_rhs/probe33"
+        ]
+      },
+      "seeg_top_0_RHS_MISO_I_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MISO_I_DEBUG",
+          "ila_rhs/probe24"
+        ]
+      },
+      "seeg_top_0_RHS_MISO_J_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MISO_J_DEBUG",
+          "ila_rhs/probe25"
+        ]
+      },
+      "seeg_top_0_RHS_MISO_K_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MISO_K_DEBUG",
+          "ila_rhs/probe26"
+        ]
+      },
+      "seeg_top_0_RHS_MISO_L_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MISO_L_DEBUG",
+          "ila_rhs/probe27"
+        ]
+      },
+      "seeg_top_0_RHS_MISO_M_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MISO_M_DEBUG",
+          "ila_rhs/probe28"
+        ]
+      },
+      "seeg_top_0_RHS_MISO_N_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MISO_N_DEBUG",
+          "ila_rhs/probe29"
+        ]
+      },
+      "seeg_top_0_RHS_MISO_O_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MISO_O_DEBUG",
+          "ila_rhs/probe30"
+        ]
+      },
+      "seeg_top_0_RHS_MISO_P_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MISO_P_DEBUG",
+          "ila_rhs/probe31"
         ]
       },
       "seeg_top_0_RHS_MOSI_A": {
         "ports": [
           "seeg_top_0/RHS_MOSI_A",
           "RHS_MOSI_A",
-          "ila_0/probe7"
+          "ila_rhs/probe0"
         ]
       },
       "seeg_top_0_RHS_MOSI_B": {
         "ports": [
           "seeg_top_0/RHS_MOSI_B",
           "RHS_MOSI_B",
-          "ila_0/probe13"
+          "ila_rhs/probe1"
         ]
       },
       "seeg_top_0_RHS_MOSI_C": {
         "ports": [
           "seeg_top_0/RHS_MOSI_C",
           "RHS_MOSI_C",
-          "ila_0/probe19"
+          "ila_rhs/probe2"
         ]
       },
       "seeg_top_0_RHS_MOSI_D": {
         "ports": [
           "seeg_top_0/RHS_MOSI_D",
           "RHS_MOSI_D",
-          "ila_0/probe15"
+          "ila_rhs/probe3"
         ]
       },
       "seeg_top_0_RHS_MOSI_E": {
         "ports": [
           "seeg_top_0/RHS_MOSI_E",
-          "RHS_MOSI_E"
+          "RHS_MOSI_E",
+          "ila_rhs/probe4"
         ]
       },
       "seeg_top_0_RHS_MOSI_F": {
         "ports": [
           "seeg_top_0/RHS_MOSI_F",
-          "RHS_MOSI_F"
+          "RHS_MOSI_F",
+          "ila_rhs/probe5"
         ]
       },
       "seeg_top_0_RHS_MOSI_G": {
         "ports": [
           "seeg_top_0/RHS_MOSI_G",
-          "RHS_MOSI_G"
+          "RHS_MOSI_G",
+          "ila_rhs/probe6"
         ]
       },
       "seeg_top_0_RHS_MOSI_H": {
         "ports": [
           "seeg_top_0/RHS_MOSI_H",
-          "RHS_MOSI_H"
+          "RHS_MOSI_H",
+          "ila_rhs/probe7"
+        ]
+      },
+      "seeg_top_0_RHS_MOSI_I_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MOSI_I_DEBUG",
+          "ila_rhs/probe8"
         ]
       },
       "seeg_top_0_RHS_MOSI_I_N": {
         "ports": [
           "seeg_top_0/RHS_MOSI_I_N",
-          "RHS_MOSI_I_N",
-          "diff_to_single_1/in_n"
+          "RHS_MOSI_I_N"
         ]
       },
       "seeg_top_0_RHS_MOSI_I_P": {
         "ports": [
           "seeg_top_0/RHS_MOSI_I_P",
-          "RHS_MOSI_I_P",
-          "diff_to_single_1/in_p"
+          "RHS_MOSI_I_P"
+        ]
+      },
+      "seeg_top_0_RHS_MOSI_J_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MOSI_J_DEBUG",
+          "ila_rhs/probe9"
         ]
       },
       "seeg_top_0_RHS_MOSI_J_N": {
@@ -3378,6 +3581,12 @@
           "RHS_MOSI_J_P"
         ]
       },
+      "seeg_top_0_RHS_MOSI_K_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MOSI_K_DEBUG",
+          "ila_rhs/probe10"
+        ]
+      },
       "seeg_top_0_RHS_MOSI_K_N": {
         "ports": [
           "seeg_top_0/RHS_MOSI_K_N",
@@ -3388,6 +3597,12 @@
         "ports": [
           "seeg_top_0/RHS_MOSI_K_P",
           "RHS_MOSI_K_P"
+        ]
+      },
+      "seeg_top_0_RHS_MOSI_L_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MOSI_L_DEBUG",
+          "ila_rhs/probe11"
         ]
       },
       "seeg_top_0_RHS_MOSI_L_N": {
@@ -3402,6 +3617,12 @@
           "RHS_MOSI_L_P"
         ]
       },
+      "seeg_top_0_RHS_MOSI_M_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MOSI_M_DEBUG",
+          "ila_rhs/probe12"
+        ]
+      },
       "seeg_top_0_RHS_MOSI_M_N": {
         "ports": [
           "seeg_top_0/RHS_MOSI_M_N",
@@ -3412,6 +3633,12 @@
         "ports": [
           "seeg_top_0/RHS_MOSI_M_P",
           "RHS_MOSI_M_P"
+        ]
+      },
+      "seeg_top_0_RHS_MOSI_N_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MOSI_N_DEBUG",
+          "ila_rhs/probe13"
         ]
       },
       "seeg_top_0_RHS_MOSI_N_N": {
@@ -3426,6 +3653,12 @@
           "RHS_MOSI_N_P"
         ]
       },
+      "seeg_top_0_RHS_MOSI_O_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MOSI_O_DEBUG",
+          "ila_rhs/probe14"
+        ]
+      },
       "seeg_top_0_RHS_MOSI_O_N": {
         "ports": [
           "seeg_top_0/RHS_MOSI_O_N",
@@ -3436,6 +3669,12 @@
         "ports": [
           "seeg_top_0/RHS_MOSI_O_P",
           "RHS_MOSI_O_P"
+        ]
+      },
+      "seeg_top_0_RHS_MOSI_P_DEBUG": {
+        "ports": [
+          "seeg_top_0/RHS_MOSI_P_DEBUG",
+          "ila_rhs/probe15"
         ]
       },
       "seeg_top_0_RHS_MOSI_P_N": {
@@ -3454,7 +3693,7 @@
         "ports": [
           "seeg_top_0/RHS_SCLK",
           "RHS_SCLK",
-          "ila_0/probe6"
+          "ila_rhs/probe32"
         ]
       },
       "zynq_ultra_ps_e_0_pl_clk0": {
