@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date             : Wed Sep 18 13:16:50 2024
-| Host             : Gingham running 64-bit major release  (build 9200)
+| Tool Version     : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
+| Date             : Thu Sep 19 16:06:04 2024
+| Host             : ug3 running 64-bit Ubuntu 18.04.6 LTS
 | Command          : report_power -file jtag_axi_test_wrapper_power_routed.rpt -pb jtag_axi_test_wrapper_power_summary_routed.pb -rpx jtag_axi_test_wrapper_power_routed.rpx
 | Design           : jtag_axi_test_wrapper
 | Device           : xck26-sfvc784-2LV-c
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 3.213        |
+| Total On-Chip Power (W)  | 3.216        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 2.886        |
+| Dynamic (W)              | 2.889        |
 | Device Static (W)        | 0.327        |
 | Effective TJA (C/W)      | 2.3          |
 | Max Ambient (C)          | 77.5         |
@@ -52,25 +52,25 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.017 |        6 |       --- |             --- |
-| CLB Logic                |     0.008 |    28643 |       --- |             --- |
-|   LUT as Logic           |     0.006 |    12493 |    117120 |           10.67 |
-|   Register               |    <0.001 |    10924 |    234240 |            4.66 |
-|   LUT as Shift Register  |    <0.001 |      195 |     57600 |            0.34 |
+| Clocks                   |     0.018 |        6 |       --- |             --- |
+| CLB Logic                |     0.008 |    29708 |       --- |             --- |
+|   LUT as Logic           |     0.007 |    12806 |    117120 |           10.93 |
+|   LUT as Shift Register  |    <0.001 |      243 |     57600 |            0.42 |
+|   Register               |    <0.001 |    11357 |    234240 |            4.85 |
 |   LUT as Distributed RAM |    <0.001 |      180 |     57600 |            0.31 |
-|   CARRY8                 |    <0.001 |      327 |     14640 |            2.23 |
+|   CARRY8                 |    <0.001 |      335 |     14640 |            2.29 |
 |   BUFG                   |    <0.001 |        5 |        32 |           15.63 |
-|   Others                 |     0.000 |      903 |       --- |             --- |
-|   F7/F8 Muxes            |     0.000 |      447 |    117120 |            0.38 |
-| Signals                  |     0.011 |    22271 |       --- |             --- |
-| Block RAM                |     0.028 |    133.5 |       144 |           92.71 |
+|   Others                 |     0.000 |      999 |       --- |             --- |
+|   F7/F8 Muxes            |     0.000 |      524 |    117120 |            0.45 |
+| Signals                  |     0.012 |    22949 |       --- |             --- |
+| Block RAM                |     0.029 |    140.5 |       144 |           97.57 |
 | MMCM                     |     0.000 |        0 |       --- |             --- |
-| I/O                      |     0.147 |      100 |       189 |           52.91 |
+| I/O                      |     0.147 |      101 |       189 |           53.44 |
 | PS8                      |     2.675 |        1 |       --- |             --- |
 | Static Power             |     0.327 |          |           |                 |
 |   PS Static              |     0.000 |          |           |                 |
 |   PL Static              |     0.327 |          |           |                 |
-| Total                    |     3.213 |          |           |                 |
+| Total                    |     3.216 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -80,7 +80,7 @@ Table of Contents
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source          | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint          |       0.720 |     0.179 |       0.087 |      0.092 |       NA    | Unspecified | NA         |
+| Vccint          |       0.720 |     0.183 |       0.091 |      0.092 |       NA    | Unspecified | NA         |
 | Vccint_io       |       0.850 |     0.042 |       0.005 |      0.037 |       NA    | Unspecified | NA         |
 | Vccbram         |       0.850 |     0.003 |       0.002 |      0.001 |       NA    | Unspecified | NA         |
 | Vccaux          |       1.800 |     0.075 |       0.000 |      0.075 |       NA    | Unspecified | NA         |
@@ -170,13 +170,13 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| jtag_axi_test_wrapper    |     2.886 |
+| jtag_axi_test_wrapper    |     2.889 |
 |   dbg_hub                |     0.002 |
 |     inst                 |     0.002 |
 |       BSCANID.u_xsdbm_id |     0.002 |
-|   jtag_axi_test_i        |     2.874 |
-|     ila_0                |     0.022 |
-|       inst               |     0.022 |
+|   jtag_axi_test_i        |     2.877 |
+|     ila_0                |     0.025 |
+|       inst               |     0.025 |
 |     jtag_axi_0           |     0.004 |
 |       inst               |     0.004 |
 |     seeg_top_0           |     0.171 |

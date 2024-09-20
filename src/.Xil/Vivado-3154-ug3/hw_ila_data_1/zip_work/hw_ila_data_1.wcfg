@@ -9,15 +9,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="509"></ZoomStartTime>
-      <ZoomEndTime time="560"></ZoomEndTime>
-      <Cursor1Time time="517"></Cursor1Time>
+      <ZoomStartTime time="1,395"></ZoomStartTime>
+      <ZoomEndTime time="9,426"></ZoomEndTime>
+      <Cursor1Time time="2,733"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="500"></NameColumnWidth>
-      <ValueColumnWidth column_width="124"></ValueColumnWidth>
+      <NameColumnWidth column_width="428"></NameColumnWidth>
+      <ValueColumnWidth column_width="76"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="13" />
+   <WVObjectSize size="21" />
    <wave_markers>
    </wave_markers>
    <wvobject type="logic" fp_name="jtag_axi_test_i/seeg_top_0_RHD_CS">
@@ -60,22 +60,6 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="jtag_axi_test_i/seeg_top_0_RHS_CS">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">jtag_axi_test_i/seeg_top_0_RHS_CS</obj_property>
-      <obj_property name="ObjectShortName">seeg_top_0_RHS_CS</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="jtag_axi_test_i/seeg_top_0_RHS_SCLK">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">jtag_axi_test_i/seeg_top_0_RHS_SCLK</obj_property>
-      <obj_property name="ObjectShortName">seeg_top_0_RHS_SCLK</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
    <wvobject type="logic" fp_name="jtag_axi_test_i/seeg_top_0_RHS_MOSI_A">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">jtag_axi_test_i/seeg_top_0_RHS_MOSI_A</obj_property>
@@ -92,15 +76,13 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="vbus" fp_name="vbus66">
-      <wvobject type="array" fp_name="jtag_axi_test_i/seeg_top_0_M_AXIS_tdata">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">jtag_axi_test_i/seeg_top_0_M_AXIS_tdata[63:0]</obj_property>
-         <obj_property name="ObjectShortName">seeg_top_0_M_AXIS_tdata[63:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
+   <wvobject type="array" fp_name="jtag_axi_test_i/seeg_top_0_M_AXIS_tdata">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jtag_axi_test_i/seeg_top_0_M_AXIS_tdata[63:0]</obj_property>
+      <obj_property name="ObjectShortName">seeg_top_0_M_AXIS_tdata[63:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="jtag_axi_test_i/seeg_top_0_M_AXIS_tlast">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -118,11 +100,85 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="jtag_axi_test_i/axis_data_fifo_0_s_axis_tready">
+   <wvobject type="logic" fp_name="jtag_axi_test_i/Net">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">jtag_axi_test_i/axis_data_fifo_0_s_axis_tready</obj_property>
-      <obj_property name="ObjectShortName">axis_data_fifo_0_s_axis_tready</obj_property>
+      <obj_property name="ElementShortName">jtag_axi_test_i/Net</obj_property>
+      <obj_property name="ObjectShortName">Net</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="jtag_axi_test_i/seeg_top_0_RHS_CS">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jtag_axi_test_i/seeg_top_0_RHS_CS</obj_property>
+      <obj_property name="ObjectShortName">seeg_top_0_RHS_CS</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="jtag_axi_test_i/seeg_top_0_RHS_SCLK">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jtag_axi_test_i/seeg_top_0_RHS_SCLK</obj_property>
+      <obj_property name="ObjectShortName">seeg_top_0_RHS_SCLK</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="jtag_axi_test_i/seeg_top_0_RHS_MOSI_B">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jtag_axi_test_i/seeg_top_0_RHS_MOSI_B</obj_property>
+      <obj_property name="ObjectShortName">seeg_top_0_RHS_MOSI_B</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="jtag_axi_test_i/RHS_MISO_B_1">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jtag_axi_test_i/RHS_MISO_B_1</obj_property>
+      <obj_property name="ObjectShortName">RHS_MISO_B_1</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="jtag_axi_test_i/seeg_top_0_RHS_MOSI_D">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jtag_axi_test_i/seeg_top_0_RHS_MOSI_D</obj_property>
+      <obj_property name="ObjectShortName">seeg_top_0_RHS_MOSI_D</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="jtag_axi_test_i/RHS_MISO_D_1">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jtag_axi_test_i/RHS_MISO_D_1</obj_property>
+      <obj_property name="ObjectShortName">RHS_MISO_D_1</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="jtag_axi_test_i/seeg_top_0_RHS_MOSI_C">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jtag_axi_test_i/seeg_top_0_RHS_MOSI_C</obj_property>
+      <obj_property name="ObjectShortName">seeg_top_0_RHS_MOSI_C</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="jtag_axi_test_i/RHS_MISO_C_1">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jtag_axi_test_i/RHS_MISO_C_1</obj_property>
+      <obj_property name="ObjectShortName">RHS_MISO_C_1</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="jtag_axi_test_i/diff_to_single_0_out">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">jtag_axi_test_i/diff_to_single_0_out</obj_property>
+      <obj_property name="ObjectShortName">diff_to_single_0_out</obj_property>
+      <obj_property name="label">miso P</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="jtag_axi_test_i/diff_to_single_1_out">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">jtag_axi_test_i/diff_to_single_1_out</obj_property>
+      <obj_property name="ObjectShortName">diff_to_single_1_out</obj_property>
+      <obj_property name="label">mosi P</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Repos/ug3-seeg/ug3-seeg.runs/jtag_axi_test_seeg_top_0_0_synth_1/jtag_axi_test_seeg_top_0_0.tcl"
+  variable script "/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/jtag_axi_test_seeg_top_0_0_synth_1/jtag_axi_test_seeg_top_0_0.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,59 +70,60 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "jtag_axi_test_seeg_top_0_0_synth_1" START { ROLLUP_AUTO }
-set_param tcl.collectionResultDisplayLimit 0
-set_param chipscope.maxJobs 4
-set_param power.BramSDPPropagationFix 1
-set_param power.enableUnconnectedCarry8PinPower 1
-set_param power.enableCarry8RouteBelPower 1
 set_param power.enableLutRouteBelPower 1
+set_param power.enableCarry8RouteBelPower 1
+set_param power.enableUnconnectedCarry8PinPower 1
+set_param tcl.collectionResultDisplayLimit 0
 set_param xicom.use_bs_reader 1
+set_param chipscope.maxJobs 3
+set_param power.BramSDPPropagationFix 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
-set_param ips.modRefOverrideMrefDirPath c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/mref
+set_param ips.modRefOverrideMrefDirPath /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/mref
 create_project -in_memory -part xck26-sfvc784-2LV-c
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Repos/ug3-seeg/ug3-seeg.cache/wt [current_project]
-set_property parent.project_path C:/Repos/ug3-seeg/ug3-seeg.xpr [current_project]
+set_property webtalk.parent_dir /home/ug3/Repos/ug3-seeg/ug3-seeg.cache/wt [current_project]
+set_property parent.project_path /home/ug3/Repos/ug3-seeg/ug3-seeg.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part xilinx.com:k26c:part0:1.4 [current_project]
 update_ip_catalog
-set_property ip_output_repo c:/Repos/ug3-seeg/ug3-seeg.cache/ip [current_project]
+set_property ip_output_repo /home/ug3/Repos/ug3-seeg/ug3-seeg.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  C:/Repos/ug3-seeg/src/clock_divider.v
-  C:/Repos/ug3-seeg/src/rhd_2048.v
-  C:/Repos/ug3-seeg/src/rhd_diff_to_single.v
-  C:/Repos/ug3-seeg/src/rhd_spi_master.v
-  C:/Repos/ug3-seeg/src/rhd_spi_slave.v
-  C:/Repos/ug3-seeg/src/rhs_256.v
-  C:/Repos/ug3-seeg/src/rhs_single_diff_converter.v
-  C:/Repos/ug3-seeg/src/rhs_spi_master.v
-  C:/Repos/ug3-seeg/src/rhs_spi_slave.v
-  C:/Repos/ug3-seeg/src/seeg.v
-  C:/Repos/ug3-seeg/src/seeg_top.v
+  /home/ug3/Repos/ug3-seeg/src/clock_divider.v
+  /home/ug3/Repos/ug3-seeg/src/rhd_2048.v
+  /home/ug3/Repos/ug3-seeg/src/rhd_diff_to_single.v
+  /home/ug3/Repos/ug3-seeg/src/rhd_spi_master.v
+  /home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v
+  /home/ug3/Repos/ug3-seeg/src/rhs_256.v
+  /home/ug3/Repos/ug3-seeg/src/rhs_single_diff_converter.v
+  /home/ug3/Repos/ug3-seeg/src/rhs_spi_master.v
+  /home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v
+  /home/ug3/Repos/ug3-seeg/src/seeg.v
+  /home/ug3/Repos/ug3-seeg/src/seeg_top.v
 }
-read_ip -quiet c:/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/ip/axis_data_fifo_seeg/axis_data_fifo_seeg.xci
-set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/axis_data_fifo_seeg/axis_data_fifo_seeg_ooc.xdc]
+read_ip -quiet /home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/ip/axis_data_fifo_seeg/axis_data_fifo_seeg.xci
+set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/axis_data_fifo_seeg/axis_data_fifo_seeg_ooc.xdc]
 
-read_ip -quiet C:/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/ip/fifo_16_to_64/fifo_16_to_64.xci
-set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/fifo_16_to_64/fifo_16_to_64.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/fifo_16_to_64/fifo_16_to_64_clocks.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/fifo_16_to_64/fifo_16_to_64_ooc.xdc]
+read_ip -quiet /home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/ip/fifo_16_to_64/fifo_16_to_64.xci
+set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/fifo_16_to_64/fifo_16_to_64.xdc]
+set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/fifo_16_to_64/fifo_16_to_64_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/fifo_16_to_64/fifo_16_to_64_ooc.xdc]
 
-read_ip -quiet C:/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0.xci
-set_property used_in_implementation false [get_files -all c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_ooc.xdc]
+read_ip -quiet /home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0.xci
+set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -157,45 +158,45 @@ create_report "jtag_axi_test_seeg_top_0_0_synth_1_synth_report_utilization_0" "r
 OPTRACE "synth reports" END { }
 
 if { [catch {
-  file copy -force C:/Repos/ug3-seeg/ug3-seeg.runs/jtag_axi_test_seeg_top_0_0_synth_1/jtag_axi_test_seeg_top_0_0.dcp c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0.dcp
+  file copy -force /home/ug3/Repos/ug3-seeg/ug3-seeg.runs/jtag_axi_test_seeg_top_0_0_synth_1/jtag_axi_test_seeg_top_0_0.dcp /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 status "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_stub.v
+  write_verilog -force -mode synth_stub /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_stub.vhdl
+  write_vhdl -force -mode synth_stub /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_sim_netlist.v
+  write_verilog -force -mode funcsim /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
-if {[file isdir C:/Repos/ug3-seeg/ug3-seeg.ip_user_files/ip/jtag_axi_test_seeg_top_0_0]} {
+if {[file isdir /home/ug3/Repos/ug3-seeg/ug3-seeg.ip_user_files/ip/jtag_axi_test_seeg_top_0_0]} {
   catch { 
-    file copy -force c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_stub.v C:/Repos/ug3-seeg/ug3-seeg.ip_user_files/ip/jtag_axi_test_seeg_top_0_0
+    file copy -force /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_stub.v /home/ug3/Repos/ug3-seeg/ug3-seeg.ip_user_files/ip/jtag_axi_test_seeg_top_0_0
   }
 }
 
-if {[file isdir C:/Repos/ug3-seeg/ug3-seeg.ip_user_files/ip/jtag_axi_test_seeg_top_0_0]} {
+if {[file isdir /home/ug3/Repos/ug3-seeg/ug3-seeg.ip_user_files/ip/jtag_axi_test_seeg_top_0_0]} {
   catch { 
-    file copy -force c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_stub.vhdl C:/Repos/ug3-seeg/ug3-seeg.ip_user_files/ip/jtag_axi_test_seeg_top_0_0
+    file copy -force /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_stub.vhdl /home/ug3/Repos/ug3-seeg/ug3-seeg.ip_user_files/ip/jtag_axi_test_seeg_top_0_0
   }
 }
 file delete __synthesis_is_running__

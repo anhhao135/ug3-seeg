@@ -1,9 +1,9 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Wed Sep 18 12:58:44 2024
-//Host        : Gingham running 64-bit major release  (build 9200)
+//Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
+//Date        : Thu Sep 19 16:00:25 2024
+//Host        : ug3 running 64-bit Ubuntu 18.04.6 LTS
 //Command     : generate_target jtag_axi_test_wrapper.bd
 //Design      : jtag_axi_test_wrapper
 //Purpose     : IP block netlist
@@ -90,6 +90,7 @@ module jtag_axi_test_wrapper
     RHS_MOSI_A,
     RHS_MOSI_B,
     RHS_MOSI_C,
+    RHS_MOSI_D,
     RHS_MOSI_E,
     RHS_MOSI_F,
     RHS_MOSI_G,
@@ -190,6 +191,7 @@ module jtag_axi_test_wrapper
   output RHS_MOSI_A;
   output RHS_MOSI_B;
   output RHS_MOSI_C;
+  output RHS_MOSI_D;
   output RHS_MOSI_E;
   output RHS_MOSI_F;
   output RHS_MOSI_G;
@@ -291,6 +293,7 @@ module jtag_axi_test_wrapper
   wire RHS_MOSI_A;
   wire RHS_MOSI_B;
   wire RHS_MOSI_C;
+  wire RHS_MOSI_D;
   wire RHS_MOSI_E;
   wire RHS_MOSI_F;
   wire RHS_MOSI_G;
@@ -393,6 +396,7 @@ module jtag_axi_test_wrapper
         .RHS_MOSI_A(RHS_MOSI_A),
         .RHS_MOSI_B(RHS_MOSI_B),
         .RHS_MOSI_C(RHS_MOSI_C),
+        .RHS_MOSI_D(RHS_MOSI_D),
         .RHS_MOSI_E(RHS_MOSI_E),
         .RHS_MOSI_F(RHS_MOSI_F),
         .RHS_MOSI_G(RHS_MOSI_G),

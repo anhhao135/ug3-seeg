@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Repos/ug3-seeg/ug3-seeg.runs/impl_1/jtag_axi_test_wrapper.tcl"
+  variable script "/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/impl_1/jtag_axi_test_wrapper.tcl"
   variable category "vivado_impl"
 }
 
@@ -115,6 +115,7 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {HDL-1065} -limit 10000
@@ -125,14 +126,14 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param tcl.collectionResultDisplayLimit 0
-  set_param chipscope.maxJobs 4
-  set_param power.BramSDPPropagationFix 1
-  set_param power.enableUnconnectedCarry8PinPower 1
-  set_param power.enableCarry8RouteBelPower 1
   set_param power.enableLutRouteBelPower 1
+  set_param power.enableCarry8RouteBelPower 1
+  set_param power.enableUnconnectedCarry8PinPower 1
+  set_param tcl.collectionResultDisplayLimit 0
   set_param xicom.use_bs_reader 1
-  set_param runs.launchOptions { -jobs 16  }
+  set_param chipscope.maxJobs 3
+  set_param power.BramSDPPropagationFix 1
+  set_param runs.launchOptions { -jobs 12  }
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xck26-sfvc784-2LV-c
   set_property board_part xilinx.com:k26c:part0:1.4 [current_project]
@@ -140,22 +141,22 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir C:/Repos/ug3-seeg/ug3-seeg.cache/wt [current_project]
-  set_property parent.project_path C:/Repos/ug3-seeg/ug3-seeg.xpr [current_project]
-  set_property ip_output_repo C:/Repos/ug3-seeg/ug3-seeg.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/ug3/Repos/ug3-seeg/ug3-seeg.cache/wt [current_project]
+  set_property parent.project_path /home/ug3/Repos/ug3-seeg/ug3-seeg.xpr [current_project]
+  set_property ip_output_repo /home/ug3/Repos/ug3-seeg/ug3-seeg.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/jtag_axi_test_wrapper.dcp
+  add_files -quiet /home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/jtag_axi_test_wrapper.dcp
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
-  add_files C:/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/bd/jtag_axi_test/jtag_axi_test.bd
-  read_ip -quiet C:/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/ip/fifo_16_to_64/fifo_16_to_64.xci
-  read_ip -quiet c:/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/ip/axis_data_fifo_seeg/axis_data_fifo_seeg.xci
+  add_files /home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/bd/jtag_axi_test/jtag_axi_test.bd
+  read_ip -quiet /home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/ip/fifo_16_to_64/fifo_16_to_64.xci
+  read_ip -quiet /home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/ip/axis_data_fifo_seeg/axis_data_fifo_seeg.xci
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
-  read_xdc C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc
+  read_xdc /home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }

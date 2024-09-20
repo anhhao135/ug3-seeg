@@ -1,24 +1,22 @@
 #-----------------------------------------------------------
 # Vivado v2023.1 (64-bit)
-# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Wed Sep 18 13:03:34 2024
-# Process ID: 30208
-# Current directory: C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1
-# Command line: vivado.exe -log jtag_axi_test_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source jtag_axi_test_wrapper.tcl
-# Log file: C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/jtag_axi_test_wrapper.vds
-# Journal file: C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1\vivado.jou
-# Running On: Gingham, OS: Windows, CPU Frequency: 3600 MHz, CPU Physical cores: 8, Host memory: 34265 MB
+# Start of session at: Thu Sep 19 16:01:25 2024
+# Process ID: 17099
+# Current directory: /home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1
+# Command line: vivado -log jtag_axi_test_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source jtag_axi_test_wrapper.tcl
+# Log file: /home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/jtag_axi_test_wrapper.vds
+# Journal file: /home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/vivado.jou
+# Running On: ug3, OS: Linux, CPU Frequency: 4055.454 MHz, CPU Physical cores: 6, Host memory: 33347 MB
 #-----------------------------------------------------------
 source jtag_axi_test_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 470.691 ; gain = 159.770
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2023.1/data/ip'.
-add_files: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 554.020 ; gain = 83.328
-Command: read_checkpoint -auto_incremental -incremental C:/Repos/ug3-seeg/ug3-seeg.srcs/utils_1/imports/synth_1/cable_delay_tester_wrapper.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from C:/Repos/ug3-seeg/ug3-seeg.srcs/utils_1/imports/synth_1/cable_delay_tester_wrapper.dcp for incremental synthesis
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/ug3/Xilinx/Vivado/2023.1/data/ip'.
+Command: read_checkpoint -auto_incremental -incremental /home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/utils_1/imports/synth_1/cable_delay_tester_wrapper.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/utils_1/imports/synth_1/cable_delay_tester_wrapper.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top jtag_axi_test_wrapper -part xck26-sfvc784-2LV-c
 Starting synth_design
@@ -27,144 +25,150 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xck26'
 INFO: [Device 21-403] Loading part xck26-sfvc784-2LV-c
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 30912
+INFO: [Synth 8-7075] Helper process launched with PID 17161
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1900.969 ; gain = 340.840
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2617.121 ; gain = 250.824 ; free physical = 12889 ; free virtual = 19690
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_wrapper' [C:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/hdl/jtag_axi_test_wrapper.v:13]
-INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:13]
-INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_clk_wiz_0_0' [C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-30208-Gingham/realtime/jtag_axi_test_clk_wiz_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_clk_wiz_0_0' (0#1) [C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-30208-Gingham/realtime/jtag_axi_test_clk_wiz_0_0_stub.v:6]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:449]
-INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_ila_0_1' [C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-30208-Gingham/realtime/jtag_axi_test_ila_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_ila_0_1' (0#1) [C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-30208-Gingham/realtime/jtag_axi_test_ila_0_1_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_jtag_axi_0_0' [C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-30208-Gingham/realtime/jtag_axi_test_jtag_axi_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_jtag_axi_0_0' (0#1) [C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-30208-Gingham/realtime/jtag_axi_test_jtag_axi_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_proc_sys_reset_0_0' [C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-30208-Gingham/realtime/jtag_axi_test_proc_sys_reset_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_proc_sys_reset_0_0' (0#1) [C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-30208-Gingham/realtime/jtag_axi_test_proc_sys_reset_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'mb_reset' of module 'jtag_axi_test_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:486]
-WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'jtag_axi_test_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:486]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'jtag_axi_test_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:486]
-WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'jtag_axi_test_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:486]
-WARNING: [Synth 8-7023] instance 'proc_sys_reset_0' of module 'jtag_axi_test_proc_sys_reset_0_0' has 10 connections declared, but only 6 given [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:486]
-INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_seeg_top_0_0' [C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-30208-Gingham/realtime/jtag_axi_test_seeg_top_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_seeg_top_0_0' (0#1) [C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-30208-Gingham/realtime/jtag_axi_test_seeg_top_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'RHS_MOSI_D' of module 'jtag_axi_test_seeg_top_0_0' is unconnected for instance 'seeg_top_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:493]
-WARNING: [Synth 8-7023] instance 'seeg_top_0' of module 'jtag_axi_test_seeg_top_0_0' has 129 connections declared, but only 128 given [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:493]
-INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_xlconstant_0_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_xlconstant_0_0/synth/jtag_axi_test_xlconstant_0_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ipshared/b0f2/hdl/xlconstant_v1_1_vl_rfs.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant' (0#1) [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ipshared/b0f2/hdl/xlconstant_v1_1_vl_rfs.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_xlconstant_0_0' (0#1) [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_xlconstant_0_0/synth/jtag_axi_test_xlconstant_0_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_zynq_ultra_ps_e_0_0' [C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-30208-Gingham/realtime/jtag_axi_test_zynq_ultra_ps_e_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_zynq_ultra_ps_e_0_0' (0#1) [C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-30208-Gingham/realtime/jtag_axi_test_zynq_ultra_ps_e_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'maxigp2_awid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_awaddr' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_awlen' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_awsize' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_awburst' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_awlock' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_awcache' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_awprot' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_awvalid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_awuser' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_wdata' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_wstrb' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_wlast' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_wvalid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_bready' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_arid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_araddr' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_arlen' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_arsize' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_arburst' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_arlock' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_arcache' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_arprot' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_arvalid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_aruser' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_rready' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_awqos' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'maxigp2_arqos' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'saxigp0_awready' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'saxigp0_wready' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'saxigp0_bid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'saxigp0_bresp' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'saxigp0_bvalid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'saxigp0_arready' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'saxigp0_rid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'saxigp0_rdata' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'saxigp0_rresp' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'saxigp0_rlast' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'saxigp0_rvalid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'emio_gpio_o' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7071] port 'emio_gpio_t' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-WARNING: [Synth 8-7023] instance 'zynq_ultra_ps_e_0' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' has 86 connections declared, but only 45 given [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:624]
-INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test' (0#1) [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:13]
-INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_wrapper' (0#1) [C:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/hdl/jtag_axi_test_wrapper.v:13]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'seeg_top_0'. This will prevent further optimization [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:493]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'jtag_axi_test_i'. This will prevent further optimization [C:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/hdl/jtag_axi_test_wrapper.v:316]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ila_0'. This will prevent further optimization [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:449]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'xlconstant_0'. This will prevent further optimization [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:622]
+INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_wrapper' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/hdl/jtag_axi_test_wrapper.v:13]
+INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:13]
+INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_clk_wiz_0_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_clk_wiz_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_clk_wiz_0_0' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_clk_wiz_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_diff_to_single_0_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_diff_to_single_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_diff_to_single_0_0' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_diff_to_single_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_diff_to_single_1_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_diff_to_single_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_diff_to_single_1_0' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_diff_to_single_1_0_stub.v:6]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:463]
+INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_ila_0_1' [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_ila_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_ila_0_1' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_ila_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_jtag_axi_0_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_jtag_axi_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_jtag_axi_0_0' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_jtag_axi_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_proc_sys_reset_0_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_proc_sys_reset_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_proc_sys_reset_0_0' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_proc_sys_reset_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'jtag_axi_test_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:508]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'jtag_axi_test_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:508]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'jtag_axi_test_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:508]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'jtag_axi_test_proc_sys_reset_0_0' is unconnected for instance 'proc_sys_reset_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:508]
+WARNING: [Synth 8-7023] instance 'proc_sys_reset_0' of module 'jtag_axi_test_proc_sys_reset_0_0' has 10 connections declared, but only 6 given [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:508]
+INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_seeg_top_0_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_seeg_top_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_seeg_top_0_0' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_seeg_top_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_xlconstant_0_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_xlconstant_0_0/synth/jtag_axi_test_xlconstant_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ipshared/b0f2/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ipshared/b0f2/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_xlconstant_0_0' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_xlconstant_0_0/synth/jtag_axi_test_xlconstant_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'jtag_axi_test_zynq_ultra_ps_e_0_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_zynq_ultra_ps_e_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_zynq_ultra_ps_e_0_0' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/.Xil/Vivado-17099-ug3/realtime/jtag_axi_test_zynq_ultra_ps_e_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'maxigp2_awid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_awaddr' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_awlen' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_awsize' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_awburst' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_awlock' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_awcache' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_awprot' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_awvalid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_awuser' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_wdata' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_wstrb' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_wlast' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_wvalid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_bready' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_arid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_araddr' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_arlen' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_arsize' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_arburst' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_arlock' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_arcache' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_arprot' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_arvalid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_aruser' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_rready' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_awqos' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'maxigp2_arqos' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'saxigp0_awready' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'saxigp0_wready' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'saxigp0_bid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'saxigp0_bresp' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'saxigp0_bvalid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'saxigp0_arready' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'saxigp0_rid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'saxigp0_rdata' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'saxigp0_rresp' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'saxigp0_rlast' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'saxigp0_rvalid' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'emio_gpio_o' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7071] port 'emio_gpio_t' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+WARNING: [Synth 8-7023] instance 'zynq_ultra_ps_e_0' of module 'jtag_axi_test_zynq_ultra_ps_e_0_0' has 86 connections declared, but only 45 given [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:647]
+INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'jtag_axi_test_wrapper' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/hdl/jtag_axi_test_wrapper.v:13]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'seeg_top_0'. This will prevent further optimization [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:515]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'jtag_axi_test_i'. This will prevent further optimization [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/hdl/jtag_axi_test_wrapper.v:319]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ila_0'. This will prevent further optimization [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:463]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'xlconstant_0'. This will prevent further optimization [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:645]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'diff_to_single_1'. This will prevent further optimization [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:459]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'diff_to_single_0'. This will prevent further optimization [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/synth/jtag_axi_test.v:455]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1998.551 ; gain = 438.422
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2688.027 ; gain = 321.730 ; free physical = 12798 ; free virtual = 19600
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1998.551 ; gain = 438.422
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2688.027 ; gain = 321.730 ; free physical = 12798 ; free virtual = 19600
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1998.551 ; gain = 438.422
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2688.027 ; gain = 321.730 ; free physical = 12798 ; free virtual = 19600
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1998.551 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2688.027 ; gain = 0.000 ; free physical = 12798 ; free virtual = 19600
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_zynq_ultra_ps_e_0_0/jtag_axi_test_zynq_ultra_ps_e_0_0/jtag_axi_test_zynq_ultra_ps_e_0_0_in_context.xdc] for cell 'jtag_axi_test_i/zynq_ultra_ps_e_0'
-Finished Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_zynq_ultra_ps_e_0_0/jtag_axi_test_zynq_ultra_ps_e_0_0/jtag_axi_test_zynq_ultra_ps_e_0_0_in_context.xdc] for cell 'jtag_axi_test_i/zynq_ultra_ps_e_0'
-Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_jtag_axi_0_0/jtag_axi_test_jtag_axi_0_0/jtag_axi_test_jtag_axi_0_0_in_context.xdc] for cell 'jtag_axi_test_i/jtag_axi_0'
-Finished Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_jtag_axi_0_0/jtag_axi_test_jtag_axi_0_0/jtag_axi_test_jtag_axi_0_0_in_context.xdc] for cell 'jtag_axi_test_i/jtag_axi_0'
-Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_proc_sys_reset_0_0/jtag_axi_test_proc_sys_reset_0_0/jtag_axi_test_proc_sys_reset_0_0_in_context.xdc] for cell 'jtag_axi_test_i/proc_sys_reset_0'
-Finished Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_proc_sys_reset_0_0/jtag_axi_test_proc_sys_reset_0_0/jtag_axi_test_proc_sys_reset_0_0_in_context.xdc] for cell 'jtag_axi_test_i/proc_sys_reset_0'
-Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_clk_wiz_0_0/jtag_axi_test_clk_wiz_0_0/jtag_axi_test_clk_wiz_0_0_in_context.xdc] for cell 'jtag_axi_test_i/clk_wiz_0'
-Finished Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_clk_wiz_0_0/jtag_axi_test_clk_wiz_0_0/jtag_axi_test_clk_wiz_0_0_in_context.xdc] for cell 'jtag_axi_test_i/clk_wiz_0'
-Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_ila_0_1/jtag_axi_test_ila_0_1/jtag_axi_test_ila_0_1_in_context.xdc] for cell 'jtag_axi_test_i/ila_0'
-Finished Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_ila_0_1/jtag_axi_test_ila_0_1/jtag_axi_test_ila_0_1_in_context.xdc] for cell 'jtag_axi_test_i/ila_0'
-Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc] for cell 'jtag_axi_test_i/seeg_top_0'
-Finished Parsing XDC File [c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc] for cell 'jtag_axi_test_i/seeg_top_0'
-Parsing XDC File [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc]
-WARNING: [Vivado 12-584] No ports matched 'RHS_MISO1'. [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:88]
-WARNING: [Vivado 12-584] No ports matched 'RHS_MISO2'. [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:89]
-WARNING: [Vivado 12-584] No ports matched 'RHS_MOSI2'. [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:90]
-WARNING: [Vivado 12-584] No ports matched 'RHS_MOSI1'. [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:91]
-WARNING: [Vivado 12-584] No ports matched 'RHS_MISO1'. [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:94]
-WARNING: [Vivado 12-584] No ports matched 'RHS_MISO2'. [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:95]
-WARNING: [Vivado 12-584] No ports matched 'RHS_MOSI1'. [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:96]
-WARNING: [Vivado 12-584] No ports matched 'RHS_MOSI2'. [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:97]
-WARNING: [Vivado 12-584] No ports matched 'RHS_MISO_I'. [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:112]
-WARNING: [Vivado 12-584] No ports matched 'RHS_MOSI_D'. [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:149]
-WARNING: [Vivado 12-584] No ports matched 'RHS_MOSI_D'. [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:181]
-Finished Parsing XDC File [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc]
-WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/jtag_axi_test_wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/jtag_axi_test_wrapper_propImpl.xdc].
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_zynq_ultra_ps_e_0_0/jtag_axi_test_zynq_ultra_ps_e_0_0/jtag_axi_test_zynq_ultra_ps_e_0_0_in_context.xdc] for cell 'jtag_axi_test_i/zynq_ultra_ps_e_0'
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_zynq_ultra_ps_e_0_0/jtag_axi_test_zynq_ultra_ps_e_0_0/jtag_axi_test_zynq_ultra_ps_e_0_0_in_context.xdc] for cell 'jtag_axi_test_i/zynq_ultra_ps_e_0'
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_jtag_axi_0_0/jtag_axi_test_jtag_axi_0_0/jtag_axi_test_jtag_axi_0_0_in_context.xdc] for cell 'jtag_axi_test_i/jtag_axi_0'
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_jtag_axi_0_0/jtag_axi_test_jtag_axi_0_0/jtag_axi_test_jtag_axi_0_0_in_context.xdc] for cell 'jtag_axi_test_i/jtag_axi_0'
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_proc_sys_reset_0_0/jtag_axi_test_proc_sys_reset_0_0/jtag_axi_test_proc_sys_reset_0_0_in_context.xdc] for cell 'jtag_axi_test_i/proc_sys_reset_0'
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_proc_sys_reset_0_0/jtag_axi_test_proc_sys_reset_0_0/jtag_axi_test_proc_sys_reset_0_0_in_context.xdc] for cell 'jtag_axi_test_i/proc_sys_reset_0'
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_clk_wiz_0_0/jtag_axi_test_clk_wiz_0_0/jtag_axi_test_clk_wiz_0_0_in_context.xdc] for cell 'jtag_axi_test_i/clk_wiz_0'
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_clk_wiz_0_0/jtag_axi_test_clk_wiz_0_0/jtag_axi_test_clk_wiz_0_0_in_context.xdc] for cell 'jtag_axi_test_i/clk_wiz_0'
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_ila_0_1/jtag_axi_test_ila_0_1/jtag_axi_test_ila_0_1_in_context.xdc] for cell 'jtag_axi_test_i/ila_0'
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_ila_0_1/jtag_axi_test_ila_0_1/jtag_axi_test_ila_0_1_in_context.xdc] for cell 'jtag_axi_test_i/ila_0'
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc] for cell 'jtag_axi_test_i/seeg_top_0'
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc] for cell 'jtag_axi_test_i/seeg_top_0'
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_diff_to_single_0_0/jtag_axi_test_diff_to_single_0_0/jtag_axi_test_diff_to_single_0_0_in_context.xdc] for cell 'jtag_axi_test_i/diff_to_single_0'
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_diff_to_single_0_0/jtag_axi_test_diff_to_single_0_0/jtag_axi_test_diff_to_single_0_0_in_context.xdc] for cell 'jtag_axi_test_i/diff_to_single_0'
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_diff_to_single_1_0/jtag_axi_test_diff_to_single_1_0/jtag_axi_test_diff_to_single_1_0_in_context.xdc] for cell 'jtag_axi_test_i/diff_to_single_1'
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_diff_to_single_1_0/jtag_axi_test_diff_to_single_1_0/jtag_axi_test_diff_to_single_1_0_in_context.xdc] for cell 'jtag_axi_test_i/diff_to_single_1'
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc]
+WARNING: [Vivado 12-584] No ports matched 'RHS_MISO1'. [/home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:88]
+WARNING: [Vivado 12-584] No ports matched 'RHS_MISO2'. [/home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:89]
+WARNING: [Vivado 12-584] No ports matched 'RHS_MOSI2'. [/home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:90]
+WARNING: [Vivado 12-584] No ports matched 'RHS_MOSI1'. [/home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:91]
+WARNING: [Vivado 12-584] No ports matched 'RHS_MISO1'. [/home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:94]
+WARNING: [Vivado 12-584] No ports matched 'RHS_MISO2'. [/home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:95]
+WARNING: [Vivado 12-584] No ports matched 'RHS_MOSI1'. [/home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:96]
+WARNING: [Vivado 12-584] No ports matched 'RHS_MOSI2'. [/home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:97]
+WARNING: [Vivado 12-584] No ports matched 'RHS_MISO_I'. [/home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc:112]
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [/home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/jtag_axi_test_wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/constrs_1/new/constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/jtag_axi_test_wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/jtag_axi_test_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/dont_touch.xdc]
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2013.922 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2736.953 ; gain = 0.000 ; free physical = 12793 ; free virtual = 19595
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2013.922 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2736.953 ; gain = 0.000 ; free physical = 12793 ; free virtual = 19595
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2013.922 ; gain = 453.793
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2736.953 ; gain = 370.656 ; free physical = 12792 ; free virtual = 19594
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -172,152 +176,154 @@ Start Loading Part and Timing Information
 Loading part: xck26-sfvc784-2LV-c
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2013.922 ; gain = 453.793
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2736.953 ; gain = 370.656 ; free physical = 12792 ; free virtual = 19594
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_I_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 1).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_I_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 2).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_I_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_I_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 4).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_J_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 5).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_J_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 6).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_J_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 7).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_J_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 8).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_K_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 9).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_K_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 10).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_K_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 11).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_K_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 12).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_L_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 13).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_L_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 14).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_L_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 15).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_L_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 16).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_M_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 17).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_M_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 18).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_M_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 19).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_M_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 20).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_N_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 21).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_N_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 22).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_N_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 23).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_N_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 24).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_O_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 25).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_O_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 26).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_O_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 27).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_O_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 28).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_P_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 29).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_P_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 30).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_P_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 31).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_P_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 32).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_I_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 33).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_I_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 34).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_I_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 35).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_I_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 36).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_J_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 37).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_J_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 38).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_J_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 39).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_J_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 40).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_K_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 41).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_K_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 42).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_K_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 43).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_K_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 44).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_L_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 45).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_L_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 46).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_L_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 47).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_L_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 48).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_M_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 49).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_M_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 50).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_M_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 51).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_M_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 52).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_N_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 53).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_N_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 54).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_N_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 55).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_N_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 56).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_O_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 57).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_O_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 58).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_O_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 59).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_O_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 60).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_P_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 61).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_P_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 62).
-Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_P_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 63).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_P_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 64).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_I_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 65).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_I_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 66).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_I_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 67).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_I_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 68).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_J_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 69).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_J_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 70).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_J_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 71).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_J_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 72).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_K_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 73).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_K_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 74).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_K_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 75).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_K_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 76).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_L_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 77).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_L_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 78).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_L_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 79).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_L_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 80).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_M_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 81).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_M_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 82).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_M_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 83).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_M_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 84).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_N_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 85).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_N_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 86).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_N_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 87).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_N_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 88).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_O_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 89).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_O_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 90).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_O_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 91).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_O_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 92).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_P_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 93).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_P_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 94).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_P_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 95).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_P_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 96).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_I_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 97).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_I_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 98).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_I_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 99).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_I_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 100).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_J_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 101).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_J_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 102).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_J_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 103).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_J_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 104).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_K_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 105).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_K_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 106).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_K_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 107).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_K_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 108).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_L_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 109).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_L_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 110).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_L_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 111).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_L_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 112).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_M_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 113).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_M_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 114).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_M_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 115).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_M_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 116).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_N_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 117).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_N_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 118).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_N_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 119).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_N_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 120).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_O_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 121).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_O_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 122).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_O_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 123).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_O_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 124).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_P_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 125).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_P_N. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 126).
-Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_P_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 127).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_P_P. (constraint file  c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 128).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_I_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 1).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_I_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 2).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_I_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_I_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_J_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 5).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_J_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 6).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_J_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 7).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_J_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 8).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_K_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 9).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_K_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 10).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_K_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 11).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_K_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 12).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_L_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 13).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_L_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 14).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_L_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 15).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_L_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 16).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_M_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 17).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_M_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 18).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_M_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 19).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_M_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 20).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_N_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 21).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_N_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 22).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_N_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 23).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_N_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 24).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_O_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 25).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_O_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 26).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_O_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 27).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_O_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 28).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_P_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 29).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_P_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 30).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO1_P_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 31).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO1_P_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 32).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_I_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 33).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_I_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 34).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_I_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 35).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_I_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 36).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_J_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 37).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_J_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 38).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_J_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 39).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_J_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 40).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_K_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 41).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_K_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 42).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_K_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 43).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_K_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 44).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_L_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 45).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_L_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 46).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_L_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 47).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_L_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 48).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_M_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 49).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_M_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 50).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_M_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 51).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_M_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 52).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_N_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 53).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_N_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 54).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_N_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 55).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_N_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 56).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_O_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 57).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_O_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 58).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_O_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 59).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_O_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 60).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_P_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 61).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_P_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 62).
+Applied set_property IO_BUFFER_TYPE = NONE for RHD_MISO2_P_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 63).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHD_MISO2_P_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 64).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_J_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 69).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_J_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 70).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_J_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 71).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_J_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 72).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_K_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 73).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_K_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 74).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_K_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 75).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_K_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 76).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_L_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 77).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_L_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 78).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_L_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 79).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_L_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 80).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_M_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 81).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_M_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 82).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_M_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 83).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_M_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 84).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_N_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 85).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_N_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 86).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_N_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 87).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_N_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 88).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_O_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 89).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_O_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 90).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_O_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 91).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_O_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 92).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_P_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 93).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_P_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 94).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_P_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 95).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_P_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 96).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_I_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 97).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_I_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 98).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_I_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 99).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_I_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 100).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_J_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 101).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_J_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 102).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_J_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 103).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_J_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 104).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_K_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 105).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_K_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 106).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_K_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 107).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_K_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 108).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_L_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 109).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_L_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 110).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_L_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 111).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_L_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 112).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_M_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 113).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_M_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 114).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_M_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 115).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_M_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 116).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_N_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 117).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_N_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 118).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_N_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 119).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_N_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 120).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_O_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 121).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_O_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 122).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_O_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 123).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_O_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 124).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_P_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 125).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_P_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 126).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MOSI_P_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 127).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MOSI_P_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0_in_context.xdc, line 128).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_I_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_diff_to_single_0_0/jtag_axi_test_diff_to_single_0_0/jtag_axi_test_diff_to_single_0_0_in_context.xdc, line 1).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_I_N. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_diff_to_single_0_0/jtag_axi_test_diff_to_single_0_0/jtag_axi_test_diff_to_single_0_0_in_context.xdc, line 2).
+Applied set_property IO_BUFFER_TYPE = NONE for RHS_MISO_I_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_diff_to_single_0_0/jtag_axi_test_diff_to_single_0_0/jtag_axi_test_diff_to_single_0_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RHS_MISO_I_P. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/ip/jtag_axi_test_diff_to_single_0_0/jtag_axi_test_diff_to_single_0_0/jtag_axi_test_diff_to_single_0_0_in_context.xdc, line 4).
 Applied set_property KEEP_HIERARCHY = SOFT for jtag_axi_test_i. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for jtag_axi_test_i/zynq_ultra_ps_e_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for jtag_axi_test_i/jtag_axi_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for jtag_axi_test_i/proc_sys_reset_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for jtag_axi_test_i/clk_wiz_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for jtag_axi_test_i/ila_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for jtag_axi_test_i/seeg_top_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for jtag_axi_test_i/xlconstant_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for jtag_axi_test_i/seeg_top_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for jtag_axi_test_i/diff_to_single_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for jtag_axi_test_i/diff_to_single_1. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2013.922 ; gain = 453.793
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2736.953 ; gain = 370.656 ; free physical = 12792 ; free virtual = 19594
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2013.922 ; gain = 453.793
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2736.953 ; gain = 370.656 ; free physical = 12791 ; free virtual = 19594
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -340,25 +346,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 2013.922 ; gain = 453.793
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2736.953 ; gain = 370.656 ; free physical = 12786 ; free virtual = 19592
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2559.414 ; gain = 999.285
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 3220.859 ; gain = 854.562 ; free physical = 12353 ; free virtual = 19160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2559.414 ; gain = 999.285
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 3220.859 ; gain = 854.562 ; free physical = 12353 ; free virtual = 19160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2569.223 ; gain = 1009.094
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 3230.875 ; gain = 864.578 ; free physical = 12345 ; free virtual = 19151
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -376,37 +382,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2585.000 ; gain = 1024.871
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 3244.750 ; gain = 878.453 ; free physical = 12345 ; free virtual = 19151
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2585.000 ; gain = 1024.871
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 3244.750 ; gain = 878.453 ; free physical = 12345 ; free virtual = 19151
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2585.000 ; gain = 1024.871
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 3244.750 ; gain = 878.453 ; free physical = 12345 ; free virtual = 19151
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2585.000 ; gain = 1024.871
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 3244.750 ; gain = 878.453 ; free physical = 12345 ; free virtual = 19151
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2585.000 ; gain = 1024.871
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 3244.750 ; gain = 878.453 ; free physical = 12345 ; free virtual = 19151
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2585.000 ; gain = 1024.871
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 3244.750 ; gain = 878.453 ; free physical = 12345 ; free virtual = 19151
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -417,11 +423,13 @@ Report BlackBoxes:
 |      |BlackBox name                     |Instances |
 +------+----------------------------------+----------+
 |1     |jtag_axi_test_clk_wiz_0_0         |         1|
-|2     |jtag_axi_test_ila_0_1             |         1|
-|3     |jtag_axi_test_jtag_axi_0_0        |         1|
-|4     |jtag_axi_test_proc_sys_reset_0_0  |         1|
-|5     |jtag_axi_test_seeg_top_0_0        |         1|
-|6     |jtag_axi_test_zynq_ultra_ps_e_0_0 |         1|
+|2     |jtag_axi_test_diff_to_single_0_0  |         1|
+|3     |jtag_axi_test_diff_to_single_1_0  |         1|
+|4     |jtag_axi_test_ila_0_1             |         1|
+|5     |jtag_axi_test_jtag_axi_0_0        |         1|
+|6     |jtag_axi_test_proc_sys_reset_0_0  |         1|
+|7     |jtag_axi_test_seeg_top_0_0        |         1|
+|8     |jtag_axi_test_zynq_ultra_ps_e_0_0 |         1|
 +------+----------------------------------+----------+
 
 Report Cell Usage: 
@@ -429,39 +437,43 @@ Report Cell Usage:
 |      |Cell                            |Count |
 +------+--------------------------------+------+
 |1     |jtag_axi_test_clk_wiz_0         |     1|
-|2     |jtag_axi_test_ila_0             |     1|
-|3     |jtag_axi_test_jtag_axi_0        |     1|
-|4     |jtag_axi_test_proc_sys_reset_0  |     1|
-|5     |jtag_axi_test_seeg_top_0        |     1|
-|6     |jtag_axi_test_zynq_ultra_ps_e_0 |     1|
-|7     |LUT1                            |     1|
-|8     |IBUF                            |    24|
-|9     |OBUF                            |    12|
+|2     |jtag_axi_test_diff_to_single_0  |     1|
+|3     |jtag_axi_test_diff_to_single_1  |     1|
+|4     |jtag_axi_test_ila_0             |     1|
+|5     |jtag_axi_test_jtag_axi_0        |     1|
+|6     |jtag_axi_test_proc_sys_reset_0  |     1|
+|7     |jtag_axi_test_seeg_top_0        |     1|
+|8     |jtag_axi_test_zynq_ultra_ps_e_0 |     1|
+|9     |LUT1                            |     1|
+|10    |IBUF                            |    24|
+|11    |OBUF                            |    13|
 +------+--------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2585.000 ; gain = 1024.871
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 3244.750 ; gain = 878.453 ; free physical = 12345 ; free virtual = 19151
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 2585.000 ; gain = 1009.500
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 2585.000 ; gain = 1024.871
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 3244.750 ; gain = 829.527 ; free physical = 12344 ; free virtual = 19151
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 3244.758 ; gain = 878.453 ; free physical = 12344 ; free virtual = 19151
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2597.062 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3256.719 ; gain = 0.000 ; free physical = 12615 ; free virtual = 19422
 INFO: [Netlist 29-17] Analyzing 24 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2627.488 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3275.531 ; gain = 0.000 ; free physical = 12597 ; free virtual = 19404
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 24 instances were transformed.
   IBUF => IBUF (IBUFCTRL, INBUF): 24 instances
 
-Synth Design complete | Checksum: 12da589b
+Synth Design complete | Checksum: 350d4188
 INFO: [Common 17-83] Releasing license: Synthesis
-49 Infos, 63 Warnings, 0 Critical Warnings and 0 Errors encountered.
+55 Infos, 59 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 2627.488 ; gain = 2073.469
+synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:19 . Memory (MB): peak = 3275.531 ; gain = 1738.355 ; free physical = 12597 ; free virtual = 19404
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2558.426; main = 2558.426; forked = 398.054
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3717.289; main = 3275.535; forked = 996.340
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
-INFO: [Common 17-1381] The checkpoint 'C:/Repos/ug3-seeg/ug3-seeg.runs/synth_1/jtag_axi_test_wrapper.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint '/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/jtag_axi_test_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file jtag_axi_test_wrapper_utilization_synth.rpt -pb jtag_axi_test_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Sep 18 13:04:32 2024...
+INFO: [Common 17-206] Exiting Vivado at Thu Sep 19 16:01:52 2024...

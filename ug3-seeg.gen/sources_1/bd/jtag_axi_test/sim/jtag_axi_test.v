@@ -1,16 +1,16 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Wed Sep 18 12:58:44 2024
-//Host        : Gingham running 64-bit major release  (build 9200)
+//Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
+//Date        : Thu Sep 19 16:00:25 2024
+//Host        : ug3 running 64-bit Ubuntu 18.04.6 LTS
 //Command     : generate_target jtag_axi_test.bd
 //Design      : jtag_axi_test
 //Purpose     : IP block netlist
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "jtag_axi_test,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=jtag_axi_test,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=7,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "jtag_axi_test.hwdef" *) 
+(* CORE_GENERATION_INFO = "jtag_axi_test,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=jtag_axi_test,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=9,numReposBlks=9,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=3,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "jtag_axi_test.hwdef" *) 
 module jtag_axi_test
    (RHD_CS,
     RHD_MISO1_A,
@@ -91,6 +91,7 @@ module jtag_axi_test
     RHS_MOSI_A,
     RHS_MOSI_B,
     RHS_MOSI_C,
+    RHS_MOSI_D,
     RHS_MOSI_E,
     RHS_MOSI_F,
     RHS_MOSI_G,
@@ -191,6 +192,7 @@ module jtag_axi_test
   output RHS_MOSI_A;
   output RHS_MOSI_B;
   output RHS_MOSI_C;
+  output RHS_MOSI_D;
   output RHS_MOSI_E;
   output RHS_MOSI_F;
   output RHS_MOSI_G;
@@ -288,6 +290,8 @@ module jtag_axi_test
   wire RHS_MISO_P_P_1;
   wire clk_wiz_0_clk_39M;
   wire clk_wiz_0_locked;
+  wire diff_to_single_0_out;
+  wire diff_to_single_1_out;
   wire [31:0]jtag_axi_0_M_AXI_ARADDR;
   wire [2:0]jtag_axi_0_M_AXI_ARPROT;
   wire jtag_axi_0_M_AXI_ARREADY;
@@ -318,6 +322,7 @@ module jtag_axi_test
   wire seeg_top_0_RHS_MOSI_A;
   wire seeg_top_0_RHS_MOSI_B;
   wire seeg_top_0_RHS_MOSI_C;
+  wire seeg_top_0_RHS_MOSI_D;
   wire seeg_top_0_RHS_MOSI_E;
   wire seeg_top_0_RHS_MOSI_F;
   wire seeg_top_0_RHS_MOSI_G;
@@ -421,6 +426,7 @@ module jtag_axi_test
   assign RHS_MOSI_A = seeg_top_0_RHS_MOSI_A;
   assign RHS_MOSI_B = seeg_top_0_RHS_MOSI_B;
   assign RHS_MOSI_C = seeg_top_0_RHS_MOSI_C;
+  assign RHS_MOSI_D = seeg_top_0_RHS_MOSI_D;
   assign RHS_MOSI_E = seeg_top_0_RHS_MOSI_E;
   assign RHS_MOSI_F = seeg_top_0_RHS_MOSI_F;
   assign RHS_MOSI_G = seeg_top_0_RHS_MOSI_G;
@@ -446,6 +452,14 @@ module jtag_axi_test
        (.clk_78M(clk_wiz_0_clk_39M),
         .clk_in1(zynq_ultra_ps_e_0_pl_clk0),
         .locked(clk_wiz_0_locked));
+  jtag_axi_test_diff_to_single_0_0 diff_to_single_0
+       (.in_n(RHS_MISO_I_N_1),
+        .in_p(RHS_MISO_I_P_1),
+        .out_single(diff_to_single_0_out));
+  jtag_axi_test_diff_to_single_1_0 diff_to_single_1
+       (.in_n(seeg_top_0_RHS_MOSI_I_N),
+        .in_p(seeg_top_0_RHS_MOSI_I_P),
+        .out_single(diff_to_single_1_out));
   jtag_axi_test_ila_0_1 ila_0
        (.clk(clk_wiz_0_clk_39M),
         .probe0(seeg_top_0_RHD_CS),
@@ -453,7 +467,15 @@ module jtag_axi_test
         .probe10(seeg_top_0_M_AXIS_tlast),
         .probe11(seeg_top_0_M_AXIS_tvalid),
         .probe12(Net),
+        .probe13(seeg_top_0_RHS_MOSI_B),
+        .probe14(RHS_MISO_B_1),
+        .probe15(seeg_top_0_RHS_MOSI_D),
+        .probe16(RHS_MISO_D_1),
+        .probe17(diff_to_single_1_out),
+        .probe18(diff_to_single_0_out),
+        .probe19(seeg_top_0_RHS_MOSI_C),
         .probe2(seeg_top_0_RHD_SCLK),
+        .probe20(RHS_MISO_C_1),
         .probe3(RHD_MISO1_A_1),
         .probe4(RHD_MISO2_A_1),
         .probe5(seeg_top_0_RHS_CS),
@@ -576,6 +598,7 @@ module jtag_axi_test
         .RHS_MOSI_A(seeg_top_0_RHS_MOSI_A),
         .RHS_MOSI_B(seeg_top_0_RHS_MOSI_B),
         .RHS_MOSI_C(seeg_top_0_RHS_MOSI_C),
+        .RHS_MOSI_D(seeg_top_0_RHS_MOSI_D),
         .RHS_MOSI_E(seeg_top_0_RHS_MOSI_E),
         .RHS_MOSI_F(seeg_top_0_RHS_MOSI_F),
         .RHS_MOSI_G(seeg_top_0_RHS_MOSI_G),

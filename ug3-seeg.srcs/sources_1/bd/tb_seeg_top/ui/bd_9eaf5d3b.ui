@@ -3,7 +3,7 @@
    "Default View_ScaleFactor":"0.75357",
    "Default View_TopLeft":"-471,391",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 threadsafe
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
 preplace port port-id_M_AXIS_ARESETN -pg 1 -lvl 0 -x -20 -y 40 -defaultsOSRD
 preplace port port-id_S_AXI_ARESETN -pg 1 -lvl 0 -x -20 -y 130 -defaultsOSRD
@@ -14,9 +14,9 @@ preplace inst axi_vip_0 -pg 1 -lvl 1 -x 120 -y 120 -defaultsOSRD
 preplace inst seeg_top_0 -pg 1 -lvl 2 -x 420 -y 890 -defaultsOSRD
 preplace netloc M_AXIS_ACLK_1 1 0 2 20J 190 220J
 preplace netloc M_AXIS_ARESETN_1 1 0 2 NJ 40 230J
+preplace netloc M_AXIS_tready_1 1 0 3 NJ 1720 NJ 1720 590
 preplace netloc S_AXI_ACLK_1 1 0 2 0 200 230J
 preplace netloc S_AXI_ARESETN_1 1 0 2 10 210 240J
-preplace netloc M_AXIS_tready_1 1 0 3 NJ 1720 NJ 1720 600
 preplace netloc axi_vip_0_M_AXI 1 1 1 N 120
 levelinfo -pg 1 -20 120 420 620
 pagesize -pg 1 -db -bbox -sgen -200 0 620 1740

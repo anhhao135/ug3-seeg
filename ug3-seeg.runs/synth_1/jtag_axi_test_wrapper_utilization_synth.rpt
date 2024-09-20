@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Wed Sep 18 13:04:32 2024
-| Host         : Gingham running 64-bit major release  (build 9200)
+| Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
+| Date         : Thu Sep 19 16:01:52 2024
+| Host         : ug3 running 64-bit Ubuntu 18.04.6 LTS
 | Command      : report_utilization -file jtag_axi_test_wrapper_utilization_synth.rpt -pb jtag_axi_test_wrapper_utilization_synth.pb
 | Design       : jtag_axi_test_wrapper
 | Device       : xck26-sfvc784-2LV-c
@@ -96,7 +96,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +------------+------+-------+------------+-----------+-------+
 |  Site Type | Used | Fixed | Prohibited | Available | Util% |
 +------------+------+-------+------------+-----------+-------+
-| Bonded IOB |   36 |     0 |          0 |       189 | 19.05 |
+| Bonded IOB |   37 |     0 |          0 |       189 | 19.58 |
 +------------+------+-------+------------+-----------+-------+
 
 
@@ -159,7 +159,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | INBUF    |   24 |                 I/O |
 | IBUFCTRL |   24 |              Others |
-| OBUF     |   12 |                 I/O |
+| OBUF     |   13 |                 I/O |
 | LUT1     |    1 |                 CLB |
 +----------+------+---------------------+
 
@@ -175,6 +175,8 @@ Warning! LUT value is adjusted to account for LUT combining.
 | jtag_axi_test_proc_sys_reset_0_0  |    1 |
 | jtag_axi_test_jtag_axi_0_0        |    1 |
 | jtag_axi_test_ila_0_1             |    1 |
+| jtag_axi_test_diff_to_single_1_0  |    1 |
+| jtag_axi_test_diff_to_single_0_0  |    1 |
 | jtag_axi_test_clk_wiz_0_0         |    1 |
 +-----------------------------------+------+
 

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Sep 18 12:58:45 2024" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Sep 19 16:00:25 2024" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="zynquplus" BOARD="xilinx.com:k26c:part0:1.4" DEVICE="xck26" NAME="jtag_axi_test" PACKAGE="sfvc784" SPEEDGRADE="-2LV"/>
 
@@ -235,16 +235,19 @@
     <PORT DIR="I" NAME="RHS_MISO_D" SIGIS="undef" SIGNAME="External_Ports_RHS_MISO_D">
       <CONNECTIONS>
         <CONNECTION INSTANCE="seeg_top_0" PORT="RHS_MISO_D"/>
+        <CONNECTION INSTANCE="ila_0" PORT="probe16"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="RHS_MISO_C" SIGIS="undef" SIGNAME="External_Ports_RHS_MISO_C">
       <CONNECTIONS>
         <CONNECTION INSTANCE="seeg_top_0" PORT="RHS_MISO_C"/>
+        <CONNECTION INSTANCE="ila_0" PORT="probe20"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="RHS_MISO_B" SIGIS="undef" SIGNAME="External_Ports_RHS_MISO_B">
       <CONNECTIONS>
         <CONNECTION INSTANCE="seeg_top_0" PORT="RHS_MISO_B"/>
+        <CONNECTION INSTANCE="ila_0" PORT="probe14"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="RHD_MISO2_P_N" SIGIS="undef" SIGNAME="External_Ports_RHD_MISO2_P_N">
@@ -350,11 +353,13 @@
     <PORT DIR="I" NAME="RHS_MISO_I_P" SIGIS="undef" SIGNAME="External_Ports_RHS_MISO_I_P">
       <CONNECTIONS>
         <CONNECTION INSTANCE="seeg_top_0" PORT="RHS_MISO_I_P"/>
+        <CONNECTION INSTANCE="diff_to_single_0" PORT="in_p"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="RHS_MISO_I_N" SIGIS="undef" SIGNAME="External_Ports_RHS_MISO_I_N">
       <CONNECTIONS>
         <CONNECTION INSTANCE="seeg_top_0" PORT="RHS_MISO_I_N"/>
+        <CONNECTION INSTANCE="diff_to_single_0" PORT="in_n"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="RHS_MISO_J_P" SIGIS="undef" SIGNAME="External_Ports_RHS_MISO_J_P">
@@ -505,6 +510,11 @@
     <PORT DIR="O" NAME="RHS_MOSI_P_N" SIGIS="undef" SIGNAME="seeg_top_0_RHS_MOSI_P_N">
       <CONNECTIONS>
         <CONNECTION INSTANCE="seeg_top_0" PORT="RHS_MOSI_P_N"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="RHS_MOSI_D" SIGIS="undef" SIGNAME="seeg_top_0_RHS_MOSI_D">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="seeg_top_0" PORT="RHS_MOSI_D"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -1114,6 +1124,56 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/diff_to_single_0" HWVERSION="1.0" INSTANCE="diff_to_single_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="diff_to_single" VLNV="xilinx.com:module_ref:diff_to_single:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="jtag_axi_test_diff_to_single_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="in_p" SIGIS="undef" SIGNAME="External_Ports_RHS_MISO_I_P">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="RHS_MISO_I_P"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_n" SIGIS="undef" SIGNAME="External_Ports_RHS_MISO_I_N">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="RHS_MISO_I_N"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_single" SIGIS="undef" SIGNAME="diff_to_single_0_out_single">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_0" PORT="probe18"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/diff_to_single_1" HWVERSION="1.0" INSTANCE="diff_to_single_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="diff_to_single" VLNV="xilinx.com:module_ref:diff_to_single:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="jtag_axi_test_diff_to_single_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="in_p" SIGIS="undef" SIGNAME="seeg_top_0_RHS_MOSI_I_P">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="seeg_top_0" PORT="RHS_MOSI_I_P"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_n" SIGIS="undef" SIGNAME="seeg_top_0_RHS_MOSI_I_N">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="seeg_top_0" PORT="RHS_MOSI_I_N"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_single" SIGIS="undef" SIGNAME="diff_to_single_1_out_single">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_0" PORT="probe17"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="13" FULLNAME="/ila_0" HWVERSION="6.2" INSTANCE="ila_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ila" VLNV="xilinx.com:ip:ila:6.2">
       <DOCUMENTS>
         <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=ila;v=v6_2;d=pg172-ila.pdf"/>
@@ -1134,7 +1194,7 @@
         <PARAMETER NAME="C_SLOT_0_AXI_PROTOCOL" VALUE="AXI4"/>
         <PARAMETER NAME="C_NUM_MONITOR_SLOTS" VALUE="1"/>
         <PARAMETER NAME="C_ENABLE_ILA_AXI_MON" VALUE="0"/>
-        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="13"/>
+        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="21"/>
         <PARAMETER NAME="C_DATA_DEPTH" VALUE="32768"/>
         <PARAMETER NAME="C_MAJOR_VERSION" VALUE="2023"/>
         <PARAMETER NAME="C_MINOR_VERSION" VALUE="1"/>
@@ -4324,6 +4384,46 @@
             <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe13" RIGHT="0" SIGIS="undef" SIGNAME="seeg_top_0_RHS_MOSI_B">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="seeg_top_0" PORT="RHS_MOSI_B"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe14" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_RHS_MISO_B">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="RHS_MISO_B"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe15" RIGHT="0" SIGIS="undef" SIGNAME="seeg_top_0_RHS_MOSI_D">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="seeg_top_0" PORT="RHS_MOSI_D"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe16" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_RHS_MISO_D">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="RHS_MISO_D"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe17" RIGHT="0" SIGIS="undef" SIGNAME="diff_to_single_1_out_single">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="diff_to_single_1" PORT="out_single"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe18" RIGHT="0" SIGIS="undef" SIGNAME="diff_to_single_0_out_single">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="diff_to_single_0" PORT="out_single"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe19" RIGHT="0" SIGIS="undef" SIGNAME="seeg_top_0_RHS_MOSI_C">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="seeg_top_0" PORT="RHS_MOSI_C"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe20" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_RHS_MISO_C">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="RHS_MISO_C"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -4992,14 +5092,21 @@
         <PORT DIR="O" NAME="RHS_MOSI_B" SIGIS="undef" SIGNAME="seeg_top_0_RHS_MOSI_B">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="RHS_MOSI_B"/>
+            <CONNECTION INSTANCE="ila_0" PORT="probe13"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="RHS_MOSI_C" SIGIS="undef" SIGNAME="seeg_top_0_RHS_MOSI_C">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="RHS_MOSI_C"/>
+            <CONNECTION INSTANCE="ila_0" PORT="probe19"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="RHS_MOSI_D" SIGIS="undef"/>
+        <PORT DIR="O" NAME="RHS_MOSI_D" SIGIS="undef" SIGNAME="seeg_top_0_RHS_MOSI_D">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="RHS_MOSI_D"/>
+            <CONNECTION INSTANCE="ila_0" PORT="probe15"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="RHS_MOSI_E" SIGIS="undef" SIGNAME="seeg_top_0_RHS_MOSI_E">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="RHS_MOSI_E"/>
@@ -5023,11 +5130,13 @@
         <PORT DIR="O" NAME="RHS_MOSI_I_P" SIGIS="undef" SIGNAME="seeg_top_0_RHS_MOSI_I_P">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="RHS_MOSI_I_P"/>
+            <CONNECTION INSTANCE="diff_to_single_1" PORT="in_p"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="RHS_MOSI_I_N" SIGIS="undef" SIGNAME="seeg_top_0_RHS_MOSI_I_N">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="RHS_MOSI_I_N"/>
+            <CONNECTION INSTANCE="diff_to_single_1" PORT="in_n"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="RHS_MOSI_J_P" SIGIS="undef" SIGNAME="seeg_top_0_RHS_MOSI_J_P">
@@ -5311,8 +5420,8 @@
       <PORTS>
         <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="seeg_top_0" PORT="M_AXIS_tready"/>
             <CONNECTION INSTANCE="ila_0" PORT="probe12"/>
+            <CONNECTION INSTANCE="seeg_top_0" PORT="M_AXIS_tready"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

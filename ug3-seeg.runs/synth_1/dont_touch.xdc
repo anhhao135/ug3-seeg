@@ -33,4 +33,10 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fifo_16_to_
 # IP: bd/jtag_axi_test/ip/jtag_axi_test_xlconstant_0_0/jtag_axi_test_xlconstant_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==jtag_axi_test_xlconstant_0_0 || ORIG_REF_NAME==jtag_axi_test_xlconstant_0_0} -quiet] -quiet
 
-# XDC: c:/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/jtag_axi_test_ooc.xdc
+# IP: bd/jtag_axi_test/ip/jtag_axi_test_diff_to_single_0_0/jtag_axi_test_diff_to_single_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==jtag_axi_test_diff_to_single_0_0 || ORIG_REF_NAME==jtag_axi_test_diff_to_single_0_0} -quiet] -quiet
+
+# IP: bd/jtag_axi_test/ip/jtag_axi_test_diff_to_single_1_0/jtag_axi_test_diff_to_single_1_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==jtag_axi_test_diff_to_single_1_0 || ORIG_REF_NAME==jtag_axi_test_diff_to_single_1_0} -quiet] -quiet
+
+# XDC: /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/jtag_axi_test/jtag_axi_test_ooc.xdc
