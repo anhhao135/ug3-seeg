@@ -1,0 +1,30 @@
++===================================+===================================+==============================================================================================+
+| Launch Setup Clock                | Launch Hold Clock                 | Pin                                                                                          |
++===================================+===================================+==============================================================================================+
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_delay_tracker_reg[15]/D                    |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_delay_tracker_reg[2]/D                     |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_bipulses_per_train_count_tracker_reg[15]/D |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_delay_tracker_reg[3]/D                     |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_bipulses_per_train_count_tracker_reg[1]/D  |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_bipulses_per_train_count_tracker_reg[12]/D |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_bipulses_per_train_count_tracker_reg[2]/D  |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_bipulses_per_train_count_tracker_reg[13]/D |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_bipulses_per_train_count_tracker_reg[8]/D  |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_delay_tracker_reg[13]/D                    |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_delay_tracker_reg[4]/D                     |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_train_count_tracker_reg[10]/D              |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_delay_tracker_reg[5]/D                     |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_train_count_tracker_reg[12]/D              |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_delay_tracker_reg[7]/D                     |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_train_count_tracker_reg[1]/D               |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_bipulses_per_train_count_tracker_reg[14]/D |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_train_count_tracker_reg[11]/D              |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_train_count_tracker_reg[3]/D               |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_train_count_tracker_reg[13]/D              |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_bipulses_per_train_count_tracker_reg[7]/D  |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_bipulses_per_train_count_tracker_reg[0]/D  |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_train_count_tracker_reg[15]/D              |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_train_count_tracker_reg[14]/D              |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_delay_tracker_reg[14]/D                    |
+| clk_78M_jtag_axi_test_clk_wiz_0_0 | clk_78M_jtag_axi_test_clk_wiz_0_0 | jtag_axi_test_i/seeg_top_0/inst/seeg/rhs_256/stim_train_count_tracker_reg[4]/D               |
++-----------------------------------+-----------------------------------+----------------------------------------------------------------------------------------------+

@@ -392,6 +392,51 @@ module seeg_top #
 
     
     );
+    
+    
+    
+    assign RHD_MISO1_I_DEBUG = RHD_MISO1_I;
+    assign RHD_MISO2_I_DEBUG = RHD_MISO2_I;
+
+    assign RHD_MISO1_J_DEBUG = RHD_MISO1_J;
+    assign RHD_MISO2_J_DEBUG = RHD_MISO2_J;
+
+    assign RHD_MISO1_K_DEBUG = RHD_MISO1_K;
+    assign RHD_MISO2_K_DEBUG = RHD_MISO2_K;
+
+    assign RHD_MISO1_L_DEBUG = RHD_MISO1_L;
+    assign RHD_MISO2_L_DEBUG = RHD_MISO2_L;
+
+    assign RHD_MISO1_M_DEBUG = RHD_MISO1_M;
+    assign RHD_MISO2_M_DEBUG = RHD_MISO2_M;
+
+    assign RHD_MISO1_N_DEBUG = RHD_MISO1_N;
+    assign RHD_MISO2_N_DEBUG = RHD_MISO2_N;
+
+    assign RHD_MISO1_O_DEBUG = RHD_MISO1_O;
+    assign RHD_MISO2_O_DEBUG = RHD_MISO2_O;
+
+    assign RHD_MISO1_P_DEBUG = RHD_MISO1_P;
+    assign RHD_MISO2_P_DEBUG = RHD_MISO2_P;
+    
+    
+    assign RHS_MISO_I_DEBUG = RHS_MISO_I;
+    assign RHS_MISO_J_DEBUG = RHS_MISO_J;
+    assign RHS_MISO_K_DEBUG = RHS_MISO_K;
+    assign RHS_MISO_L_DEBUG = RHS_MISO_L;
+    assign RHS_MISO_M_DEBUG = RHS_MISO_M;
+    assign RHS_MISO_N_DEBUG = RHS_MISO_N;
+    assign RHS_MISO_O_DEBUG = RHS_MISO_O;
+    assign RHS_MISO_P_DEBUG = RHS_MISO_P;
+
+    assign RHS_MOSI_I_DEBUG = RHS_MOSI_I;
+    assign RHS_MOSI_J_DEBUG = RHS_MOSI_J;
+    assign RHS_MOSI_K_DEBUG = RHS_MOSI_K;
+    assign RHS_MOSI_L_DEBUG = RHS_MOSI_L;
+    assign RHS_MOSI_M_DEBUG = RHS_MOSI_M;
+    assign RHS_MOSI_N_DEBUG = RHS_MOSI_N;
+    assign RHS_MOSI_O_DEBUG = RHS_MOSI_O;
+    assign RHS_MOSI_P_DEBUG = RHS_MOSI_P;
 
     wire [63:0] data_out_module;
     wire valid_out_module;

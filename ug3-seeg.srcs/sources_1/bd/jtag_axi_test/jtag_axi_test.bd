@@ -16,9 +16,9 @@
       "proc_sys_reset_0": "",
       "clk_wiz_0": "",
       "xlconstant_0": "",
-      "seeg_top_0": "",
       "ila_rhd": "",
-      "ila_rhs": ""
+      "ila_rhs": "",
+      "seeg_top_0": ""
     },
     "ports": {
       "RHD_CS": {
@@ -329,7 +329,7 @@
       "zynq_ultra_ps_e_0": {
         "vlnv": "xilinx.com:ip:zynq_ultra_ps_e:3.5",
         "xci_name": "jtag_axi_test_zynq_ultra_ps_e_0_0",
-        "xci_path": "ip\\jtag_axi_test_zynq_ultra_ps_e_0_0\\jtag_axi_test_zynq_ultra_ps_e_0_0.xci",
+        "xci_path": "ip/jtag_axi_test_zynq_ultra_ps_e_0_0/jtag_axi_test_zynq_ultra_ps_e_0_0.xci",
         "inst_hier_path": "zynq_ultra_ps_e_0",
         "parameters": {
           "PSU_BANK_0_IO_STANDARD": {
@@ -1949,7 +1949,7 @@
       "jtag_axi_0": {
         "vlnv": "xilinx.com:ip:jtag_axi:1.2",
         "xci_name": "jtag_axi_test_jtag_axi_0_0",
-        "xci_path": "ip\\jtag_axi_test_jtag_axi_0_0\\jtag_axi_test_jtag_axi_0_0.xci",
+        "xci_path": "ip/jtag_axi_test_jtag_axi_0_0/jtag_axi_test_jtag_axi_0_0.xci",
         "inst_hier_path": "jtag_axi_0",
         "parameters": {
           "M_AXI_ADDR_WIDTH": {
@@ -1983,13 +1983,13 @@
       "proc_sys_reset_0": {
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "jtag_axi_test_proc_sys_reset_0_0",
-        "xci_path": "ip\\jtag_axi_test_proc_sys_reset_0_0\\jtag_axi_test_proc_sys_reset_0_0.xci",
+        "xci_path": "ip/jtag_axi_test_proc_sys_reset_0_0/jtag_axi_test_proc_sys_reset_0_0.xci",
         "inst_hier_path": "proc_sys_reset_0"
       },
       "clk_wiz_0": {
         "vlnv": "xilinx.com:ip:clk_wiz:6.0",
         "xci_name": "jtag_axi_test_clk_wiz_0_0",
-        "xci_path": "ip\\jtag_axi_test_clk_wiz_0_0\\jtag_axi_test_clk_wiz_0_0.xci",
+        "xci_path": "ip/jtag_axi_test_clk_wiz_0_0/jtag_axi_test_clk_wiz_0_0.xci",
         "inst_hier_path": "clk_wiz_0",
         "parameters": {
           "CLKOUT1_JITTER": {
@@ -2021,13 +2021,41 @@
       "xlconstant_0": {
         "vlnv": "xilinx.com:ip:xlconstant:1.1",
         "xci_name": "jtag_axi_test_xlconstant_0_0",
-        "xci_path": "ip\\jtag_axi_test_xlconstant_0_0\\jtag_axi_test_xlconstant_0_0.xci",
+        "xci_path": "ip/jtag_axi_test_xlconstant_0_0/jtag_axi_test_xlconstant_0_0.xci",
         "inst_hier_path": "xlconstant_0"
+      },
+      "ila_rhd": {
+        "vlnv": "xilinx.com:ip:ila:6.2",
+        "xci_name": "jtag_axi_test_ila_rhd_0",
+        "xci_path": "ip/jtag_axi_test_ila_rhd_0/jtag_axi_test_ila_rhd_0.xci",
+        "inst_hier_path": "ila_rhd",
+        "parameters": {
+          "C_MONITOR_TYPE": {
+            "value": "Native"
+          },
+          "C_NUM_OF_PROBES": {
+            "value": "35"
+          }
+        }
+      },
+      "ila_rhs": {
+        "vlnv": "xilinx.com:ip:ila:6.2",
+        "xci_name": "jtag_axi_test_ila_rhs_0",
+        "xci_path": "ip/jtag_axi_test_ila_rhs_0/jtag_axi_test_ila_rhs_0.xci",
+        "inst_hier_path": "ila_rhs",
+        "parameters": {
+          "C_MONITOR_TYPE": {
+            "value": "Native"
+          },
+          "C_NUM_OF_PROBES": {
+            "value": "34"
+          }
+        }
       },
       "seeg_top_0": {
         "vlnv": "xilinx.com:module_ref:seeg_top:1.0",
         "xci_name": "jtag_axi_test_seeg_top_0_0",
-        "xci_path": "ip\\jtag_axi_test_seeg_top_0_0\\jtag_axi_test_seeg_top_0_0.xci",
+        "xci_path": "ip/jtag_axi_test_seeg_top_0_0/jtag_axi_test_seeg_top_0_0.xci",
         "inst_hier_path": "seeg_top_0",
         "reference_info": {
           "ref_type": "hdl",
@@ -2791,34 +2819,6 @@
             "direction": "I"
           }
         }
-      },
-      "ila_rhd": {
-        "vlnv": "xilinx.com:ip:ila:6.2",
-        "xci_name": "jtag_axi_test_ila_0_2",
-        "xci_path": "ip\\jtag_axi_test_ila_0_2\\jtag_axi_test_ila_0_2.xci",
-        "inst_hier_path": "ila_rhd",
-        "parameters": {
-          "C_MONITOR_TYPE": {
-            "value": "Native"
-          },
-          "C_NUM_OF_PROBES": {
-            "value": "35"
-          }
-        }
-      },
-      "ila_rhs": {
-        "vlnv": "xilinx.com:ip:ila:6.2",
-        "xci_name": "jtag_axi_test_ila_0_3",
-        "xci_path": "ip\\jtag_axi_test_ila_0_3\\jtag_axi_test_ila_0_3.xci",
-        "inst_hier_path": "ila_rhs",
-        "parameters": {
-          "C_MONITOR_TYPE": {
-            "value": "Native"
-          },
-          "C_NUM_OF_PROBES": {
-            "value": "34"
-          }
-        }
       }
     },
     "interface_nets": {
@@ -2839,57 +2839,57 @@
       "RHD_MISO1_A_1": {
         "ports": [
           "RHD_MISO1_A",
-          "seeg_top_0/RHD_MISO1_A",
-          "ila_rhd/probe2"
+          "ila_rhd/probe2",
+          "seeg_top_0/RHD_MISO1_A"
         ]
       },
       "RHD_MISO1_B_1": {
         "ports": [
           "RHD_MISO1_B",
-          "seeg_top_0/RHD_MISO1_B",
-          "ila_rhd/probe4"
+          "ila_rhd/probe4",
+          "seeg_top_0/RHD_MISO1_B"
         ]
       },
       "RHD_MISO1_C_1": {
         "ports": [
           "RHD_MISO1_C",
-          "seeg_top_0/RHD_MISO1_C",
-          "ila_rhd/probe6"
+          "ila_rhd/probe6",
+          "seeg_top_0/RHD_MISO1_C"
         ]
       },
       "RHD_MISO1_D_1": {
         "ports": [
           "RHD_MISO1_D",
-          "seeg_top_0/RHD_MISO1_D",
-          "ila_rhd/probe8"
+          "ila_rhd/probe8",
+          "seeg_top_0/RHD_MISO1_D"
         ]
       },
       "RHD_MISO1_E_1": {
         "ports": [
           "RHD_MISO1_E",
-          "seeg_top_0/RHD_MISO1_E",
-          "ila_rhd/probe10"
+          "ila_rhd/probe10",
+          "seeg_top_0/RHD_MISO1_E"
         ]
       },
       "RHD_MISO1_F_1": {
         "ports": [
           "RHD_MISO1_F",
-          "seeg_top_0/RHD_MISO1_F",
-          "ila_rhd/probe12"
+          "ila_rhd/probe12",
+          "seeg_top_0/RHD_MISO1_F"
         ]
       },
       "RHD_MISO1_G_1": {
         "ports": [
           "RHD_MISO1_G",
-          "seeg_top_0/RHD_MISO1_G",
-          "ila_rhd/probe14"
+          "ila_rhd/probe14",
+          "seeg_top_0/RHD_MISO1_G"
         ]
       },
       "RHD_MISO1_H_1": {
         "ports": [
           "RHD_MISO1_H",
-          "seeg_top_0/RHD_MISO1_H",
-          "ila_rhd/probe16"
+          "ila_rhd/probe16",
+          "seeg_top_0/RHD_MISO1_H"
         ]
       },
       "RHD_MISO1_I_N_1": {
@@ -2991,57 +2991,57 @@
       "RHD_MISO2_A_1": {
         "ports": [
           "RHD_MISO2_A",
-          "seeg_top_0/RHD_MISO2_A",
-          "ila_rhd/probe3"
+          "ila_rhd/probe3",
+          "seeg_top_0/RHD_MISO2_A"
         ]
       },
       "RHD_MISO2_B_1": {
         "ports": [
           "RHD_MISO2_B",
-          "seeg_top_0/RHD_MISO2_B",
-          "ila_rhd/probe5"
+          "ila_rhd/probe5",
+          "seeg_top_0/RHD_MISO2_B"
         ]
       },
       "RHD_MISO2_C_1": {
         "ports": [
           "RHD_MISO2_C",
-          "seeg_top_0/RHD_MISO2_C",
-          "ila_rhd/probe7"
+          "ila_rhd/probe7",
+          "seeg_top_0/RHD_MISO2_C"
         ]
       },
       "RHD_MISO2_D_1": {
         "ports": [
           "RHD_MISO2_D",
-          "seeg_top_0/RHD_MISO2_D",
-          "ila_rhd/probe9"
+          "ila_rhd/probe9",
+          "seeg_top_0/RHD_MISO2_D"
         ]
       },
       "RHD_MISO2_E_1": {
         "ports": [
           "RHD_MISO2_E",
-          "seeg_top_0/RHD_MISO2_E",
-          "ila_rhd/probe11"
+          "ila_rhd/probe11",
+          "seeg_top_0/RHD_MISO2_E"
         ]
       },
       "RHD_MISO2_F_1": {
         "ports": [
           "RHD_MISO2_F",
-          "seeg_top_0/RHD_MISO2_F",
-          "ila_rhd/probe13"
+          "ila_rhd/probe13",
+          "seeg_top_0/RHD_MISO2_F"
         ]
       },
       "RHD_MISO2_G_1": {
         "ports": [
           "RHD_MISO2_G",
-          "seeg_top_0/RHD_MISO2_G",
-          "ila_rhd/probe15"
+          "ila_rhd/probe15",
+          "seeg_top_0/RHD_MISO2_G"
         ]
       },
       "RHD_MISO2_H_1": {
         "ports": [
           "RHD_MISO2_H",
-          "seeg_top_0/RHD_MISO2_H",
-          "ila_rhd/probe17"
+          "ila_rhd/probe17",
+          "seeg_top_0/RHD_MISO2_H"
         ]
       },
       "RHD_MISO2_I_N_1": {
@@ -3143,57 +3143,57 @@
       "RHS_MISO_A_1": {
         "ports": [
           "RHS_MISO_A",
-          "seeg_top_0/RHS_MISO_A",
-          "ila_rhs/probe16"
+          "ila_rhs/probe16",
+          "seeg_top_0/RHS_MISO_A"
         ]
       },
       "RHS_MISO_B_1": {
         "ports": [
           "RHS_MISO_B",
-          "seeg_top_0/RHS_MISO_B",
-          "ila_rhs/probe17"
+          "ila_rhs/probe17",
+          "seeg_top_0/RHS_MISO_B"
         ]
       },
       "RHS_MISO_C_1": {
         "ports": [
           "RHS_MISO_C",
-          "seeg_top_0/RHS_MISO_C",
-          "ila_rhs/probe18"
+          "ila_rhs/probe18",
+          "seeg_top_0/RHS_MISO_C"
         ]
       },
       "RHS_MISO_D_1": {
         "ports": [
           "RHS_MISO_D",
-          "seeg_top_0/RHS_MISO_D",
-          "ila_rhs/probe19"
+          "ila_rhs/probe19",
+          "seeg_top_0/RHS_MISO_D"
         ]
       },
       "RHS_MISO_E_1": {
         "ports": [
           "RHS_MISO_E",
-          "seeg_top_0/RHS_MISO_E",
-          "ila_rhs/probe20"
+          "ila_rhs/probe20",
+          "seeg_top_0/RHS_MISO_E"
         ]
       },
       "RHS_MISO_F_1": {
         "ports": [
           "RHS_MISO_F",
-          "seeg_top_0/RHS_MISO_F",
-          "ila_rhs/probe21"
+          "ila_rhs/probe21",
+          "seeg_top_0/RHS_MISO_F"
         ]
       },
       "RHS_MISO_G_1": {
         "ports": [
           "RHS_MISO_G",
-          "seeg_top_0/RHS_MISO_G",
-          "ila_rhs/probe22"
+          "ila_rhs/probe22",
+          "seeg_top_0/RHS_MISO_G"
         ]
       },
       "RHS_MISO_H_1": {
         "ports": [
           "RHS_MISO_H",
-          "seeg_top_0/RHS_MISO_H",
-          "ila_rhs/probe23"
+          "ila_rhs/probe23",
+          "seeg_top_0/RHS_MISO_H"
         ]
       },
       "RHS_MISO_I_N_1": {
@@ -3297,10 +3297,10 @@
           "clk_wiz_0/clk_78M",
           "proc_sys_reset_0/slowest_sync_clk",
           "jtag_axi_0/aclk",
-          "seeg_top_0/M_AXIS_ACLK",
-          "seeg_top_0/S_AXI_ACLK",
           "ila_rhd/clk",
-          "ila_rhs/clk"
+          "ila_rhs/clk",
+          "seeg_top_0/M_AXIS_ACLK",
+          "seeg_top_0/S_AXI_ACLK"
         ]
       },
       "clk_wiz_0_locked": {
