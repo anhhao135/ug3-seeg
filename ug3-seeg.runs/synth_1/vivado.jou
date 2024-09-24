@@ -3,12 +3,12 @@
 # SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Mon Sep 23 14:55:38 2024
-# Process ID: 14597
+# Start of session at: Tue Sep 24 09:57:53 2024
+# Process ID: 14593
 # Current directory: /home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1
 # Command line: vivado -log seeg_zynq_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source seeg_zynq_wrapper.tcl
 # Log file: /home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/seeg_zynq_wrapper.vds
 # Journal file: /home/ug3/Repos/ug3-seeg/ug3-seeg.runs/synth_1/vivado.jou
-# Running On: ug3, OS: Linux, CPU Frequency: 2328.918 MHz, CPU Physical cores: 6, Host memory: 33347 MB
+# Running On: ug3, OS: Linux, CPU Frequency: 4226.896 MHz, CPU Physical cores: 6, Host memory: 33347 MB
 #-----------------------------------------------------------
 source seeg_zynq_wrapper.tcl -notrace

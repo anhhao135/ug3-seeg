@@ -9,23 +9,8 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==seeg_zynq |
 # IP: bd/seeg_zynq/ip/seeg_zynq_clk_wiz_0_0/seeg_zynq_clk_wiz_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==seeg_zynq_clk_wiz_0_0 || ORIG_REF_NAME==seeg_zynq_clk_wiz_0_0} -quiet] -quiet
 
-# IP: bd/seeg_zynq/ip/seeg_zynq_ila_rhd_0/seeg_zynq_ila_rhd_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==seeg_zynq_ila_rhd_0 || ORIG_REF_NAME==seeg_zynq_ila_rhd_0} -quiet] -quiet
-
-# IP: bd/seeg_zynq/ip/seeg_zynq_ila_rhs_0/seeg_zynq_ila_rhs_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==seeg_zynq_ila_rhs_0 || ORIG_REF_NAME==seeg_zynq_ila_rhs_0} -quiet] -quiet
-
 # IP: bd/seeg_zynq/ip/seeg_zynq_proc_sys_reset_0_0/seeg_zynq_proc_sys_reset_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==seeg_zynq_proc_sys_reset_0_0 || ORIG_REF_NAME==seeg_zynq_proc_sys_reset_0_0} -quiet] -quiet
-
-# IP: bd/seeg_zynq/ip/seeg_zynq_seeg_top_0_0/seeg_zynq_seeg_top_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==seeg_zynq_seeg_top_0_0 || ORIG_REF_NAME==seeg_zynq_seeg_top_0_0} -quiet] -quiet
-
-# IP: ip/axis_data_fifo_seeg/axis_data_fifo_seeg.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==axis_data_fifo_seeg || ORIG_REF_NAME==axis_data_fifo_seeg} -quiet] -quiet
-
-# IP: ip/fifo_16_to_64/fifo_16_to_64.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fifo_16_to_64 || ORIG_REF_NAME==fifo_16_to_64} -quiet] -quiet
 
 # IP: bd/seeg_zynq/ip/seeg_zynq_zynq_ultra_ps_e_0_0/seeg_zynq_zynq_ultra_ps_e_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==seeg_zynq_zynq_ultra_ps_e_0_0 || ORIG_REF_NAME==seeg_zynq_zynq_ultra_ps_e_0_0} -quiet] -quiet
@@ -38,5 +23,14 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==seeg_zynq_s
 
 # IP: bd/seeg_zynq/ip/seeg_zynq_smartconnect_1_0/seeg_zynq_smartconnect_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==seeg_zynq_smartconnect_1_0 || ORIG_REF_NAME==seeg_zynq_smartconnect_1_0} -quiet] -quiet
+
+# IP: bd/seeg_zynq/ip/seeg_zynq_seeg_top_0_0/seeg_zynq_seeg_top_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==seeg_zynq_seeg_top_0_0 || ORIG_REF_NAME==seeg_zynq_seeg_top_0_0} -quiet] -quiet
+
+# IP: ip/axis_data_fifo_seeg/axis_data_fifo_seeg.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==axis_data_fifo_seeg || ORIG_REF_NAME==axis_data_fifo_seeg} -quiet] -quiet
+
+# IP: ip/fifo_16_to_64/fifo_16_to_64.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fifo_16_to_64 || ORIG_REF_NAME==fifo_16_to_64} -quiet] -quiet
 
 # XDC: /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/seeg_zynq_ooc.xdc

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date             : Mon Sep 23 15:02:16 2024
+| Date             : Tue Sep 24 10:05:10 2024
 | Host             : ug3 running 64-bit Ubuntu 18.04.6 LTS
 | Command          : report_power -file seeg_zynq_wrapper_power_routed.rpt -pb seeg_zynq_wrapper_power_summary_routed.pb -rpx seeg_zynq_wrapper_power_routed.rpx
 | Design           : seeg_zynq_wrapper
@@ -30,11 +30,11 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 3.240        |
+| Total On-Chip Power (W)  | 3.226        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 2.914        |
-| Device Static (W)        | 0.327        |
+| Dynamic (W)              | 2.899        |
+| Device Static (W)        | 0.326        |
 | Effective TJA (C/W)      | 2.3          |
 | Max Ambient (C)          | 77.5         |
 | Junction Temperature (C) | 32.5         |
@@ -52,25 +52,25 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.032 |        6 |       --- |             --- |
-| CLB Logic                |     0.030 |    52341 |       --- |             --- |
-|   LUT as Distributed RAM |     0.015 |      884 |     57600 |            1.53 |
-|   LUT as Logic           |     0.012 |    18687 |    117120 |           15.96 |
-|   LUT as Shift Register  |     0.001 |      676 |     57600 |            1.17 |
-|   Register               |     0.001 |    23110 |    234240 |            9.87 |
-|   CARRY8                 |    <0.001 |      409 |     14640 |            2.79 |
+| Clocks                   |     0.022 |        5 |       --- |             --- |
+| CLB Logic                |     0.027 |    39275 |       --- |             --- |
+|   LUT as Distributed RAM |     0.015 |      864 |     57600 |            1.50 |
+|   LUT as Logic           |     0.011 |    14732 |    117120 |           12.58 |
+|   Register               |     0.001 |    16920 |    234240 |            7.22 |
+|   LUT as Shift Register  |    <0.001 |      152 |     57600 |            0.26 |
+|   CARRY8                 |    <0.001 |      315 |     14640 |            2.15 |
 |   BUFG                   |    <0.001 |        6 |        32 |           18.75 |
-|   Others                 |     0.000 |     1856 |       --- |             --- |
-|   F7/F8 Muxes            |     0.000 |      600 |    117120 |            0.51 |
-| Signals                  |     0.016 |    37857 |       --- |             --- |
-| Block RAM                |     0.014 |     68.5 |       144 |           47.57 |
+|   Others                 |     0.000 |      934 |       --- |             --- |
+|   F7/F8 Muxes            |     0.000 |      375 |    117120 |            0.32 |
+| Signals                  |     0.015 |    28821 |       --- |             --- |
+| Block RAM                |     0.014 |     66.5 |       144 |           46.18 |
 | MMCM                     |     0.000 |        0 |       --- |             --- |
 | I/O                      |     0.148 |      101 |       189 |           53.44 |
 | PS8                      |     2.674 |        1 |       --- |             --- |
-| Static Power             |     0.327 |          |           |                 |
+| Static Power             |     0.326 |          |           |                 |
 |   PS Static              |     0.000 |          |           |                 |
-|   PL Static              |     0.327 |          |           |                 |
-| Total                    |     3.240 |          |           |                 |
+|   PL Static              |     0.326 |          |           |                 |
+| Total                    |     3.226 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -80,12 +80,12 @@ Table of Contents
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source          | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint          |       0.720 |     0.219 |       0.127 |      0.091 |       NA    | Unspecified | NA         |
+| Vccint          |       0.720 |     0.198 |       0.106 |      0.091 |       NA    | Unspecified | NA         |
 | Vccint_io       |       0.850 |     0.042 |       0.005 |      0.037 |       NA    | Unspecified | NA         |
 | Vccbram         |       0.850 |     0.002 |       0.001 |      0.001 |       NA    | Unspecified | NA         |
 | Vccaux          |       1.800 |     0.075 |       0.000 |      0.075 |       NA    | Unspecified | NA         |
-| Vccaux_io       |       1.800 |     0.059 |       0.027 |      0.031 |       NA    | Unspecified | NA         |
-| Vcco33          |       3.300 |     0.009 |       0.002 |      0.007 |       NA    | Unspecified | NA         |
+| Vccaux_io       |       1.800 |     0.059 |       0.028 |      0.031 |       NA    | Unspecified | NA         |
+| Vcco33          |       3.300 |     0.009 |       0.003 |      0.007 |       NA    | Unspecified | NA         |
 | Vcco25          |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18          |       1.800 |     0.048 |       0.048 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15          |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -151,14 +151,13 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+-----------------------------------------------------------------------------------------------------+--------------------------------------------------------------------+-----------------+
-| Clock                                                                                               | Domain                                                             | Constraint (ns) |
-+-----------------------------------------------------------------------------------------------------+--------------------------------------------------------------------+-----------------+
-| clk_78M_seeg_zynq_clk_wiz_0_0                                                                       | seeg_zynq_i/clk_wiz_0/inst/clk_78M_seeg_zynq_clk_wiz_0_0           |            12.8 |
-| clk_pl_0                                                                                            | seeg_zynq_i/zynq_ultra_ps_e_0/inst/pl_clk0                         |            10.0 |
-| clk_pl_0                                                                                            | seeg_zynq_i/zynq_ultra_ps_e_0/inst/pl_clk_unbuffered[0]            |            10.0 |
-| dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/DRCK |            50.0 |
-+-----------------------------------------------------------------------------------------------------+--------------------------------------------------------------------+-----------------+
++-------------------------------+----------------------------------------------------------+-----------------+
+| Clock                         | Domain                                                   | Constraint (ns) |
++-------------------------------+----------------------------------------------------------+-----------------+
+| clk_78M_seeg_zynq_clk_wiz_0_0 | seeg_zynq_i/clk_wiz_0/inst/clk_78M_seeg_zynq_clk_wiz_0_0 |            12.8 |
+| clk_pl_0                      | seeg_zynq_i/zynq_ultra_ps_e_0/inst/pl_clk0               |            10.0 |
+| clk_pl_0                      | seeg_zynq_i/zynq_ultra_ps_e_0/inst/pl_clk_unbuffered[0]  |            10.0 |
++-------------------------------+----------------------------------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -167,28 +166,21 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+--------------------------+-----------+
-| Name                     | Power (W) |
-+--------------------------+-----------+
-| seeg_zynq_wrapper        |     2.914 |
-|   dbg_hub                |     0.001 |
-|     inst                 |     0.001 |
-|       BSCANID.u_xsdbm_id |     0.001 |
-|   seeg_zynq_i            |     2.902 |
-|     axi_dma_0            |     0.008 |
-|       U0                 |     0.008 |
-|     ila_rhd              |     0.006 |
-|       inst               |     0.006 |
-|     ila_rhs              |     0.006 |
-|       inst               |     0.006 |
-|     seeg_top_0           |     0.169 |
-|       inst               |     0.169 |
-|     smartconnect_0       |     0.035 |
-|       inst               |     0.035 |
-|     smartconnect_1       |     0.003 |
-|       inst               |     0.003 |
-|     zynq_ultra_ps_e_0    |     2.674 |
-|       inst               |     2.674 |
-+--------------------------+-----------+
++-----------------------+-----------+
+| Name                  | Power (W) |
++-----------------------+-----------+
+| seeg_zynq_wrapper     |     2.899 |
+|   seeg_zynq_i         |     2.888 |
+|     axi_dma_0         |     0.008 |
+|       U0              |     0.008 |
+|     seeg_top_0        |     0.169 |
+|       inst            |     0.169 |
+|     smartconnect_0    |     0.034 |
+|       inst            |     0.034 |
+|     smartconnect_1    |     0.003 |
+|       inst            |     0.003 |
+|     zynq_ultra_ps_e_0 |     2.674 |
+|       inst            |     2.674 |
++-----------------------+-----------+
 
 

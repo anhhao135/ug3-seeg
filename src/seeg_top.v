@@ -456,7 +456,7 @@ module seeg_top #
     .busy_zcheck(slv_reg31[4]),
     .zcheck_done(slv_reg31[1]),
     //.current_state(slv_reg31[15:8]),
-    .current_state(current_state)
+    .current_state(current_state),
     .aux_signal(aux_signal),
     .data_out(data_out_module),
     .valid_out(valid_out_module),
