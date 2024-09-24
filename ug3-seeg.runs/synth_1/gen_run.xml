@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xck26-sfvc784-2LV-c" LaunchTime="1727128460" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/cable_delay_tester_wrapper.dcp">
-  <File Type="VDS-TIMINGSUMMARY" Name="seeg_zynq_wrapper_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="seeg_zynq_wrapper.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="seeg_zynq_wrapper_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="seeg_zynq_wrapper_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="seeg_zynq_wrapper_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="seeg_zynq_wrapper.vds"/>
-  <File Type="REPORTS-TCL" Name="seeg_zynq_wrapper_reports.tcl"/>
-  <File Type="VDS-TIMING-PB" Name="seeg_zynq_wrapper_timing_summary_synth.pb"/>
   <File Type="PA-TCL" Name="seeg_zynq_wrapper.tcl"/>
+  <File Type="REPORTS-TCL" Name="seeg_zynq_wrapper_reports.tcl"/>
+  <File Type="RDS-RDS" Name="seeg_zynq_wrapper.vds"/>
+  <File Type="RDS-UTIL" Name="seeg_zynq_wrapper_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="seeg_zynq_wrapper_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="seeg_zynq_wrapper.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/src/clock_divider.v">
@@ -202,24 +199,24 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="seeg_zynq_seeg_top_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="jtag_axi_test_seeg_top_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="seeg_zynq_smartconnect_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="seeg_zynq_seeg_top_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="jtag_axi_test_ila_rhd_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="jtag_axi_test_seeg_top_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="seeg_zynq_zynq_ultra_ps_e_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="axis_data_fifo_seeg"/>
   <BlockFileSet Type="BlockSrcs" Name="jtag_axi_test_zynq_ultra_ps_e_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="fifo_16_to_64"/>
   <BlockFileSet Type="BlockSrcs" Name="seeg_zynq_clk_wiz_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="jtag_axi_test_ila_rhd_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="fifo_16_to_64"/>
   <BlockFileSet Type="BlockSrcs" Name="cable_delay_tester_zynq_ultra_ps_e_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="jtag_axi_test_jtag_axi_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="seeg_zynq_smartconnect_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="jtag_axi_test_ila_rhs_0"/>
   <BlockFileSet Type="BlockSrcs" Name="seeg_zynq_axi_dma_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="jtag_axi_test_proc_sys_reset_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="jtag_axi_test_clk_wiz_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="cable_delay_tester_ila_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="cable_delay_tester_proc_sys_reset_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="jtag_axi_test_ila_rhs_0"/>
   <BlockFileSet Type="BlockSrcs" Name="cable_delay_tester_clk_wiz_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="tb_seeg_top_axi_vip_0_0"/>
 </GenRun>

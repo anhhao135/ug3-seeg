@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="seeg_zynq_axi_dma_0_1_synth_1" LaunchPart="xck26-sfvc784-2LV-c" LaunchTime="1727128460">
-  <File Type="VDS-TIMINGSUMMARY" Name="seeg_zynq_axi_dma_0_1_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="seeg_zynq_axi_dma_0_1.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="seeg_zynq_axi_dma_0_1_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="seeg_zynq_axi_dma_0_1_utilization_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="seeg_zynq_axi_dma_0_1_timing_summary_synth.pb"/>
   <File Type="PA-TCL" Name="seeg_zynq_axi_dma_0_1.tcl"/>
   <File Type="REPORTS-TCL" Name="seeg_zynq_axi_dma_0_1_reports.tcl"/>
   <File Type="RDS-RDS" Name="seeg_zynq_axi_dma_0_1.vds"/>
-  <File Type="RDS-PROPCONSTRS" Name="seeg_zynq_axi_dma_0_1_drc_synth.rpt"/>
+  <File Type="RDS-UTIL" Name="seeg_zynq_axi_dma_0_1_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="seeg_zynq_axi_dma_0_1_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="seeg_zynq_axi_dma_0_1.dcp"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/seeg_zynq_axi_dma_0_1" RelGenDir="$PGENDIR/seeg_zynq_axi_dma_0_1">
     <File Path="$PSRCDIR/sources_1/bd/seeg_zynq/ip/seeg_zynq_axi_dma_0_1/seeg_zynq_axi_dma_0_1.xci">
       <FileInfo>
@@ -52,9 +49,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

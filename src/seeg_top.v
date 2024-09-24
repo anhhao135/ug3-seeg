@@ -442,6 +442,8 @@ module seeg_top #
     wire valid_out_module;
     wire last_out_module;
 
+    wire current_state;
+
     seeg seeg(
     .clk(S_AXI_ACLK),
     .rstn(S_AXI_ARESETN),
@@ -453,7 +455,8 @@ module seeg_top #
     .busy_recording(slv_reg31[3]),
     .busy_zcheck(slv_reg31[4]),
     .zcheck_done(slv_reg31[1]),
-    .current_state(slv_reg31[15:8]),
+    //.current_state(slv_reg31[15:8]),
+    .current_state(current_state)
     .aux_signal(aux_signal),
     .data_out(data_out_module),
     .valid_out(valid_out_module),
@@ -607,7 +610,7 @@ module seeg_top #
 
 
     axis_data_fifo_seeg axis_data_fifo_seeg_0 (
-    .s_axis_aresetn(M_AXIS_ARESETN),  // input wire s_axis_aresetn
+    .s_axis_aresetn(M_AXIS_ARESETN || !(current_state == 0)),  // input wire s_axis_aresetn, reset when state is ready
     .s_axis_aclk(M_AXIS_ACLK),        // input wire s_axis_aclk
     .s_axis_tvalid(valid_out_module),    // input wire s_axis_tvalid
     .s_axis_tready(),    // output wire s_axis_tready
@@ -678,6 +681,7 @@ module seeg_top #
 
     assign slv_reg31[7:5] = 0; //unused part of register
     assign slv_reg31[31:16] = 16'hDEAD; //unused part of register
+    assign slv_reg31[15:8] = current_state;
 
     wire	 slv_reg_rden;
     wire	 slv_reg_wren;

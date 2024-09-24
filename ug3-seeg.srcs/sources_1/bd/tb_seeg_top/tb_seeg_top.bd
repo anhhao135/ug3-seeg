@@ -48,7 +48,7 @@
       "axi_vip_0": {
         "vlnv": "xilinx.com:ip:axi_vip:1.1",
         "xci_name": "tb_seeg_top_axi_vip_0_0",
-        "xci_path": "ip/tb_seeg_top_axi_vip_0_0/tb_seeg_top_axi_vip_0_0.xci",
+        "xci_path": "ip\\tb_seeg_top_axi_vip_0_0\\tb_seeg_top_axi_vip_0_0.xci",
         "inst_hier_path": "axi_vip_0",
         "parameters": {
           "ADDR_WIDTH": {
@@ -103,7 +103,7 @@
       "seeg_top_0": {
         "vlnv": "xilinx.com:module_ref:seeg_top:1.0",
         "xci_name": "tb_seeg_top_seeg_top_0_0",
-        "xci_path": "ip/tb_seeg_top_seeg_top_0_0/tb_seeg_top_seeg_top_0_0.xci",
+        "xci_path": "ip\\tb_seeg_top_seeg_top_0_0\\tb_seeg_top_seeg_top_0_0.xci",
         "inst_hier_path": "seeg_top_0",
         "reference_info": {
           "ref_type": "hdl",
