@@ -37,4 +37,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log jtag_axi_test_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source jtag_axi_test_wrapper.tcl
+EAStep vivado -log seeg_zynq_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source seeg_zynq_wrapper.tcl
