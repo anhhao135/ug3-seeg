@@ -442,7 +442,7 @@ module seeg_top #
     wire valid_out_module;
     wire last_out_module;
 
-    wire current_state;
+    wire [7:0] current_state;
 
     seeg seeg(
     .clk(S_AXI_ACLK),
@@ -610,7 +610,7 @@ module seeg_top #
 
 
     axis_data_fifo_seeg axis_data_fifo_seeg_0 (
-    .s_axis_aresetn(M_AXIS_ARESETN || !(current_state == 0)),  // input wire s_axis_aresetn, reset when state is ready
+    .s_axis_aresetn(M_AXIS_ARESETN && !(current_state == 0)),  // input wire s_axis_aresetn, reset when state is ready
     .s_axis_aclk(M_AXIS_ACLK),        // input wire s_axis_aclk
     .s_axis_tvalid(valid_out_module),    // input wire s_axis_tvalid
     .s_axis_tready(),    // output wire s_axis_tready

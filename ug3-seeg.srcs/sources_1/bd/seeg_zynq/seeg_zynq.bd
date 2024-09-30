@@ -7,8 +7,7 @@
       "name": "seeg_zynq",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2023.1",
-      "validated": "true"
+      "tool_version": "2023.1"
     },
     "design_tree": {
       "clk_wiz_0": "",
@@ -328,7 +327,7 @@
       "clk_wiz_0": {
         "vlnv": "xilinx.com:ip:clk_wiz:6.0",
         "xci_name": "seeg_zynq_clk_wiz_0_0",
-        "xci_path": "ip/seeg_zynq_clk_wiz_0_0/seeg_zynq_clk_wiz_0_0.xci",
+        "xci_path": "ip\\seeg_zynq_clk_wiz_0_0\\seeg_zynq_clk_wiz_0_0.xci",
         "inst_hier_path": "clk_wiz_0",
         "parameters": {
           "CLKOUT1_JITTER": {
@@ -360,13 +359,13 @@
       "proc_sys_reset_78M": {
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "seeg_zynq_proc_sys_reset_0_0",
-        "xci_path": "ip/seeg_zynq_proc_sys_reset_0_0/seeg_zynq_proc_sys_reset_0_0.xci",
+        "xci_path": "ip\\seeg_zynq_proc_sys_reset_0_0\\seeg_zynq_proc_sys_reset_0_0.xci",
         "inst_hier_path": "proc_sys_reset_78M"
       },
       "zynq_ultra_ps_e_0": {
         "vlnv": "xilinx.com:ip:zynq_ultra_ps_e:3.5",
         "xci_name": "seeg_zynq_zynq_ultra_ps_e_0_0",
-        "xci_path": "ip/seeg_zynq_zynq_ultra_ps_e_0_0/seeg_zynq_zynq_ultra_ps_e_0_0.xci",
+        "xci_path": "ip\\seeg_zynq_zynq_ultra_ps_e_0_0\\seeg_zynq_zynq_ultra_ps_e_0_0.xci",
         "inst_hier_path": "zynq_ultra_ps_e_0",
         "parameters": {
           "CAN0_BOARD_INTERFACE": {
@@ -3636,7 +3635,7 @@
       "axi_dma_0": {
         "vlnv": "xilinx.com:ip:axi_dma:7.1",
         "xci_name": "seeg_zynq_axi_dma_0_1",
-        "xci_path": "ip/seeg_zynq_axi_dma_0_1/seeg_zynq_axi_dma_0_1.xci",
+        "xci_path": "ip\\seeg_zynq_axi_dma_0_1\\seeg_zynq_axi_dma_0_1.xci",
         "inst_hier_path": "axi_dma_0",
         "parameters": {
           "c_addr_width": {
@@ -3709,7 +3708,7 @@
       "smartconnect_0": {
         "vlnv": "xilinx.com:ip:smartconnect:1.0",
         "xci_name": "seeg_zynq_smartconnect_0_0",
-        "xci_path": "ip/seeg_zynq_smartconnect_0_0/seeg_zynq_smartconnect_0_0.xci",
+        "xci_path": "ip\\seeg_zynq_smartconnect_0_0\\seeg_zynq_smartconnect_0_0.xci",
         "inst_hier_path": "smartconnect_0",
         "interface_ports": {
           "S00_AXI": {
@@ -3780,7 +3779,7 @@
       "smartconnect_1": {
         "vlnv": "xilinx.com:ip:smartconnect:1.0",
         "xci_name": "seeg_zynq_smartconnect_1_0",
-        "xci_path": "ip/seeg_zynq_smartconnect_1_0/seeg_zynq_smartconnect_1_0.xci",
+        "xci_path": "ip\\seeg_zynq_smartconnect_1_0\\seeg_zynq_smartconnect_1_0.xci",
         "inst_hier_path": "smartconnect_1",
         "parameters": {
           "NUM_MI": {
@@ -3875,7 +3874,7 @@
       "seeg_top_0": {
         "vlnv": "xilinx.com:module_ref:seeg_top:1.0",
         "xci_name": "seeg_zynq_seeg_top_0_0",
-        "xci_path": "ip/seeg_zynq_seeg_top_0_0/seeg_zynq_seeg_top_0_0.xci",
+        "xci_path": "ip\\seeg_zynq_seeg_top_0_0\\seeg_zynq_seeg_top_0_0.xci",
         "inst_hier_path": "seeg_top_0",
         "reference_info": {
           "ref_type": "hdl",
@@ -3919,18 +3918,6 @@
               "HAS_TLAST": {
                 "value": "1",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "78000972",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "seeg_zynq_clk_wiz_0_0_clk_78M",
-                "value_src": "default_prop"
               }
             },
             "port_maps": {
@@ -3966,10 +3953,6 @@
               "PROTOCOL": {
                 "value": "AXI4LITE",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "78000972",
-                "value_src": "ip_prop"
               },
               "ID_WIDTH": {
                 "value": "0",
@@ -4054,30 +4037,6 @@
               "MAX_BURST_LENGTH": {
                 "value": "1",
                 "value_src": "auto"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "seeg_zynq_clk_wiz_0_0_clk_78M",
-                "value_src": "default_prop"
-              },
-              "NUM_READ_THREADS": {
-                "value": "1",
-                "value_src": "user_prop"
-              },
-              "NUM_WRITE_THREADS": {
-                "value": "1",
-                "value_src": "user_prop"
-              },
-              "RUSER_BITS_PER_BYTE": {
-                "value": "0",
-                "value_src": "user_prop"
-              },
-              "WUSER_BITS_PER_BYTE": {
-                "value": "0",
-                "value_src": "user_prop"
               }
             },
             "memory_map_ref": "S_AXI",
@@ -4191,18 +4150,6 @@
               "ASSOCIATED_RESET": {
                 "value": "M_AXIS_ARESETN",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "78000972",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "seeg_zynq_clk_wiz_0_0_clk_78M",
-                "value_src": "default_prop"
               }
             }
           },
@@ -4227,18 +4174,6 @@
               "ASSOCIATED_RESET": {
                 "value": "S_AXI_ARESETN",
                 "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "78000972",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "seeg_zynq_clk_wiz_0_0_clk_78M",
-                "value_src": "default_prop"
               }
             }
           },

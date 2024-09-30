@@ -239,14 +239,14 @@ module seeg (
 
     assign clk_rhs = zcheck_in_progress ? clk_rhs_zcheck : clk;
 
-
+    
     localparam RHD_CHANNELS = 2048;
     localparam RHS_CHANNELS = 256;
     
 
     /*
-    localparam RHD_CHANNELS = 4;
-    localparam RHS_CHANNELS = 6;
+    localparam RHD_CHANNELS = 1;
+    localparam RHS_CHANNELS = 1;
     */
 
     localparam RHD_64_BIT_CHUNKS = 512; //for recording
@@ -1263,6 +1263,7 @@ module seeg (
                         timestamp = timestamp + 1;
                         data_out_header_sent_flag = 0;
                         state = ZCHECK_RHD_START;
+                        
                     end 
                     else if (done_rhd && !done_rhd_flag) begin
                         done_rhd_flag = 1;
