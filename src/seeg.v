@@ -239,20 +239,20 @@ module seeg (
 
     assign clk_rhs = zcheck_in_progress ? clk_rhs_zcheck : clk;
 
-    
+    /*
     localparam RHD_CHANNELS = 2048;
     localparam RHS_CHANNELS = 256;
-    
+    */
 
-    /*
+    
     localparam RHD_CHANNELS = 1;
     localparam RHS_CHANNELS = 1;
-    */
+    
 
     localparam RHD_64_BIT_CHUNKS = 512; //for recording
     localparam RHS_64_BIT_CHUNKS = 64; //for recording
 
-    localparam ZCHECK_64_BIT_CHUNKS = 40; //for zcheck
+    localparam ZCHECK_64_BIT_CHUNKS = 40; //for zcheck one channel without header
 
     reg [9:0] rhd_64_bit_chunks_counter = RHD_64_BIT_CHUNKS;
     reg [9:0] rhs_64_bit_chunks_counter = RHS_64_BIT_CHUNKS;
@@ -1268,6 +1268,16 @@ module seeg (
                     else if (done_rhd && !done_rhd_flag) begin
                         done_rhd_flag = 1;
                     end
+
+                    if (fifo_valid_out_rhd) begin
+                        zcheck_64_bit_chunks_counter = zcheck_64_bit_chunks_counter - 1;
+                    end
+
+                    if (zcheck_64_bit_chunks_counter == 0) begin
+                        last_out = 1;
+                        zcheck_64_bit_chunks_counter = ZCHECK_64_BIT_CHUNKS;
+                    end
+
                 end
 
                 ZCHECK_RHS_START: begin
@@ -1330,9 +1340,12 @@ module seeg (
                     end
 
                     if (zcheck_64_bit_chunks_counter == 0) begin
+                        /*
                         if (zcheck_global_channel_rhs == RHS_CHANNELS - 1) begin
                             last_out = 1;
                         end
+                        */
+                        last_out = 1; 
                         zcheck_64_bit_chunks_counter = ZCHECK_64_BIT_CHUNKS;
                     end
                 end
