@@ -280,8 +280,8 @@ module seeg (
     wire [7:0] channel_loopback_rhd; //to loopback slaves
     wire [7:0] channel_loopback_rhs; //to loopback slaves
 
-    assign channel_loopback_rhd = zcheck_in_progress ? zcheck_chip_channel_rhd + 2 : channel_out_rhd;
-    assign channel_loopback_rhs = zcheck_in_progress ? zcheck_chip_channel_rhs + 2 : channel_out_rhs;
+    assign channel_loopback_rhd = zcheck_in_progress ? ((zcheck_chip_channel_rhd % 32) + 2) : channel_out_rhd;
+    assign channel_loopback_rhs = zcheck_in_progress ? ((zcheck_chip_channel_rhs % 16) + 2) : channel_out_rhs;
 
     wire busy_stim_rhs;
 

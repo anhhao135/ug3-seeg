@@ -143,9 +143,9 @@ module rhd_2048 (
     localparam ADC_SAMPLE_BIT_RESOLUTION = 16;
     localparam INTAN_CHIP_ID_REG = 63;
 
-    localparam CHANNELS_PER_CHIP = CHANNELS_PER_ADC * 2;
+    localparam CHANNELS_PER_CHIP = CHANNELS_PER_ADC * 2; //64
     localparam CHIPS_PER_PROBE = 2;
-    localparam CHANNELS_PER_PROBE = CHANNELS_PER_CHIP * CHIPS_PER_PROBE;
+    localparam CHANNELS_PER_PROBE = CHANNELS_PER_CHIP * CHIPS_PER_PROBE; //128
 
     reg DSP_OFFSET_REMOVAL = 0; //ADCs have offset removal for rapid recovery from transient, but we will not use it
 
