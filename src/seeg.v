@@ -239,15 +239,15 @@ module seeg (
 
     assign clk_rhs = zcheck_in_progress ? clk_rhs_zcheck : clk;
 
-    /*
+    
     localparam RHD_CHANNELS = 2048;
     localparam RHS_CHANNELS = 256;
-    */
-
+    
+    /*
     
     localparam RHD_CHANNELS = 1;
     localparam RHS_CHANNELS = 1;
-    
+    */
 
     localparam RHD_64_BIT_CHUNKS = 512; //for recording
     localparam RHS_64_BIT_CHUNKS = 64; //for recording
