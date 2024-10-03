@@ -24,3 +24,5 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/seeg.v" into 
 INFO: [VRFC 10-311] analyzing module seeg
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Repos/ug3-seeg/src/seeg_top.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module seeg_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Repos/ug3-seeg/src/tb_seeg_top_axi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_seeg_top_axi

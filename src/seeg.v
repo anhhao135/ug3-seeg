@@ -239,15 +239,15 @@ module seeg (
 
     assign clk_rhs = zcheck_in_progress ? clk_rhs_zcheck : clk;
 
-    
+    /*
     localparam RHD_CHANNELS = 2048;
     localparam RHS_CHANNELS = 256;
-    
+    */
 
-    /*
+    
     localparam RHD_CHANNELS = 1;
     localparam RHS_CHANNELS = 1;
-    */
+    
 
     localparam RHD_64_BIT_CHUNKS = 512; //for recording
     localparam RHS_64_BIT_CHUNKS = 64; //for recording
@@ -1247,6 +1247,7 @@ module seeg (
                         data_out = {magic_number_zcheck, 6'b0, zcheck_global_channel_rhs, zcheck_global_channel_rhd, 2'b0, timestamp};
                         valid_out = 1;
                         data_out_header_sent_flag = 1;
+                        batch_size_counter = batch_size_counter - 1;
                     end
                     else begin
                         fifo_read_en_rhd = 1;
@@ -1270,12 +1271,12 @@ module seeg (
                     end
 
                     if (fifo_valid_out_rhd) begin
-                        zcheck_64_bit_chunks_counter = zcheck_64_bit_chunks_counter - 1;
+                        batch_size_counter = batch_size_counter - 1;
                     end
 
-                    if (zcheck_64_bit_chunks_counter == 0) begin
+                    if (batch_size_counter == 0) begin
                         last_out = 1;
-                        zcheck_64_bit_chunks_counter = ZCHECK_64_BIT_CHUNKS;
+                        batch_size_counter = batch_size;
                     end
 
                 end
@@ -1312,6 +1313,7 @@ module seeg (
                         data_out = {magic_number_zcheck, 6'b0, zcheck_global_channel_rhs, zcheck_global_channel_rhd, 2'b0, timestamp};
                         valid_out = 1;
                         data_out_header_sent_flag = 1;
+                        batch_size_counter = batch_size_counter - 1;
                     end
                     else begin
                         fifo_read_en_rhd = 0;
@@ -1320,8 +1322,6 @@ module seeg (
                         valid_out = fifo_valid_out_rhs;
                         last_out = 0;
                     end
-
-
 
                     if (done_rhs_flag && busy_rhs == 0) begin
                         done_rhs_flag = 0;
@@ -1334,20 +1334,15 @@ module seeg (
                         done_rhs_flag = 1;
                     end
 
-
                     if (fifo_valid_out_rhs) begin
-                        zcheck_64_bit_chunks_counter = zcheck_64_bit_chunks_counter - 1;
+                        batch_size_counter = batch_size_counter - 1;
                     end
 
-                    if (zcheck_64_bit_chunks_counter == 0) begin
-                        /*
-                        if (zcheck_global_channel_rhs == RHS_CHANNELS - 1) begin
-                            last_out = 1;
-                        end
-                        */
-                        last_out = 1; 
-                        zcheck_64_bit_chunks_counter = ZCHECK_64_BIT_CHUNKS;
+                    if (batch_size_counter == 0) begin
+                        last_out = 1;
+                        batch_size_counter = batch_size;
                     end
+
                 end
 
                 ZCHECK_STOP: begin

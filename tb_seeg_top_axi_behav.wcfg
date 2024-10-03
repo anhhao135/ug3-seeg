@@ -15,15 +15,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="9,200,333.410 ns"></ZoomStartTime>
-      <ZoomEndTime time="9,200,370.061 ns"></ZoomEndTime>
-      <Cursor1Time time="9,200,343.510 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="54.850000001 ms"></ZoomEndTime>
+      <Cursor1Time time="1.300000000 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="365"></NameColumnWidth>
-      <ValueColumnWidth column_width="143"></ValueColumnWidth>
+      <ValueColumnWidth column_width="139"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="28" />
+   <WVObjectSize size="29" />
    <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/axis_data_fifo_seeg_0/inst/s_axis_aresetn" type="logic">
       <obj_property name="ElementShortName">s_axis_aresetn</obj_property>
       <obj_property name="ObjectShortName">s_axis_aresetn</obj_property>
@@ -51,6 +51,11 @@
    <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/zcheck_64_bit_chunks_counter" type="array">
       <obj_property name="ElementShortName">zcheck_64_bit_chunks_counter[9:0]</obj_property>
       <obj_property name="ObjectShortName">zcheck_64_bit_chunks_counter[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_seeg_top_axi/DUT/tb_seeg_top_i/seeg_top_0/inst/seeg/batch_size_counter" type="array">
+      <obj_property name="ElementShortName">batch_size_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">batch_size_counter[15:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider213">

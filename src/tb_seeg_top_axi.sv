@@ -83,10 +83,10 @@ initial begin
   mst_agent_0.AXI4LITE_WRITE_BURST(4 * 4, mtestProtectionType, {16'd5, 16'd1}, mtestBresp);
   mst_agent_0.AXI4LITE_WRITE_BURST(5 * 4, mtestProtectionType, {16'd2, 16'd3}, mtestBresp);
   mst_agent_0.AXI4LITE_WRITE_BURST(6 * 4, mtestProtectionType, {16'd0, 16'd8}, mtestBresp);
-  mst_agent_0.AXI4LITE_WRITE_BURST(19 * 4, mtestProtectionType, {16'd0, 16'd4}, mtestBresp); //batch size
+  mst_agent_0.AXI4LITE_WRITE_BURST(19 * 4, mtestProtectionType, {16'd0, 16'd41}, mtestBresp); //batch size
   mst_agent_0.AXI4LITE_WRITE_BURST(20 * 4, mtestProtectionType, {16'd0, 16'd1}, mtestBresp); //loopback
 
-
+  tready <= 1;
 
   mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, start_zcheck_command, mtestBresp);
   #500ns
@@ -95,7 +95,7 @@ initial begin
   #20ms;
 
 
-
+  /*
 
 
   
@@ -106,9 +106,11 @@ initial begin
 
   #2ms;
 
-  tready <= 1;
+  
 
   #2ms;
+
+  */
 
   
 
@@ -139,7 +141,7 @@ initial begin
 
   */
   
-
+  /*
   
 
   mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, stop_record_command, mtestBresp);
@@ -147,6 +149,8 @@ initial begin
   mst_agent_0.AXI4LITE_WRITE_BURST(0 * 4, mtestProtectionType, 0, mtestBresp);
 
   #1ms;
+
+  */
 
   
 
