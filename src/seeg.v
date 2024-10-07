@@ -244,7 +244,6 @@ module seeg (
     localparam RHS_CHANNELS = 256;
     
     /*
-    
     localparam RHD_CHANNELS = 1;
     localparam RHS_CHANNELS = 1;
     */

@@ -1929,7 +1929,8 @@ module rhs_256 (
                             U_FLAG = 0;
                             M_FLAG = 0;
                             write_register_address = 1;
-                            write_register_data = {8'b0,1'b1,7'b0}; //disable everything but enable weak miso, adc format is unsigned, not 2's comp
+                            //write_register_data = {8'b0,1'b1,7'b0}; //disable everything but enable weak miso, adc format is unsigned, not 2's comp
+                            write_register_data = {8'b0,1'b1,1'b1,6'b0}; //disable everything but enable weak miso and 2's comp format
                             data_in_common = {2'b10, U_FLAG, M_FLAG, 4'd0, write_register_address, write_register_data};
                         end
                         6: begin //zcheck control
