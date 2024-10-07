@@ -1478,7 +1478,7 @@ module rhd_2048 (
                         4: begin //adc output format and dsp offset removal
                             write_register_address = 4;
                             //write_register_data = 8'b10000000; //weak MISO and no two's complement format, no DSP
-                            write_register_data = 8'b11000000; //weak MISO and two's complement format, no DSP
+                            write_register_data = 8'b11010001; //weak MISO and no two's complement format, DSP offset remov with 1
                             data_in = {2'b10, write_register_address, write_register_data};
                         end
                         5: begin //zcheck control power
