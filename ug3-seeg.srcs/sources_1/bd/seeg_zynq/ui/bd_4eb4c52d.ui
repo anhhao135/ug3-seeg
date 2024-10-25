@@ -1,11 +1,11 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.249398",
-   "Default View_TopLeft":"489,213",
+   "Default View_TopLeft":"489,221",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
-preplace port port-id_RHD_CS -pg 1 -lvl 8 -x 2660 -y 660 -defaultsOSRD
+preplace port port-id_RHD_CS -pg 1 -lvl 8 -x 2670 -y 660 -defaultsOSRD
 preplace port port-id_RHD_MISO1_A -pg 1 -lvl 0 -x 0 -y 580 -defaultsOSRD
 preplace port port-id_RHD_MISO1_B -pg 1 -lvl 0 -x 0 -y 620 -defaultsOSRD
 preplace port port-id_RHD_MISO1_C -pg 1 -lvl 0 -x 0 -y 660 -defaultsOSRD
@@ -54,9 +54,9 @@ preplace port port-id_RHD_MISO2_O_N -pg 1 -lvl 0 -x 0 -y 1440 -defaultsOSRD
 preplace port port-id_RHD_MISO2_O_P -pg 1 -lvl 0 -x 0 -y 1420 -defaultsOSRD
 preplace port port-id_RHD_MISO2_P_N -pg 1 -lvl 0 -x 0 -y 1520 -defaultsOSRD
 preplace port port-id_RHD_MISO2_P_P -pg 1 -lvl 0 -x 0 -y 1500 -defaultsOSRD
-preplace port port-id_RHD_MOSI -pg 1 -lvl 8 -x 2660 -y 680 -defaultsOSRD
-preplace port port-id_RHD_SCLK -pg 1 -lvl 8 -x 2660 -y 700 -defaultsOSRD
-preplace port port-id_RHS_CS -pg 1 -lvl 8 -x 2660 -y 1040 -defaultsOSRD
+preplace port port-id_RHD_MOSI -pg 1 -lvl 8 -x 2670 -y 680 -defaultsOSRD
+preplace port port-id_RHD_SCLK -pg 1 -lvl 8 -x 2670 -y 700 -defaultsOSRD
+preplace port port-id_RHS_CS -pg 1 -lvl 8 -x 2670 -y 1040 -defaultsOSRD
 preplace port port-id_RHS_MISO_A -pg 1 -lvl 0 -x 0 -y 1540 -defaultsOSRD
 preplace port port-id_RHS_MISO_B -pg 1 -lvl 0 -x 0 -y 1560 -defaultsOSRD
 preplace port port-id_RHS_MISO_C -pg 1 -lvl 0 -x 0 -y 1580 -defaultsOSRD
@@ -81,38 +81,38 @@ preplace port port-id_RHS_MISO_O_N -pg 1 -lvl 0 -x 0 -y 1960 -defaultsOSRD
 preplace port port-id_RHS_MISO_O_P -pg 1 -lvl 0 -x 0 -y 1940 -defaultsOSRD
 preplace port port-id_RHS_MISO_P_N -pg 1 -lvl 0 -x 0 -y 2000 -defaultsOSRD
 preplace port port-id_RHS_MISO_P_P -pg 1 -lvl 0 -x 0 -y 1980 -defaultsOSRD
-preplace port port-id_RHS_MOSI_A -pg 1 -lvl 8 -x 2660 -y 1080 -defaultsOSRD
-preplace port port-id_RHS_MOSI_B -pg 1 -lvl 8 -x 2660 -y 1100 -defaultsOSRD
-preplace port port-id_RHS_MOSI_C -pg 1 -lvl 8 -x 2660 -y 1120 -defaultsOSRD
-preplace port port-id_RHS_MOSI_D -pg 1 -lvl 8 -x 2660 -y 1140 -defaultsOSRD
-preplace port port-id_RHS_MOSI_E -pg 1 -lvl 8 -x 2660 -y 1160 -defaultsOSRD
-preplace port port-id_RHS_MOSI_F -pg 1 -lvl 8 -x 2660 -y 1180 -defaultsOSRD
-preplace port port-id_RHS_MOSI_G -pg 1 -lvl 8 -x 2660 -y 1200 -defaultsOSRD
-preplace port port-id_RHS_MOSI_H -pg 1 -lvl 8 -x 2660 -y 1220 -defaultsOSRD
-preplace port port-id_RHS_MOSI_I_N -pg 1 -lvl 8 -x 2660 -y 1260 -defaultsOSRD
-preplace port port-id_RHS_MOSI_I_P -pg 1 -lvl 8 -x 2660 -y 1240 -defaultsOSRD
-preplace port port-id_RHS_MOSI_J_N -pg 1 -lvl 8 -x 2660 -y 1300 -defaultsOSRD
-preplace port port-id_RHS_MOSI_J_P -pg 1 -lvl 8 -x 2660 -y 1280 -defaultsOSRD
-preplace port port-id_RHS_MOSI_K_N -pg 1 -lvl 8 -x 2660 -y 1340 -defaultsOSRD
-preplace port port-id_RHS_MOSI_K_P -pg 1 -lvl 8 -x 2660 -y 1320 -defaultsOSRD
-preplace port port-id_RHS_MOSI_L_N -pg 1 -lvl 8 -x 2660 -y 1380 -defaultsOSRD
-preplace port port-id_RHS_MOSI_L_P -pg 1 -lvl 8 -x 2660 -y 1360 -defaultsOSRD
-preplace port port-id_RHS_MOSI_M_N -pg 1 -lvl 8 -x 2660 -y 1420 -defaultsOSRD
-preplace port port-id_RHS_MOSI_M_P -pg 1 -lvl 8 -x 2660 -y 1400 -defaultsOSRD
-preplace port port-id_RHS_MOSI_N_N -pg 1 -lvl 8 -x 2660 -y 1460 -defaultsOSRD
-preplace port port-id_RHS_MOSI_N_P -pg 1 -lvl 8 -x 2660 -y 1440 -defaultsOSRD
-preplace port port-id_RHS_MOSI_O_N -pg 1 -lvl 8 -x 2660 -y 1500 -defaultsOSRD
-preplace port port-id_RHS_MOSI_O_P -pg 1 -lvl 8 -x 2660 -y 1480 -defaultsOSRD
-preplace port port-id_RHS_MOSI_P_N -pg 1 -lvl 8 -x 2660 -y 1540 -defaultsOSRD
-preplace port port-id_RHS_MOSI_P_P -pg 1 -lvl 8 -x 2660 -y 1520 -defaultsOSRD
-preplace port port-id_RHS_SCLK -pg 1 -lvl 8 -x 2660 -y 1060 -defaultsOSRD
+preplace port port-id_RHS_MOSI_A -pg 1 -lvl 8 -x 2670 -y 1080 -defaultsOSRD
+preplace port port-id_RHS_MOSI_B -pg 1 -lvl 8 -x 2670 -y 1100 -defaultsOSRD
+preplace port port-id_RHS_MOSI_C -pg 1 -lvl 8 -x 2670 -y 1120 -defaultsOSRD
+preplace port port-id_RHS_MOSI_D -pg 1 -lvl 8 -x 2670 -y 1140 -defaultsOSRD
+preplace port port-id_RHS_MOSI_E -pg 1 -lvl 8 -x 2670 -y 1160 -defaultsOSRD
+preplace port port-id_RHS_MOSI_F -pg 1 -lvl 8 -x 2670 -y 1180 -defaultsOSRD
+preplace port port-id_RHS_MOSI_G -pg 1 -lvl 8 -x 2670 -y 1200 -defaultsOSRD
+preplace port port-id_RHS_MOSI_H -pg 1 -lvl 8 -x 2670 -y 1220 -defaultsOSRD
+preplace port port-id_RHS_MOSI_I_N -pg 1 -lvl 8 -x 2670 -y 1260 -defaultsOSRD
+preplace port port-id_RHS_MOSI_I_P -pg 1 -lvl 8 -x 2670 -y 1240 -defaultsOSRD
+preplace port port-id_RHS_MOSI_J_N -pg 1 -lvl 8 -x 2670 -y 1300 -defaultsOSRD
+preplace port port-id_RHS_MOSI_J_P -pg 1 -lvl 8 -x 2670 -y 1280 -defaultsOSRD
+preplace port port-id_RHS_MOSI_K_N -pg 1 -lvl 8 -x 2670 -y 1340 -defaultsOSRD
+preplace port port-id_RHS_MOSI_K_P -pg 1 -lvl 8 -x 2670 -y 1320 -defaultsOSRD
+preplace port port-id_RHS_MOSI_L_N -pg 1 -lvl 8 -x 2670 -y 1380 -defaultsOSRD
+preplace port port-id_RHS_MOSI_L_P -pg 1 -lvl 8 -x 2670 -y 1360 -defaultsOSRD
+preplace port port-id_RHS_MOSI_M_N -pg 1 -lvl 8 -x 2670 -y 1420 -defaultsOSRD
+preplace port port-id_RHS_MOSI_M_P -pg 1 -lvl 8 -x 2670 -y 1400 -defaultsOSRD
+preplace port port-id_RHS_MOSI_N_N -pg 1 -lvl 8 -x 2670 -y 1460 -defaultsOSRD
+preplace port port-id_RHS_MOSI_N_P -pg 1 -lvl 8 -x 2670 -y 1440 -defaultsOSRD
+preplace port port-id_RHS_MOSI_O_N -pg 1 -lvl 8 -x 2670 -y 1500 -defaultsOSRD
+preplace port port-id_RHS_MOSI_O_P -pg 1 -lvl 8 -x 2670 -y 1480 -defaultsOSRD
+preplace port port-id_RHS_MOSI_P_N -pg 1 -lvl 8 -x 2670 -y 1540 -defaultsOSRD
+preplace port port-id_RHS_MOSI_P_P -pg 1 -lvl 8 -x 2670 -y 1520 -defaultsOSRD
+preplace port port-id_RHS_SCLK -pg 1 -lvl 8 -x 2670 -y 1060 -defaultsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 120 -y 160 -defaultsOSRD
 preplace inst proc_sys_reset_78M -pg 1 -lvl 2 -x 410 -y 130 -defaultsOSRD
-preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 5 -x 1610 -y 160 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 5 -x 1620 -y 160 -defaultsOSRD
 preplace inst axi_dma_0 -pg 1 -lvl 3 -x 800 -y 120 -defaultsOSRD
-preplace inst smartconnect_0 -pg 1 -lvl 4 -x 1140 -y 120 -defaultsOSRD
-preplace inst smartconnect_1 -pg 1 -lvl 6 -x 2100 -y 340 -defaultsOSRD
-preplace inst seeg_top_0 -pg 1 -lvl 7 -x 2450 -y 1250 -defaultsOSRD
+preplace inst smartconnect_0 -pg 1 -lvl 4 -x 1150 -y 120 -defaultsOSRD
+preplace inst smartconnect_1 -pg 1 -lvl 6 -x 2110 -y 340 -defaultsOSRD
+preplace inst seeg_top_0 -pg 1 -lvl 7 -x 2460 -y 1250 -defaultsOSRD
 preplace netloc RHD_MISO1_A_1 1 0 7 NJ 580 NJ 580 NJ 580 NJ 580 NJ 580 NJ 580 NJ
 preplace netloc RHD_MISO1_B_1 1 0 7 NJ 620 NJ 620 NJ 620 NJ 620 NJ 620 NJ 620 NJ
 preplace netloc RHD_MISO1_C_1 1 0 7 NJ 660 NJ 660 NJ 660 NJ 660 NJ 660 NJ 660 NJ
@@ -185,10 +185,10 @@ preplace netloc RHS_MISO_O_N_1 1 0 7 NJ 1960 NJ 1960 NJ 1960 NJ 1960 NJ 1960 NJ 
 preplace netloc RHS_MISO_O_P_1 1 0 7 NJ 1940 NJ 1940 NJ 1940 NJ 1940 NJ 1940 NJ 1940 NJ
 preplace netloc RHS_MISO_P_N_1 1 0 7 NJ 2000 NJ 2000 NJ 2000 NJ 2000 NJ 2000 NJ 2000 NJ
 preplace netloc RHS_MISO_P_P_1 1 0 7 NJ 1980 NJ 1980 NJ 1980 NJ 1980 NJ 1980 NJ 1980 NJ
-preplace netloc axi_dma_0_s2mm_introut 1 3 2 990J 210 1290
-preplace netloc clk_wiz_0_clk_39M 1 1 6 230 30 610 240 980 220 1300 250 1940 500 2260
+preplace netloc axi_dma_0_s2mm_introut 1 3 2 1000J 210 1300
+preplace netloc clk_wiz_0_clk_39M 1 1 6 220 30 600 240 990 220 1310 250 1950 500 2270
 preplace netloc clk_wiz_0_locked 1 1 1 N 170
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 2 5 620 260 1000 260 NJ 260 1960 260 2250
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 2 5 610 260 1010 260 NJ 260 1970 260 2260
 preplace netloc seeg_top_0_RHD_CS 1 7 1 NJ 660
 preplace netloc seeg_top_0_RHD_MOSI 1 7 1 NJ 680
 preplace netloc seeg_top_0_RHD_SCLK 1 7 1 NJ 700
@@ -218,16 +218,16 @@ preplace netloc seeg_top_0_RHS_MOSI_O_P 1 7 1 NJ 1480
 preplace netloc seeg_top_0_RHS_MOSI_P_N 1 7 1 NJ 1540
 preplace netloc seeg_top_0_RHS_MOSI_P_P 1 7 1 NJ 1520
 preplace netloc seeg_top_0_RHS_SCLK 1 7 1 NJ 1060
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 6 30 250 NJ 250 NJ 250 970J 30 NJ 30 1930
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 5 240 270 NJ 270 NJ 270 NJ 270 1920
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 6 20 250 NJ 250 NJ 250 980J 30 NJ 30 1940
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 5 230 270 NJ 270 NJ 270 NJ 270 1930
 preplace netloc axi_dma_0_M_AXI_S2MM 1 3 1 N 110
 preplace netloc axi_dma_0_M_AXI_SG 1 3 1 N 90
-preplace netloc seeg_top_0_M_AXIS 1 2 6 630 230 NJ 230 1280J 70 NJ 70 NJ 70 2640
-preplace netloc smartconnect_0_M00_AXI 1 4 1 1300 120n
-preplace netloc smartconnect_1_M00_AXI 1 6 1 2260 330n
-preplace netloc smartconnect_1_M01_AXI 1 2 5 630 10 NJ 10 NJ 10 NJ 10 2240
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 5 1 1950 130n
-levelinfo -pg 1 0 120 410 800 1140 1610 2100 2450 2660
+preplace netloc seeg_top_0_M_AXIS 1 2 6 620 230 NJ 230 1290J 70 NJ 70 NJ 70 2650
+preplace netloc smartconnect_0_M00_AXI 1 4 1 1310 120n
+preplace netloc smartconnect_1_M00_AXI 1 6 1 2270 330n
+preplace netloc smartconnect_1_M01_AXI 1 2 5 620 10 NJ 10 NJ 10 NJ 10 2250
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 5 1 1960 130n
+levelinfo -pg 1 0 120 410 800 1150 1620 2110 2460 2670
 pagesize -pg 1 -db -bbox -sgen -180 0 2830 2080
 "
 }
