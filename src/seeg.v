@@ -196,7 +196,9 @@ module seeg (
     output wire [7:0] current_state,
 
     input wire [15:0] batch_size,
-    input wire aux_signal
+    input wire aux_signal,
+
+    input wire [63:0] rhd_miso_delay
     
     
 );
@@ -332,8 +334,29 @@ module seeg (
     wire MISO1_P_module;
     wire MISO2_P_module;
 
-    assign MISO1_A_module = loopback_mode ? MISO1_A_loopback : MISO1_A;
-    assign MISO2_A_module = loopback_mode ? MISO2_A_loopback : MISO2_A;
+
+    wire MISO1_A_post_delay;
+
+    delay delay_miso1_a(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO1_A)
+        .dout(MISO1_A_post_delay)
+    );
+
+    wire MISO2_A_post_delay;
+
+    delay delay_miso1_a(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO2_A)
+        .dout(MISO2_A_post_delay)
+    );
+
+    assign MISO1_A_module = loopback_mode ? MISO1_A_loopback : MISO1_A_post_delay;
+    assign MISO2_A_module = loopback_mode ? MISO2_A_loopback : MISO2_A_post_delay;
     
     assign MISO1_B_module = loopback_mode ? MISO1_B_loopback : MISO1_B;
     assign MISO2_B_module = loopback_mode ? MISO2_B_loopback : MISO2_B;

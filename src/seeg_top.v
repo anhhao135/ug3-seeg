@@ -536,6 +536,8 @@ module seeg_top #
     .oversample_offset_O(slv_reg18[23:16]),
     .oversample_offset_P(slv_reg18[31:24]),
 
+    .rhd_miso_delay(slv_reg21),
+
     .CS_RHD(RHD_CS),
     .SCLK_RHD(RHD_SCLK),
     .MOSI_RHD(RHD_MOSI),
