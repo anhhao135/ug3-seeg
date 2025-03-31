@@ -198,7 +198,9 @@ module seeg (
     input wire [15:0] batch_size,
     input wire aux_signal,
 
-    input wire [63:0] rhd_miso_delay
+    input wire [63:0] rhd_miso_delay,
+
+    output wire RHD_miso_post_delay_debug_out,
     
     
 );
@@ -344,6 +346,8 @@ module seeg (
         .din(MISO1_A),
         .dout(MISO1_A_post_delay)
     );
+
+    assign RHD_miso_post_delay_debug_out = MISO1_A_post_delay;
 
     wire MISO2_A_post_delay;
 

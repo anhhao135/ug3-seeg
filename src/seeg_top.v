@@ -257,6 +257,8 @@ module seeg_top #
     output wire RHS_MOSI_O_DEBUG,
     output wire RHS_MOSI_P_DEBUG,
 
+    output wire RHD_miso_post_delay_debug_out,
+
 
     input wire aux_signal
 
@@ -607,7 +609,9 @@ module seeg_top #
     .MISO_M(RHS_MISO_M),
     .MISO_N(RHS_MISO_N),
     .MISO_O(RHS_MISO_O),
-    .MISO_P(RHS_MISO_P)
+    .MISO_P(RHS_MISO_P),
+    
+    .RHD_miso_post_delay_debug_out(RHD_miso_post_delay_debug_out)
     );
 
 
