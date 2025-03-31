@@ -70,8 +70,13 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param power.enableLutRouteBelPower 1
+set_param power.enableCarry8RouteBelPower 1
+set_param power.enableUnconnectedCarry8PinPower 1
+set_param tcl.collectionResultDisplayLimit 0
 set_param xicom.use_bs_reader 1
 set_param chipscope.maxJobs 3
+set_param power.BramSDPPropagationFix 1
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {HDL-1065} -limit 10000
@@ -166,6 +171,14 @@ set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-se
 set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_smartconnect_1_0/bd_0/ip/ip_38/bd_09bc_m01bn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_smartconnect_1_0/ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_seeg_top_0_0/seeg_zynq_seeg_top_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_util_ds_buf_0_0/seeg_zynq_util_ds_buf_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_util_ds_buf_0_0/seeg_zynq_util_ds_buf_0_0_ooc.xdc]
+set_property used_in_synthesis false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_system_ila_0_0/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_system_ila_0_0/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_system_ila_0_0/bd_0/ip/ip_0/ila_v6_2/constraints/ila.xdc]
+set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_system_ila_0_0/bd_0/ip/ip_0/bd_8af2_ila_lib_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_system_ila_0_0/bd_0/bd_8af2_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_system_ila_0_0/seeg_zynq_system_ila_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/seeg_zynq_ooc.xdc]
 
 read_ip -quiet /home/ug3/Repos/ug3-seeg/ug3-seeg.srcs/sources_1/ip/fifo_16_to_64/fifo_16_to_64.xci

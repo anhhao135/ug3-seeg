@@ -4,8 +4,8 @@
 // Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
 // Date        : Mon Oct  7 11:38:54 2024
 // Host        : ug3 running 64-bit Ubuntu 18.04.6 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_axi_dma_0_1/seeg_zynq_axi_dma_0_1_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top seeg_zynq_axi_dma_0_1 -prefix
+//               seeg_zynq_axi_dma_0_1_ seeg_zynq_axi_dma_0_1_stub.v
 // Design      : seeg_zynq_axi_dma_0_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xck26-sfvc784-2LV-c

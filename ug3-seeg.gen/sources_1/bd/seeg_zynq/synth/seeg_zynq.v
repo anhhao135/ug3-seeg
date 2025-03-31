@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-//Date        : Mon Oct  7 11:43:57 2024
+//Date        : Mon Mar 31 14:29:10 2025
 //Host        : ug3 running 64-bit Ubuntu 18.04.6 LTS
 //Command     : generate_target seeg_zynq.bd
 //Design      : seeg_zynq
@@ -10,7 +10,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "seeg_zynq,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=seeg_zynq,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=7,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=6,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "seeg_zynq.hwdef" *) 
+(* CORE_GENERATION_INFO = "seeg_zynq,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=seeg_zynq,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=9,numReposBlks=9,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=6,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "seeg_zynq.hwdef" *) 
 module seeg_zynq
    (RHD_CS,
     RHD_MISO1_A,
@@ -112,7 +112,9 @@ module seeg_zynq
     RHS_MOSI_O_P,
     RHS_MOSI_P_N,
     RHS_MOSI_P_P,
-    RHS_SCLK);
+    RHS_SCLK,
+    clk_out_n,
+    clk_out_p);
   output RHD_CS;
   input RHD_MISO1_A;
   input RHD_MISO1_B;
@@ -214,6 +216,8 @@ module seeg_zynq
   output RHS_MOSI_P_N;
   output RHS_MOSI_P_P;
   output RHS_SCLK;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT_N CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_OUT_N, CLK_DOMAIN seeg_zynq_clk_wiz_0_0_clk_78M, FREQ_HZ 78000972, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) output [0:0]clk_out_n;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT_P CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_OUT_P, CLK_DOMAIN seeg_zynq_clk_wiz_0_0_clk_78M, FREQ_HZ 78000972, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) output [0:0]clk_out_p;
 
   wire RHD_MISO1_A_1;
   wire RHD_MISO1_B_1;
@@ -437,6 +441,8 @@ module seeg_zynq
   wire [31:0]smartconnect_1_M01_AXI_WDATA;
   wire smartconnect_1_M01_AXI_WREADY;
   wire smartconnect_1_M01_AXI_WVALID;
+  wire [0:0]util_ds_buf_0_OBUF_DS_N;
+  wire [0:0]util_ds_buf_0_OBUF_DS_P;
   wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR;
   wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARBURST;
   wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARCACHE;
@@ -580,6 +586,8 @@ module seeg_zynq
   assign RHS_MOSI_P_N = seeg_top_0_RHS_MOSI_P_N;
   assign RHS_MOSI_P_P = seeg_top_0_RHS_MOSI_P_P;
   assign RHS_SCLK = seeg_top_0_RHS_SCLK;
+  assign clk_out_n[0] = util_ds_buf_0_OBUF_DS_N;
+  assign clk_out_p[0] = util_ds_buf_0_OBUF_DS_P;
   seeg_zynq_axi_dma_0_1 axi_dma_0
        (.axi_resetn(proc_sys_reset_0_peripheral_aresetn),
         .m_axi_s2mm_aclk(clk_wiz_0_clk_39M),
@@ -957,6 +965,21 @@ module seeg_zynq
         .S00_AXI_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID),
         .aclk(clk_wiz_0_clk_39M),
         .aresetn(proc_sys_reset_0_peripheral_aresetn));
+  seeg_zynq_system_ila_0_0 system_ila_0
+       (.clk(clk_wiz_0_clk_39M),
+        .probe0(seeg_top_0_RHD_CS),
+        .probe1(seeg_top_0_RHD_MOSI),
+        .probe2(seeg_top_0_RHD_SCLK),
+        .probe3(RHD_MISO1_A_1),
+        .probe4(RHD_MISO2_A_1),
+        .probe5(seeg_top_0_RHS_CS),
+        .probe6(seeg_top_0_RHS_SCLK),
+        .probe7(seeg_top_0_RHS_MOSI_A),
+        .probe8(RHS_MISO_A_1));
+  seeg_zynq_util_ds_buf_0_0 util_ds_buf_0
+       (.OBUF_DS_N(util_ds_buf_0_OBUF_DS_N),
+        .OBUF_DS_P(util_ds_buf_0_OBUF_DS_P),
+        .OBUF_IN(clk_wiz_0_clk_39M));
   seeg_zynq_zynq_ultra_ps_e_0_0 zynq_ultra_ps_e_0
        (.emio_gpio_i({1'b0,1'b0,1'b0,1'b0}),
         .maxigp2_araddr(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR),

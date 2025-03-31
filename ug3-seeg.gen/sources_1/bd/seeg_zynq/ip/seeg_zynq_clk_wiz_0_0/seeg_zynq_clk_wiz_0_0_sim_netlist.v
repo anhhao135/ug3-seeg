@@ -4,8 +4,8 @@
 // Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
 // Date        : Mon Oct  7 11:38:36 2024
 // Host        : ug3 running 64-bit Ubuntu 18.04.6 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_clk_wiz_0_0/seeg_zynq_clk_wiz_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top seeg_zynq_clk_wiz_0_0 -prefix
+//               seeg_zynq_clk_wiz_0_0_ seeg_zynq_clk_wiz_0_0_sim_netlist.v
 // Design      : seeg_zynq_clk_wiz_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -26,13 +26,13 @@ module seeg_zynq_clk_wiz_0_0
   (* IBUF_LOW_PWR *) wire clk_in1;
   wire locked;
 
-  seeg_zynq_clk_wiz_0_0_clk_wiz inst
+  seeg_zynq_clk_wiz_0_0_seeg_zynq_clk_wiz_0_0_clk_wiz inst
        (.clk_78M(clk_78M),
         .clk_in1(clk_in1),
         .locked(locked));
 endmodule
 
-module seeg_zynq_clk_wiz_0_0_clk_wiz
+module seeg_zynq_clk_wiz_0_0_seeg_zynq_clk_wiz_0_0_clk_wiz
    (clk_78M,
     locked,
     clk_in1);

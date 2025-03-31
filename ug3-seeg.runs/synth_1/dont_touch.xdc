@@ -33,4 +33,10 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==axis_data_f
 # IP: ip/fifo_16_to_64/fifo_16_to_64.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fifo_16_to_64 || ORIG_REF_NAME==fifo_16_to_64} -quiet] -quiet
 
+# IP: bd/seeg_zynq/ip/seeg_zynq_util_ds_buf_0_0/seeg_zynq_util_ds_buf_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==seeg_zynq_util_ds_buf_0_0 || ORIG_REF_NAME==seeg_zynq_util_ds_buf_0_0} -quiet] -quiet
+
+# IP: bd/seeg_zynq/ip/seeg_zynq_system_ila_0_0/seeg_zynq_system_ila_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==seeg_zynq_system_ila_0_0 || ORIG_REF_NAME==seeg_zynq_system_ila_0_0} -quiet] -quiet
+
 # XDC: /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/seeg_zynq_ooc.xdc

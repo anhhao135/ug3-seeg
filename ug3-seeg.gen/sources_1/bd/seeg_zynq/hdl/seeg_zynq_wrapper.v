@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-//Date        : Mon Oct  7 11:43:57 2024
+//Date        : Mon Mar 31 14:29:10 2025
 //Host        : ug3 running 64-bit Ubuntu 18.04.6 LTS
 //Command     : generate_target seeg_zynq_wrapper.bd
 //Design      : seeg_zynq_wrapper
@@ -111,7 +111,9 @@ module seeg_zynq_wrapper
     RHS_MOSI_O_P,
     RHS_MOSI_P_N,
     RHS_MOSI_P_P,
-    RHS_SCLK);
+    RHS_SCLK,
+    clk_out_n,
+    clk_out_p);
   output RHD_CS;
   input RHD_MISO1_A;
   input RHD_MISO1_B;
@@ -213,6 +215,8 @@ module seeg_zynq_wrapper
   output RHS_MOSI_P_N;
   output RHS_MOSI_P_P;
   output RHS_SCLK;
+  output [0:0]clk_out_n;
+  output [0:0]clk_out_p;
 
   wire RHD_CS;
   wire RHD_MISO1_A;
@@ -315,6 +319,8 @@ module seeg_zynq_wrapper
   wire RHS_MOSI_P_N;
   wire RHS_MOSI_P_P;
   wire RHS_SCLK;
+  wire [0:0]clk_out_n;
+  wire [0:0]clk_out_p;
 
   seeg_zynq seeg_zynq_i
        (.RHD_CS(RHD_CS),
@@ -417,5 +423,7 @@ module seeg_zynq_wrapper
         .RHS_MOSI_O_P(RHS_MOSI_O_P),
         .RHS_MOSI_P_N(RHS_MOSI_P_N),
         .RHS_MOSI_P_P(RHS_MOSI_P_P),
-        .RHS_SCLK(RHS_SCLK));
+        .RHS_SCLK(RHS_SCLK),
+        .clk_out_n(clk_out_n),
+        .clk_out_p(clk_out_p));
 endmodule
