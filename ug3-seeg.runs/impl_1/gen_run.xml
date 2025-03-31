@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xck26-sfvc784-2LV-c" LaunchTime="1743456559">
+<GenRun Id="impl_1" LaunchPart="xck26-sfvc784-2LV-c" LaunchTime="1743459653">
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="seeg_zynq_wrapper_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS" Name="seeg_zynq_wrapper_routed.rqs"/>
@@ -87,6 +87,13 @@
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/src/clock_divider.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/src/delay.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -285,9 +292,8 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="seeg_zynq_system_ila_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="seeg_zynq_util_ds_buf_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="seeg_zynq_seeg_top_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="seeg_zynq_util_ds_buf_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="axis_data_fifo_seeg"/>
   <BlockFileSet Type="BlockSrcs" Name="jtag_axi_test_zynq_ultra_ps_e_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="fifo_16_to_64"/>

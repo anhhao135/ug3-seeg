@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date         : Mon Oct  7 11:45:33 2024
+| Date         : Mon Mar 31 15:22:21 2025
 | Host         : ug3 running 64-bit Ubuntu 18.04.6 LTS
 | Command      : report_utilization -file seeg_zynq_seeg_top_0_0_utilization_synth.rpt -pb seeg_zynq_seeg_top_0_0_utilization_synth.pb
 | Design       : seeg_zynq_seeg_top_0_0
@@ -32,15 +32,15 @@ Table of Contents
 +-------------------------+-------+-------+------------+-----------+-------+
 |        Site Type        |  Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+-------+-------+------------+-----------+-------+
-| CLB LUTs*               | 11584 |     0 |          0 |    117120 |  9.89 |
-|   LUT as Logic          | 11584 |     0 |          0 |    117120 |  9.89 |
+| CLB LUTs*               | 11714 |     0 |          0 |    117120 | 10.00 |
+|   LUT as Logic          | 11714 |     0 |          0 |    117120 | 10.00 |
 |   LUT as Memory         |     0 |     0 |          0 |     57600 |  0.00 |
-| CLB Registers           |  7971 |     0 |          0 |    234240 |  3.40 |
-|   Register as Flip Flop |  7971 |     0 |          0 |    234240 |  3.40 |
+| CLB Registers           |  8491 |     0 |          0 |    234240 |  3.62 |
+|   Register as Flip Flop |  8491 |     0 |          0 |    234240 |  3.62 |
 |   Register as Latch     |     0 |     0 |          0 |    234240 |  0.00 |
-| CARRY8                  |   565 |     0 |          0 |     14640 |  3.86 |
-| F7 Muxes                |   290 |     0 |          0 |     58560 |  0.50 |
-| F8 Muxes                |    64 |     0 |          0 |     29280 |  0.22 |
+| CARRY8                  |   569 |     0 |          0 |     14640 |  3.89 |
+| F7 Muxes                |   359 |     0 |          0 |     58560 |  0.61 |
+| F8 Muxes                |    96 |     0 |          0 |     29280 |  0.33 |
 | F9 Muxes                |     0 |     0 |          0 |     14640 |  0.00 |
 +-------------------------+-------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -60,7 +60,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 0     |          Yes |           - |        Reset |
+| 520   |          Yes |           - |        Reset |
 | 532   |          Yes |         Set |            - |
 | 7439  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -158,16 +158,17 @@ Warning! LUT value is adjusted to account for LUT combining.
 |  Ref Name | Used | Functional Category |
 +-----------+------+---------------------+
 | FDRE      | 7439 |            Register |
-| LUT6      | 5972 |                 CLB |
-| LUT2      | 2894 |                 CLB |
-| LUT5      | 2141 |                 CLB |
-| LUT4      | 1563 |                 CLB |
-| LUT3      | 1177 |                 CLB |
+| LUT6      | 6062 |                 CLB |
+| LUT2      | 2921 |                 CLB |
+| LUT5      | 2156 |                 CLB |
+| LUT4      | 1570 |                 CLB |
+| LUT3      | 1158 |                 CLB |
 | LUT1      |  648 |                 CLB |
-| CARRY8    |  565 |                 CLB |
+| CARRY8    |  569 |                 CLB |
 | FDSE      |  532 |            Register |
-| MUXF7     |  290 |                 CLB |
-| MUXF8     |   64 |                 CLB |
+| FDCE      |  520 |            Register |
+| MUXF7     |  359 |                 CLB |
+| MUXF8     |   96 |                 CLB |
 | BUFGCE    |   50 |               Clock |
 | IBUFCTRL  |   24 |              Others |
 | DIFFINBUF |   24 |                 I/O |
@@ -184,7 +185,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +--------------------------------------------+------+
 | seeg_zynq_seeg_top_0_0_fifo_16_to_64       |    1 |
 | seeg_zynq_seeg_top_0_0_axis_data_fifo_seeg |    1 |
-| fifo_16_to_64_HD156                        |    1 |
+| fifo_16_to_64_HD157                        |    1 |
 +--------------------------------------------+------+
 
 

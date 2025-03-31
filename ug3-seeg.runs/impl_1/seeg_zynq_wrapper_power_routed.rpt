@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date             : Mon Mar 31 14:44:56 2025
+| Date             : Mon Mar 31 15:31:28 2025
 | Host             : ug3 running 64-bit Ubuntu 18.04.6 LTS
 | Command          : report_power -file seeg_zynq_wrapper_power_routed.rpt -pb seeg_zynq_wrapper_power_summary_routed.pb -rpx seeg_zynq_wrapper_power_routed.rpx
 | Design           : seeg_zynq_wrapper
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 3.244        |
+| Total On-Chip Power (W)  | 3.242        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 2.917        |
+| Dynamic (W)              | 2.916        |
 | Device Static (W)        | 0.327        |
 | Effective TJA (C/W)      | 2.3          |
 | Max Ambient (C)          | 77.5         |
@@ -53,24 +53,24 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.026 |        6 |       --- |             --- |
-| CLB Logic                |     0.028 |    43464 |       --- |             --- |
+| CLB Logic                |     0.028 |    44214 |       --- |             --- |
 |   LUT as Distributed RAM |     0.015 |      884 |     57600 |            1.53 |
-|   LUT as Logic           |     0.012 |    15984 |    117120 |           13.65 |
-|   Register               |     0.001 |    19097 |    234240 |            8.15 |
+|   LUT as Logic           |     0.011 |    16101 |    117120 |           13.75 |
+|   Register               |     0.001 |    19617 |    234240 |            8.37 |
 |   LUT as Shift Register  |    <0.001 |      264 |     57600 |            0.46 |
-|   CARRY8                 |    <0.001 |      345 |     14640 |            2.36 |
+|   CARRY8                 |    <0.001 |      349 |     14640 |            2.38 |
 |   BUFG                   |    <0.001 |        6 |        32 |           18.75 |
-|   Others                 |     0.000 |     1228 |       --- |             --- |
-|   F7/F8 Muxes            |     0.000 |      362 |    117120 |            0.31 |
-| Signals                  |     0.016 |    32048 |       --- |             --- |
+|   Others                 |     0.000 |     1232 |       --- |             --- |
+|   F7/F8 Muxes            |     0.000 |      463 |    117120 |            0.40 |
+| Signals                  |     0.015 |    32572 |       --- |             --- |
 | Block RAM                |     0.014 |       71 |       144 |           49.31 |
 | MMCM                     |     0.000 |        0 |       --- |             --- |
-| I/O                      |     0.159 |      103 |       189 |           54.50 |
+| I/O                      |     0.157 |      103 |       189 |           54.50 |
 | PS8                      |     2.674 |        1 |       --- |             --- |
 | Static Power             |     0.327 |          |           |                 |
 |   PS Static              |     0.000 |          |           |                 |
 |   PL Static              |     0.327 |          |           |                 |
-| Total                    |     3.244 |          |           |                 |
+| Total                    |     3.242 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -80,11 +80,11 @@ Table of Contents
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source          | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint          |       0.720 |     0.209 |       0.117 |      0.091 |       NA    | Unspecified | NA         |
+| Vccint          |       0.720 |     0.208 |       0.116 |      0.091 |       NA    | Unspecified | NA         |
 | Vccint_io       |       0.850 |     0.042 |       0.005 |      0.037 |       NA    | Unspecified | NA         |
-| Vccbram         |       0.850 |     0.002 |       0.001 |      0.001 |       NA    | Unspecified | NA         |
+| Vccbram         |       0.850 |     0.002 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vccaux          |       1.800 |     0.075 |       0.000 |      0.075 |       NA    | Unspecified | NA         |
-| Vccaux_io       |       1.800 |     0.059 |       0.028 |      0.031 |       NA    | Unspecified | NA         |
+| Vccaux_io       |       1.800 |     0.059 |       0.027 |      0.031 |       NA    | Unspecified | NA         |
 | Vcco33          |       3.300 |     0.009 |       0.002 |      0.007 |       NA    | Unspecified | NA         |
 | Vcco25          |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18          |       1.800 |     0.054 |       0.054 |      0.000 |       NA    | Unspecified | NA         |
@@ -170,21 +170,21 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| seeg_zynq_wrapper        |     2.917 |
+| seeg_zynq_wrapper        |     2.916 |
 |   dbg_hub                |     0.001 |
 |     inst                 |     0.001 |
 |       BSCANID.u_xsdbm_id |     0.001 |
-|   seeg_zynq_i            |     2.906 |
+|   seeg_zynq_i            |     2.905 |
 |     axi_dma_0            |     0.008 |
 |       U0                 |     0.008 |
-|     seeg_top_0           |     0.170 |
-|       inst               |     0.170 |
+|     seeg_top_0           |     0.169 |
+|       inst               |     0.169 |
 |     smartconnect_0       |     0.035 |
 |       inst               |     0.035 |
 |     smartconnect_1       |     0.003 |
 |       inst               |     0.003 |
-|     system_ila_0         |     0.004 |
-|       inst               |     0.004 |
+|     system_ila_0         |     0.005 |
+|       inst               |     0.005 |
 |     util_ds_buf_0        |     0.012 |
 |       U0                 |     0.012 |
 |     zynq_ultra_ps_e_0    |     2.674 |

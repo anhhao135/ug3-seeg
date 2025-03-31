@@ -341,17 +341,17 @@ module seeg (
         .clk(clk),
         .rst_n(rstn),
         .delay_cycles(rhd_miso_delay),
-        .din(MISO1_A)
+        .din(MISO1_A),
         .dout(MISO1_A_post_delay)
     );
 
     wire MISO2_A_post_delay;
 
-    delay delay_miso1_a(
+    delay delay_miso2_a(
         .clk(clk),
         .rst_n(rstn),
         .delay_cycles(rhd_miso_delay),
-        .din(MISO2_A)
+        .din(MISO2_A),
         .dout(MISO2_A_post_delay)
     );
 

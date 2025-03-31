@@ -17,9 +17,9 @@
       "axi_dma_0": "",
       "smartconnect_0": "",
       "smartconnect_1": "",
-      "seeg_top_0": "",
       "util_ds_buf_0": "",
-      "system_ila_0": ""
+      "system_ila_0": "",
+      "seeg_top_0": ""
     },
     "ports": {
       "RHD_CS": {
@@ -3930,6 +3930,34 @@
           }
         }
       },
+      "util_ds_buf_0": {
+        "vlnv": "xilinx.com:ip:util_ds_buf:2.2",
+        "xci_name": "seeg_zynq_util_ds_buf_0_0",
+        "xci_path": "ip/seeg_zynq_util_ds_buf_0_0/seeg_zynq_util_ds_buf_0_0.xci",
+        "inst_hier_path": "util_ds_buf_0",
+        "parameters": {
+          "C_BUF_TYPE": {
+            "value": "OBUFDS"
+          }
+        }
+      },
+      "system_ila_0": {
+        "vlnv": "xilinx.com:ip:system_ila:1.1",
+        "xci_name": "seeg_zynq_system_ila_0_0",
+        "xci_path": "ip/seeg_zynq_system_ila_0_0/seeg_zynq_system_ila_0_0.xci",
+        "inst_hier_path": "system_ila_0",
+        "parameters": {
+          "C_DATA_DEPTH": {
+            "value": "16384"
+          },
+          "C_MON_TYPE": {
+            "value": "NATIVE"
+          },
+          "C_NUM_OF_PROBES": {
+            "value": "9"
+          }
+        }
+      },
       "seeg_top_0": {
         "vlnv": "xilinx.com:module_ref:seeg_top:1.0",
         "xci_name": "seeg_zynq_seeg_top_0_0",
@@ -4713,34 +4741,6 @@
             "direction": "I"
           }
         }
-      },
-      "util_ds_buf_0": {
-        "vlnv": "xilinx.com:ip:util_ds_buf:2.2",
-        "xci_name": "seeg_zynq_util_ds_buf_0_0",
-        "xci_path": "ip/seeg_zynq_util_ds_buf_0_0/seeg_zynq_util_ds_buf_0_0.xci",
-        "inst_hier_path": "util_ds_buf_0",
-        "parameters": {
-          "C_BUF_TYPE": {
-            "value": "OBUFDS"
-          }
-        }
-      },
-      "system_ila_0": {
-        "vlnv": "xilinx.com:ip:system_ila:1.1",
-        "xci_name": "seeg_zynq_system_ila_0_0",
-        "xci_path": "ip/seeg_zynq_system_ila_0_0/seeg_zynq_system_ila_0_0.xci",
-        "inst_hier_path": "system_ila_0",
-        "parameters": {
-          "C_DATA_DEPTH": {
-            "value": "16384"
-          },
-          "C_MON_TYPE": {
-            "value": "NATIVE"
-          },
-          "C_NUM_OF_PROBES": {
-            "value": "9"
-          }
-        }
       }
     },
     "interface_nets": {
@@ -4791,8 +4791,8 @@
       "RHD_MISO1_A_1": {
         "ports": [
           "RHD_MISO1_A",
-          "seeg_top_0/RHD_MISO1_A",
-          "system_ila_0/probe3"
+          "system_ila_0/probe3",
+          "seeg_top_0/RHD_MISO1_A"
         ]
       },
       "RHD_MISO1_B_1": {
@@ -4936,8 +4936,8 @@
       "RHD_MISO2_A_1": {
         "ports": [
           "RHD_MISO2_A",
-          "seeg_top_0/RHD_MISO2_A",
-          "system_ila_0/probe4"
+          "system_ila_0/probe4",
+          "seeg_top_0/RHD_MISO2_A"
         ]
       },
       "RHD_MISO2_B_1": {
@@ -5081,8 +5081,8 @@
       "RHS_MISO_A_1": {
         "ports": [
           "RHS_MISO_A",
-          "seeg_top_0/RHS_MISO_A",
-          "system_ila_0/probe8"
+          "system_ila_0/probe8",
+          "seeg_top_0/RHS_MISO_A"
         ]
       },
       "RHS_MISO_B_1": {
@@ -5240,10 +5240,10 @@
           "smartconnect_1/aclk",
           "zynq_ultra_ps_e_0/maxihpm0_lpd_aclk",
           "zynq_ultra_ps_e_0/saxihpc0_fpd_aclk",
-          "seeg_top_0/M_AXIS_ACLK",
-          "seeg_top_0/S_AXI_ACLK",
           "util_ds_buf_0/OBUF_IN",
-          "system_ila_0/clk"
+          "system_ila_0/clk",
+          "seeg_top_0/M_AXIS_ACLK",
+          "seeg_top_0/S_AXI_ACLK"
         ]
       },
       "clk_wiz_0_locked": {
