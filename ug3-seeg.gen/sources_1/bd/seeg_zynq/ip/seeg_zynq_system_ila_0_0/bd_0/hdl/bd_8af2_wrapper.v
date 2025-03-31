@@ -17,7 +17,8 @@ module bd_8af2_wrapper
     probe5,
     probe6,
     probe7,
-    probe8);
+    probe8,
+    probe9);
   input clk;
   input [0:0]probe0;
   input [0:0]probe1;
@@ -28,6 +29,7 @@ module bd_8af2_wrapper
   input [0:0]probe6;
   input [0:0]probe7;
   input [0:0]probe8;
+  input [0:0]probe9;
 
   wire clk;
   wire [0:0]probe0;
@@ -39,6 +41,7 @@ module bd_8af2_wrapper
   wire [0:0]probe6;
   wire [0:0]probe7;
   wire [0:0]probe8;
+  wire [0:0]probe9;
 
   bd_8af2 bd_8af2_i
        (.clk(clk),
@@ -50,5 +53,6 @@ module bd_8af2_wrapper
         .probe5(probe5),
         .probe6(probe6),
         .probe7(probe7),
-        .probe8(probe8));
+        .probe8(probe8),
+        .probe9(probe9));
 endmodule

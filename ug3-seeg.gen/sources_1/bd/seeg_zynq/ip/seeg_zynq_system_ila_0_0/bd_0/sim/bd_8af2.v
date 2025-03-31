@@ -18,7 +18,8 @@ module bd_8af2
     probe5,
     probe6,
     probe7,
-    probe8);
+    probe8,
+    probe9);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK, CLK_DOMAIN seeg_zynq_clk_wiz_0_0_clk_78M, FREQ_HZ 78000972, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk;
   input [0:0]probe0;
   input [0:0]probe1;
@@ -29,6 +30,7 @@ module bd_8af2
   input [0:0]probe6;
   input [0:0]probe7;
   input [0:0]probe8;
+  input [0:0]probe9;
 
   wire clk_1;
   wire [0:0]probe0_1;
@@ -40,6 +42,7 @@ module bd_8af2
   wire [0:0]probe6_1;
   wire [0:0]probe7_1;
   wire [0:0]probe8_1;
+  wire [0:0]probe9_1;
 
   assign clk_1 = clk;
   assign probe0_1 = probe0[0];
@@ -51,6 +54,7 @@ module bd_8af2
   assign probe6_1 = probe6[0];
   assign probe7_1 = probe7[0];
   assign probe8_1 = probe8[0];
+  assign probe9_1 = probe9[0];
   bd_8af2_ila_lib_0 ila_lib
        (.clk(clk_1),
         .probe0(probe0_1),
@@ -61,5 +65,6 @@ module bd_8af2
         .probe5(probe5_1),
         .probe6(probe6_1),
         .probe7(probe7_1),
-        .probe8(probe8_1));
+        .probe8(probe8_1),
+        .probe9(probe9_1));
 endmodule

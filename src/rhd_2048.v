@@ -138,7 +138,8 @@ module rhd_2048 (
     localparam DEFAULT_CHANNELS = 40; //34 recording channels + 6 for other commands
 
     localparam CHANNELS_PER_ADC = 32;
-    localparam SPI_CONVERT_DELAY = 2; //Intan specifies two cycle delay for adc conversion to come back
+    localparam SPI_CONVERT_DELAY = 3; //Intan specifies two cycle delay for adc conversion to come back
+                                      //Modified to 3 for SerDes system with extra cable delay
 
     localparam ADC_SAMPLE_BIT_RESOLUTION = 16;
     localparam INTAN_CHIP_ID_REG = 63;

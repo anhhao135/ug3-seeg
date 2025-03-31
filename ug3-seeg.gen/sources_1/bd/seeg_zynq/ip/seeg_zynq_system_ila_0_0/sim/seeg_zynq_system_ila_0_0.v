@@ -63,7 +63,8 @@ module seeg_zynq_system_ila_0_0 (
   probe5,
   probe6,
   probe7,
-  probe8
+  probe8,
+  probe9
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.clk, FREQ_HZ 78000972, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN seeg_zynq_clk_wiz_0_0_clk_78M, INSERT_VIP 0" *)
@@ -78,6 +79,7 @@ input wire [0 : 0] probe5;
 input wire [0 : 0] probe6;
 input wire [0 : 0] probe7;
 input wire [0 : 0] probe8;
+input wire [0 : 0] probe9;
 
   bd_8af2 inst (
     .clk(clk),
@@ -89,6 +91,7 @@ input wire [0 : 0] probe8;
     .probe5(probe5),
     .probe6(probe6),
     .probe7(probe7),
-    .probe8(probe8)
+    .probe8(probe8),
+    .probe9(probe9)
   );
 endmodule

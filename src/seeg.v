@@ -200,7 +200,7 @@ module seeg (
 
     input wire [63:0] rhd_miso_delay,
 
-    output wire RHD_miso_post_delay_debug_out,
+    output wire RHD_miso_post_delay_debug_out
     
     
 );

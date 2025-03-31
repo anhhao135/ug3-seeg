@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x9D074FC4C90A8781",
+      "boundary_crc": "0x1463400D9902A76E",
       "design_src": "SBD",
       "device": "xck26-sfvc784-2LV-c",
       "name": "bd_8af2",
@@ -85,6 +85,11 @@
         "direction": "I",
         "left": "0",
         "right": "0"
+      },
+      "probe9": {
+        "direction": "I",
+        "left": "0",
+        "right": "0"
       }
     },
     "components": {
@@ -119,7 +124,7 @@
             "value": "Native"
           },
           "C_NUM_OF_PROBES": {
-            "value": "9"
+            "value": "10"
           },
           "C_PROBE0_MU_CNT": {
             "value": "1"
@@ -202,6 +207,15 @@
           "C_PROBE8_WIDTH": {
             "value": "1"
           },
+          "C_PROBE9_MU_CNT": {
+            "value": "1"
+          },
+          "C_PROBE9_TYPE": {
+            "value": "0"
+          },
+          "C_PROBE9_WIDTH": {
+            "value": "1"
+          },
           "C_TRIGIN_EN": {
             "value": "false"
           },
@@ -273,6 +287,12 @@
         "ports": [
           "probe8",
           "ila_lib/probe8"
+        ]
+      },
+      "probe9_1": {
+        "ports": [
+          "probe9",
+          "ila_lib/probe9"
         ]
       }
     }

@@ -815,6 +815,9 @@
           "RHS_MOSI_P_DEBUG": {
             "direction": "O"
           },
+          "RHD_miso_post_delay_debug_out": {
+            "direction": "O"
+          },
           "aux_signal": {
             "direction": "I"
           }
