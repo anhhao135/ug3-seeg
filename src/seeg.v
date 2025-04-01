@@ -199,8 +199,10 @@ module seeg (
     input wire aux_signal,
 
     input wire [63:0] rhd_miso_delay,
+    input wire [63:0] rhs_miso_delay,
 
-    output wire RHD_miso_post_delay_debug_out
+    output wire RHD_miso_post_delay_debug_out,
+    output wire RHS_miso_post_delay_debug_out
     
     
 );
@@ -337,6 +339,8 @@ module seeg (
     wire MISO2_P_module;
 
 
+
+
     wire MISO1_A_post_delay;
 
     delay delay_miso1_a(
@@ -359,29 +363,190 @@ module seeg (
         .dout(MISO2_A_post_delay)
     );
 
+
+
+    wire MISO1_B_post_delay;
+
+    delay delay_miso1_b(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO1_B),
+        .dout(MISO1_B_post_delay)
+    );
+
+    wire MISO2_B_post_delay;
+
+    delay delay_miso2_b(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO2_B),
+        .dout(MISO2_B_post_delay)
+    );
+    
+
+
+
+    wire MISO1_C_post_delay;
+
+    delay delay_miso1_c(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO1_C),
+        .dout(MISO1_C_post_delay)
+    );
+
+    wire MISO2_C_post_delay;
+
+    delay delay_miso2_c(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO2_C),
+        .dout(MISO2_C_post_delay)
+    );
+
+
+
+    wire MISO1_D_post_delay;
+
+    delay delay_miso1_d(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO1_D),
+        .dout(MISO1_D_post_delay)
+    );
+
+    wire MISO2_D_post_delay;
+
+    delay delay_miso2_d(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO2_D),
+        .dout(MISO2_D_post_delay)
+    );
+
+
+
+    wire MISO1_E_post_delay;
+
+    delay delay_miso1_e(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO1_E),
+        .dout(MISO1_E_post_delay)
+    );
+
+    wire MISO2_E_post_delay;
+
+    delay delay_miso2_e(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO2_E),
+        .dout(MISO2_E_post_delay)
+    );
+
+
+
+    wire MISO1_F_post_delay;
+
+    delay delay_miso1_f(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO1_F),
+        .dout(MISO1_F_post_delay)
+    );
+
+    wire MISO2_F_post_delay;
+
+    delay delay_miso2_f(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO2_F),
+        .dout(MISO2_F_post_delay)
+    );
+
+
+
+    wire MISO1_G_post_delay;
+
+    delay delay_miso1_g(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO1_G),
+        .dout(MISO1_G_post_delay)
+    );
+
+    wire MISO2_G_post_delay;
+
+    delay delay_miso2_g(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO2_G),
+        .dout(MISO2_G_post_delay)
+    );
+
+
+
+    wire MISO1_H_post_delay;
+
+    delay delay_miso1_h(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO1_H),
+        .dout(MISO1_H_post_delay)
+    );
+
+    wire MISO2_H_post_delay;
+
+    delay delay_miso2_h(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhd_miso_delay),
+        .din(MISO2_H),
+        .dout(MISO2_H_post_delay)
+    );
+
+
+
+
     assign MISO1_A_module = loopback_mode ? MISO1_A_loopback : MISO1_A_post_delay;
     assign MISO2_A_module = loopback_mode ? MISO2_A_loopback : MISO2_A_post_delay;
     
-    assign MISO1_B_module = loopback_mode ? MISO1_B_loopback : MISO1_B;
-    assign MISO2_B_module = loopback_mode ? MISO2_B_loopback : MISO2_B;
+    assign MISO1_B_module = loopback_mode ? MISO1_B_loopback : MISO1_B_post_delay;
+    assign MISO2_B_module = loopback_mode ? MISO2_B_loopback : MISO2_B_post_delay;
 
-    assign MISO1_C_module = loopback_mode ? MISO1_C_loopback : MISO1_C;
-    assign MISO2_C_module = loopback_mode ? MISO2_C_loopback : MISO2_C;
+    assign MISO1_C_module = loopback_mode ? MISO1_C_loopback : MISO1_C_post_delay;
+    assign MISO2_C_module = loopback_mode ? MISO2_C_loopback : MISO2_C_post_delay;
 
-    assign MISO1_D_module = loopback_mode ? MISO1_D_loopback : MISO1_D;
-    assign MISO2_D_module = loopback_mode ? MISO2_D_loopback : MISO2_D;
+    assign MISO1_D_module = loopback_mode ? MISO1_D_loopback : MISO1_D_post_delay;
+    assign MISO2_D_module = loopback_mode ? MISO2_D_loopback : MISO2_D_post_delay;
 
-    assign MISO1_E_module = loopback_mode ? MISO1_E_loopback : MISO1_E;
-    assign MISO2_E_module = loopback_mode ? MISO2_E_loopback : MISO2_E;
+    assign MISO1_E_module = loopback_mode ? MISO1_E_loopback : MISO1_E_post_delay;
+    assign MISO2_E_module = loopback_mode ? MISO2_E_loopback : MISO2_E_post_delay;
     
-    assign MISO1_F_module = loopback_mode ? MISO1_F_loopback : MISO1_F;
-    assign MISO2_F_module = loopback_mode ? MISO2_F_loopback : MISO2_F;
+    assign MISO1_F_module = loopback_mode ? MISO1_F_loopback : MISO1_F_post_delay;
+    assign MISO2_F_module = loopback_mode ? MISO2_F_loopback : MISO2_F_post_delay;
 
-    assign MISO1_G_module = loopback_mode ? MISO1_G_loopback : MISO1_G;
-    assign MISO2_G_module = loopback_mode ? MISO2_G_loopback : MISO2_G;
+    assign MISO1_G_module = loopback_mode ? MISO1_G_loopback : MISO1_G_post_delay;
+    assign MISO2_G_module = loopback_mode ? MISO2_G_loopback : MISO2_G_post_delay;
 
-    assign MISO1_H_module = loopback_mode ? MISO1_H_loopback : MISO1_H;
-    assign MISO2_H_module = loopback_mode ? MISO2_H_loopback : MISO2_H;
+    assign MISO1_H_module = loopback_mode ? MISO1_H_loopback : MISO1_H_post_delay;
+    assign MISO2_H_module = loopback_mode ? MISO2_H_loopback : MISO2_H_post_delay;
+
+
+    //not in use for SerDes pig case VVVVVVV
 
     assign MISO1_I_module = loopback_mode ? MISO1_I_loopback : MISO1_I;
     assign MISO2_I_module = loopback_mode ? MISO2_I_loopback : MISO2_I;
@@ -407,6 +572,92 @@ module seeg (
     assign MISO1_P_module = loopback_mode ? MISO1_P_loopback : MISO1_P;
     assign MISO2_P_module = loopback_mode ? MISO2_P_loopback : MISO2_P;
 
+    //not in use for SerDes pig case ^^^^^^^
+
+
+
+    wire MISO_A_post_delay;
+
+    delay delay_miso_a(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhs_miso_delay),
+        .din(MISO_A),
+        .dout(MISO_A_post_delay)
+    );
+
+    assign RHS_miso_post_delay_debug_out = MISO_A_post_delay;
+
+    wire MISO_B_post_delay;
+
+    delay delay_miso_b(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhs_miso_delay),
+        .din(MISO_B),
+        .dout(MISO_B_post_delay)
+    );
+
+    wire MISO_A_post_delay;
+
+    delay delay_miso_c(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhs_miso_delay),
+        .din(MISO_C),
+        .dout(MISO_C_post_delay)
+    );
+
+    wire MISO_D_post_delay;
+
+    delay delay_miso_d(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhs_miso_delay),
+        .din(MISO_D),
+        .dout(MISO_D_post_delay)
+    );
+
+    wire MISO_E_post_delay;
+
+    delay delay_miso_e(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhs_miso_delay),
+        .din(MISO_E),
+        .dout(MISO_E_post_delay)
+    );
+
+    wire MISO_F_post_delay;
+
+    delay delay_miso_f(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhs_miso_delay),
+        .din(MISO_F),
+        .dout(MISO_F_post_delay)
+    );
+
+    wire MISO_G_post_delay;
+
+    delay delay_miso_g(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhs_miso_delay),
+        .din(MISO_G),
+        .dout(MISO_G_post_delay)
+    );
+
+    wire MISO_H_post_delay;
+
+    delay delay_miso_h(
+        .clk(clk),
+        .rst_n(rstn),
+        .delay_cycles(rhs_miso_delay),
+        .din(MISO_H),
+        .dout(MISO_H_post_delay)
+    );
+
 
     wire MISO_A_module;
     wire MISO_B_module;
@@ -425,14 +676,16 @@ module seeg (
     wire MISO_O_module;
     wire MISO_P_module;
 
-    assign MISO_A_module = loopback_mode ? MISO_A_loopback : MISO_A;
-    assign MISO_B_module = loopback_mode ? MISO_B_loopback : MISO_B;
-    assign MISO_C_module = loopback_mode ? MISO_C_loopback : MISO_C;
-    assign MISO_D_module = loopback_mode ? MISO_D_loopback : MISO_D;
-    assign MISO_E_module = loopback_mode ? MISO_E_loopback : MISO_E;   
-    assign MISO_F_module = loopback_mode ? MISO_F_loopback : MISO_F;
-    assign MISO_G_module = loopback_mode ? MISO_G_loopback : MISO_G;
-    assign MISO_H_module = loopback_mode ? MISO_H_loopback : MISO_H;
+    assign MISO_A_module = loopback_mode ? MISO_A_loopback : MISO_A_post_delay;
+    assign MISO_B_module = loopback_mode ? MISO_B_loopback : MISO_B_post_delay;
+    assign MISO_C_module = loopback_mode ? MISO_C_loopback : MISO_C_post_delay;
+    assign MISO_D_module = loopback_mode ? MISO_D_loopback : MISO_D_post_delay;
+    assign MISO_E_module = loopback_mode ? MISO_E_loopback : MISO_E_post_delay;   
+    assign MISO_F_module = loopback_mode ? MISO_F_loopback : MISO_F_post_delay;
+    assign MISO_G_module = loopback_mode ? MISO_G_loopback : MISO_G_post_delay;
+    assign MISO_H_module = loopback_mode ? MISO_H_loopback : MISO_H_post_delay;
+
+    //not used for serdes, below
     assign MISO_I_module = loopback_mode ? MISO_I_loopback : MISO_I;   
     assign MISO_J_module = loopback_mode ? MISO_J_loopback : MISO_J;
     assign MISO_K_module = loopback_mode ? MISO_K_loopback : MISO_K;

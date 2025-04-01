@@ -258,6 +258,7 @@ module seeg_top #
     output wire RHS_MOSI_P_DEBUG,
 
     output wire RHD_miso_post_delay_debug_out,
+    output wire RHS_miso_post_delay_debug_out,
 
 
     input wire aux_signal
@@ -539,6 +540,7 @@ module seeg_top #
     .oversample_offset_P(slv_reg18[31:24]),
 
     .rhd_miso_delay(slv_reg21),
+    .rhs_miso_delay(slv_reg22),
 
     .CS_RHD(RHD_CS),
     .SCLK_RHD(RHD_SCLK),
