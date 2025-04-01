@@ -133,7 +133,7 @@ module rhs_256 (
     localparam DEFAULT_CHANNELS_RECORDING = 20; //16 recording channels + some others
 
     localparam CHANNELS_PER_ADC = 16;
-    localparam SPI_CONVERT_DELAY = 2; //Intan specifies two cycle delay for adc conversion to come back
+    localparam SPI_CONVERT_DELAY = 3; //Intan specifies two cycle delay for adc conversion to come back
 
     localparam ADC_SAMPLE_BIT_RESOLUTION = 16;
     localparam INTAN_CHIP_ID_REG = 255; //ID is 32 when read back
