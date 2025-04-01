@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
--- Date        : Mon Oct  7 11:38:34 2024
+-- Date        : Mon Mar 31 23:13:21 2025
 -- Host        : ug3 running 64-bit Ubuntu 18.04.6 LTS
--- Command     : write_vhdl -force -mode funcsim -rename_top seeg_zynq_proc_sys_reset_0_0 -prefix
---               seeg_zynq_proc_sys_reset_0_0_ seeg_zynq_proc_sys_reset_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_proc_sys_reset_0_0/seeg_zynq_proc_sys_reset_0_0_sim_netlist.vhdl
 -- Design      : seeg_zynq_proc_sys_reset_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -26,6 +26,8 @@ entity seeg_zynq_proc_sys_reset_0_0_cdc_sync is
     aux_reset_in : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of seeg_zynq_proc_sys_reset_0_0_cdc_sync : entity is "cdc_sync";
 end seeg_zynq_proc_sys_reset_0_0_cdc_sync;
 
 architecture STRUCTURE of seeg_zynq_proc_sys_reset_0_0_cdc_sync is
@@ -246,6 +248,8 @@ entity seeg_zynq_proc_sys_reset_0_0_upcnt_n is
     seq_cnt_en : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of seeg_zynq_proc_sys_reset_0_0_upcnt_n : entity is "upcnt_n";
 end seeg_zynq_proc_sys_reset_0_0_upcnt_n;
 
 architecture STRUCTURE of seeg_zynq_proc_sys_reset_0_0_upcnt_n is
@@ -410,6 +414,8 @@ entity seeg_zynq_proc_sys_reset_0_0_lpf is
     ext_reset_in : in STD_LOGIC;
     aux_reset_in : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of seeg_zynq_proc_sys_reset_0_0_lpf : entity is "lpf";
 end seeg_zynq_proc_sys_reset_0_0_lpf;
 
 architecture STRUCTURE of seeg_zynq_proc_sys_reset_0_0_lpf is
@@ -598,6 +604,8 @@ entity seeg_zynq_proc_sys_reset_0_0_sequence_psr is
     lpf_int : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of seeg_zynq_proc_sys_reset_0_0_sequence_psr : entity is "sequence_psr";
 end seeg_zynq_proc_sys_reset_0_0_sequence_psr;
 
 architecture STRUCTURE of seeg_zynq_proc_sys_reset_0_0_sequence_psr is
@@ -936,6 +944,8 @@ entity seeg_zynq_proc_sys_reset_0_0_proc_sys_reset is
   attribute C_NUM_PERP_ARESETN of seeg_zynq_proc_sys_reset_0_0_proc_sys_reset : entity is 1;
   attribute C_NUM_PERP_RST : integer;
   attribute C_NUM_PERP_RST of seeg_zynq_proc_sys_reset_0_0_proc_sys_reset : entity is 1;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of seeg_zynq_proc_sys_reset_0_0_proc_sys_reset : entity is "proc_sys_reset";
 end seeg_zynq_proc_sys_reset_0_0_proc_sys_reset;
 
 architecture STRUCTURE of seeg_zynq_proc_sys_reset_0_0_proc_sys_reset is

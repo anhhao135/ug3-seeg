@@ -1,0 +1,1164 @@
+
+*** Running vivado
+    with args -log seeg_zynq_seeg_top_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source seeg_zynq_seeg_top_0_0.tcl
+
+
+****** Vivado v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source seeg_zynq_seeg_top_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/ug3/Xilinx/Vivado/2023.1/data/ip'.
+Command: synth_design -top seeg_zynq_seeg_top_0_0 -part xck26-sfvc784-2LV-c -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xck26'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xck26'
+INFO: [Device 21-403] Loading part xck26-sfvc784-2LV-c
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 27021
+CRITICAL WARNING: [Synth 8-9339] data object 'MISO_A_post_delay' is already declared [/home/ug3/Repos/ug3-seeg/src/seeg.v:601]
+INFO: [Synth 8-6826] previous declaration of 'MISO_A_post_delay' is from here [/home/ug3/Repos/ug3-seeg/src/seeg.v:579]
+CRITICAL WARNING: [Synth 8-11152] second declaration of 'MISO_A_post_delay' is ignored [/home/ug3/Repos/ug3-seeg/src/seeg.v:601]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_C_post_delay', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:608]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_A_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:916]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_A_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:926]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_B_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:936]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_B_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:946]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_C_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:956]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_C_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:966]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_D_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:976]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_D_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:986]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_E_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:996]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_E_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1006]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_F_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1016]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_F_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1026]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_G_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1036]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_G_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1046]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_H_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1056]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_H_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1066]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_I_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1076]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_I_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1086]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_J_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1096]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_J_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1106]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_K_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1116]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_K_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1126]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_L_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1136]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_L_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1146]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_M_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1156]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_M_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1166]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_N_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1176]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_N_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1186]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_O_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1196]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_O_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1206]
+INFO: [Synth 8-11241] undeclared symbol 'MISO1_P_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1216]
+INFO: [Synth 8-11241] undeclared symbol 'MISO2_P_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1226]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_A_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1237]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_B_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1247]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_C_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1257]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_D_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1267]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_E_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1277]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_F_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1287]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_G_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1297]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_H_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1307]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_I_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1317]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_J_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1327]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_K_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1337]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_L_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1347]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_M_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1357]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_N_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1367]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_O_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1377]
+INFO: [Synth 8-11241] undeclared symbol 'MISO_P_loopback', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1387]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO1_I', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:272]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO2_I', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:275]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO1_J', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:279]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO2_J', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:282]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO1_K', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:286]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO2_K', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:289]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO1_L', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:293]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO2_L', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:296]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO1_M', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:300]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO2_M', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:303]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO1_N', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:307]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO2_N', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:310]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO1_O', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:314]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO2_O', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:317]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO1_P', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:321]
+INFO: [Synth 8-11241] undeclared symbol 'RHD_MISO2_P', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:324]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MISO_I', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:330]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MISO_J', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:334]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MISO_K', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:338]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MISO_L', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:342]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MISO_M', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:346]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MISO_N', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:350]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MISO_O', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:354]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MISO_P', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:358]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MOSI_I', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:366]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MOSI_J', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:370]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MOSI_K', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:374]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MOSI_L', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:378]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MOSI_M', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:382]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MOSI_N', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:386]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MOSI_O', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:390]
+INFO: [Synth 8-11241] undeclared symbol 'RHS_MOSI_P', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:394]
+INFO: [Synth 8-11241] undeclared symbol 'slv_reg21', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:542]
+INFO: [Synth 8-11241] undeclared symbol 'slv_reg22', assumed default net type 'wire' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:543]
+WARNING: [Synth 8-8895] 'slv_reg21' is already implicitly declared on line 542 [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:678]
+WARNING: [Synth 8-8895] 'slv_reg22' is already implicitly declared on line 543 [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:679]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2560.871 ; gain = 259.828 ; free physical = 12717 ; free virtual = 17450
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'seeg_zynq_seeg_top_0_0' [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_seeg_top_0_0/synth/seeg_zynq_seeg_top_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'seeg_top' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'rhd_diff_to_single' [/home/ug3/Repos/ug3-seeg/src/rhd_diff_to_single.v:1]
+INFO: [Synth 8-6157] synthesizing module 'IBUFDS' [/home/ug3/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:71783]
+INFO: [Synth 8-6155] done synthesizing module 'IBUFDS' (0#1) [/home/ug3/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:71783]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_diff_to_single' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_diff_to_single.v:1]
+INFO: [Synth 8-6157] synthesizing module 'rhs_single_diff_converter' [/home/ug3/Repos/ug3-seeg/src/rhs_single_diff_converter.v:1]
+INFO: [Synth 8-6157] synthesizing module 'OBUFDS' [/home/ug3/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:91135]
+INFO: [Synth 8-6155] done synthesizing module 'OBUFDS' (0#1) [/home/ug3/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:91135]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_single_diff_converter' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_single_diff_converter.v:1]
+INFO: [Synth 8-6157] synthesizing module 'seeg' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1]
+INFO: [Synth 8-6157] synthesizing module 'clock_divider' [/home/ug3/Repos/ug3-seeg/src/clock_divider.v:1]
+INFO: [Synth 8-6157] synthesizing module 'BUFGCE' [/home/ug3/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:1529]
+INFO: [Synth 8-6155] done synthesizing module 'BUFGCE' (0#1) [/home/ug3/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:1529]
+INFO: [Synth 8-6155] done synthesizing module 'clock_divider' (0#1) [/home/ug3/Repos/ug3-seeg/src/clock_divider.v:1]
+INFO: [Synth 8-6157] synthesizing module 'delay' [/home/ug3/Repos/ug3-seeg/src/delay.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'delay' (0#1) [/home/ug3/Repos/ug3-seeg/src/delay.v:1]
+INFO: [Synth 8-6157] synthesizing module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/rhd_2048.v:1]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_master' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_master.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/rhd_spi_master.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_master' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_master.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fifo_16_to_64' [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/seeg_zynq_seeg_top_0_0_synth_1/.Xil/Vivado-26947-ug3/realtime/fifo_16_to_64_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_16_to_64' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/seeg_zynq_seeg_top_0_0_synth_1/.Xil/Vivado-26947-ug3/realtime/fifo_16_to_64_stub.v:6]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/rhd_2048.v:1174]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/rhd_2048.v:942]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_2048' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_2048.v:1]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_A1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:785]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_A2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:786]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_B1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:787]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_B2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:788]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_C1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:789]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_C2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:790]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_D1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:791]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_D2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:792]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_E1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:793]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_E2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:794]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_F1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:795]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_F2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:796]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_G1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:797]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_G2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:798]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_H1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:799]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_H2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:800]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_I1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:801]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_I2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:802]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_J1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:803]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_J2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:804]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_K1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:805]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_K2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:806]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_L1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:807]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_L2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:808]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_M1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:809]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_M2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:810]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_N1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:811]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_N2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:812]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_O1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:813]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_O2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:814]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_P1' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:815]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_P2' does not match port width (8) of module 'rhd_2048' [/home/ug3/Repos/ug3-seeg/src/seeg.v:816]
+INFO: [Synth 8-6157] synthesizing module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:1]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_master' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_master.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/rhs_spi_master.v:51]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_master' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_master.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:572]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:798]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:839]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:945]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:1005]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:1065]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:1125]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:1803]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:720]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_256' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:1]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_A' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:894]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_B' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:895]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_C' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:896]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_D' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:897]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_E' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:898]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_F' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:899]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_G' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:900]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_H' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:901]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_I' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:902]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_J' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:903]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_K' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:904]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_L' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:905]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_M' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:906]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_N' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:907]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_O' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:908]
+WARNING: [Synth 8-689] width (32) of port connection 'oversample_offset_P' does not match port width (8) of module 'rhs_256' [/home/ug3/Repos/ug3-seeg/src/seeg.v:909]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave' [/home/ug3/Repos/ug3-seeg/src/seeg.v:918]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized0' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized0' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized0' [/home/ug3/Repos/ug3-seeg/src/seeg.v:928]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized1' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized1' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized1' [/home/ug3/Repos/ug3-seeg/src/seeg.v:938]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized2' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized2' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized2' [/home/ug3/Repos/ug3-seeg/src/seeg.v:948]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized3' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized3' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized3' [/home/ug3/Repos/ug3-seeg/src/seeg.v:958]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized4' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized4' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized4' [/home/ug3/Repos/ug3-seeg/src/seeg.v:968]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized5' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized5' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized5' [/home/ug3/Repos/ug3-seeg/src/seeg.v:978]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized6' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized6' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized6' [/home/ug3/Repos/ug3-seeg/src/seeg.v:988]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized7' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized7' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized7' [/home/ug3/Repos/ug3-seeg/src/seeg.v:998]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized8' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized8' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized8' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1008]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized9' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized9' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized9' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1018]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized10' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized10' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized10' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1028]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized11' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized11' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized11' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1038]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized12' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized12' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized12' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1048]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized13' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized13' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized13' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1058]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized14' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized14' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized14' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1068]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized15' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized15' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized15' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1078]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized16' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized16' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized16' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1088]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized17' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized17' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized17' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1098]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized18' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized18' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized18' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1108]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized19' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized19' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized19' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1118]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized20' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized20' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized20' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1128]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized21' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized21' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized21' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1138]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized22' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized22' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized22' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1148]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized23' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized23' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized23' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1158]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized24' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized24' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized24' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1168]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized25' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized25' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized25' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1178]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized26' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized26' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized26' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1188]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized27' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized27' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized27' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1198]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized28' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized28' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized28' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1208]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized29' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized29' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized29' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1218]
+INFO: [Synth 8-6157] synthesizing module 'rhd_spi_slave__parameterized30' [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-6090] variable 'clk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:43]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:52]
+WARNING: [Synth 8-6090] variable 'sclk_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'rhd_spi_slave__parameterized30' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (6) of module 'rhd_spi_slave__parameterized30' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1228]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1239]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized0' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized0' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized0' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1249]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized1' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized1' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized1' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1259]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized2' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized2' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized2' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1269]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized3' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized3' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized3' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1279]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized4' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized4' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized4' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1289]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized5' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized5' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized5' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1299]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized6' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized6' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized6' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1309]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized7' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized7' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized7' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1319]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized8' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized8' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized8' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1329]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized9' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized9' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized9' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1339]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized10' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized10' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized10' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1349]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized11' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized11' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized11' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1359]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized12' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized12' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized12' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1369]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized13' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized13' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized13' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1379]
+INFO: [Synth 8-6157] synthesizing module 'rhs_spi_slave__parameterized14' [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rhs_spi_slave__parameterized14' (0#1) [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:1]
+WARNING: [Synth 8-689] width (8) of port connection 'channel' does not match port width (5) of module 'rhs_spi_slave__parameterized14' [/home/ug3/Repos/ug3-seeg/src/seeg.v:1389]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/seeg.v:1402]
+INFO: [Synth 8-6155] done synthesizing module 'seeg' (0#1) [/home/ug3/Repos/ug3-seeg/src/seeg.v:1]
+WARNING: [Synth 8-7071] port 'stim_waveform_data_out' of module 'seeg' is unconnected for instance 'seeg' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:450]
+WARNING: [Synth 8-7071] port 'RHS_miso_post_delay_debug_out' of module 'seeg' is unconnected for instance 'seeg' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:450]
+WARNING: [Synth 8-7023] instance 'seeg' of module 'seeg' has 157 connections declared, but only 155 given [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:450]
+INFO: [Synth 8-6157] synthesizing module 'axis_data_fifo_seeg' [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/seeg_zynq_seeg_top_0_0_synth_1/.Xil/Vivado-26947-ug3/realtime/axis_data_fifo_seeg_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'axis_data_fifo_seeg' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/seeg_zynq_seeg_top_0_0_synth_1/.Xil/Vivado-26947-ug3/realtime/axis_data_fifo_seeg_stub.v:6]
+WARNING: [Synth 8-7071] port 'prog_empty' of module 'axis_data_fifo_seeg' is unconnected for instance 'axis_data_fifo_seeg_0' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:620]
+WARNING: [Synth 8-7071] port 'prog_full' of module 'axis_data_fifo_seeg' is unconnected for instance 'axis_data_fifo_seeg_0' [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:620]
+WARNING: [Synth 8-7023] instance 'axis_data_fifo_seeg_0' of module 'axis_data_fifo_seeg' has 12 connections declared, but only 10 given [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:620]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:843]
+INFO: [Synth 8-226] default block is never used [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:1207]
+INFO: [Synth 8-6155] done synthesizing module 'seeg_top' (0#1) [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'seeg_zynq_seeg_top_0_0' (0#1) [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_seeg_top_0_0/synth/seeg_zynq_seeg_top_0_0.v:53]
+WARNING: [Synth 8-6014] Unused sequential element MISO_A_sampled_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_master.v:49]
+WARNING: [Synth 8-6014] Unused sequential element MISO_B_sampled_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_master.v:50]
+WARNING: [Synth 8-6014] Unused sequential element MOSI_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_master.v:115]
+WARNING: [Synth 8-6014] Unused sequential element zcheck_data_sample_debug_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_2048.v:954]
+WARNING: [Synth 8-6014] Unused sequential element write_register_address_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_2048.v:1065]
+WARNING: [Synth 8-6014] Unused sequential element write_register_data_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_2048.v:1066]
+WARNING: [Synth 8-6014] Unused sequential element read_register_address_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_2048.v:1075]
+WARNING: [Synth 8-6014] Unused sequential element MISO_sampled_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_master.v:45]
+WARNING: [Synth 8-6014] Unused sequential element MOSI_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_master.v:46]
+WARNING: [Synth 8-6014] Unused sequential element stimulation_magnitude_debug_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:553]
+WARNING: [Synth 8-6014] Unused sequential element data_in_common_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:727]
+WARNING: [Synth 8-6014] Unused sequential element zcheck_data_sample_debug_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:766]
+WARNING: [Synth 8-6014] Unused sequential element stim_magic_number_probe_select_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:786]
+WARNING: [Synth 8-6014] Unused sequential element U_FLAG_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:794]
+WARNING: [Synth 8-6014] Unused sequential element M_FLAG_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:795]
+WARNING: [Synth 8-6014] Unused sequential element read_register_address_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_256.v:1204]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_31_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:47]
+WARNING: [Synth 8-6014] Unused sequential element counter_32_63_send_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhd_spi_slave.v:53]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_15_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:31]
+WARNING: [Synth 8-6014] Unused sequential element miso_out_reg_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:32]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_15_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:31]
+WARNING: [Synth 8-6014] Unused sequential element miso_out_reg_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:32]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_15_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:31]
+WARNING: [Synth 8-6014] Unused sequential element miso_out_reg_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:32]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_15_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:31]
+WARNING: [Synth 8-6014] Unused sequential element miso_out_reg_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:32]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_15_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:31]
+WARNING: [Synth 8-6014] Unused sequential element miso_out_reg_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:32]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_15_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:31]
+WARNING: [Synth 8-6014] Unused sequential element miso_out_reg_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:32]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_15_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:31]
+WARNING: [Synth 8-6014] Unused sequential element miso_out_reg_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:32]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_15_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:31]
+WARNING: [Synth 8-6014] Unused sequential element miso_out_reg_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:32]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_15_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:31]
+WARNING: [Synth 8-6014] Unused sequential element miso_out_reg_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:32]
+WARNING: [Synth 8-6014] Unused sequential element counter_0_15_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:31]
+WARNING: [Synth 8-6014] Unused sequential element miso_out_reg_reg was removed.  [/home/ug3/Repos/ug3-seeg/src/rhs_spi_slave.v:32]
+INFO: [Common 17-14] Message 'Synth 8-6014' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3848] Net RHS_miso_post_delay_debug_out in module/entity seeg_top does not have driver. [/home/ug3/Repos/ug3-seeg/src/seeg_top.v:261]
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized14 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized13 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized10 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized8 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized6 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized30 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized29 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized28 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized27 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized26 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized25 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized24 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized23 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized20 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized19 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized16 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized14 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized13 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized10 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized8 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized6 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhd_spi_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RHS_miso_post_delay_debug_out in module seeg_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module seeg_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module seeg_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[0] in module seeg_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module seeg_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module seeg_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module seeg_top is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2733.777 ; gain = 432.734 ; free physical = 17029 ; free virtual = 21763
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2733.777 ; gain = 432.734 ; free physical = 17029 ; free virtual = 21762
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2733.777 ; gain = 432.734 ; free physical = 17029 ; free virtual = 21762
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.17 . Memory (MB): peak = 2733.777 ; gain = 0.000 ; free physical = 17028 ; free virtual = 21761
+INFO: [Netlist 29-17] Analyzing 32 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/axis_data_fifo_seeg/axis_data_fifo_seeg/axis_data_fifo_seeg_in_context.xdc] for cell 'inst/axis_data_fifo_seeg_0'
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/axis_data_fifo_seeg/axis_data_fifo_seeg/axis_data_fifo_seeg_in_context.xdc] for cell 'inst/axis_data_fifo_seeg_0'
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/fifo_16_to_64/fifo_16_to_64/fifo_16_to_64_in_context.xdc] for cell 'inst/seeg/rhd_2048/fifo_inst_0'
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/fifo_16_to_64/fifo_16_to_64/fifo_16_to_64_in_context.xdc] for cell 'inst/seeg/rhd_2048/fifo_inst_0'
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/fifo_16_to_64/fifo_16_to_64/fifo_16_to_64_in_context.xdc] for cell 'inst/seeg/rhs_256/fifo_inst_0'
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/ip/fifo_16_to_64/fifo_16_to_64/fifo_16_to_64_in_context.xdc] for cell 'inst/seeg/rhs_256/fifo_inst_0'
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_seeg_top_0_0/seeg_zynq_seeg_top_0_0_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_seeg_top_0_0/seeg_zynq_seeg_top_0_0_ooc.xdc] for cell 'inst'
+Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/seeg_zynq_seeg_top_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/seeg_zynq_seeg_top_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3225.574 ; gain = 0.000 ; free physical = 19182 ; free virtual = 23928
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 32 instances were transformed.
+  IBUFDS => IBUFDS (DIFFINBUF, IBUFCTRL): 24 instances
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUF(x2)): 8 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.42 ; elapsed = 00:00:00.12 . Memory (MB): peak = 3231.512 ; gain = 5.938 ; free physical = 19181 ; free virtual = 23927
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 3231.512 ; gain = 930.469 ; free physical = 19061 ; free virtual = 23808
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xck26-sfvc784-2LV-c
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 3231.512 ; gain = 930.469 ; free physical = 19061 ; free virtual = 23808
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/ug3/Repos/ug3-seeg/ug3-seeg.runs/seeg_zynq_seeg_top_0_0_synth_1/dont_touch.xdc, line 15).
+Applied set_property KEEP_HIERARCHY = SOFT for inst/axis_data_fifo_seeg_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for inst/seeg/rhd_2048/fifo_inst_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for inst/seeg/rhs_256/fifo_inst_0. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 3231.512 ; gain = 930.469 ; free physical = 19061 ; free virtual = 23808
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'rhd_spi_master'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'rhd_2048'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'rhs_spi_master'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'rhs_256'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'seeg'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   READY |                              000 |                              000
+                PRE_BUSY |                              001 |                              001
+                    BUSY |                              010 |                              010
+               POST_BUSY |                              011 |                              011
+                    DONE |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'rhd_spi_master'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   RESET |               000000000000000001 |                         00010000
+                   READY |               000000000000000010 |                         00000000
+        CONFIG_DATA_LOAD |               000000000000000100 |                         00000101
+          CONFIG_DATA_TX |               000000000000001000 |                         00000110
+          CONFIG_DATA_RX |               000000000000010000 |                         00000111
+ ZCHECK_CONFIG_DATA_LOAD |               000000000000100000 |                         00001001
+   ZCHECK_CONFIG_DATA_TX |               000000000001000000 |                         00001010
+   ZCHECK_CONFIG_DATA_RX |               000000000010000000 |                         00001011
+    ZCHECK_REC_DATA_LOAD |               000000000100000000 |                         00001100
+      ZCHECK_REC_DATA_TX |               000000001000000000 |                         00001101
+      ZCHECK_REC_DATA_RX |               000000010000000000 |                         00001110
+             ZCHECK_DONE |               000000100000000000 |                         00001111
+             CONFIG_DONE |               000001000000000000 |                         00001000
+           REC_DATA_LOAD |               000010000000000000 |                         00000001
+             REC_DATA_TX |               000100000000000000 |                         00000010
+             REC_DATA_RX |               001000000000000000 |                         00000011
+                REC_DONE |               010000000000000000 |                         00000100
+               PRE_RESET |               100000000000000000 |                         00010001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'rhd_2048'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   READY |                              000 |                              000
+                PRE_BUSY |                              001 |                              001
+                    BUSY |                              010 |                              010
+               POST_BUSY |                              011 |                              011
+                    DONE |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'rhs_spi_master'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   RESET |               000000000000000010 |                         00010000
+                   READY |               000000000000000001 |                         00000000
+        CONFIG_DATA_LOAD |               000000010000000000 |                         00000101
+          CONFIG_DATA_TX |               010000000000000000 |                         00000110
+          CONFIG_DATA_RX |               000100000000000000 |                         00000111
+             CONFIG_DONE |               001000000000000000 |                         00001000
+           REC_DATA_LOAD |               000000000010000000 |                         00000001
+             REC_DATA_TX |               000000000100000000 |                         00000010
+             REC_DATA_RX |               000000000000100000 |                         00000011
+                REC_DONE |               000000000001000000 |                         00000100
+ ZCHECK_CONFIG_DATA_LOAD |               000000100000000000 |                         00001001
+   ZCHECK_CONFIG_DATA_TX |               000010000000000000 |                         00001010
+   ZCHECK_CONFIG_DATA_RX |               000001000000000000 |                         00001011
+    ZCHECK_REC_DATA_LOAD |               000000000000010000 |                         00001100
+      ZCHECK_REC_DATA_TX |               000000000000000100 |                         00001101
+      ZCHECK_REC_DATA_RX |               000000000000001000 |                         00001110
+             ZCHECK_DONE |               100000000000000000 |                         00001111
+               PRE_RESET |               000000001000000000 |                         00010001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'rhs_256'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   RESET |                             0001 |                         00000001
+                   READY |                             0000 |                         00000000
+            CONFIG_START |                             0011 |                         00000010
+             CONFIG_WAIT |                             1000 |                         00000011
+            RECORD_START |                             0111 |                         00000100
+             RECORD_WAIT |                             0110 |                         00000101
+             RECORD_STOP |                             0010 |                         00000110
+        ZCHECK_RHD_START |                             0101 |                         00000111
+        ZCHECK_RHS_START |                             1011 |                         00001001
+             ZCHECK_STOP |                             1001 |                         00001011
+         ZCHECK_RHS_WAIT |                             1010 |                         00001010
+         ZCHECK_RHD_WAIT |                             0100 |                         00001000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'seeg'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 3231.512 ; gain = 930.469 ; free physical = 19046 ; free virtual = 23796
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 226   
+	   3 Input   32 Bit       Adders := 48    
+	   2 Input   17 Bit       Adders := 1     
+	   2 Input   16 Bit       Adders := 8     
+	   2 Input   13 Bit       Adders := 8     
+	   2 Input   12 Bit       Adders := 38    
+	   2 Input   11 Bit       Adders := 18    
+	   2 Input   10 Bit       Adders := 11    
+	   2 Input    9 Bit       Adders := 68    
+	   2 Input    8 Bit       Adders := 166   
+	   2 Input    7 Bit       Adders := 19    
+	   2 Input    5 Bit       Adders := 67    
+	   2 Input    4 Bit       Adders := 2     
++---Registers : 
+	               64 Bit    Registers := 25    
+	               32 Bit    Registers := 66    
+	               17 Bit    Registers := 1     
+	               16 Bit    Registers := 153   
+	               13 Bit    Registers := 6     
+	               12 Bit    Registers := 31    
+	               11 Bit    Registers := 14    
+	               10 Bit    Registers := 9     
+	                9 Bit    Registers := 52    
+	                8 Bit    Registers := 167   
+	                7 Bit    Registers := 20    
+	                5 Bit    Registers := 34    
+	                4 Bit    Registers := 2     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 6402  
++---Muxes : 
+	   2 Input   64 Bit        Muxes := 32    
+	  12 Input   64 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 62    
+	   5 Input   32 Bit        Muxes := 32    
+	   4 Input   32 Bit        Muxes := 2     
+	   9 Input   32 Bit        Muxes := 1     
+	  18 Input   32 Bit        Muxes := 1     
+	  32 Input   32 Bit        Muxes := 31    
+	  18 Input   18 Bit        Muxes := 2     
+	   2 Input   18 Bit        Muxes := 32    
+	   2 Input   16 Bit        Muxes := 346   
+	   5 Input   16 Bit        Muxes := 96    
+	  18 Input   16 Bit        Muxes := 86    
+	  34 Input   16 Bit        Muxes := 1     
+	   8 Input   16 Bit        Muxes := 2     
+	   4 Input   16 Bit        Muxes := 1     
+	  12 Input   16 Bit        Muxes := 2     
+	  12 Input   12 Bit        Muxes := 2     
+	  19 Input   10 Bit        Muxes := 1     
+	  12 Input   10 Bit        Muxes := 2     
+	   2 Input   10 Bit        Muxes := 4     
+	   5 Input    9 Bit        Muxes := 48    
+	   2 Input    8 Bit        Muxes := 310   
+	   5 Input    8 Bit        Muxes := 96    
+	  18 Input    8 Bit        Muxes := 6     
+	  17 Input    8 Bit        Muxes := 4     
+	   4 Input    8 Bit        Muxes := 2     
+	  12 Input    8 Bit        Muxes := 1     
+	  18 Input    7 Bit        Muxes := 2     
+	   2 Input    7 Bit        Muxes := 145   
+	   2 Input    6 Bit        Muxes := 4     
+	   5 Input    5 Bit        Muxes := 32    
+	   2 Input    5 Bit        Muxes := 4     
+	  18 Input    4 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 1     
+	  32 Input    4 Bit        Muxes := 1     
+	   5 Input    3 Bit        Muxes := 48    
+	   2 Input    3 Bit        Muxes := 247   
+	  11 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 14    
+	   3 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 661   
+	   5 Input    1 Bit        Muxes := 368   
+	  18 Input    1 Bit        Muxes := 44    
+	  16 Input    1 Bit        Muxes := 3     
+	  64 Input    1 Bit        Muxes := 1     
+	  11 Input    1 Bit        Muxes := 3     
+	  13 Input    1 Bit        Muxes := 3     
+	   4 Input    1 Bit        Muxes := 3     
+	  19 Input    1 Bit        Muxes := 1     
+	  12 Input    1 Bit        Muxes := 43    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1248 (col length:96)
+BRAMs: 288 (col length: RAMB18 96 RAMB36 48)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7129] Port RHS_miso_post_delay_debug_out in module seeg_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module seeg_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module seeg_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[0] in module seeg_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module seeg_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module seeg_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module seeg_top is either unconnected or has no load
+INFO: [Synth 8-5546] ROM "fifo_write_en" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "data_in_common" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "stim_magic_number_probe_select" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "write_register_address" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "data_in_common" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3886] merging instance 'data_in_P_reg[30]' (FDE) to 'data_in_P_reg[29]'
+INFO: [Synth 8-3886] merging instance 'data_in_P_reg[28]' (FDE) to 'data_in_P_reg[26]'
+INFO: [Synth 8-3886] merging instance 'data_in_P_reg[27]' (FDE) to 'data_in_P_reg[25]'
+INFO: [Synth 8-3886] merging instance 'data_in_P_reg[26]' (FDE) to 'data_in_P_reg[24]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_in_P_reg[24] )
+INFO: [Synth 8-3886] merging instance 'data_in_O_reg[30]' (FDE) to 'data_in_O_reg[29]'
+INFO: [Synth 8-3886] merging instance 'data_in_O_reg[28]' (FDE) to 'data_in_O_reg[26]'
+INFO: [Synth 8-3886] merging instance 'data_in_O_reg[27]' (FDE) to 'data_in_O_reg[25]'
+INFO: [Synth 8-3886] merging instance 'data_in_O_reg[26]' (FDE) to 'data_in_O_reg[24]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_in_O_reg[24] )
+INFO: [Synth 8-3886] merging instance 'data_in_N_reg[30]' (FDE) to 'data_in_N_reg[29]'
+INFO: [Synth 8-3886] merging instance 'data_in_N_reg[28]' (FDE) to 'data_in_N_reg[26]'
+INFO: [Synth 8-3886] merging instance 'data_in_N_reg[27]' (FDE) to 'data_in_N_reg[25]'
+INFO: [Synth 8-3886] merging instance 'data_in_N_reg[26]' (FDE) to 'data_in_N_reg[24]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_in_N_reg[24] )
+INFO: [Synth 8-3886] merging instance 'data_in_M_reg[30]' (FDE) to 'data_in_M_reg[29]'
+INFO: [Synth 8-3886] merging instance 'data_in_M_reg[28]' (FDE) to 'data_in_M_reg[26]'
+INFO: [Synth 8-3886] merging instance 'data_in_M_reg[27]' (FDE) to 'data_in_M_reg[25]'
+INFO: [Synth 8-3886] merging instance 'data_in_M_reg[26]' (FDE) to 'data_in_M_reg[24]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_in_M_reg[24] )
+INFO: [Synth 8-3886] merging instance 'data_in_L_reg[30]' (FDE) to 'data_in_L_reg[29]'
+INFO: [Synth 8-3886] merging instance 'data_in_L_reg[28]' (FDE) to 'data_in_L_reg[26]'
+INFO: [Synth 8-3886] merging instance 'data_in_L_reg[27]' (FDE) to 'data_in_L_reg[25]'
+INFO: [Synth 8-3886] merging instance 'data_in_L_reg[26]' (FDE) to 'data_in_L_reg[24]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_in_L_reg[24] )
+INFO: [Synth 8-3886] merging instance 'data_in_K_reg[30]' (FDE) to 'data_in_K_reg[29]'
+INFO: [Synth 8-3886] merging instance 'data_in_K_reg[28]' (FDE) to 'data_in_K_reg[26]'
+INFO: [Synth 8-3886] merging instance 'data_in_K_reg[27]' (FDE) to 'data_in_K_reg[25]'
+INFO: [Synth 8-3886] merging instance 'data_in_K_reg[26]' (FDE) to 'data_in_K_reg[24]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_in_K_reg[24] )
+INFO: [Synth 8-3886] merging instance 'data_in_J_reg[30]' (FDE) to 'data_in_J_reg[29]'
+INFO: [Synth 8-3886] merging instance 'data_in_J_reg[28]' (FDE) to 'data_in_J_reg[26]'
+INFO: [Synth 8-3886] merging instance 'data_in_J_reg[27]' (FDE) to 'data_in_J_reg[25]'
+INFO: [Synth 8-3886] merging instance 'data_in_J_reg[26]' (FDE) to 'data_in_J_reg[24]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_in_J_reg[24] )
+INFO: [Synth 8-3886] merging instance 'state_latch_reg[6]' (FD) to 'state_latch_reg[5]'
+INFO: [Synth 8-3886] merging instance 'state_latch_reg[5]' (FD) to 'state_latch_reg[7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\state_latch_reg[7] )
+INFO: [Synth 8-3886] merging instance 'data_in_D_reg[30]' (FDE) to 'data_in_D_reg[29]'
+INFO: [Synth 8-3886] merging instance 'data_in_D_reg[28]' (FDE) to 'data_in_D_reg[26]'
+INFO: [Synth 8-3886] merging instance 'data_in_D_reg[27]' (FDE) to 'data_in_D_reg[25]'
+INFO: [Synth 8-3886] merging instance 'data_in_D_reg[26]' (FDE) to 'data_in_D_reg[24]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_in_D_reg[24] )
+INFO: [Synth 8-3886] merging instance 'data_in_C_reg[30]' (FDE) to 'data_in_C_reg[29]'
+INFO: [Synth 8-3886] merging instance 'data_in_C_reg[28]' (FDE) to 'data_in_C_reg[26]'
+INFO: [Synth 8-3886] merging instance 'data_in_C_reg[27]' (FDE) to 'data_in_C_reg[25]'
+INFO: [Synth 8-3886] merging instance 'data_in_C_reg[26]' (FDE) to 'data_in_C_reg[24]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_in_C_reg[24] )
+INFO: [Synth 8-3886] merging instance 'data_in_B_reg[30]' (FDE) to 'data_in_B_reg[29]'
+INFO: [Synth 8-3886] merging instance 'data_in_B_reg[28]' (FDE) to 'data_in_B_reg[26]'
+INFO: [Synth 8-3886] merging instance 'data_in_B_reg[27]' (FDE) to 'data_in_B_reg[25]'
+INFO: [Synth 8-3886] merging instance 'data_in_B_reg[26]' (FDE) to 'data_in_B_reg[24]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_in_B_reg[24] )
+INFO: [Synth 8-3886] merging instance 'data_in_A_reg[30]' (FDE) to 'data_in_A_reg[29]'
+INFO: [Synth 8-3886] merging instance 'data_in_A_reg[28]' (FDE) to 'data_in_A_reg[26]'
+INFO: [Synth 8-3886] merging instance 'data_in_A_reg[27]' (FDE) to 'data_in_A_reg[25]'
+INFO: [Synth 8-3886] merging instance 'data_in_A_reg[26]' (FDE) to 'data_in_A_reg[24]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\data_in_A_reg[24] )
+INFO: [Synth 8-5544] ROM "p_0_out" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-3917] design seeg__GCB0 has port current_state[7] driven by constant 0
+WARNING: [Synth 8-3917] design seeg__GCB0 has port current_state[6] driven by constant 0
+WARNING: [Synth 8-3917] design seeg__GCB0 has port current_state[5] driven by constant 0
+WARNING: [Synth 8-3917] design seeg__GCB0 has port current_state[4] driven by constant 0
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized6 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized8 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized10 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized13 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MOSI in module rhs_spi_slave__parameterized14 is either unconnected or has no load
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_0_31_reg[12]' (FDE) to 'P2_slave/counter_0_31_reg[8]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_0_31_reg[11]' (FDE) to 'P2_slave/counter_0_31_reg[7]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_0_31_reg[10]' (FDE) to 'P2_slave/counter_0_31_reg[8]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_0_31_reg[9]' (FDE) to 'P2_slave/counter_0_31_reg[8]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_0_31_reg[8]' (FDE) to 'P1_slave/counter_0_31_reg[8]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_0_31_reg[7]' (FDE) to 'P1_slave/counter_0_31_reg[11]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_0_31_reg[6]' (FDE) to 'N2_slave/counter_32_63_reg[6]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_0_31_reg[5]' (FDE) to 'N2_slave/counter_32_63_reg[5]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_0_31_reg[4]' (FDE) to 'N2_slave/counter_32_63_reg[4]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_0_31_reg[3]' (FDE) to 'N2_slave/counter_32_63_reg[3]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_0_31_reg[2]' (FDE) to 'N2_slave/counter_32_63_reg[2]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_0_31_reg[1]' (FDE) to 'O1_slave/counter_0_31_reg[1]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_0_31_reg[0]' (FDE) to 'B1_slave/counter_32_63_reg[0]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_32_63_reg[12]' (FDE) to 'P1_slave/counter_0_31_reg[8]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_32_63_reg[11]' (FDE) to 'P1_slave/counter_0_31_reg[11]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_32_63_reg[10]' (FDE) to 'P1_slave/counter_0_31_reg[8]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_32_63_reg[9]' (FDE) to 'P1_slave/counter_0_31_reg[8]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_32_63_reg[8]' (FDE) to 'F1_slave/counter_0_31_reg[8]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_32_63_reg[7]' (FDE) to 'B2_slave/counter_0_31_reg[7]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_32_63_reg[6]' (FDE) to 'B2_slave/counter_0_31_reg[7]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_32_63_reg[5]' (FDE) to 'F1_slave/counter_0_31_reg[5]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_32_63_reg[4]' (FDE) to 'F1_slave/counter_0_31_reg[4]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_32_63_reg[3]' (FDE) to 'F1_slave/counter_0_31_reg[3]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_32_63_reg[2]' (FDE) to 'F1_slave/counter_0_31_reg[2]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_32_63_reg[1]' (FDE) to 'O1_slave/counter_0_31_reg[1]'
+INFO: [Synth 8-3886] merging instance 'P2_slave/counter_32_63_reg[0]' (FDE) to 'B1_slave/counter_32_63_reg[0]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_0_31_reg[12]' (FDE) to 'P1_slave/counter_0_31_reg[8]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_0_31_reg[11]' (FDE) to 'O2_slave/counter_0_31_reg[11]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_0_31_reg[10]' (FDE) to 'P1_slave/counter_0_31_reg[8]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_0_31_reg[9]' (FDE) to 'P1_slave/counter_0_31_reg[8]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_0_31_reg[8]' (FDE) to 'O2_slave/counter_0_31_reg[7]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_0_31_reg[7]' (FDE) to 'N1_slave/counter_32_63_reg[7]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_0_31_reg[6]' (FDE) to 'N1_slave/counter_32_63_reg[6]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_0_31_reg[5]' (FDE) to 'N1_slave/counter_32_63_reg[5]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_0_31_reg[4]' (FDE) to 'N1_slave/counter_32_63_reg[4]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_0_31_reg[3]' (FDE) to 'N1_slave/counter_32_63_reg[3]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_0_31_reg[2]' (FDE) to 'N1_slave/counter_32_63_reg[2]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_0_31_reg[1]' (FDE) to 'O1_slave/counter_0_31_reg[1]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_0_31_reg[0]' (FDE) to 'B1_slave/counter_32_63_reg[0]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_32_63_reg[12]' (FDE) to 'O2_slave/counter_0_31_reg[7]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_32_63_reg[11]' (FDE) to 'O2_slave/counter_0_31_reg[11]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_32_63_reg[10]' (FDE) to 'O2_slave/counter_0_31_reg[7]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_32_63_reg[9]' (FDE) to 'O2_slave/counter_0_31_reg[7]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_32_63_reg[8]' (FDE) to 'O2_slave/counter_0_31_reg[7]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_32_63_reg[7]' (FDE) to 'O2_slave/counter_0_31_reg[11]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_32_63_reg[6]' (FDE) to 'N2_slave/counter_0_31_reg[6]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_32_63_reg[5]' (FDE) to 'N2_slave/counter_0_31_reg[5]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_32_63_reg[4]' (FDE) to 'N2_slave/counter_0_31_reg[4]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_32_63_reg[3]' (FDE) to 'N2_slave/counter_0_31_reg[3]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_32_63_reg[2]' (FDE) to 'N2_slave/counter_0_31_reg[2]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_32_63_reg[1]' (FDE) to 'O1_slave/counter_0_31_reg[1]'
+INFO: [Synth 8-3886] merging instance 'P1_slave/counter_32_63_reg[0]' (FDE) to 'B1_slave/counter_32_63_reg[0]'
+INFO: [Synth 8-3886] merging instance 'O2_slave/counter_0_31_reg[12]' (FDE) to 'O2_slave/counter_0_31_reg[7]'
+INFO: [Synth 8-3886] merging instance 'O2_slave/counter_0_31_reg[11]' (FDE) to 'N2_slave/counter_0_31_reg[7]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\B1_slave/counter_32_63_reg[8] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\B1_slave/counter_32_63_reg[7] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:48 . Memory (MB): peak = 3231.512 ; gain = 930.469 ; free physical = 14762 ; free virtual = 19546
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+--------------------+---------------+----------------+
+|Module Name | RTL Object         | Depth x Width | Implemented As | 
++------------+--------------------+---------------+----------------+
+|rhd_2048    | zcheck_dac_command | 32x8          | LUT            | 
+|rhs_256     | zcheck_dac_command | 32x8          | LUT            | 
++------------+--------------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:49 . Memory (MB): peak = 3291.199 ; gain = 990.156 ; free physical = 14694 ; free virtual = 19477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:48 ; elapsed = 00:01:05 . Memory (MB): peak = 3493.879 ; gain = 1192.836 ; free physical = 14488 ; free virtual = 19272
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:50 ; elapsed = 00:01:15 . Memory (MB): peak = 3505.805 ; gain = 1204.762 ; free physical = 12603 ; free virtual = 17391
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:53 ; elapsed = 00:01:17 . Memory (MB): peak = 3505.805 ; gain = 1204.762 ; free physical = 12601 ; free virtual = 17389
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:53 ; elapsed = 00:01:17 . Memory (MB): peak = 3505.805 ; gain = 1204.762 ; free physical = 12601 ; free virtual = 17389
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:54 ; elapsed = 00:01:18 . Memory (MB): peak = 3505.805 ; gain = 1204.762 ; free physical = 12601 ; free virtual = 17388
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:54 ; elapsed = 00:01:18 . Memory (MB): peak = 3505.805 ; gain = 1204.762 ; free physical = 12601 ; free virtual = 17388
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:54 ; elapsed = 00:01:19 . Memory (MB): peak = 3505.805 ; gain = 1204.762 ; free physical = 12601 ; free virtual = 17388
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:54 ; elapsed = 00:01:19 . Memory (MB): peak = 3505.805 ; gain = 1204.762 ; free physical = 12601 ; free virtual = 17388
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------------+----------+
+|      |BlackBox name       |Instances |
++------+--------------------+----------+
+|1     |axis_data_fifo_seeg |         1|
+|2     |fifo_16_to_64       |         2|
++------+--------------------+----------+
+
+Report Cell Usage: 
++------+--------------------+------+
+|      |Cell                |Count |
++------+--------------------+------+
+|1     |axis_data_fifo_seeg |     1|
+|2     |fifo_16_to          |     1|
+|3     |fifo_16_to_64       |     1|
+|4     |BUFGCE              |    50|
+|5     |CARRY8              |   661|
+|6     |LUT1                |   647|
+|7     |LUT2                |  3391|
+|8     |LUT3                |  1095|
+|9     |LUT4                |  1524|
+|10    |LUT5                |  2215|
+|11    |LUT6                |  7614|
+|12    |MUXF7               |  1114|
+|13    |MUXF8               |   453|
+|14    |FDCE                |  6336|
+|15    |FDRE                |  7449|
+|16    |FDSE                |   532|
+|17    |IBUFDS              |    24|
+|18    |OBUFDS              |     8|
++------+--------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:54 ; elapsed = 00:01:19 . Memory (MB): peak = 3505.805 ; gain = 1204.762 ; free physical = 12601 ; free virtual = 17388
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 27 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:46 ; elapsed = 00:01:13 . Memory (MB): peak = 3505.805 ; gain = 707.027 ; free physical = 21670 ; free virtual = 26458
+Synthesis Optimization Complete : Time (s): cpu = 00:00:56 ; elapsed = 00:01:23 . Memory (MB): peak = 3505.805 ; gain = 1204.762 ; free physical = 21676 ; free virtual = 26457
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.1 . Memory (MB): peak = 3505.805 ; gain = 0.000 ; free physical = 21676 ; free virtual = 26457
+INFO: [Netlist 29-17] Analyzing 2260 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3549.906 ; gain = 0.000 ; free physical = 21676 ; free virtual = 26456
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 32 instances were transformed.
+  IBUFDS => IBUFDS (DIFFINBUF, IBUFCTRL): 24 instances
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUF(x2)): 8 instances
+
+Synth Design complete | Checksum: bf46b27a
+INFO: [Common 17-83] Releasing license: Synthesis
+382 Infos, 383 Warnings, 2 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:01 ; elapsed = 00:01:28 . Memory (MB): peak = 3549.906 ; gain = 2165.961 ; free physical = 21676 ; free virtual = 26456
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 10882.040; main = 2712.058; forked = 8328.666
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 16150.312; main = 3549.910; forked = 12648.422
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Coretcl 2-1174] Renamed 178 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/ug3/Repos/ug3-seeg/ug3-seeg.runs/seeg_zynq_seeg_top_0_0_synth_1/seeg_zynq_seeg_top_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file seeg_zynq_seeg_top_0_0_utilization_synth.rpt -pb seeg_zynq_seeg_top_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Mar 31 23:15:04 2025...

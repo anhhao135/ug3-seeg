@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date         : Mon Mar 31 15:49:06 2025
+| Date         : Mon Mar 31 23:13:45 2025
 | Host         : ug3 running 64-bit Ubuntu 18.04.6 LTS
 | Command      : report_utilization -file seeg_zynq_system_ila_0_0_utilization_synth.rpt -pb seeg_zynq_system_ila_0_0_utilization_synth.pb
 | Design       : seeg_zynq_system_ila_0_0

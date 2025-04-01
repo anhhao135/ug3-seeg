@@ -2,7 +2,7 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
--- Date        : Mon Mar 31 12:03:41 2025
+-- Date        : Mon Mar 31 23:13:22 2025
 -- Host        : ug3 running 64-bit Ubuntu 18.04.6 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_util_ds_buf_0_0/seeg_zynq_util_ds_buf_0_0_sim_netlist.vhdl
@@ -300,7 +300,7 @@ architecture STRUCTURE of seeg_zynq_util_ds_buf_0_0 is
   attribute x_interface_parameter : string;
   attribute x_interface_parameter of OBUF_DS_P : signal is "XIL_INTERFACENAME CLK_OUT_D3, BOARD.ASSOCIATED_PARAM DIFF_CLK_IN_BOARD_INTERFACE, CAN_DEBUG false, FREQ_HZ 100000000";
   attribute x_interface_info of OBUF_IN : signal is "xilinx.com:signal:clock:1.0 OBUF_IN CLK";
-  attribute x_interface_parameter of OBUF_IN : signal is "XIL_INTERFACENAME OBUF_IN, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN seeg_zynq_clock_divider_0_0_clock_out, INSERT_VIP 0";
+  attribute x_interface_parameter of OBUF_IN : signal is "XIL_INTERFACENAME OBUF_IN, FREQ_HZ 78000972, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN seeg_zynq_clk_wiz_0_0_clk_78M, INSERT_VIP 0";
 begin
 U0: entity work.seeg_zynq_util_ds_buf_0_0_util_ds_buf
      port map (

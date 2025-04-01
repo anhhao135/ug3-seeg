@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
--- Date        : Mon Oct  7 11:38:35 2024
+-- Date        : Mon Mar 31 23:13:25 2025
 -- Host        : ug3 running 64-bit Ubuntu 18.04.6 LTS
--- Command     : write_vhdl -force -mode funcsim -rename_top seeg_zynq_zynq_ultra_ps_e_0_0 -prefix
---               seeg_zynq_zynq_ultra_ps_e_0_0_ seeg_zynq_zynq_ultra_ps_e_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_zynq_ultra_ps_e_0_0/seeg_zynq_zynq_ultra_ps_e_0_0_sim_netlist.vhdl
 -- Design      : seeg_zynq_zynq_ultra_ps_e_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -1585,6 +1585,8 @@ entity seeg_zynq_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_0_zynq_ultra_ps_e is
   attribute C_USE_DIFF_RW_CLK_GP6 of seeg_zynq_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_0_zynq_ultra_ps_e : entity is 0;
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of seeg_zynq_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_0_zynq_ultra_ps_e : entity is "seeg_zynq_zynq_ultra_ps_e_0_0.hwdef";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of seeg_zynq_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_0_zynq_ultra_ps_e : entity is "zynq_ultra_ps_e_v3_5_0_zynq_ultra_ps_e";
   attribute PSS_IO : string;
   attribute PSS_IO of seeg_zynq_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_5_0_zynq_ultra_ps_e : entity is "Signal Name, DiffPair Type, DiffPair Signal,Direction, Site Type, IO Standard, Drive (mA), Slew Rate, Pull Type, IBIS Model, ODT, OUTPUT_IMPEDANCE " & LF &
  "QSPI_X4_SCLK_OUT, , , OUT, PS_MIO0_500, LVCMOS18, 4, SLOW, PULLUP, PS_MIO_LVCMOS18_S_4,,  " & LF &

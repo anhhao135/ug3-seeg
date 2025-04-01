@@ -71,7 +71,6 @@ proc create_report { reportName command } {
 }
 OPTRACE "axis_data_fifo_seeg_synth_1" START { ROLLUP_AUTO }
 set_param xicom.use_bs_reader 1
-set_param chipscope.maxJobs 3
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {HDL-1065} -limit 10000

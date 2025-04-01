@@ -7,7 +7,8 @@
       "name": "seeg_zynq",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2023.1"
+      "tool_version": "2023.1",
+      "validated": "true"
     },
     "design_tree": {
       "clk_wiz_0": "",
@@ -328,13 +329,57 @@
         "type": "clk",
         "direction": "O",
         "left": "0",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "seeg_zynq_clk_wiz_0_0_clk_78M",
+            "value_src": "ip_prop"
+          },
+          "FREQ_HZ": {
+            "value": "78000972",
+            "value_src": "ip_prop"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "ip_prop"
+          }
+        }
       },
       "clk_out_n": {
         "type": "clk",
         "direction": "O",
         "left": "0",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "seeg_zynq_clk_wiz_0_0_clk_78M",
+            "value_src": "ip_prop"
+          },
+          "FREQ_HZ": {
+            "value": "78000972",
+            "value_src": "ip_prop"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "ip_prop"
+          }
+        }
       }
     },
     "components": {
@@ -3960,6 +4005,18 @@
               "HAS_TLAST": {
                 "value": "1",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "78000972",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "seeg_zynq_clk_wiz_0_0_clk_78M",
+                "value_src": "default_prop"
               }
             },
             "port_maps": {
@@ -3995,6 +4052,10 @@
               "PROTOCOL": {
                 "value": "AXI4LITE",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "78000972",
+                "value_src": "ip_prop"
               },
               "ID_WIDTH": {
                 "value": "0",
@@ -4079,6 +4140,30 @@
               "MAX_BURST_LENGTH": {
                 "value": "1",
                 "value_src": "auto"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "seeg_zynq_clk_wiz_0_0_clk_78M",
+                "value_src": "default_prop"
+              },
+              "NUM_READ_THREADS": {
+                "value": "1",
+                "value_src": "user_prop"
+              },
+              "NUM_WRITE_THREADS": {
+                "value": "1",
+                "value_src": "user_prop"
+              },
+              "RUSER_BITS_PER_BYTE": {
+                "value": "0",
+                "value_src": "user_prop"
+              },
+              "WUSER_BITS_PER_BYTE": {
+                "value": "0",
+                "value_src": "user_prop"
               }
             },
             "memory_map_ref": "S_AXI",
@@ -4192,6 +4277,18 @@
               "ASSOCIATED_RESET": {
                 "value": "M_AXIS_ARESETN",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "78000972",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "seeg_zynq_clk_wiz_0_0_clk_78M",
+                "value_src": "default_prop"
               }
             }
           },
@@ -4216,6 +4313,18 @@
               "ASSOCIATED_RESET": {
                 "value": "S_AXI_ARESETN",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "78000972",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "seeg_zynq_clk_wiz_0_0_clk_78M",
+                "value_src": "default_prop"
               }
             }
           },
@@ -4629,6 +4738,9 @@
             "direction": "O"
           },
           "RHD_miso_post_delay_debug_out": {
+            "direction": "O"
+          },
+          "RHS_miso_post_delay_debug_out": {
             "direction": "O"
           },
           "aux_signal": {

@@ -2769,6 +2769,9 @@
           "RHD_miso_post_delay_debug_out": {
             "direction": "O"
           },
+          "RHS_miso_post_delay_debug_out": {
+            "direction": "O"
+          },
           "aux_signal": {
             "direction": "I"
           }

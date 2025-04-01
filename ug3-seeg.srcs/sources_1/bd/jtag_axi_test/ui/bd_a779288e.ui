@@ -114,15 +114,15 @@ preplace inst xlconstant_0 -pg 1 -lvl 6 -x 2790 -y 370 -defaultsOSRD
 preplace inst ila_rhd -pg 1 -lvl 6 -x 2790 -y 2340 -defaultsOSRD
 preplace inst ila_rhs -pg 1 -lvl 6 -x 2790 -y 1550 -defaultsOSRD
 preplace inst seeg_top_0 -pg 1 -lvl 5 -x 1800 -y 420 -defaultsOSRD
-preplace netloc Net 1 5 2 NJ -190 2890
+preplace netloc Net 1 5 2 NJ -200 2890
 preplace netloc RHD_MISO1_A_1 1 0 6 -1070J -130 NJ -130 NJ -130 NJ -130 1300 -480 2660J
-preplace netloc RHD_MISO1_B_1 1 0 6 -1060J -120 NJ -120 NJ -120 NJ -120 1320 -470 2630J
-preplace netloc RHD_MISO1_C_1 1 0 6 -1050J -110 NJ -110 NJ -110 NJ -110 1330 -460 2610J
-preplace netloc RHD_MISO1_D_1 1 0 6 -1040J -100 NJ -100 NJ -100 NJ -100 1340 -450 2590J
-preplace netloc RHD_MISO1_E_1 1 0 6 -1030J -90 NJ -90 NJ -90 NJ -90 1380 -440 2550J
-preplace netloc RHD_MISO1_F_1 1 0 6 -1020J -80 NJ -80 NJ -80 NJ -80 1570 -430 2520J
-preplace netloc RHD_MISO1_G_1 1 0 6 -1010J -70 NJ -70 NJ -70 NJ -70 1400 -420 2500J
-preplace netloc RHD_MISO1_H_1 1 0 6 -1000J -60 NJ -60 NJ -60 NJ -60 1580 -410 2490J
+preplace netloc RHD_MISO1_B_1 1 0 6 -1060J -120 NJ -120 NJ -120 NJ -120 1320 -470 2620J
+preplace netloc RHD_MISO1_C_1 1 0 6 -1050J -110 NJ -110 NJ -110 NJ -110 1330 -460 2600J
+preplace netloc RHD_MISO1_D_1 1 0 6 -1040J -100 NJ -100 NJ -100 NJ -100 1340 -450 2560J
+preplace netloc RHD_MISO1_E_1 1 0 6 -1030J -90 NJ -90 NJ -90 NJ -90 1380 -440 2530J
+preplace netloc RHD_MISO1_F_1 1 0 6 -1020J -80 NJ -80 NJ -80 NJ -80 1570 -430 2500J
+preplace netloc RHD_MISO1_G_1 1 0 6 -1010J -70 NJ -70 NJ -70 NJ -70 1400 -420 2480J
+preplace netloc RHD_MISO1_H_1 1 0 6 -1000J -60 NJ -60 NJ -60 NJ -60 1580 -410 2470J
 preplace netloc RHD_MISO1_I_N_1 1 0 5 -960J 190 120J 30 NJ 30 730J 50 1360J
 preplace netloc RHD_MISO1_I_P_1 1 0 5 -990J -50 NJ -50 NJ -50 NJ -50 1480J
 preplace netloc RHD_MISO1_J_N_1 1 0 5 -930J 270 100J 240 NJ 240 NJ 240 1320J
@@ -165,10 +165,10 @@ preplace netloc RHD_MISO2_P_N_1 1 0 5 -680J 690 NJ 690 NJ 690 NJ 690 NJ
 preplace netloc RHD_MISO2_P_P_1 1 0 5 -690J 670 NJ 670 NJ 670 NJ 670 NJ
 preplace netloc RHS_MISO_A_1 1 0 6 NJ 1200 NJ 1200 NJ 1200 NJ 1200 1520 1550 NJ
 preplace netloc RHS_MISO_B_1 1 0 6 NJ 1220 NJ 1220 NJ 1220 NJ 1220 1510 1570 NJ
-preplace netloc RHS_MISO_C_1 1 0 6 NJ 1240 NJ 1240 NJ 1240 NJ 1240 1550 1530 2080J
-preplace netloc RHS_MISO_D_1 1 0 6 NJ 1260 NJ 1260 NJ 1260 NJ 1260 1580 1520 2090J
-preplace netloc RHS_MISO_E_1 1 0 6 NJ 1280 NJ 1280 NJ 1280 NJ 1280 1570 1540 2050J
-preplace netloc RHS_MISO_F_1 1 0 6 NJ 1300 NJ 1300 NJ 1300 NJ 1300 1560 1560 2030J
+preplace netloc RHS_MISO_C_1 1 0 6 NJ 1240 NJ 1240 NJ 1240 NJ 1240 1550 1530 2090J
+preplace netloc RHS_MISO_D_1 1 0 6 NJ 1260 NJ 1260 NJ 1260 NJ 1260 1580 1520 2100J
+preplace netloc RHS_MISO_E_1 1 0 6 NJ 1280 NJ 1280 NJ 1280 NJ 1280 1570 1540 2060J
+preplace netloc RHS_MISO_F_1 1 0 6 NJ 1300 NJ 1300 NJ 1300 NJ 1300 1560 1560 2040J
 preplace netloc RHS_MISO_G_1 1 0 6 NJ 1320 NJ 1320 NJ 1320 NJ 1320 1530 1670 NJ
 preplace netloc RHS_MISO_H_1 1 0 6 NJ 1340 NJ 1340 NJ 1340 NJ 1340 1540 1690 NJ
 preplace netloc RHS_MISO_I_N_1 1 0 5 -660J 890 NJ 890 NJ 890 NJ 890 NJ
@@ -190,67 +190,67 @@ preplace netloc RHS_MISO_P_P_1 1 0 5 -530J 1150 NJ 1150 NJ 1150 NJ 1150 NJ
 preplace netloc clk_wiz_0_clk_39M 1 2 4 340 40 740 40 1500 1250 2670
 preplace netloc clk_wiz_0_locked 1 2 1 N 180
 preplace netloc proc_sys_reset_0_peripheral_aresetn 1 3 2 700 -270 1390
-preplace netloc seeg_top_0_RHD_CS 1 5 2 2350 430 NJ
-preplace netloc seeg_top_0_RHD_MISO1_I_DEBUG 1 5 1 2480 -110n
-preplace netloc seeg_top_0_RHD_MISO1_J_DEBUG 1 5 1 2460 -70n
-preplace netloc seeg_top_0_RHD_MISO1_K_DEBUG 1 5 1 2410 -30n
-preplace netloc seeg_top_0_RHD_MISO1_L_DEBUG 1 5 1 2360 10n
-preplace netloc seeg_top_0_RHD_MISO1_M_DEBUG 1 5 1 2210 50n
-preplace netloc seeg_top_0_RHD_MISO1_N_DEBUG 1 5 1 2150 90n
-preplace netloc seeg_top_0_RHD_MISO1_O_DEBUG 1 5 1 2100 130n
-preplace netloc seeg_top_0_RHD_MISO1_P_DEBUG 1 5 1 2040 170n
-preplace netloc seeg_top_0_RHD_MISO2_I_DEBUG 1 5 1 2470 -90n
-preplace netloc seeg_top_0_RHD_MISO2_J_DEBUG 1 5 1 2430 -50n
-preplace netloc seeg_top_0_RHD_MISO2_K_DEBUG 1 5 1 2390 -10n
-preplace netloc seeg_top_0_RHD_MISO2_L_DEBUG 1 5 1 2240 30n
-preplace netloc seeg_top_0_RHD_MISO2_M_DEBUG 1 5 1 2180 70n
-preplace netloc seeg_top_0_RHD_MISO2_N_DEBUG 1 5 1 2120 110n
-preplace netloc seeg_top_0_RHD_MISO2_O_DEBUG 1 5 1 2060 150n
-preplace netloc seeg_top_0_RHD_MISO2_P_DEBUG 1 5 1 2020 190n
-preplace netloc seeg_top_0_RHD_MOSI 1 5 2 2570 450 NJ
-preplace netloc seeg_top_0_RHD_SCLK 1 5 2 2530 470 NJ
-preplace netloc seeg_top_0_RHS_CS 1 5 2 2450 710 NJ
-preplace netloc seeg_top_0_RHS_MISO_I_DEBUG 1 5 1 2380 730n
-preplace netloc seeg_top_0_RHS_MISO_J_DEBUG 1 5 1 2260 750n
-preplace netloc seeg_top_0_RHS_MISO_K_DEBUG 1 5 1 2230 770n
-preplace netloc seeg_top_0_RHS_MISO_L_DEBUG 1 5 1 2200 790n
-preplace netloc seeg_top_0_RHS_MISO_M_DEBUG 1 5 1 2170 810n
-preplace netloc seeg_top_0_RHS_MISO_N_DEBUG 1 5 1 2140 830n
-preplace netloc seeg_top_0_RHS_MISO_O_DEBUG 1 5 1 2110 850n
-preplace netloc seeg_top_0_RHS_MISO_P_DEBUG 1 5 1 2070 870n
+preplace netloc seeg_top_0_RHD_CS 1 5 2 2310 430 NJ
+preplace netloc seeg_top_0_RHD_MISO1_I_DEBUG 1 5 1 2460 -120n
+preplace netloc seeg_top_0_RHD_MISO1_J_DEBUG 1 5 1 2440 -80n
+preplace netloc seeg_top_0_RHD_MISO1_K_DEBUG 1 5 1 2380 -40n
+preplace netloc seeg_top_0_RHD_MISO1_L_DEBUG 1 5 1 2320 0n
+preplace netloc seeg_top_0_RHD_MISO1_M_DEBUG 1 5 1 2190 40n
+preplace netloc seeg_top_0_RHD_MISO1_N_DEBUG 1 5 1 2130 80n
+preplace netloc seeg_top_0_RHD_MISO1_O_DEBUG 1 5 1 2070 120n
+preplace netloc seeg_top_0_RHD_MISO1_P_DEBUG 1 5 1 2030 160n
+preplace netloc seeg_top_0_RHD_MISO2_I_DEBUG 1 5 1 2450 -100n
+preplace netloc seeg_top_0_RHD_MISO2_J_DEBUG 1 5 1 2400 -60n
+preplace netloc seeg_top_0_RHD_MISO2_K_DEBUG 1 5 1 2350 -20n
+preplace netloc seeg_top_0_RHD_MISO2_L_DEBUG 1 5 1 2220 20n
+preplace netloc seeg_top_0_RHD_MISO2_M_DEBUG 1 5 1 2160 60n
+preplace netloc seeg_top_0_RHD_MISO2_N_DEBUG 1 5 1 2110 100n
+preplace netloc seeg_top_0_RHD_MISO2_O_DEBUG 1 5 1 2050 140n
+preplace netloc seeg_top_0_RHD_MISO2_P_DEBUG 1 5 1 2020 180n
+preplace netloc seeg_top_0_RHD_MOSI 1 5 2 2540 450 NJ
+preplace netloc seeg_top_0_RHD_SCLK 1 5 2 2510 470 NJ
+preplace netloc seeg_top_0_RHS_CS 1 5 2 2430 710 NJ
+preplace netloc seeg_top_0_RHS_MISO_I_DEBUG 1 5 1 2370 720n
+preplace netloc seeg_top_0_RHS_MISO_J_DEBUG 1 5 1 2340 740n
+preplace netloc seeg_top_0_RHS_MISO_K_DEBUG 1 5 1 2240 760n
+preplace netloc seeg_top_0_RHS_MISO_L_DEBUG 1 5 1 2210 780n
+preplace netloc seeg_top_0_RHS_MISO_M_DEBUG 1 5 1 2180 800n
+preplace netloc seeg_top_0_RHS_MISO_N_DEBUG 1 5 1 2150 820n
+preplace netloc seeg_top_0_RHS_MISO_O_DEBUG 1 5 1 2120 840n
+preplace netloc seeg_top_0_RHS_MISO_P_DEBUG 1 5 1 2080 860n
 preplace netloc seeg_top_0_RHS_MOSI_A 1 5 2 2690 750 NJ
 preplace netloc seeg_top_0_RHS_MOSI_B 1 5 2 2680 770 NJ
 preplace netloc seeg_top_0_RHS_MOSI_C 1 5 2 2650 790 NJ
-preplace netloc seeg_top_0_RHS_MOSI_D 1 5 2 2620 810 NJ
-preplace netloc seeg_top_0_RHS_MOSI_E 1 5 2 2600 830 NJ
-preplace netloc seeg_top_0_RHS_MOSI_F 1 5 2 2580 850 NJ
-preplace netloc seeg_top_0_RHS_MOSI_G 1 5 2 2540 870 NJ
-preplace netloc seeg_top_0_RHS_MOSI_H 1 5 2 2510 890 NJ
-preplace netloc seeg_top_0_RHS_MOSI_I_DEBUG 1 5 1 2420 890n
-preplace netloc seeg_top_0_RHS_MOSI_I_N 1 5 2 2080J 440 3040J
-preplace netloc seeg_top_0_RHS_MOSI_I_P 1 5 2 2640J 500 3020J
-preplace netloc seeg_top_0_RHS_MOSI_J_DEBUG 1 5 1 2400 910n
-preplace netloc seeg_top_0_RHS_MOSI_J_N 1 5 2 2080J 480 3010J
-preplace netloc seeg_top_0_RHS_MOSI_J_P 1 5 2 2080J 460 3030J
-preplace netloc seeg_top_0_RHS_MOSI_K_DEBUG 1 5 1 2370 930n
-preplace netloc seeg_top_0_RHS_MOSI_K_N 1 5 2 NJ 510 2990J
-preplace netloc seeg_top_0_RHS_MOSI_K_P 1 5 2 NJ 490 3000J
-preplace netloc seeg_top_0_RHS_MOSI_L_DEBUG 1 5 1 2250 950n
-preplace netloc seeg_top_0_RHS_MOSI_L_N 1 5 2 NJ 550 2970J
-preplace netloc seeg_top_0_RHS_MOSI_L_P 1 5 2 NJ 530 2980J
-preplace netloc seeg_top_0_RHS_MOSI_M_DEBUG 1 5 1 2220 970n
-preplace netloc seeg_top_0_RHS_MOSI_M_N 1 5 2 NJ 590 2950J
-preplace netloc seeg_top_0_RHS_MOSI_M_P 1 5 2 NJ 570 2960J
-preplace netloc seeg_top_0_RHS_MOSI_N_DEBUG 1 5 1 2190 990n
-preplace netloc seeg_top_0_RHS_MOSI_N_N 1 5 2 NJ 630 2930J
-preplace netloc seeg_top_0_RHS_MOSI_N_P 1 5 2 NJ 610 2940J
-preplace netloc seeg_top_0_RHS_MOSI_O_DEBUG 1 5 1 2160 1010n
-preplace netloc seeg_top_0_RHS_MOSI_O_N 1 5 2 NJ 670 2910J
-preplace netloc seeg_top_0_RHS_MOSI_O_P 1 5 2 NJ 650 2920J
-preplace netloc seeg_top_0_RHS_MOSI_P_DEBUG 1 5 1 2130 1030n
-preplace netloc seeg_top_0_RHS_MOSI_P_N 1 5 2 2080J 1130 2900J
-preplace netloc seeg_top_0_RHS_MOSI_P_P 1 5 2 2560J 1150 2890J
-preplace netloc seeg_top_0_RHS_SCLK 1 5 2 2440 730 NJ
+preplace netloc seeg_top_0_RHS_MOSI_D 1 5 2 2610 810 NJ
+preplace netloc seeg_top_0_RHS_MOSI_E 1 5 2 2590 830 NJ
+preplace netloc seeg_top_0_RHS_MOSI_F 1 5 2 2550 850 NJ
+preplace netloc seeg_top_0_RHS_MOSI_G 1 5 2 2520 870 NJ
+preplace netloc seeg_top_0_RHS_MOSI_H 1 5 2 2490 890 NJ
+preplace netloc seeg_top_0_RHS_MOSI_I_DEBUG 1 5 1 2410 880n
+preplace netloc seeg_top_0_RHS_MOSI_I_N 1 5 2 2630J 490 3020J
+preplace netloc seeg_top_0_RHS_MOSI_I_P 1 5 2 2640J 510 3010J
+preplace netloc seeg_top_0_RHS_MOSI_J_DEBUG 1 5 1 2390 900n
+preplace netloc seeg_top_0_RHS_MOSI_J_N 1 5 2 NJ 460 3030J
+preplace netloc seeg_top_0_RHS_MOSI_J_P 1 5 2 NJ 440 3040J
+preplace netloc seeg_top_0_RHS_MOSI_K_DEBUG 1 5 1 2360 920n
+preplace netloc seeg_top_0_RHS_MOSI_K_N 1 5 2 NJ 500 2990J
+preplace netloc seeg_top_0_RHS_MOSI_K_P 1 5 2 NJ 480 3000J
+preplace netloc seeg_top_0_RHS_MOSI_L_DEBUG 1 5 1 2330 940n
+preplace netloc seeg_top_0_RHS_MOSI_L_N 1 5 2 NJ 540 2970J
+preplace netloc seeg_top_0_RHS_MOSI_L_P 1 5 2 NJ 520 2980J
+preplace netloc seeg_top_0_RHS_MOSI_M_DEBUG 1 5 1 2230 960n
+preplace netloc seeg_top_0_RHS_MOSI_M_N 1 5 2 NJ 580 2950J
+preplace netloc seeg_top_0_RHS_MOSI_M_P 1 5 2 NJ 560 2960J
+preplace netloc seeg_top_0_RHS_MOSI_N_DEBUG 1 5 1 2200 980n
+preplace netloc seeg_top_0_RHS_MOSI_N_N 1 5 2 NJ 620 2930J
+preplace netloc seeg_top_0_RHS_MOSI_N_P 1 5 2 NJ 600 2940J
+preplace netloc seeg_top_0_RHS_MOSI_O_DEBUG 1 5 1 2170 1000n
+preplace netloc seeg_top_0_RHS_MOSI_O_N 1 5 2 NJ 660 2910J
+preplace netloc seeg_top_0_RHS_MOSI_O_P 1 5 2 NJ 640 2920J
+preplace netloc seeg_top_0_RHS_MOSI_P_DEBUG 1 5 1 2140 1020n
+preplace netloc seeg_top_0_RHS_MOSI_P_N 1 5 2 2570J 1130 2900J
+preplace netloc seeg_top_0_RHS_MOSI_P_P 1 5 2 2580J 1150 2890J
+preplace netloc seeg_top_0_RHS_SCLK 1 5 2 2420 730 NJ
 preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 2 -520 180 100
 preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 2 N 100 330J
 preplace netloc jtag_axi_0_M_AXI 1 4 1 1350 -350n

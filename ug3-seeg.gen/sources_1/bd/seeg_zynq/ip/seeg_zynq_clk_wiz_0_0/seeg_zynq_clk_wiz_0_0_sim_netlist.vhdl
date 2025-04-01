@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
--- Date        : Mon Oct  7 11:38:36 2024
+-- Date        : Mon Mar 31 23:13:18 2025
 -- Host        : ug3 running 64-bit Ubuntu 18.04.6 LTS
--- Command     : write_vhdl -force -mode funcsim -rename_top seeg_zynq_clk_wiz_0_0 -prefix
---               seeg_zynq_clk_wiz_0_0_ seeg_zynq_clk_wiz_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               /home/ug3/Repos/ug3-seeg/ug3-seeg.gen/sources_1/bd/seeg_zynq/ip/seeg_zynq_clk_wiz_0_0/seeg_zynq_clk_wiz_0_0_sim_netlist.vhdl
 -- Design      : seeg_zynq_clk_wiz_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -15,15 +15,15 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity seeg_zynq_clk_wiz_0_0_seeg_zynq_clk_wiz_0_0_clk_wiz is
+entity seeg_zynq_clk_wiz_0_0_clk_wiz is
   port (
     clk_78M : out STD_LOGIC;
     locked : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
-end seeg_zynq_clk_wiz_0_0_seeg_zynq_clk_wiz_0_0_clk_wiz;
+end seeg_zynq_clk_wiz_0_0_clk_wiz;
 
-architecture STRUCTURE of seeg_zynq_clk_wiz_0_0_seeg_zynq_clk_wiz_0_0_clk_wiz is
+architecture STRUCTURE of seeg_zynq_clk_wiz_0_0_clk_wiz is
   signal clk_78M_seeg_zynq_clk_wiz_0_0 : STD_LOGIC;
   signal clk_in1_seeg_zynq_clk_wiz_0_0 : STD_LOGIC;
   signal NLW_mmcme4_adv_inst_CDDCDONE_UNCONNECTED : STD_LOGIC;
@@ -188,7 +188,7 @@ end seeg_zynq_clk_wiz_0_0;
 
 architecture STRUCTURE of seeg_zynq_clk_wiz_0_0 is
 begin
-inst: entity work.seeg_zynq_clk_wiz_0_0_seeg_zynq_clk_wiz_0_0_clk_wiz
+inst: entity work.seeg_zynq_clk_wiz_0_0_clk_wiz
      port map (
       clk_78M => clk_78M,
       clk_in1 => clk_in1,
