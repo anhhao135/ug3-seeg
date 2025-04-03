@@ -204,7 +204,8 @@
         "RHS_MOSI_P_DEBUG": [ { "direction": "out" } ],
         "RHD_miso_post_delay_debug_out": [ { "direction": "out" } ],
         "RHS_miso_post_delay_debug_out": [ { "direction": "out" } ],
-        "aux_signal": [ { "direction": "in" } ]
+        "aux_signal": [ { "direction": "in" } ],
+        "led_signal_out": [ { "direction": "out" } ]
       },
       "interfaces": {
         "M_AXIS": {

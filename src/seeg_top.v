@@ -261,7 +261,8 @@ module seeg_top #
     output wire RHS_miso_post_delay_debug_out,
 
 
-    input wire aux_signal
+    input wire aux_signal,
+    output wire led_signal_out
 
 );
 
@@ -446,6 +447,28 @@ module seeg_top #
     wire last_out_module;
 
     wire [7:0] current_state;
+
+    localparam READY = 0, RESET = 1, CONFIG_START = 2, CONFIG_WAIT = 3, RECORD_START = 4, RECORD_WAIT = 5, RECORD_STOP = 6, ZCHECK_RHD_START = 7, ZCHECK_RHD_WAIT = 8, ZCHECK_RHS_START = 9, ZCHECK_RHS_WAIT = 10, ZCHECK_STOP = 11;
+
+    reg [31:0] led_clock_divisor = 78000000;
+
+    always @ (*) begin
+        if (current_state == 2 || current_state == 3 || current_state == 4 || current_state == 5) begin
+            led_clock_divisor = 78000000 / 2;
+        end
+        if (current_state == 7 || current_state == 8 || current_state == 9 || current_state == 10) begin
+            led_clock_divisor = 78000000 / 4;
+        end
+        else begin
+            led_clock_divisor = 78000000;
+        end
+    end
+
+    wire led_clock_out;
+
+    clock_divider ClockDividerLED (.clock_in(clk), .clock_out(led_clock_out), .divisor(led_clock_divisor), .rstn(1));
+
+    assign led_signal_out = led_clock_out;
 
     seeg seeg(
     .clk(S_AXI_ACLK),

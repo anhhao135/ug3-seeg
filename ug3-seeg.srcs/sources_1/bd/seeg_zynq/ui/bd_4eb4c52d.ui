@@ -1,241 +1,241 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.426288",
-   "Default View_TopLeft":"842,-61",
+   "Default View_TopLeft":"-204,162",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 TLS
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
 #  -string -flagsOSRD
-preplace port port-id_RHD_CS -pg 1 -lvl 8 -x 3380 -y 180 -defaultsOSRD
-preplace port port-id_RHD_MISO1_A -pg 1 -lvl 0 -x 0 -y 380 -defaultsOSRD
-preplace port port-id_RHD_MISO1_B -pg 1 -lvl 0 -x 0 -y 420 -defaultsOSRD
-preplace port port-id_RHD_MISO1_C -pg 1 -lvl 0 -x 0 -y 460 -defaultsOSRD
-preplace port port-id_RHD_MISO1_D -pg 1 -lvl 0 -x 0 -y 500 -defaultsOSRD
-preplace port port-id_RHD_MISO1_E -pg 1 -lvl 0 -x 0 -y 540 -defaultsOSRD
-preplace port port-id_RHD_MISO1_F -pg 1 -lvl 0 -x 0 -y 580 -defaultsOSRD
-preplace port port-id_RHD_MISO1_G -pg 1 -lvl 0 -x 0 -y 620 -defaultsOSRD
-preplace port port-id_RHD_MISO1_H -pg 1 -lvl 0 -x 0 -y 660 -defaultsOSRD
-preplace port port-id_RHD_MISO1_I_N -pg 1 -lvl 0 -x 0 -y 720 -defaultsOSRD
-preplace port port-id_RHD_MISO1_I_P -pg 1 -lvl 0 -x 0 -y 700 -defaultsOSRD
-preplace port port-id_RHD_MISO1_J_N -pg 1 -lvl 0 -x 0 -y 800 -defaultsOSRD
-preplace port port-id_RHD_MISO1_J_P -pg 1 -lvl 0 -x 0 -y 780 -defaultsOSRD
-preplace port port-id_RHD_MISO1_K_N -pg 1 -lvl 0 -x 0 -y 880 -defaultsOSRD
-preplace port port-id_RHD_MISO1_K_P -pg 1 -lvl 0 -x 0 -y 860 -defaultsOSRD
-preplace port port-id_RHD_MISO1_L_N -pg 1 -lvl 0 -x 0 -y 960 -defaultsOSRD
-preplace port port-id_RHD_MISO1_L_P -pg 1 -lvl 0 -x 0 -y 940 -defaultsOSRD
-preplace port port-id_RHD_MISO1_M_N -pg 1 -lvl 0 -x 0 -y 1040 -defaultsOSRD
-preplace port port-id_RHD_MISO1_M_P -pg 1 -lvl 0 -x 0 -y 1020 -defaultsOSRD
-preplace port port-id_RHD_MISO1_N_N -pg 1 -lvl 0 -x 0 -y 1120 -defaultsOSRD
-preplace port port-id_RHD_MISO1_N_P -pg 1 -lvl 0 -x 0 -y 1100 -defaultsOSRD
-preplace port port-id_RHD_MISO1_O_N -pg 1 -lvl 0 -x 0 -y 1200 -defaultsOSRD
-preplace port port-id_RHD_MISO1_O_P -pg 1 -lvl 0 -x 0 -y 1180 -defaultsOSRD
-preplace port port-id_RHD_MISO1_P_N -pg 1 -lvl 0 -x 0 -y 1280 -defaultsOSRD
-preplace port port-id_RHD_MISO1_P_P -pg 1 -lvl 0 -x 0 -y 1260 -defaultsOSRD
-preplace port port-id_RHD_MISO2_A -pg 1 -lvl 0 -x 0 -y 400 -defaultsOSRD
-preplace port port-id_RHD_MISO2_B -pg 1 -lvl 0 -x 0 -y 440 -defaultsOSRD
-preplace port port-id_RHD_MISO2_C -pg 1 -lvl 0 -x 0 -y 480 -defaultsOSRD
-preplace port port-id_RHD_MISO2_D -pg 1 -lvl 0 -x 0 -y 520 -defaultsOSRD
-preplace port port-id_RHD_MISO2_E -pg 1 -lvl 0 -x 0 -y 560 -defaultsOSRD
-preplace port port-id_RHD_MISO2_F -pg 1 -lvl 0 -x 0 -y 600 -defaultsOSRD
-preplace port port-id_RHD_MISO2_G -pg 1 -lvl 0 -x 0 -y 640 -defaultsOSRD
-preplace port port-id_RHD_MISO2_H -pg 1 -lvl 0 -x 0 -y 680 -defaultsOSRD
-preplace port port-id_RHD_MISO2_I_N -pg 1 -lvl 0 -x 0 -y 760 -defaultsOSRD
-preplace port port-id_RHD_MISO2_I_P -pg 1 -lvl 0 -x 0 -y 740 -defaultsOSRD
-preplace port port-id_RHD_MISO2_J_N -pg 1 -lvl 0 -x 0 -y 840 -defaultsOSRD
-preplace port port-id_RHD_MISO2_J_P -pg 1 -lvl 0 -x 0 -y 820 -defaultsOSRD
-preplace port port-id_RHD_MISO2_K_N -pg 1 -lvl 0 -x 0 -y 920 -defaultsOSRD
-preplace port port-id_RHD_MISO2_K_P -pg 1 -lvl 0 -x 0 -y 900 -defaultsOSRD
-preplace port port-id_RHD_MISO2_L_N -pg 1 -lvl 0 -x 0 -y 1000 -defaultsOSRD
-preplace port port-id_RHD_MISO2_L_P -pg 1 -lvl 0 -x 0 -y 980 -defaultsOSRD
-preplace port port-id_RHD_MISO2_M_N -pg 1 -lvl 0 -x 0 -y 1080 -defaultsOSRD
-preplace port port-id_RHD_MISO2_M_P -pg 1 -lvl 0 -x 0 -y 1060 -defaultsOSRD
-preplace port port-id_RHD_MISO2_N_N -pg 1 -lvl 0 -x 0 -y 1160 -defaultsOSRD
-preplace port port-id_RHD_MISO2_N_P -pg 1 -lvl 0 -x 0 -y 1140 -defaultsOSRD
-preplace port port-id_RHD_MISO2_O_N -pg 1 -lvl 0 -x 0 -y 1240 -defaultsOSRD
-preplace port port-id_RHD_MISO2_O_P -pg 1 -lvl 0 -x 0 -y 1220 -defaultsOSRD
-preplace port port-id_RHD_MISO2_P_N -pg 1 -lvl 0 -x 0 -y 1320 -defaultsOSRD
-preplace port port-id_RHD_MISO2_P_P -pg 1 -lvl 0 -x 0 -y 1300 -defaultsOSRD
-preplace port port-id_RHD_MOSI -pg 1 -lvl 8 -x 3380 -y 200 -defaultsOSRD
-preplace port port-id_RHD_SCLK -pg 1 -lvl 8 -x 3380 -y 220 -defaultsOSRD
-preplace port port-id_RHS_CS -pg 1 -lvl 8 -x 3380 -y 240 -defaultsOSRD
-preplace port port-id_RHS_MISO_A -pg 1 -lvl 0 -x 0 -y 1340 -defaultsOSRD
-preplace port port-id_RHS_MISO_B -pg 1 -lvl 0 -x 0 -y 1360 -defaultsOSRD
-preplace port port-id_RHS_MISO_C -pg 1 -lvl 0 -x 0 -y 1380 -defaultsOSRD
-preplace port port-id_RHS_MISO_D -pg 1 -lvl 0 -x 0 -y 1400 -defaultsOSRD
-preplace port port-id_RHS_MISO_E -pg 1 -lvl 0 -x 0 -y 1420 -defaultsOSRD
-preplace port port-id_RHS_MISO_F -pg 1 -lvl 0 -x 0 -y 1440 -defaultsOSRD
-preplace port port-id_RHS_MISO_G -pg 1 -lvl 0 -x 0 -y 1460 -defaultsOSRD
-preplace port port-id_RHS_MISO_H -pg 1 -lvl 0 -x 0 -y 1480 -defaultsOSRD
-preplace port port-id_RHS_MISO_I_N -pg 1 -lvl 0 -x 0 -y 1520 -defaultsOSRD
-preplace port port-id_RHS_MISO_I_P -pg 1 -lvl 0 -x 0 -y 1500 -defaultsOSRD
-preplace port port-id_RHS_MISO_J_N -pg 1 -lvl 0 -x 0 -y 1560 -defaultsOSRD
-preplace port port-id_RHS_MISO_J_P -pg 1 -lvl 0 -x 0 -y 1540 -defaultsOSRD
-preplace port port-id_RHS_MISO_K_N -pg 1 -lvl 0 -x 0 -y 1600 -defaultsOSRD
-preplace port port-id_RHS_MISO_K_P -pg 1 -lvl 0 -x 0 -y 1580 -defaultsOSRD
-preplace port port-id_RHS_MISO_L_N -pg 1 -lvl 0 -x 0 -y 1640 -defaultsOSRD
-preplace port port-id_RHS_MISO_L_P -pg 1 -lvl 0 -x 0 -y 1620 -defaultsOSRD
-preplace port port-id_RHS_MISO_M_N -pg 1 -lvl 0 -x 0 -y 1680 -defaultsOSRD
-preplace port port-id_RHS_MISO_M_P -pg 1 -lvl 0 -x 0 -y 1660 -defaultsOSRD
-preplace port port-id_RHS_MISO_N_N -pg 1 -lvl 0 -x 0 -y 1720 -defaultsOSRD
-preplace port port-id_RHS_MISO_N_P -pg 1 -lvl 0 -x 0 -y 1700 -defaultsOSRD
-preplace port port-id_RHS_MISO_O_N -pg 1 -lvl 0 -x 0 -y 1760 -defaultsOSRD
-preplace port port-id_RHS_MISO_O_P -pg 1 -lvl 0 -x 0 -y 1740 -defaultsOSRD
-preplace port port-id_RHS_MISO_P_N -pg 1 -lvl 0 -x 0 -y 1800 -defaultsOSRD
-preplace port port-id_RHS_MISO_P_P -pg 1 -lvl 0 -x 0 -y 1780 -defaultsOSRD
-preplace port port-id_RHS_MOSI_A -pg 1 -lvl 8 -x 3380 -y 280 -defaultsOSRD
-preplace port port-id_RHS_MOSI_B -pg 1 -lvl 8 -x 3380 -y 890 -defaultsOSRD
-preplace port port-id_RHS_MOSI_C -pg 1 -lvl 8 -x 3380 -y 910 -defaultsOSRD
-preplace port port-id_RHS_MOSI_D -pg 1 -lvl 8 -x 3380 -y 930 -defaultsOSRD
-preplace port port-id_RHS_MOSI_E -pg 1 -lvl 8 -x 3380 -y 950 -defaultsOSRD
-preplace port port-id_RHS_MOSI_F -pg 1 -lvl 8 -x 3380 -y 970 -defaultsOSRD
-preplace port port-id_RHS_MOSI_G -pg 1 -lvl 8 -x 3380 -y 990 -defaultsOSRD
-preplace port port-id_RHS_MOSI_H -pg 1 -lvl 8 -x 3380 -y 1010 -defaultsOSRD
-preplace port port-id_RHS_MOSI_I_N -pg 1 -lvl 8 -x 3380 -y 1050 -defaultsOSRD
-preplace port port-id_RHS_MOSI_I_P -pg 1 -lvl 8 -x 3380 -y 1030 -defaultsOSRD
-preplace port port-id_RHS_MOSI_J_N -pg 1 -lvl 8 -x 3380 -y 1090 -defaultsOSRD
-preplace port port-id_RHS_MOSI_J_P -pg 1 -lvl 8 -x 3380 -y 1070 -defaultsOSRD
-preplace port port-id_RHS_MOSI_K_N -pg 1 -lvl 8 -x 3380 -y 1130 -defaultsOSRD
-preplace port port-id_RHS_MOSI_K_P -pg 1 -lvl 8 -x 3380 -y 1110 -defaultsOSRD
-preplace port port-id_RHS_MOSI_L_N -pg 1 -lvl 8 -x 3380 -y 1170 -defaultsOSRD
-preplace port port-id_RHS_MOSI_L_P -pg 1 -lvl 8 -x 3380 -y 1150 -defaultsOSRD
-preplace port port-id_RHS_MOSI_M_N -pg 1 -lvl 8 -x 3380 -y 1210 -defaultsOSRD
-preplace port port-id_RHS_MOSI_M_P -pg 1 -lvl 8 -x 3380 -y 1190 -defaultsOSRD
-preplace port port-id_RHS_MOSI_N_N -pg 1 -lvl 8 -x 3380 -y 1250 -defaultsOSRD
-preplace port port-id_RHS_MOSI_N_P -pg 1 -lvl 8 -x 3380 -y 1230 -defaultsOSRD
-preplace port port-id_RHS_MOSI_O_N -pg 1 -lvl 8 -x 3380 -y 1290 -defaultsOSRD
-preplace port port-id_RHS_MOSI_O_P -pg 1 -lvl 8 -x 3380 -y 1270 -defaultsOSRD
-preplace port port-id_RHS_MOSI_P_N -pg 1 -lvl 8 -x 3380 -y 1330 -defaultsOSRD
-preplace port port-id_RHS_MOSI_P_P -pg 1 -lvl 8 -x 3380 -y 1310 -defaultsOSRD
-preplace port port-id_RHS_SCLK -pg 1 -lvl 8 -x 3380 -y 260 -defaultsOSRD
-preplace portBus clk_out_p -pg 1 -lvl 8 -x 3380 -y 1870 -defaultsOSRD
-preplace portBus clk_out_n -pg 1 -lvl 8 -x 3380 -y 1890 -defaultsOSRD
+preplace port port-id_RHD_CS -pg 1 -lvl 8 -x 3600 -y 130 -defaultsOSRD
+preplace port port-id_RHD_MISO1_A -pg 1 -lvl 0 -x -250 -y 0 -defaultsOSRD
+preplace port port-id_RHD_MISO1_B -pg 1 -lvl 0 -x -250 -y 60 -defaultsOSRD
+preplace port port-id_RHD_MISO1_C -pg 1 -lvl 0 -x -250 -y 120 -defaultsOSRD
+preplace port port-id_RHD_MISO1_D -pg 1 -lvl 0 -x -250 -y 180 -defaultsOSRD
+preplace port port-id_RHD_MISO1_E -pg 1 -lvl 0 -x -250 -y 240 -defaultsOSRD
+preplace port port-id_RHD_MISO1_F -pg 1 -lvl 0 -x -250 -y 300 -defaultsOSRD
+preplace port port-id_RHD_MISO1_G -pg 1 -lvl 0 -x -250 -y 360 -defaultsOSRD
+preplace port port-id_RHD_MISO1_H -pg 1 -lvl 0 -x -250 -y 420 -defaultsOSRD
+preplace port port-id_RHD_MISO1_I_N -pg 1 -lvl 0 -x -250 -y 510 -defaultsOSRD
+preplace port port-id_RHD_MISO1_I_P -pg 1 -lvl 0 -x -250 -y 480 -defaultsOSRD
+preplace port port-id_RHD_MISO1_J_N -pg 1 -lvl 0 -x -250 -y 630 -defaultsOSRD
+preplace port port-id_RHD_MISO1_J_P -pg 1 -lvl 0 -x -250 -y 600 -defaultsOSRD
+preplace port port-id_RHD_MISO1_K_N -pg 1 -lvl 0 -x -250 -y 750 -defaultsOSRD
+preplace port port-id_RHD_MISO1_K_P -pg 1 -lvl 0 -x -250 -y 720 -defaultsOSRD
+preplace port port-id_RHD_MISO1_L_N -pg 1 -lvl 0 -x -250 -y 870 -defaultsOSRD
+preplace port port-id_RHD_MISO1_L_P -pg 1 -lvl 0 -x -250 -y 840 -defaultsOSRD
+preplace port port-id_RHD_MISO1_M_N -pg 1 -lvl 0 -x -250 -y 990 -defaultsOSRD
+preplace port port-id_RHD_MISO1_M_P -pg 1 -lvl 0 -x -250 -y 960 -defaultsOSRD
+preplace port port-id_RHD_MISO1_N_N -pg 1 -lvl 0 -x -250 -y 1110 -defaultsOSRD
+preplace port port-id_RHD_MISO1_N_P -pg 1 -lvl 0 -x -250 -y 1080 -defaultsOSRD
+preplace port port-id_RHD_MISO1_O_N -pg 1 -lvl 0 -x -250 -y 1230 -defaultsOSRD
+preplace port port-id_RHD_MISO1_O_P -pg 1 -lvl 0 -x -250 -y 1200 -defaultsOSRD
+preplace port port-id_RHD_MISO1_P_N -pg 1 -lvl 0 -x -250 -y 1350 -defaultsOSRD
+preplace port port-id_RHD_MISO1_P_P -pg 1 -lvl 0 -x -250 -y 1320 -defaultsOSRD
+preplace port port-id_RHD_MISO2_A -pg 1 -lvl 0 -x -250 -y 30 -defaultsOSRD
+preplace port port-id_RHD_MISO2_B -pg 1 -lvl 0 -x -250 -y 90 -defaultsOSRD
+preplace port port-id_RHD_MISO2_C -pg 1 -lvl 0 -x -250 -y 150 -defaultsOSRD
+preplace port port-id_RHD_MISO2_D -pg 1 -lvl 0 -x -250 -y 210 -defaultsOSRD
+preplace port port-id_RHD_MISO2_E -pg 1 -lvl 0 -x -250 -y 270 -defaultsOSRD
+preplace port port-id_RHD_MISO2_F -pg 1 -lvl 0 -x -250 -y 330 -defaultsOSRD
+preplace port port-id_RHD_MISO2_G -pg 1 -lvl 0 -x -250 -y 390 -defaultsOSRD
+preplace port port-id_RHD_MISO2_H -pg 1 -lvl 0 -x -250 -y 450 -defaultsOSRD
+preplace port port-id_RHD_MISO2_I_N -pg 1 -lvl 0 -x -250 -y 570 -defaultsOSRD
+preplace port port-id_RHD_MISO2_I_P -pg 1 -lvl 0 -x -250 -y 540 -defaultsOSRD
+preplace port port-id_RHD_MISO2_J_N -pg 1 -lvl 0 -x -250 -y 690 -defaultsOSRD
+preplace port port-id_RHD_MISO2_J_P -pg 1 -lvl 0 -x -250 -y 660 -defaultsOSRD
+preplace port port-id_RHD_MISO2_K_N -pg 1 -lvl 0 -x -250 -y 810 -defaultsOSRD
+preplace port port-id_RHD_MISO2_K_P -pg 1 -lvl 0 -x -250 -y 780 -defaultsOSRD
+preplace port port-id_RHD_MISO2_L_N -pg 1 -lvl 0 -x -250 -y 930 -defaultsOSRD
+preplace port port-id_RHD_MISO2_L_P -pg 1 -lvl 0 -x -250 -y 900 -defaultsOSRD
+preplace port port-id_RHD_MISO2_M_N -pg 1 -lvl 0 -x -250 -y 1050 -defaultsOSRD
+preplace port port-id_RHD_MISO2_M_P -pg 1 -lvl 0 -x -250 -y 1020 -defaultsOSRD
+preplace port port-id_RHD_MISO2_N_N -pg 1 -lvl 0 -x -250 -y 1170 -defaultsOSRD
+preplace port port-id_RHD_MISO2_N_P -pg 1 -lvl 0 -x -250 -y 1140 -defaultsOSRD
+preplace port port-id_RHD_MISO2_O_N -pg 1 -lvl 0 -x -250 -y 1290 -defaultsOSRD
+preplace port port-id_RHD_MISO2_O_P -pg 1 -lvl 0 -x -250 -y 1260 -defaultsOSRD
+preplace port port-id_RHD_MISO2_P_N -pg 1 -lvl 0 -x -250 -y 1410 -defaultsOSRD
+preplace port port-id_RHD_MISO2_P_P -pg 1 -lvl 0 -x -250 -y 1380 -defaultsOSRD
+preplace port port-id_RHD_MOSI -pg 1 -lvl 8 -x 3600 -y 160 -defaultsOSRD
+preplace port port-id_RHD_SCLK -pg 1 -lvl 8 -x 3600 -y 190 -defaultsOSRD
+preplace port port-id_RHS_CS -pg 1 -lvl 8 -x 3600 -y 220 -defaultsOSRD
+preplace port port-id_RHS_MISO_A -pg 1 -lvl 0 -x -250 -y 1440 -defaultsOSRD
+preplace port port-id_RHS_MISO_B -pg 1 -lvl 0 -x -250 -y 1470 -defaultsOSRD
+preplace port port-id_RHS_MISO_C -pg 1 -lvl 0 -x -250 -y 1500 -defaultsOSRD
+preplace port port-id_RHS_MISO_D -pg 1 -lvl 0 -x -250 -y 1530 -defaultsOSRD
+preplace port port-id_RHS_MISO_E -pg 1 -lvl 0 -x -250 -y 1560 -defaultsOSRD
+preplace port port-id_RHS_MISO_F -pg 1 -lvl 0 -x -250 -y 1590 -defaultsOSRD
+preplace port port-id_RHS_MISO_G -pg 1 -lvl 0 -x -250 -y 1620 -defaultsOSRD
+preplace port port-id_RHS_MISO_H -pg 1 -lvl 0 -x -250 -y 1650 -defaultsOSRD
+preplace port port-id_RHS_MISO_I_N -pg 1 -lvl 0 -x -250 -y 1710 -defaultsOSRD
+preplace port port-id_RHS_MISO_I_P -pg 1 -lvl 0 -x -250 -y 1680 -defaultsOSRD
+preplace port port-id_RHS_MISO_J_N -pg 1 -lvl 0 -x -250 -y 1770 -defaultsOSRD
+preplace port port-id_RHS_MISO_J_P -pg 1 -lvl 0 -x -250 -y 1740 -defaultsOSRD
+preplace port port-id_RHS_MISO_K_N -pg 1 -lvl 0 -x -250 -y 1830 -defaultsOSRD
+preplace port port-id_RHS_MISO_K_P -pg 1 -lvl 0 -x -250 -y 1800 -defaultsOSRD
+preplace port port-id_RHS_MISO_L_N -pg 1 -lvl 0 -x -250 -y 1890 -defaultsOSRD
+preplace port port-id_RHS_MISO_L_P -pg 1 -lvl 0 -x -250 -y 1860 -defaultsOSRD
+preplace port port-id_RHS_MISO_M_N -pg 1 -lvl 0 -x -250 -y 1950 -defaultsOSRD
+preplace port port-id_RHS_MISO_M_P -pg 1 -lvl 0 -x -250 -y 1920 -defaultsOSRD
+preplace port port-id_RHS_MISO_N_N -pg 1 -lvl 0 -x -250 -y 2010 -defaultsOSRD
+preplace port port-id_RHS_MISO_N_P -pg 1 -lvl 0 -x -250 -y 1980 -defaultsOSRD
+preplace port port-id_RHS_MISO_O_N -pg 1 -lvl 0 -x -250 -y 2070 -defaultsOSRD
+preplace port port-id_RHS_MISO_O_P -pg 1 -lvl 0 -x -250 -y 2040 -defaultsOSRD
+preplace port port-id_RHS_MISO_P_N -pg 1 -lvl 0 -x -250 -y 2130 -defaultsOSRD
+preplace port port-id_RHS_MISO_P_P -pg 1 -lvl 0 -x -250 -y 2100 -defaultsOSRD
+preplace port port-id_RHS_MOSI_A -pg 1 -lvl 8 -x 3600 -y 280 -defaultsOSRD
+preplace port port-id_RHS_MOSI_B -pg 1 -lvl 8 -x 3600 -y 670 -defaultsOSRD
+preplace port port-id_RHS_MOSI_C -pg 1 -lvl 8 -x 3600 -y 700 -defaultsOSRD
+preplace port port-id_RHS_MOSI_D -pg 1 -lvl 8 -x 3600 -y 730 -defaultsOSRD
+preplace port port-id_RHS_MOSI_E -pg 1 -lvl 8 -x 3600 -y 760 -defaultsOSRD
+preplace port port-id_RHS_MOSI_F -pg 1 -lvl 8 -x 3600 -y 790 -defaultsOSRD
+preplace port port-id_RHS_MOSI_G -pg 1 -lvl 8 -x 3600 -y 820 -defaultsOSRD
+preplace port port-id_RHS_MOSI_H -pg 1 -lvl 8 -x 3600 -y 850 -defaultsOSRD
+preplace port port-id_RHS_MOSI_I_N -pg 1 -lvl 8 -x 3600 -y 910 -defaultsOSRD
+preplace port port-id_RHS_MOSI_I_P -pg 1 -lvl 8 -x 3600 -y 880 -defaultsOSRD
+preplace port port-id_RHS_MOSI_J_N -pg 1 -lvl 8 -x 3600 -y 970 -defaultsOSRD
+preplace port port-id_RHS_MOSI_J_P -pg 1 -lvl 8 -x 3600 -y 940 -defaultsOSRD
+preplace port port-id_RHS_MOSI_K_N -pg 1 -lvl 8 -x 3600 -y 1030 -defaultsOSRD
+preplace port port-id_RHS_MOSI_K_P -pg 1 -lvl 8 -x 3600 -y 1000 -defaultsOSRD
+preplace port port-id_RHS_MOSI_L_N -pg 1 -lvl 8 -x 3600 -y 1090 -defaultsOSRD
+preplace port port-id_RHS_MOSI_L_P -pg 1 -lvl 8 -x 3600 -y 1060 -defaultsOSRD
+preplace port port-id_RHS_MOSI_M_N -pg 1 -lvl 8 -x 3600 -y 1150 -defaultsOSRD
+preplace port port-id_RHS_MOSI_M_P -pg 1 -lvl 8 -x 3600 -y 1120 -defaultsOSRD
+preplace port port-id_RHS_MOSI_N_N -pg 1 -lvl 8 -x 3600 -y 1210 -defaultsOSRD
+preplace port port-id_RHS_MOSI_N_P -pg 1 -lvl 8 -x 3600 -y 1180 -defaultsOSRD
+preplace port port-id_RHS_MOSI_O_N -pg 1 -lvl 8 -x 3600 -y 1270 -defaultsOSRD
+preplace port port-id_RHS_MOSI_O_P -pg 1 -lvl 8 -x 3600 -y 1240 -defaultsOSRD
+preplace port port-id_RHS_MOSI_P_N -pg 1 -lvl 8 -x 3600 -y 1330 -defaultsOSRD
+preplace port port-id_RHS_MOSI_P_P -pg 1 -lvl 8 -x 3600 -y 1300 -defaultsOSRD
+preplace port port-id_RHS_SCLK -pg 1 -lvl 8 -x 3600 -y 250 -defaultsOSRD
+preplace portBus clk_out_p -pg 1 -lvl 8 -x 3600 -y 1860 -defaultsOSRD
+preplace portBus clk_out_n -pg 1 -lvl 8 -x 3600 -y 1890 -defaultsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 220 -y 380 -defaultsOSRD
 preplace inst proc_sys_reset_78M -pg 1 -lvl 2 -x 530 -y 350 -defaultsOSRD
-preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 5 -x 1950 -y 400 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 5 -x 2000 -y 400 -defaultsOSRD
 preplace inst axi_dma_0 -pg 1 -lvl 3 -x 940 -y 340 -defaultsOSRD
 preplace inst smartconnect_0 -pg 1 -lvl 4 -x 1280 -y 340 -defaultsOSRD
 preplace inst smartconnect_1 -pg 1 -lvl 6 -x 2660 -y 350 -defaultsOSRD
 preplace inst util_ds_buf_0 -pg 1 -lvl 2 -x 530 -y 1900 -defaultsOSRD
-preplace inst system_ila_0 -pg 1 -lvl 5 -x 1950 -y 160 -defaultsOSRD
-preplace inst seeg_top_0 -pg 1 -lvl 7 -x 3070 -y 1050 -defaultsOSRD
-preplace netloc RHD_MISO1_A_1 1 0 7 30J 200 NJ 200 NJ 200 NJ 200 1520J 710 2460J 430 2810J
-preplace netloc RHD_MISO1_B_1 1 0 7 40J 210 NJ 210 NJ 210 NJ 210 1510J 680 2450J 450 2830J
-preplace netloc RHD_MISO1_C_1 1 0 7 60J 220 NJ 220 NJ 220 NJ 220 1570J 500 2330J 460 NJ
-preplace netloc RHD_MISO1_D_1 1 0 7 NJ 500 NJ 500 NJ 500 NJ 500 1540J 530 2360J 500 NJ
-preplace netloc RHD_MISO1_E_1 1 0 7 NJ 540 NJ 540 NJ 540 NJ 540 1480J 590 2430J 540 NJ
-preplace netloc RHD_MISO1_F_1 1 0 7 NJ 580 NJ 580 NJ 580 NJ 580 1450J 600 2470J 580 NJ
-preplace netloc RHD_MISO1_G_1 1 0 7 NJ 620 NJ 620 NJ 620 NJ 620 1420J 630 2500J 620 NJ
-preplace netloc RHD_MISO1_H_1 1 0 7 NJ 660 NJ 660 NJ 660 NJ 660 NJ 660 NJ 660 NJ
-preplace netloc RHD_MISO1_I_N_1 1 0 7 50J 800 NJ 800 NJ 800 NJ 800 NJ 800 NJ 800 2820J
-preplace netloc RHD_MISO1_I_P_1 1 0 7 60J 810 NJ 810 NJ 810 NJ 810 NJ 810 NJ 810 2810J
-preplace netloc RHD_MISO1_J_N_1 1 0 7 40J 820 NJ 820 NJ 820 NJ 820 NJ 820 NJ 820 2830J
-preplace netloc RHD_MISO1_J_P_1 1 0 7 NJ 780 NJ 780 NJ 780 NJ 780 NJ 780 NJ 780 NJ
-preplace netloc RHD_MISO1_K_N_1 1 0 7 NJ 880 NJ 880 NJ 880 NJ 880 NJ 880 NJ 880 NJ
-preplace netloc RHD_MISO1_K_P_1 1 0 7 NJ 860 NJ 860 NJ 860 NJ 860 NJ 860 NJ 860 NJ
-preplace netloc RHD_MISO1_L_N_1 1 0 7 NJ 960 NJ 960 NJ 960 NJ 960 NJ 960 NJ 960 NJ
-preplace netloc RHD_MISO1_L_P_1 1 0 7 NJ 940 NJ 940 NJ 940 NJ 940 NJ 940 NJ 940 NJ
-preplace netloc RHD_MISO1_M_N_1 1 0 7 NJ 1040 NJ 1040 NJ 1040 NJ 1040 NJ 1040 NJ 1040 NJ
-preplace netloc RHD_MISO1_M_P_1 1 0 7 NJ 1020 NJ 1020 NJ 1020 NJ 1020 NJ 1020 NJ 1020 NJ
-preplace netloc RHD_MISO1_N_N_1 1 0 7 NJ 1120 NJ 1120 NJ 1120 NJ 1120 NJ 1120 NJ 1120 NJ
-preplace netloc RHD_MISO1_N_P_1 1 0 7 NJ 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 NJ
-preplace netloc RHD_MISO1_O_N_1 1 0 7 NJ 1200 NJ 1200 NJ 1200 NJ 1200 NJ 1200 NJ 1200 NJ
-preplace netloc RHD_MISO1_O_P_1 1 0 7 NJ 1180 NJ 1180 NJ 1180 NJ 1180 NJ 1180 NJ 1180 NJ
-preplace netloc RHD_MISO1_P_N_1 1 0 7 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ
-preplace netloc RHD_MISO1_P_P_1 1 0 7 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ
-preplace netloc RHD_MISO2_A_1 1 0 7 50J 230 NJ 230 NJ 230 NJ 230 1530J 750 2510J 470 2820J
-preplace netloc RHD_MISO2_B_1 1 0 7 70J 470 NJ 470 NJ 470 NJ 470 1430J 770 2490J 440 NJ
-preplace netloc RHD_MISO2_C_1 1 0 7 NJ 480 NJ 480 NJ 480 NJ 480 1560J 510 2350J 480 NJ
-preplace netloc RHD_MISO2_D_1 1 0 7 NJ 520 NJ 520 710J 510 NJ 510 1500J 560 2410J 520 NJ
-preplace netloc RHD_MISO2_E_1 1 0 7 30J 590 NJ 590 NJ 590 NJ 590 1470J 580 2440J 570 2800J
-preplace netloc RHD_MISO2_F_1 1 0 7 NJ 600 NJ 600 NJ 600 NJ 600 1440J 610 2480J 600 NJ
-preplace netloc RHD_MISO2_G_1 1 0 7 NJ 640 NJ 640 NJ 640 NJ 640 1420J 670 2520J 640 NJ
-preplace netloc RHD_MISO2_H_1 1 0 7 70J 790 NJ 790 NJ 790 NJ 790 NJ 790 NJ 790 2800J
-preplace netloc RHD_MISO2_I_N_1 1 0 7 NJ 760 NJ 760 NJ 760 NJ 760 NJ 760 NJ 760 NJ
-preplace netloc RHD_MISO2_I_P_1 1 0 7 NJ 740 NJ 740 NJ 740 NJ 740 NJ 740 NJ 740 NJ
-preplace netloc RHD_MISO2_J_N_1 1 0 7 20J 830 NJ 830 NJ 830 NJ 830 NJ 830 NJ 830 2850J
-preplace netloc RHD_MISO2_J_P_1 1 0 7 30J 840 NJ 840 NJ 840 NJ 840 NJ 840 NJ 840 2840J
-preplace netloc RHD_MISO2_K_N_1 1 0 7 NJ 920 NJ 920 NJ 920 NJ 920 NJ 920 NJ 920 NJ
-preplace netloc RHD_MISO2_K_P_1 1 0 7 NJ 900 NJ 900 NJ 900 NJ 900 NJ 900 NJ 900 NJ
-preplace netloc RHD_MISO2_L_N_1 1 0 7 NJ 1000 NJ 1000 NJ 1000 NJ 1000 NJ 1000 NJ 1000 NJ
-preplace netloc RHD_MISO2_L_P_1 1 0 7 NJ 980 NJ 980 NJ 980 NJ 980 NJ 980 NJ 980 NJ
-preplace netloc RHD_MISO2_M_N_1 1 0 7 NJ 1080 NJ 1080 NJ 1080 NJ 1080 NJ 1080 NJ 1080 NJ
-preplace netloc RHD_MISO2_M_P_1 1 0 7 NJ 1060 NJ 1060 NJ 1060 NJ 1060 NJ 1060 NJ 1060 NJ
-preplace netloc RHD_MISO2_N_N_1 1 0 7 NJ 1160 NJ 1160 NJ 1160 NJ 1160 NJ 1160 NJ 1160 NJ
+preplace inst system_ila_0 -pg 1 -lvl 5 -x 2000 -y 160 -defaultsOSRD
+preplace inst seeg_top_0 -pg 1 -lvl 7 -x 3110 -y 1050 -defaultsOSRD
+preplace netloc RHD_MISO1_A_1 1 0 7 NJ 0 NJ 0 700J -10 NJ -10 1650J 530 2450J 440 2820J
+preplace netloc RHD_MISO1_B_1 1 0 7 NJ 60 NJ 60 NJ 60 NJ 60 1530J 490 2330J 430 2830J
+preplace netloc RHD_MISO1_C_1 1 0 7 -120J 660 NJ 660 NJ 660 NJ 660 1520J 690 NJ 690 2860J
+preplace netloc RHD_MISO1_D_1 1 0 7 -130J 670 NJ 670 NJ 670 NJ 670 1490J 710 NJ 710 2880J
+preplace netloc RHD_MISO1_E_1 1 0 7 -180J 190 NJ 190 NJ 190 NJ 190 1600J 540 NJ 540 NJ
+preplace netloc RHD_MISO1_F_1 1 0 7 -160J 200 NJ 200 NJ 200 NJ 200 1580J 580 NJ 580 NJ
+preplace netloc RHD_MISO1_G_1 1 0 7 -150J 680 NJ 680 NJ 680 NJ 680 NJ 680 2490J 620 NJ
+preplace netloc RHD_MISO1_H_1 1 0 7 -160J 690 NJ 690 NJ 690 NJ 690 1480J 700 2500J 660 NJ
+preplace netloc RHD_MISO1_I_N_1 1 0 7 -180J 730 NJ 730 NJ 730 NJ 730 NJ 730 2530J 720 NJ
+preplace netloc RHD_MISO1_I_P_1 1 0 7 -170J 740 NJ 740 NJ 740 NJ 740 NJ 740 2520J 700 NJ
+preplace netloc RHD_MISO1_J_N_1 1 0 7 NJ 630 NJ 630 NJ 630 NJ 630 1470J 800 NJ 800 NJ
+preplace netloc RHD_MISO1_J_P_1 1 0 7 NJ 600 NJ 600 NJ 600 NJ 600 1500J 750 NJ 750 2820J
+preplace netloc RHD_MISO1_K_N_1 1 0 7 NJ 750 NJ 750 NJ 750 NJ 750 1420J 870 NJ 870 2890J
+preplace netloc RHD_MISO1_K_P_1 1 0 7 -220J 710 NJ 710 NJ 710 NJ 710 1440J 860 NJ 860 NJ
+preplace netloc RHD_MISO1_L_N_1 1 0 7 NJ 870 NJ 870 NJ 870 NJ 870 1410J 880 NJ 880 2860J
+preplace netloc RHD_MISO1_L_P_1 1 0 7 -230J 830 NJ 830 NJ 830 NJ 830 NJ 830 NJ 830 2880J
+preplace netloc RHD_MISO1_M_N_1 1 0 7 NJ 990 NJ 990 NJ 990 NJ 990 NJ 990 NJ 990 2820J
+preplace netloc RHD_MISO1_M_P_1 1 0 7 NJ 960 NJ 960 NJ 960 NJ 960 NJ 960 NJ 960 2830J
+preplace netloc RHD_MISO1_N_N_1 1 0 7 NJ 1110 NJ 1110 NJ 1110 NJ 1110 NJ 1110 NJ 1110 2910J
+preplace netloc RHD_MISO1_N_P_1 1 0 7 NJ 1080 NJ 1080 NJ 1080 NJ 1080 NJ 1080 NJ 1080 2790J
+preplace netloc RHD_MISO1_O_N_1 1 0 7 -110J 1200 NJ 1200 NJ 1200 NJ 1200 NJ 1200 NJ 1200 NJ
+preplace netloc RHD_MISO1_O_P_1 1 0 7 -230J 1180 NJ 1180 NJ 1180 NJ 1180 NJ 1180 NJ 1180 NJ
+preplace netloc RHD_MISO1_P_N_1 1 0 7 -210J 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ
+preplace netloc RHD_MISO1_P_P_1 1 0 7 -220J 1250 NJ 1250 NJ 1250 NJ 1250 NJ 1250 NJ 1250 2910J
+preplace netloc RHD_MISO2_A_1 1 0 7 NJ 30 NJ 30 NJ 30 NJ 30 1550J 810 2510J 450 2840J
+preplace netloc RHD_MISO2_B_1 1 0 7 NJ 90 NJ 90 NJ 90 NJ 90 1640J 510 NJ 510 2850J
+preplace netloc RHD_MISO2_C_1 1 0 7 NJ 150 NJ 150 NJ 150 NJ 150 1630J 500 2470J 480 NJ
+preplace netloc RHD_MISO2_D_1 1 0 7 NJ 210 NJ 210 NJ 210 NJ 210 1590J 520 NJ 520 NJ
+preplace netloc RHD_MISO2_E_1 1 0 7 -150J 220 NJ 220 NJ 220 NJ 220 1570J 560 NJ 560 NJ
+preplace netloc RHD_MISO2_F_1 1 0 7 -140J 230 NJ 230 NJ 230 NJ 230 1560J 600 NJ 600 NJ
+preplace netloc RHD_MISO2_G_1 1 0 7 -140J 520 NJ 520 NJ 520 1110J 570 1520J 640 NJ 640 NJ
+preplace netloc RHD_MISO2_H_1 1 0 7 NJ 450 310J 510 NJ 510 1120J 560 1530J 670 NJ 670 2900J
+preplace netloc RHD_MISO2_I_N_1 1 0 7 NJ 570 NJ 570 NJ 570 1100J 580 1510J 760 NJ 760 NJ
+preplace netloc RHD_MISO2_I_P_1 1 0 7 -210J 780 NJ 780 NJ 780 NJ 780 NJ 780 2530J 740 NJ
+preplace netloc RHD_MISO2_J_N_1 1 0 7 -200J 720 NJ 720 NJ 720 NJ 720 1450J 840 NJ 840 NJ
+preplace netloc RHD_MISO2_J_P_1 1 0 7 -190J 700 NJ 700 NJ 700 NJ 700 1460J 850 NJ 850 2910J
+preplace netloc RHD_MISO2_K_N_1 1 0 7 NJ 810 NJ 810 NJ 810 NJ 810 1430J 820 NJ 820 2900J
+preplace netloc RHD_MISO2_K_P_1 1 0 7 -220J 890 NJ 890 NJ 890 NJ 890 NJ 890 NJ 890 2870J
+preplace netloc RHD_MISO2_L_N_1 1 0 7 NJ 930 NJ 930 NJ 930 NJ 930 NJ 930 NJ 930 2840J
+preplace netloc RHD_MISO2_L_P_1 1 0 7 NJ 900 NJ 900 NJ 900 NJ 900 NJ 900 NJ 900 2850J
+preplace netloc RHD_MISO2_M_N_1 1 0 7 NJ 1050 NJ 1050 NJ 1050 NJ 1050 NJ 1050 NJ 1050 2800J
+preplace netloc RHD_MISO2_M_P_1 1 0 7 NJ 1020 NJ 1020 NJ 1020 NJ 1020 NJ 1020 NJ 1020 2810J
+preplace netloc RHD_MISO2_N_N_1 1 0 7 -110J 1160 NJ 1160 NJ 1160 NJ 1160 NJ 1160 NJ 1160 NJ
 preplace netloc RHD_MISO2_N_P_1 1 0 7 NJ 1140 NJ 1140 NJ 1140 NJ 1140 NJ 1140 NJ 1140 NJ
-preplace netloc RHD_MISO2_O_N_1 1 0 7 NJ 1240 NJ 1240 NJ 1240 NJ 1240 NJ 1240 NJ 1240 NJ
-preplace netloc RHD_MISO2_O_P_1 1 0 7 NJ 1220 NJ 1220 NJ 1220 NJ 1220 NJ 1220 NJ 1220 NJ
-preplace netloc RHD_MISO2_P_N_1 1 0 7 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ
-preplace netloc RHD_MISO2_P_P_1 1 0 7 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ
-preplace netloc RHS_MISO_A_1 1 0 7 NJ 1340 NJ 1340 NJ 1340 NJ 1340 1490J 1340 NJ 1340 NJ
-preplace netloc RHS_MISO_B_1 1 0 7 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ
-preplace netloc RHS_MISO_C_1 1 0 7 NJ 1380 NJ 1380 NJ 1380 NJ 1380 NJ 1380 NJ 1380 NJ
-preplace netloc RHS_MISO_D_1 1 0 7 NJ 1400 NJ 1400 NJ 1400 NJ 1400 NJ 1400 NJ 1400 NJ
-preplace netloc RHS_MISO_E_1 1 0 7 NJ 1420 NJ 1420 NJ 1420 NJ 1420 NJ 1420 NJ 1420 NJ
-preplace netloc RHS_MISO_F_1 1 0 7 NJ 1440 NJ 1440 NJ 1440 NJ 1440 NJ 1440 NJ 1440 NJ
-preplace netloc RHS_MISO_G_1 1 0 7 NJ 1460 NJ 1460 NJ 1460 NJ 1460 NJ 1460 NJ 1460 NJ
-preplace netloc RHS_MISO_H_1 1 0 7 NJ 1480 NJ 1480 NJ 1480 NJ 1480 NJ 1480 NJ 1480 NJ
-preplace netloc RHS_MISO_I_N_1 1 0 7 NJ 1520 NJ 1520 NJ 1520 NJ 1520 NJ 1520 NJ 1520 NJ
-preplace netloc RHS_MISO_I_P_1 1 0 7 NJ 1500 NJ 1500 NJ 1500 NJ 1500 NJ 1500 NJ 1500 NJ
-preplace netloc RHS_MISO_J_N_1 1 0 7 NJ 1560 NJ 1560 NJ 1560 NJ 1560 NJ 1560 NJ 1560 NJ
-preplace netloc RHS_MISO_J_P_1 1 0 7 NJ 1540 NJ 1540 NJ 1540 NJ 1540 NJ 1540 NJ 1540 NJ
-preplace netloc RHS_MISO_K_N_1 1 0 7 NJ 1600 NJ 1600 NJ 1600 NJ 1600 NJ 1600 NJ 1600 NJ
-preplace netloc RHS_MISO_K_P_1 1 0 7 NJ 1580 NJ 1580 NJ 1580 NJ 1580 NJ 1580 NJ 1580 NJ
-preplace netloc RHS_MISO_L_N_1 1 0 7 NJ 1640 NJ 1640 NJ 1640 NJ 1640 NJ 1640 NJ 1640 NJ
-preplace netloc RHS_MISO_L_P_1 1 0 7 NJ 1620 NJ 1620 NJ 1620 NJ 1620 NJ 1620 NJ 1620 NJ
-preplace netloc RHS_MISO_M_N_1 1 0 7 NJ 1680 NJ 1680 NJ 1680 NJ 1680 NJ 1680 NJ 1680 NJ
-preplace netloc RHS_MISO_M_P_1 1 0 7 NJ 1660 NJ 1660 NJ 1660 NJ 1660 NJ 1660 NJ 1660 NJ
-preplace netloc RHS_MISO_N_N_1 1 0 7 NJ 1720 NJ 1720 NJ 1720 NJ 1720 NJ 1720 NJ 1720 NJ
-preplace netloc RHS_MISO_N_P_1 1 0 7 NJ 1700 NJ 1700 NJ 1700 NJ 1700 NJ 1700 NJ 1700 NJ
-preplace netloc RHS_MISO_O_N_1 1 0 7 NJ 1760 NJ 1760 NJ 1760 NJ 1760 NJ 1760 NJ 1760 NJ
-preplace netloc RHS_MISO_O_P_1 1 0 7 NJ 1740 NJ 1740 NJ 1740 NJ 1740 NJ 1740 NJ 1740 NJ
-preplace netloc RHS_MISO_P_N_1 1 0 7 NJ 1800 NJ 1800 NJ 1800 NJ 1800 NJ 1800 NJ 1800 NJ
-preplace netloc RHS_MISO_P_P_1 1 0 7 NJ 1780 NJ 1780 NJ 1780 NJ 1780 NJ 1780 NJ 1780 NJ
-preplace netloc axi_dma_0_s2mm_introut 1 3 2 1130J 430 N
-preplace netloc clk_wiz_0_clk_39M 1 1 6 340 450 740 450 1120 440 1550 650 2400 260 2830
+preplace netloc RHD_MISO2_O_N_1 1 0 7 -230J 1240 NJ 1240 NJ 1240 NJ 1240 NJ 1240 NJ 1240 NJ
+preplace netloc RHD_MISO2_O_P_1 1 0 7 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 2790J
+preplace netloc RHD_MISO2_P_N_1 1 0 7 -190J 1320 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ
+preplace netloc RHD_MISO2_P_P_1 1 0 7 -200J 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ
+preplace netloc RHS_MISO_A_1 1 0 7 -180J 1340 NJ 1340 NJ 1340 NJ 1340 1540J 1340 NJ 1340 NJ
+preplace netloc RHS_MISO_B_1 1 0 7 -170J 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ
+preplace netloc RHS_MISO_C_1 1 0 7 -160J 1380 NJ 1380 NJ 1380 NJ 1380 NJ 1380 NJ 1380 NJ
+preplace netloc RHS_MISO_D_1 1 0 7 -150J 1400 NJ 1400 NJ 1400 NJ 1400 NJ 1400 NJ 1400 NJ
+preplace netloc RHS_MISO_E_1 1 0 7 -140J 1420 NJ 1420 NJ 1420 NJ 1420 NJ 1420 NJ 1420 NJ
+preplace netloc RHS_MISO_F_1 1 0 7 -130J 1440 NJ 1440 NJ 1440 NJ 1440 NJ 1440 NJ 1440 NJ
+preplace netloc RHS_MISO_G_1 1 0 7 -120J 1460 NJ 1460 NJ 1460 NJ 1460 NJ 1460 NJ 1460 NJ
+preplace netloc RHS_MISO_H_1 1 0 7 -110J 1480 NJ 1480 NJ 1480 NJ 1480 NJ 1480 NJ 1480 NJ
+preplace netloc RHS_MISO_I_N_1 1 0 7 -90J 1520 NJ 1520 NJ 1520 NJ 1520 NJ 1520 NJ 1520 NJ
+preplace netloc RHS_MISO_I_P_1 1 0 7 -100J 1500 NJ 1500 NJ 1500 NJ 1500 NJ 1500 NJ 1500 NJ
+preplace netloc RHS_MISO_J_N_1 1 0 7 -70J 1560 NJ 1560 NJ 1560 NJ 1560 NJ 1560 NJ 1560 NJ
+preplace netloc RHS_MISO_J_P_1 1 0 7 -80J 1540 NJ 1540 NJ 1540 NJ 1540 NJ 1540 NJ 1540 NJ
+preplace netloc RHS_MISO_K_N_1 1 0 7 -50J 1600 NJ 1600 NJ 1600 NJ 1600 NJ 1600 NJ 1600 NJ
+preplace netloc RHS_MISO_K_P_1 1 0 7 -60J 1580 NJ 1580 NJ 1580 NJ 1580 NJ 1580 NJ 1580 NJ
+preplace netloc RHS_MISO_L_N_1 1 0 7 -30J 1640 NJ 1640 NJ 1640 NJ 1640 NJ 1640 NJ 1640 NJ
+preplace netloc RHS_MISO_L_P_1 1 0 7 -40J 1620 NJ 1620 NJ 1620 NJ 1620 NJ 1620 NJ 1620 NJ
+preplace netloc RHS_MISO_M_N_1 1 0 7 -10J 1680 NJ 1680 NJ 1680 NJ 1680 NJ 1680 NJ 1680 NJ
+preplace netloc RHS_MISO_M_P_1 1 0 7 -20J 1660 NJ 1660 NJ 1660 NJ 1660 NJ 1660 NJ 1660 NJ
+preplace netloc RHS_MISO_N_N_1 1 0 7 10J 1720 NJ 1720 NJ 1720 NJ 1720 NJ 1720 NJ 1720 NJ
+preplace netloc RHS_MISO_N_P_1 1 0 7 0J 1700 NJ 1700 NJ 1700 NJ 1700 NJ 1700 NJ 1700 NJ
+preplace netloc RHS_MISO_O_N_1 1 0 7 30J 1760 NJ 1760 NJ 1760 NJ 1760 NJ 1760 NJ 1760 NJ
+preplace netloc RHS_MISO_O_P_1 1 0 7 20J 1740 NJ 1740 NJ 1740 NJ 1740 NJ 1740 NJ 1740 NJ
+preplace netloc RHS_MISO_P_N_1 1 0 7 50J 1800 NJ 1800 NJ 1800 NJ 1800 NJ 1800 NJ 1800 NJ
+preplace netloc RHS_MISO_P_P_1 1 0 7 40J 1780 NJ 1780 NJ 1780 NJ 1780 NJ 1780 NJ 1780 NJ
+preplace netloc axi_dma_0_s2mm_introut 1 3 2 1140J 430 N
+preplace netloc clk_wiz_0_clk_39M 1 1 6 350 450 780 450 1130 440 1620 610 2440 260 2850
 preplace netloc clk_wiz_0_locked 1 1 1 N 390
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 2 5 730 460 1140 460 1460J 690 2420 270 2810
-preplace netloc seeg_top_0_RHD_CS 1 4 4 1580 720 2380 170 N 170 3320J
-preplace netloc seeg_top_0_RHD_MOSI 1 4 4 1640 540 2300 200 N 200 3360J
-preplace netloc seeg_top_0_RHD_SCLK 1 4 4 1620 570 2290 160 N 160 3350J
-preplace netloc seeg_top_0_RHD_miso_post_delay_debug_out 1 4 4 1630 550 2320J 210 NJ 210 3290
-preplace netloc seeg_top_0_RHS_CS 1 4 4 1610 620 2340 180 N 180 3300J
-preplace netloc seeg_top_0_RHS_MOSI_A 1 4 4 1590 700 2390 190 N 190 3340J
-preplace netloc seeg_top_0_RHS_MOSI_B 1 7 1 3360J 880n
-preplace netloc seeg_top_0_RHS_MOSI_C 1 7 1 3360J 900n
-preplace netloc seeg_top_0_RHS_MOSI_D 1 7 1 3360J 920n
-preplace netloc seeg_top_0_RHS_MOSI_E 1 7 1 3360J 940n
-preplace netloc seeg_top_0_RHS_MOSI_F 1 7 1 3360J 960n
-preplace netloc seeg_top_0_RHS_MOSI_G 1 7 1 3360J 980n
-preplace netloc seeg_top_0_RHS_MOSI_H 1 7 1 3360J 1000n
-preplace netloc seeg_top_0_RHS_MOSI_I_N 1 7 1 3360J 1040n
-preplace netloc seeg_top_0_RHS_MOSI_I_P 1 7 1 3360J 1020n
-preplace netloc seeg_top_0_RHS_MOSI_J_N 1 7 1 3360J 1080n
-preplace netloc seeg_top_0_RHS_MOSI_J_P 1 7 1 3360J 1060n
-preplace netloc seeg_top_0_RHS_MOSI_K_N 1 7 1 3360J 1120n
-preplace netloc seeg_top_0_RHS_MOSI_K_P 1 7 1 3360J 1100n
-preplace netloc seeg_top_0_RHS_MOSI_L_N 1 7 1 3360J 1160n
-preplace netloc seeg_top_0_RHS_MOSI_L_P 1 7 1 3360J 1140n
-preplace netloc seeg_top_0_RHS_MOSI_M_N 1 7 1 3360J 1200n
-preplace netloc seeg_top_0_RHS_MOSI_M_P 1 7 1 3360J 1180n
-preplace netloc seeg_top_0_RHS_MOSI_N_N 1 7 1 3360J 1240n
-preplace netloc seeg_top_0_RHS_MOSI_N_P 1 7 1 3360J 1220n
-preplace netloc seeg_top_0_RHS_MOSI_O_N 1 7 1 3360J 1280n
-preplace netloc seeg_top_0_RHS_MOSI_O_P 1 7 1 3360J 1260n
-preplace netloc seeg_top_0_RHS_MOSI_P_N 1 7 1 3360J 1320n
-preplace netloc seeg_top_0_RHS_MOSI_P_P 1 7 1 3360J 1300n
-preplace netloc seeg_top_0_RHS_SCLK 1 4 4 1600 640 2370 220 N 220 3330J
-preplace netloc util_ds_buf_0_OBUF_DS_N 1 2 6 730 1890 NJ 1890 NJ 1890 NJ 1890 NJ 1890 NJ
-preplace netloc util_ds_buf_0_OBUF_DS_P 1 2 6 NJ 1900 NJ 1900 NJ 1900 NJ 1900 NJ 1900 3310
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 6 120 730 NJ 730 NJ 730 NJ 730 NJ 730 2260
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 5 350 850 NJ 850 NJ 850 NJ 850 2270
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 2 5 760 460 1150 550 NJ 550 2420 270 2840
+preplace netloc seeg_top_0_RHD_CS 1 4 4 1660 570 2310 160 N 160 3360J
+preplace netloc seeg_top_0_RHD_MOSI 1 4 4 1670 620 2320 170 N 170 3370J
+preplace netloc seeg_top_0_RHD_SCLK 1 4 4 1690 590 2350 220 N 220 3340J
+preplace netloc seeg_top_0_RHD_miso_post_delay_debug_out 1 4 4 1710 650 2340J 180 NJ 180 3310
+preplace netloc seeg_top_0_RHS_CS 1 4 4 1490 630 2430 210 N 210 3350J
+preplace netloc seeg_top_0_RHS_MOSI_A 1 4 4 1700 660 2460 200 N 200 3380J
+preplace netloc seeg_top_0_RHS_MOSI_B 1 7 1 3390J 670n
+preplace netloc seeg_top_0_RHS_MOSI_C 1 7 1 3400J 700n
+preplace netloc seeg_top_0_RHS_MOSI_D 1 7 1 3410J 730n
+preplace netloc seeg_top_0_RHS_MOSI_E 1 7 1 3420J 760n
+preplace netloc seeg_top_0_RHS_MOSI_F 1 7 1 3430J 790n
+preplace netloc seeg_top_0_RHS_MOSI_G 1 7 1 3440J 820n
+preplace netloc seeg_top_0_RHS_MOSI_H 1 7 1 3450J 850n
+preplace netloc seeg_top_0_RHS_MOSI_I_N 1 7 1 3470J 910n
+preplace netloc seeg_top_0_RHS_MOSI_I_P 1 7 1 3460J 880n
+preplace netloc seeg_top_0_RHS_MOSI_J_N 1 7 1 3490J 970n
+preplace netloc seeg_top_0_RHS_MOSI_J_P 1 7 1 3480J 940n
+preplace netloc seeg_top_0_RHS_MOSI_K_N 1 7 1 3510J 1030n
+preplace netloc seeg_top_0_RHS_MOSI_K_P 1 7 1 3500J 1000n
+preplace netloc seeg_top_0_RHS_MOSI_L_N 1 7 1 3530J 1090n
+preplace netloc seeg_top_0_RHS_MOSI_L_P 1 7 1 3520J 1060n
+preplace netloc seeg_top_0_RHS_MOSI_M_N 1 7 1 3550J 1150n
+preplace netloc seeg_top_0_RHS_MOSI_M_P 1 7 1 3540J 1120n
+preplace netloc seeg_top_0_RHS_MOSI_N_N 1 7 1 3570J 1210n
+preplace netloc seeg_top_0_RHS_MOSI_N_P 1 7 1 3560J 1180n
+preplace netloc seeg_top_0_RHS_MOSI_O_N 1 7 1 NJ 1270
+preplace netloc seeg_top_0_RHS_MOSI_O_P 1 7 1 3570J 1240n
+preplace netloc seeg_top_0_RHS_MOSI_P_N 1 7 1 3570J 1310n
+preplace netloc seeg_top_0_RHS_MOSI_P_P 1 7 1 3570J 1290n
+preplace netloc seeg_top_0_RHS_SCLK 1 4 4 1680 720 2480 190 N 190 3320J
+preplace netloc util_ds_buf_0_OBUF_DS_N 1 2 6 700 1890 NJ 1890 NJ 1890 NJ 1890 NJ 1890 NJ
+preplace netloc util_ds_buf_0_OBUF_DS_P 1 2 6 NJ 1900 NJ 1900 NJ 1900 NJ 1900 NJ 1900 3330
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 6 -30 770 NJ 770 NJ 770 NJ 770 NJ 770 2290
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 5 360 790 NJ 790 NJ 790 NJ 790 2300
 preplace netloc axi_dma_0_M_AXI_S2MM 1 3 1 N 330
 preplace netloc axi_dma_0_M_AXI_SG 1 3 1 N 310
-preplace netloc seeg_top_0_M_AXIS 1 2 6 760 520 NJ 520 NJ 520 2280J 150 NJ 150 3310
-preplace netloc smartconnect_0_M00_AXI 1 4 1 1560 340n
-preplace netloc smartconnect_1_M00_AXI 1 6 1 2800 280n
-preplace netloc smartconnect_1_M01_AXI 1 2 5 750 490 NJ 490 NJ 490 NJ 490 2800
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 5 1 2310 330n
-levelinfo -pg 1 0 220 530 940 1280 1950 2660 3070 3380
-pagesize -pg 1 -db -bbox -sgen -180 0 3540 1980
+preplace netloc seeg_top_0_M_AXIS 1 2 6 770 0 NJ 0 NJ 0 NJ 0 NJ 0 3330
+preplace netloc smartconnect_0_M00_AXI 1 4 1 1610 340n
+preplace netloc smartconnect_1_M00_AXI 1 6 1 2830 280n
+preplace netloc smartconnect_1_M01_AXI 1 2 5 780 10 NJ 10 1710J -10 NJ -10 2820
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 5 1 2330 330n
+levelinfo -pg 1 -250 220 530 940 1280 2000 2660 3110 3600
+pagesize -pg 1 -db -bbox -sgen -420 -20 3760 2150
 "
 }
 {

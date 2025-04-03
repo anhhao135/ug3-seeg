@@ -2,7 +2,7 @@ module clock_divider (
     input wire clock_in,
     output wire clock_out,
     input wire rstn,
-    input wire [3:0] divisor
+    input wire [31:0] divisor
 );
 
     reg clock_out_pre_buff = 0;

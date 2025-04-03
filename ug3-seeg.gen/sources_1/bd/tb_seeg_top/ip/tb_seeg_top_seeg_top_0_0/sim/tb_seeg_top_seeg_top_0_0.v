@@ -1,5 +1,5 @@
 // (c) Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-// (c) Copyright 2022-2024 Advanced Micro Devices, Inc. All rights reserved.
+// (c) Copyright 2022-2025 Advanced Micro Devices, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of AMD and is protected under U.S. and international copyright
@@ -215,7 +215,10 @@ module tb_seeg_top_seeg_top_0_0 (
   RHS_MOSI_N_DEBUG,
   RHS_MOSI_O_DEBUG,
   RHS_MOSI_P_DEBUG,
-  aux_signal
+  RHD_miso_post_delay_debug_out,
+  RHS_miso_post_delay_debug_out,
+  aux_signal,
+  led_signal_out
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS_ACLK, ASSOCIATED_BUSIF M_AXIS, ASSOCIATED_RESET M_AXIS_ARESETN, FREQ_HZ 250000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN tb_seeg_top_M_AXIS_ACLK, INSERT_VIP 0" *)
@@ -412,7 +415,10 @@ output wire RHS_MOSI_M_DEBUG;
 output wire RHS_MOSI_N_DEBUG;
 output wire RHS_MOSI_O_DEBUG;
 output wire RHS_MOSI_P_DEBUG;
+output wire RHD_miso_post_delay_debug_out;
+output wire RHS_miso_post_delay_debug_out;
 input wire aux_signal;
+output wire led_signal_out;
 
   seeg_top #(
     .C_S_AXI_DATA_WIDTH(32),
@@ -578,6 +584,9 @@ input wire aux_signal;
     .RHS_MOSI_N_DEBUG(RHS_MOSI_N_DEBUG),
     .RHS_MOSI_O_DEBUG(RHS_MOSI_O_DEBUG),
     .RHS_MOSI_P_DEBUG(RHS_MOSI_P_DEBUG),
-    .aux_signal(aux_signal)
+    .RHD_miso_post_delay_debug_out(RHD_miso_post_delay_debug_out),
+    .RHS_miso_post_delay_debug_out(RHS_miso_post_delay_debug_out),
+    .aux_signal(aux_signal),
+    .led_signal_out(led_signal_out)
   );
 endmodule
