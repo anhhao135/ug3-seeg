@@ -466,7 +466,7 @@ module seeg_top #
 
     wire led_clock_out;
 
-    clock_divider ClockDividerLED (.clock_in(clk), .clock_out(led_clock_out), .divisor(led_clock_divisor), .rstn(1));
+    clock_divider ClockDividerLED (.clock_in(S_AXI_ACLK), .clock_out(led_clock_out), .divisor(led_clock_divisor), .rstn(1));
 
     assign led_signal_out = led_clock_out;
 
