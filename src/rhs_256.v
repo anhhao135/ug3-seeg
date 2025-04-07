@@ -1576,7 +1576,7 @@ module rhs_256 (
                             //data_out_I_reg <= data_out_I[31:16];
                             data_out_I_reg <= stimulation_magnitude_debug; //channel I shows stim waveform
                             //data_out_J_reg <= data_out_J[31:16];
-                            data_out_J_reg <= busy_stim;
+                            data_out_J_reg <= {16{busy_stim}};
                             data_out_K_reg <= data_out_K[31:16];
                             data_out_L_reg <= data_out_L[31:16];
                             data_out_M_reg <= data_out_M[31:16];
